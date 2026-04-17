@@ -1,9 +1,9 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { exploreData } from '@/constants/data'
 import { Clock, Shield, Star, Compass, ArrowUpRight } from 'lucide-react'
 import Button from '@/components/common/Button'
 import AnimatedSection from '@/components/common/AnimatedSection'
-import { CircularGallery } from '@/components/ui/circular-gallery'
+import { CircularGallery } from '@/components/ui/CircularGallery'
 
 const ExploreSection = () => {
   const { left, circularItems } = exploreData
@@ -71,14 +71,8 @@ const ExploreSection = () => {
                {/* Custom Scrollbars hidden via style but container is scrollable */}
                <div 
                  ref={scrollContainerRef}
-                 className="absolute inset-0 overflow-y-auto overflow-x-hidden"
-                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                 className="absolute inset-0 overflow-y-auto overflow-x-hidden scrollbar-hide"
                >
-                 {/* CSS Hide scrollbar for webkit */}
-                 <style dangerouslySetInnerHTML={{__html: `
-                   div::-webkit-scrollbar { display: none; }
-                 `}} />
-                 
                  <div style={{ height: '3000px' }} className="w-full">
                    <div className="sticky top-0 h-[450px] lg:h-[600px] w-full flex items-center justify-center overflow-hidden">
                      <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-white dark:from-slate-900 via-transparent to-white dark:to-slate-900 opacity-20 z-10" />

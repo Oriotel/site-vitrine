@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, forwardRef } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 
 // A simple utility for conditional class names
@@ -6,7 +6,7 @@ const cn = (...classes) => {
   return classes.filter(Boolean).join(' ');
 }
 
-const CircularGallery = React.forwardRef(({ 
+const CircularGallery = forwardRef(({ 
   items, 
   className, 
   radius: manualRadius, // Can still be overridden manually

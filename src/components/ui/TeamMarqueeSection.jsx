@@ -1,5 +1,5 @@
-import React from "react";
-import { Marquee } from "@/components/ui/marquee";
+
+import { Marquee } from "@/components/ui/Marquee";
 import { team } from "@/constants/data";
 import { UserCheck } from "lucide-react"; // Using UserCheck or similar as a replacement for the custom star icon if needed, or I'll copy the SVG.
 

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import useInView from '@/hooks/useInView'
 
 const AnimatedSection = ({

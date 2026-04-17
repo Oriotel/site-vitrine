@@ -1,4 +1,4 @@
-import React from 'react'
+
 import AboutHero from '@/components/About/AboutHero'
 import ExploreSection from '@/components/About/ExploreSection'
 import TimelineSection from '@/components/About/TimelineSection'

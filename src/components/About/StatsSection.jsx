@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { stats } from '@/constants/data'
 import AnimatedSection from '@/components/common/AnimatedSection'
 

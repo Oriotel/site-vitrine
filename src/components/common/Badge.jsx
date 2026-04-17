@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const variants = {
   primary: 'bg-primary-500/10 text-primary-600 border-primary-500/20',
