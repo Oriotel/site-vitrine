@@ -1,6 +1,8 @@
 /* ========== Base ========== */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
 @import "@/styles/typography.css";
+
+/* Point d'entrée principal de Tailwind v4 */
 @import "tailwindcss";
 
 /* ========== Custom Fonts ========== */
@@ -12,17 +14,20 @@
   font-display: swap;
 }
 
-/* ========== Theme Tokens ========== */
-@theme inline {
-  --font-carmine: "Carmine", ui-sans-serif, system-ui;
+/* ========== Theme Configuration ========== */
+@theme {
+  /* Palette Oriotel */
+  --color-signal-blue: #1428C9;
+  --color-cloud-white: #F9FAFB;
+  --color-midnight-slate: #111827;
+
+  /* Typographie */
+  /* Montserrat devient la police sans-serif par défaut (font-sans) */
   --font-sans: "Montserrat", ui-sans-serif, system-ui;
+  
+  /* Génère automatiquement la classe 'font-carmine' */
+  --font-carmine: "Carmine", ui-sans-serif, system-ui;
 }
 
-/* ========== Utilities ========== */
-@utility font-carmine {
-  font-family: var(--font-carmine);
-}
-
-@utility font-montserrat {
-  font-family: var(--font-sans);
-}
+/* ========== Custom Rules ========== */
+/* Vous pouvez ajouter ici des règles CSS personnalisées globales si besoin */
