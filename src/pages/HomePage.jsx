@@ -4,7 +4,7 @@ import Hero from '@/components/home/Hero';
 import AboutSection from '@/components/home/AboutSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import ExpertisesSection from '@/components/home/ExpertisesSection';
-import EventsSection from '../components/EventsSection';
+import EventsSection from '@/components/home/EventsSection';
 
 const HomePage = () => {
   return (
@@ -25,3 +25,5 @@ const HomePage = () => {
     </>
   )
 }
+
+export default HomePage;
