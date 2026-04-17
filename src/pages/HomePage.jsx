@@ -2,7 +2,7 @@ import React from 'react'
 import SponsorsMarquee from '@/components/home/SponsorsMarquee'
 import Hero from '@/components/home/Hero';
 import AboutSection from '@/components/home/AboutSection';
-import TestimonialsSection from '../components/TestimonialsSection';
+import TestimonialsSection from '@/components/home/TestimonialsSection';
 
 const HomePage = () => {
   return (

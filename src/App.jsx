@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
+import Layout from '@/components/layout/Layout'
 
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center h-screen">
@@ -11,11 +12,13 @@ const HomePage = lazy(() => import('./pages/HomePage'))
 
 function App() {
   return (
+    <Layout>
     <Suspense fallback={<LoadingSpinner />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>
     </Suspense>
+    </Layout>
   )
 }
 
