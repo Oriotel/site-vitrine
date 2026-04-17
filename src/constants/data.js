@@ -122,12 +122,12 @@ export const team = [
 
 // ========== Timeline ==========
 export const timeline = [
-  { year: "2015", title: "Fondation", description: "Création d'ORIOTEL à Paris avec une vision d'excellence événementielle." },
-  { year: "2017", title: "Expansion", description: "Ouverture de notre premier bureau international et élargissement de l'offre de services." },
-  { year: "2019", title: "Prix d'Excellence", description: "ORIOTEL reçoit le prix de la meilleure agence événementielle de l'année." },
-  { year: "2021", title: "Transformation Digitale", description: "Lancement de nos solutions d'événements hybrides et 100% digitaux." },
-  { year: "2023", title: "500+ Événements", description: "Cap symbolique de 500 événements organisés avec succès à travers le monde." },
-  { year: "2026", title: "Nouvelle Ère", description: "Lancement de notre plateforme intégrée et expansion vers de nouveaux marchés." },
+  { year: "2015", title: "Fondation", description: "Création d'ORIOTEL à Paris avec une vision d'excellence événementielle.", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" },
+  { year: "2017", title: "Expansion", description: "Ouverture de notre premier bureau international et élargissement de l'offre de services.", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" },
+  { year: "2019", title: "Prix d'Excellence", description: "ORIOTEL reçoit le prix de la meilleure agence événementielle de l'année.", image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" },
+  { year: "2021", title: "Transformation Digitale", description: "Lancement de nos solutions d'événements hybrides et 100% digitaux.", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800" },
+  { year: "2023", title: "500+ Événements", description: "Cap symbolique de 500 événements organisés avec succès à travers le monde.", image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800" },
+  { year: "2026", title: "Nouvelle Ère", description: "Lancement de notre plateforme intégrée et expansion vers de nouveaux marchés.", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" },
 ]
 
 // ========== Stats ==========
