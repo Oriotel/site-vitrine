@@ -29,5 +29,21 @@
   --font-carmine: "Carmine", ui-sans-serif, system-ui;
 }
 
+/* ========== Animations Personnalisées ========== */
+@layer utilities {
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  .animate-marquee {
+    /* Vitesse réduite : 60s au lieu de 30s */
+    animation: marquee 60s linear infinite;
+  }
+
+  .hover-pause:hover {
+    animation-play-state: paused;
+  }
+}
 /* ========== Custom Rules ========== */
 /* Vous pouvez ajouter ici des règles CSS personnalisées globales si besoin */
