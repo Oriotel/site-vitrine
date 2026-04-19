@@ -9,6 +9,8 @@ const LoadingSpinner = () => (
 )
 
 const HomePage = lazy(() => import('./pages/HomePage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
     <Suspense fallback={<LoadingSpinner />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+
       </Routes>
     </Suspense>
     </Layout>
