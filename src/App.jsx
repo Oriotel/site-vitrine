@@ -10,6 +10,8 @@ const LoadingSpinner = () => (
 
 const HomePage = lazy(() => import('./pages/HomePage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
+const ApplyPage = lazy(() => import('./pages/ApplyPage'))
+
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/postuler" element={<ApplyPage />} />
+
 
       </Routes>
     </Suspense>
