@@ -16,18 +16,22 @@ const HomePage = lazy(() => import('./pages/HomePage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 
+const EventApplyPage = lazy(() => import('./pages/EventApplyPage'))
+const ApplyPage = lazy(() => import('./pages/ApplyPage'))
+
 function App() {
   return (
     <Layout>
-    <Suspense fallback={<LoadingSpinner />}>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/about" element={<AboutPage />} />
-      </Routes>
-    </Suspense>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/postuler" element={<ApplyPage />} />
+          <Route path="/evenement" element={<EventApplyPage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </Suspense>
     </Layout>
   )
 }
-
 export default App
