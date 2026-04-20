@@ -83,7 +83,7 @@ const Footer = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {category.sections.map((section) => (
                   <div key={section.name} className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <h3 className="text-base font-medium text-midnight-slate dark:text-cloud-white mb-6">
+                    <h3 className="text-base font-medium mb-6">
                       {section.name}
                     </h3>
                     <ul role="list" className="flex flex-col space-y-4">
@@ -114,7 +114,7 @@ const Footer = () => {
               <img 
                 src="/assets/images/logo-oriotel.svg" 
                 alt="Oriotel" 
-                className="h-10 w-auto object-contain" 
+                className="h-10 w-auto object-contain dark:brightness-0 dark:invert" 
               />
             </div>
           </a>

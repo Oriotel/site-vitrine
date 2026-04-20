@@ -5,6 +5,10 @@
 /* Point d'entrée principal de Tailwind v4 */
 @import "tailwindcss";
 
+
+/* AJOUTEZ CETTE LIGNE POUR LE DARK MODE : */
+@custom-variant dark (&:is(.dark *));
+
 /* ========== Custom Fonts ========== */
 @font-face {
   font-family: "Carmine";
@@ -186,66 +190,88 @@
   }
 }
 
-/* ========== Global Styles (Ajout du collègue) ========== */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+/* ========== Global Styles (Ajout du collègue - CORRIGÉ) ========== */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
 
-html,
-body,
-#root {
-  /* On garde le fond clair par défaut défini par le collègue. 
-     (Le composant Hero que nous avons fait a déjà sa propre classe 'bg-midnight-slate' pour être sombre) */
-  background-color: var(--color-slate-50);
-  color: var(--color-slate-900);
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
+  html,
+  body,
+  #root {
+    background-color: var(--color-slate-50);
+    color: var(--color-slate-900);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--color-slate-900);
-  font-weight: 700;
-}
+  /* 1. On indique à la base du site comment réagir au Dark Mode */
+  :is(.dark) html,
+  :is(.dark) body,
+  :is(.dark) #root {
+    background-color: var(--color-midnight-slate);
+    color: var(--color-cloud-white);
+  }
 
-::selection {
-  background-color: rgba(20, 40, 201, 0.2);
-  color: var(--color-primary-900);
-}
+  /* 1. Comportement par défaut (MODE CLAIR) */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--color-midnight-slate); /* Votre "noir/bleu très foncé" pour le mode clair */
+  }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
+  /* 2. Comportement automatique (MODE SOMBRE) */
+  :is(.dark) h1,
+  :is(.dark) h2,
+  :is(.dark) h3,
+  :is(.dark) h4,
+  :is(.dark) h5,
+  :is(.dark) h6 {
+    color: var(--color-cloud-white); /* Votre blanc pour le mode sombre */
+  }
 
-::-webkit-scrollbar-track {
-  background: var(--color-slate-100);
-}
+  ::selection {
+    background-color: rgba(20, 40, 201, 0.2);
+    color: var(--color-primary-900);
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--color-slate-300);
-  border-radius: 4px;
-}
+  /* Scrollbar classique */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-slate-100);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-slate-300);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-400);
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-400);
-}
+  /* 3. Bonus : Une scrollbar élégante aussi en Dark Mode ! */
+  :is(.dark) ::-webkit-scrollbar-track {
+    background: var(--color-slate-800);
+  }
+  :is(.dark) ::-webkit-scrollbar-thumb {
+    background: var(--color-slate-600);
+  }
 
-/* Focus styles */
-:focus-visible {
-  outline: 2px solid var(--color-primary-500);
-  outline-offset: 2px;
-}
+  :focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+  }
 
-/* Link base */
-a {
-  color: inherit;
-  text-decoration: none;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }

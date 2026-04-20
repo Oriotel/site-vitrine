@@ -1,18 +1,36 @@
-import React, { useEffect, useState } from "react";
-import { Sun, Moon, ArrowUp } from "lucide-react";
+import React, { useEffect, useState } from 'react';
+import { Moon, Sun, ArrowUp } from 'lucide-react';
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState("light");
+  // L'état initial vérifie si le mode sombre était déjà activé dans localStorage
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Logique simple pour basculer le mode sombre avec Tailwind sous Vite
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
+    // 1. Vérifier la préférence sauvegardée ou le système du pc
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  // 2. La fonction qui s'active quand on clique sur le bouton
+  const toggleTheme = () => {
+    if (isDarkMode) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      setIsDarkMode(false);
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      setIsDarkMode(true);
+    }
+  };
   const handleScrollTop = () => {
     window.scroll({
       top: 0,
@@ -21,37 +39,29 @@ const ThemeToggle = () => {
   };
 
   return (
-    <div className="flex items-center justify-center">
-      <div className="flex items-center rounded-full border border-dotted border-gray-300 dark:border-gray-700">
-        <button
-          onClick={() => setTheme("light")}
-          className={`mr-3 rounded-full p-2 transition-colors ${
-            theme === "light" 
-              ? "bg-midnight-slate text-cloud-white" 
-              : "text-midnight-slate dark:text-cloud-white"
-          }`}
-        >
-          <Sun className="h-5 w-5" strokeWidth={1.5} />
-          <span className="sr-only">Mode clair</span>
-        </button>
+    <div className="flex items-center justify-center gap-2">
+      {/* Bouton Retour en haut */}
+      <button 
+        type="button" 
+        onClick={handleScrollTop} 
+        aria-label="Retour en haut"
+        className="p-2.5 rounded-xl transition-all duration-300 bg-gray-100 dark:bg-gray-800 text-midnight-slate dark:text-cloud-white hover:bg-gray-200 dark:hover:bg-gray-700"
+      >
+        <ArrowUp className="w-5 h-5" />
+      </button>
 
-        <button type="button" onClick={handleScrollTop} className="text-gray-500 hover:text-signal-blue transition-colors">
-          <ArrowUp className="h-4 w-4" />
-          <span className="sr-only">Retour en haut</span>
-        </button>
-
-        <button
-          onClick={() => setTheme("dark")}
-          className={`ml-3 rounded-full p-2 transition-colors ${
-            theme === "dark" 
-              ? "bg-midnight-slate text-cloud-white" 
-              : "text-midnight-slate dark:text-cloud-white"
-          }`}
-        >
-          <Moon className="h-5 w-5" strokeWidth={1.5} />
-          <span className="sr-only">Mode sombre</span>
-        </button>
-      </div>
+      {/* Bouton Mode Sombre / Clair */}
+      <button
+        onClick={toggleTheme}
+        aria-label="Toggle Dark Mode"
+        className="p-2.5 rounded-xl transition-all duration-300 bg-gray-100 dark:bg-gray-800 text-midnight-slate dark:text-cloud-white hover:bg-gray-200 dark:hover:bg-gray-700"
+      >
+        {isDarkMode ? (
+          <Sun className="w-5 h-5" />
+        ) : (
+          <Moon className="w-5 h-5" />
+        )}
+      </button>
     </div>
   );
 };

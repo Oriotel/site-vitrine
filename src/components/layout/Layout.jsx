@@ -1,24 +1,21 @@
-// src/components/layout/Layout.jsx
 import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
 
 const Layout = ({ children }) => {
   return (
-    /* Utilisation de Flexbox pour s'assurer que le footer reste en bas
-      même si le contenu principal est vide.
+    /* L'ASTUCE EST ICI :
+       - On ajoute dark:bg-[#0f172a] (ou dark:bg-midnight-slate) pour le fond global.
+       - On ajoute dark:text-cloud-white pour que PAR DÉFAUT tout le texte devienne blanc !
     */
-    <div className="min-h-screen flex flex-col bg-cloud-white text-midnight-slate font-sans">
+    <div className="min-h-screen flex flex-col bg-cloud-white dark:bg-[#0f172a] text-midnight-slate dark:text-cloud-white font-sans overflow-x-hidden transition-colors duration-300">
       
-      {/* 1. La barre de navigation */}
       <Header />
 
-      {/* 2. Le contenu spécifique de chaque page */}
-      <main className="flex-grow flex flex-col w-full mx-auto">
+      <main className="flex-grow flex flex-col w-full">
         {children}
       </main>
 
-      {/* 3. Le pied de page */}
       <Footer />
       
     </div>

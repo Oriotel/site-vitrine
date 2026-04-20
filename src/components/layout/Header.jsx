@@ -13,7 +13,7 @@ export function Header() {
 
   const links = [
     { label: 'Accueil', href: '/' },
-    { label: 'À propos de nous', href: '/a-propos' },
+    { label: 'À propos de nous', href: '/about' },
     { label: 'Notre Méthodologie', href: '/processus' },
     { label: 'Services & Expertise', href: '/services' },
     { label: 'Événements', href: '/evenements' },
