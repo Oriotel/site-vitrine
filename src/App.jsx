@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import Layout from '@/components/layout/Layout'
 
@@ -15,7 +15,7 @@ const LoadingSpinner = () => (
 const HomePage = lazy(() => import('./pages/HomePage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
-
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const EventApplyPage = lazy(() => import('./pages/EventApplyPage'))
 const ApplyPage = lazy(() => import('./pages/ApplyPage'))
 
@@ -29,6 +29,7 @@ function App() {
           <Route path="/postuler" element={<ApplyPage />} />
           <Route path="/evenement" element={<EventApplyPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
         </Routes>
       </Suspense>
     </Layout>
