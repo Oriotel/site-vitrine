@@ -15,7 +15,6 @@ const LoadingSpinner = () => (
 const HomePage = lazy(() => import('./pages/HomePage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
-
 const EventApplyPage = lazy(() => import('./pages/EventApplyPage'))
 const ApplyPage = lazy(() => import('./pages/ApplyPage'))
 
