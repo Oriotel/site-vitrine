@@ -1,11 +1,9 @@
 // ========== Company ==========
 export const companyInfo = {
   name: "ORIOTEL",
-  slogan: "L'excellence au service de vos ambitions",
-  description:
-    "ORIOTEL est une entreprise spécialisée dans l'organisation d'événements premium et la fourniture de services professionnels de haute qualité. Notre engagement envers l'excellence nous distingue.",
-  longDescription:
-    "Depuis notre création, ORIOTEL s'est imposée comme un acteur incontournable dans l'univers de l'événementiel et du conseil premium. Notre équipe passionnée met son expertise au service de votre réussite, en proposant des solutions sur mesure qui allient innovation, élégance et performance.",
+  slogan: "about.company.slogan",
+  description: "about.company.description",
+  longDescription: "about.company.longDescription",
   email: "contact@oriotel.com",
   phone: "+33 1 23 45 67 89",
   address: "12 Avenue des Champs-Élysées, 75008 Paris, France",
@@ -16,14 +14,14 @@ export const companyInfo = {
 // ========== Explore / Services ==========
 export const exploreData = {
   left: {
-    title: "Vivez l'exceptionnel",
-    description: "Explorez les paysages et services d'ORIOTEL avec des solutions conçues pour tous vos besoins. Chaque projet inclut un accompagnement dédié et des moments uniques.",
+    title: "about.explore.featured.title",
+    description: "about.explore.featured.description",
     features: [
-      { icon: "Clock", label: "Disponibilité 24/7" },
-      { icon: "Shield", label: "Confidentialité" },
-      { icon: "Star", label: "Accès Privilégiés" },
+      { icon: "Clock", label: "about.explore.features.service" },
+      { icon: "Shield", label: "about.explore.features.quality" },
+      { icon: "Star", label: "about.explore.features.innovation" },
     ],
-    cta: "Contactez-nous",
+    cta: "about.explore.featured.cta",
   },
   middle: {
     title: "Événements Majestueux",
@@ -93,6 +91,36 @@ export const exploreData = {
         by: "Style Vision"
       }
     }
+  ],
+  stories: [
+    {
+      id: "identity",
+      title: "about.stories.identity.title",
+      description: "about.stories.identity.description",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200",
+      category: "about.stories.identity.category"
+    },
+    {
+      id: "headquarters",
+      title: "about.stories.headquarters.title",
+      description: "about.stories.headquarters.description",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
+      category: "about.stories.headquarters.category"
+    },
+    {
+      id: "collaboration",
+      title: "about.stories.collaboration.title",
+      description: "about.stories.collaboration.description",
+      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1200",
+      category: "about.stories.collaboration.category"
+    },
+    {
+      id: "innovation",
+      title: "about.stories.innovation.title",
+      description: "about.stories.innovation.description",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200",
+      category: "about.stories.innovation.category"
+    }
   ]
 }
 
@@ -101,39 +129,43 @@ export const team = [
   {
     name: "Alexandre Moreau",
     role: "Fondateur & CEO",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=600",
     bio: "Avec plus de 15 ans d'expérience dans l'événementiel de luxe, Alexandre dirige ORIOTEL avec passion et vision.",
   },
   {
-    name: "Claire Fontaine",
-    role: "Directrice Événementielle",
+    name: "Claire Valmont",
+    role: "Directrice Événementiel",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&h=600",
     bio: "Experte en conception d'événements premium, Claire transforme chaque projet en une expérience unique et mémorable.",
   },
   {
-    name: "Thomas Bernard",
-    role: "Directeur Stratégie",
+    name: "Thomas D'Aubigny",
+    role: "Chef de Vision Créative",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&h=600",
     bio: "Spécialisé en conseil stratégique, Thomas accompagne nos clients dans leurs défis les plus ambitieux.",
   },
   {
     name: "Émilie Roux",
     role: "Responsable Communication",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400&h=600",
     bio: "Émilie orchestre la communication et le marketing digital d'ORIOTEL avec créativité et rigueur.",
   },
 ]
 
 // ========== Timeline ==========
 export const timeline = [
-  { year: "2015", title: "Fondation", description: "Création d'ORIOTEL à Paris avec une vision d'excellence événementielle.", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" },
-  { year: "2017", title: "Expansion", description: "Ouverture de notre premier bureau international et élargissement de l'offre de services.", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" },
-  { year: "2019", title: "Prix d'Excellence", description: "ORIOTEL reçoit le prix de la meilleure agence événementielle de l'année.", image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" },
-  { year: "2021", title: "Transformation Digitale", description: "Lancement de nos solutions d'événements hybrides et 100% digitaux.", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800" },
-  { year: "2023", title: "500+ Événements", description: "Cap symbolique de 500 événements organisés avec succès à travers le monde.", image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800" },
-  { year: "2026", title: "Nouvelle Ère", description: "Lancement de notre plateforme intégrée et expansion vers de nouveaux marchés.", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" },
+  { year: "2015", title: "about.history.items.founding", description: "about.history.items.founding_desc", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" },
+  { year: "2017", title: "about.history.items.expansion", description: "about.history.items.expansion_desc", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" },
+  { year: "2019", title: "about.history.items.awards", description: "about.history.items.awards_desc", image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" },
+  { year: "2021", title: "about.history.items.digital", description: "about.history.items.digital_desc", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800" },
+  { year: "2023", title: "about.history.items.milestone", description: "about.history.items.milestone_desc", image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800" },
+  { year: "2026", title: "about.history.items.future", description: "about.history.items.future_desc", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" },
 ]
 
 // ========== Stats ==========
 export const stats = [
-  { value: "500+", label: "Événements organisés" },
-  { value: "150+", label: "Clients satisfaits" },
-  { value: "10+", label: "Années d'expérience" },
-  { value: "25", label: "Experts passionnés" },
+  { value: "500+", label: "about.stats.events" },
+  { value: "150+", label: "about.stats.clients" },
+  { value: "10+", label: "about.stats.experience" },
+  { value: "25", label: "about.stats.experts" },
 ]

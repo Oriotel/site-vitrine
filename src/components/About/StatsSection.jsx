@@ -1,8 +1,10 @@
-
+import { useTranslation } from 'react-i18next'
 import { stats } from '@/constants/data'
-import AnimatedSection from '@/components/common/AnimatedSection'
+import AnimatedSection from '@/components/Common/AnimatedSection'
 
 const StatsSection = () => {
+  const { t } = useTranslation()
+  
   return (
     <section className="py-20 bg-primary-600 relative overflow-hidden">
       {/* Decorative background elements */}
@@ -24,7 +26,7 @@ const StatsSection = () => {
                 {stat.value}
               </div>
               <div className="text-primary-100 text-sm md:text-base font-medium tracking-wide uppercase">
-                {stat.label}
+                {t(stat.label)}
               </div>
             </AnimatedSection>
           ))}

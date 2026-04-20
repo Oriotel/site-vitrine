@@ -1,15 +1,20 @@
 import { Routes, Route } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 
-const LoadingSpinner = () => (
-  <div className="flex flex-col items-center justify-center h-screen bg-dark-900 gap-4">
-    <div className="relative w-12 h-12">
-      <div className="absolute inset-0 rounded-full border-2 border-gold-500/20" />
-      <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-gold-500 animate-spin" />
+import { useTranslation } from 'react-i18next'
+
+const LoadingSpinner = () => {
+  const { t } = useTranslation()
+  return (
+    <div className="flex flex-col items-center justify-center h-screen bg-slate-50 gap-4">
+      <div className="relative w-12 h-12">
+        <div className="absolute inset-0 rounded-full border-2 border-primary-500/10" />
+        <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-primary-600 animate-spin" />
+      </div>
+      <span className="text-slate-500 text-xs font-montserrat font-bold tracking-[0.3em] uppercase">{t('common.loading')}</span>
     </div>
-    <span className="text-dark-400 text-sm font-montserrat tracking-wider">Chargement...</span>
-  </div>
-)
+  )
+}
 
 const AboutPage = lazy(() => import('@/pages/AboutPage'))
 
