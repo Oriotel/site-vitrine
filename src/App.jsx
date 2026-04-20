@@ -49,6 +49,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/postuler" element={<ApplyPage />} />
+          <Route path="/evenement" element={<EventApplyPage />} />
         </Routes>
       </Suspense>
     </Layout>
