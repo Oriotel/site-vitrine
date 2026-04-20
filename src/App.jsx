@@ -10,9 +10,9 @@ const LoadingSpinner = () => (
 
 const HomePage = lazy(() => import('./pages/HomePage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
+const ApplyPage = lazy(() => import('./pages/ApplyPage'))
 
-
-function App() {
+/*function App() {
   return (
     <Layout>
     <Suspense fallback={<LoadingSpinner />}>
@@ -20,10 +20,29 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
 
+        <Route path="/postuler" element={<ApplyPage />} />
+
+>>>>>>> feature/postule
+
       </Routes>
     </Suspense>
     </Layout>
   )
 }
 
+///////// */
+
+function App() {
+  return (
+    <Layout>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/postuler" element={<ApplyPage />} />
+        </Routes>
+      </Suspense>
+    </Layout>
+  )
+}
 export default App
