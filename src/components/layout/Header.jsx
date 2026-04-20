@@ -3,19 +3,26 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/utils/cn';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/hooks/use-scroll';
+import { Globe } from 'lucide-react';
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const scrolled = useScroll(20); 
+  
+  const [language, setLanguage] = useState('FR');
 
   const links = [
     { label: 'Accueil', href: '/' },
     { label: 'À propos de nous', href: '/a-propos' },
     { label: 'Notre Méthodologie', href: '/processus' },
     { label: 'Services & Expertise', href: '/services' },
-    { label: 'Événements à venir', href: '/evenements' },
+    { label: 'Événements', href: '/evenements' },
     { label: 'Nous contacter', href: '/contact' },
   ];
+
+  const toggleLanguage = () => {
+    setLanguage((prevLang) => (prevLang === 'FR' ? 'EN' : 'FR'));
+  };
 
   useEffect(() => {
     if (open) {
@@ -34,7 +41,7 @@ export function Header() {
         className={cn(
           'fixed z-50 mx-auto transition-all duration-500 ease-in-out',
           {
-            'top-4 left-0 right-0 w-[95%] lg:w-[80%] max-w-6xl rounded-2xl border border-gray-200 bg-cloud-white/85 backdrop-blur-md shadow-lg py-2 px-2': 
+            'top-4 left-0 right-0 w-[98%] lg:w-[85%] max-w-7xl rounded-2xl border border-gray-200 bg-cloud-white/90 backdrop-blur-md shadow-lg py-2 px-3': 
               scrolled && !open,
             'top-0 left-0 right-0 w-full rounded-none border-b border-gray-100 bg-cloud-white py-4 px-6 lg:px-10': 
               !scrolled && !open,
@@ -45,57 +52,90 @@ export function Header() {
       >
         <nav className="flex w-full items-center justify-between">
           
-          {/* LOGO */}
-          <a href="/" className="flex items-center gap-2 pl-2">
-            <img 
-              src="/assets/images/logo-oriotel.svg" 
-              alt="Oriotel Logo" 
-              className={cn(
-                "w-auto object-contain transition-all duration-300",
-                scrolled ? "h-8" : "h-10"
-              )} 
-            />
-          </a>
+          {/* ==========================================
+              1. GAUCHE : LOGO (Prend un tiers de l'espace)
+              ========================================== */}
+          <div className="flex-1 flex justify-start items-center">
+            <a href="/" className="pl-2 shrink-0">
+              <img 
+                src="/assets/images/logo-oriotel.svg" 
+                alt="Oriotel Logo" 
+                className={cn(
+                  "w-auto object-contain transition-all duration-300",
+                  scrolled ? "h-7" : "h-9"
+                )} 
+              />
+            </a>
+          </div>
 
-          {/* MENU DESKTOP */}
-          <div className="hidden lg:flex items-center gap-2">
+
+          {/* ==========================================
+              2. CENTRE : LIENS (Parfaitement au milieu)
+              ========================================== */}
+          <div className="hidden lg:flex items-center justify-center gap-1 lg:gap-2 shrink-0">
             {links.map((link, i) => (
               <a 
                 key={i} 
-                className={buttonVariants({ variant: 'ghost', size: 'sm' })} 
+                className={cn(
+                  buttonVariants({ variant: 'ghost', size: 'sm' }),
+                  "text-sm px-3"
+                )} 
                 href={link.href}
               >
                 {link.label}
               </a>
             ))}
-            
-            {/* BOUTON OFFRES D'EMPLOI (Avec animation de disparition) */}
-            <div className={cn(
-              "transition-all duration-500 ease-in-out overflow-hidden flex items-center",
-              // Si on scroll : largeur 0, opacité 0, marge 0 (Disparaît en douceur)
-              // Sinon : largeur max, opacité 1, marge (Apparaît)
-              scrolled ? "max-w-0 opacity-0 ml-0 pointer-events-none" : "max-w-[200px] opacity-100 ml-4"
-            )}>
-              <a href="/carrieres/offres">
-                 {/* whitespace-nowrap est crucial ici pour que le texte ne se casse pas pendant l'animation */}
-                 <Button className="rounded-full px-6 whitespace-nowrap">Offres d'emploi</Button>
-              </a>
-            </div>
           </div>
 
-          {/* BOUTON MENU MOBILE */}
-          <Button 
-            size="icon" 
-            variant="ghost" 
-            onClick={() => setOpen(!open)} 
-            className="lg:hidden text-midnight-slate"
-          >
-            <MenuToggleIcon open={open} className="size-6" duration={300} />
-          </Button>
+
+          {/* ==========================================
+              3. DROITE : ACTIONS (Prend le dernier tiers de l'espace)
+              ========================================== */}
+          <div className="flex-1 flex justify-end items-center gap-2">
+            
+            {/* Conteneur Desktop (Langue + Offres) */}
+            <div className="hidden lg:flex items-center gap-2">
+              {/* SÉLECTEUR DE LANGUE (Disparaît au scroll) */}
+              <div className={cn(
+                "transition-all duration-500 ease-in-out overflow-hidden flex items-center",
+                scrolled ? "max-w-0 opacity-0 ml-0 pointer-events-none" : "max-w-[100px] opacity-100"
+              )}>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={toggleLanguage}
+                  className="flex items-center gap-1 px-2 text-midnight-slate hover:bg-gray-100 rounded-full cursor-pointer"
+                >
+                  <Globe className="w-4 h-4" />
+                  <span className="font-semibold text-xs transition-all">{language}</span>
+                </Button>
+              </div>
+
+              {/* BOUTON OFFRES D'EMPLOI (Reste TOUJOURS visible) */}
+              <div className="shrink-0">
+                <a href="/carrieres/offres">
+                   <Button className="rounded-full px-5 h-9 text-sm whitespace-nowrap shadow-md hover:shadow-lg transition-all">
+                     Offres d'emploi
+                   </Button>
+                </a>
+              </div>
+            </div>
+
+            {/* BOUTON MENU MOBILE (Hamburger) */}
+            <Button 
+              size="icon" 
+              variant="ghost" 
+              onClick={() => setOpen(!open)} 
+              className="lg:hidden text-midnight-slate"
+            >
+              <MenuToggleIcon open={open} className="size-6" duration={300} />
+            </Button>
+          </div>
+          
         </nav>
       </header>
 
-      {/* MENU MOBILE */}
+      {/* MENU MOBILE (Inchangé) */}
       <div
         className={cn(
           'fixed top-[72px] right-0 bottom-0 left-0 z-40 flex flex-col overflow-y-auto bg-cloud-white px-6 py-6 lg:hidden transition-all duration-300 ease-in-out',
@@ -103,7 +143,20 @@ export function Header() {
         )}
       >
         <div className="flex h-full flex-col gap-4">
-          <div className="flex flex-col gap-2 mt-4">
+          
+          <div className="flex justify-end border-b border-gray-100 pb-2">
+             <Button 
+               variant="ghost" 
+               size="sm" 
+               onClick={toggleLanguage}
+               className="flex items-center gap-2"
+             >
+                <Globe className="w-5 h-5" />
+                <span className="font-semibold">{language === 'FR' ? 'Français' : 'English'}</span>
+             </Button>
+          </div>
+
+          <div className="flex flex-col gap-2 mt-2">
             {links.map((link) => (
               <a
                 key={link.label}
