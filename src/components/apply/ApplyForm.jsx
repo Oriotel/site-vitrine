@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import FormInput from './FormInput';
-import UploadCV from './UploadCV';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
+import FormInput from './FormInput';
+import UploadCV from './UploadCV';
 
 const ApplyForm = () => {
   const [formData, setFormData] = useState({
@@ -109,7 +109,9 @@ const ApplyForm = () => {
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="+212 5 12 34 56 78"
+
+            placeholder="+212 6 12 34 56 78"
+
             required
           />
         </div>
@@ -149,21 +151,20 @@ const ApplyForm = () => {
         />
 
         <div className="pt-2">
-          <Button
-            type="submit"
-            disabled={status === 'submitting'}
-            className="w-full h-14 text-base font-bold rounded-xl shadow-lg shadow-signal-blue/20 hover:shadow-xl hover:shadow-signal-blue/30 transition-all hover:-translate-y-0.5"
-          >
-            {status === 'submitting' ? (
-              <span className="flex items-center gap-2">
-                <svg className="animate-spin h-5 w-5 text-current" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                </svg>
-                Envoi en cours...
-              </span>
-            ) : "Soumettre ma candidature"}
-          </Button>
+      <Button
+  type="submit"
+  disabled={status === 'submitting'}
+  className="w-full h-14 text-base font-bold rounded-xl shadow-lg shadow-signal-blue/20 hover:shadow-xl transition-all"
+>
+  {status === 'submitting' ? (
+    <span className="flex items-center gap-2">
+      <svg className="animate-spin h-5 w-5 text-current" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
+      </svg>
+      Envoi en cours...
+    </span>
+  ) : "Soumettre ma candidature"}
+</Button>
         </div>
       </form>
     </div>
