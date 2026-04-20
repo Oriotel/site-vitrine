@@ -1,4 +1,3 @@
-
 import { cn } from "@/utils/cn"; // Checking if utility exists, else I'll use simple string join
 
 export function Marquee({
