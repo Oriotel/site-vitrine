@@ -76,7 +76,7 @@ export function Header() {
               // Sinon : largeur max, opacité 1, marge (Apparaît)
               scrolled ? "max-w-0 opacity-0 ml-0 pointer-events-none" : "max-w-[200px] opacity-100 ml-4"
             )}>
-              <a href="/carrieres/offres">
+              <a href="/offres">
                  {/* whitespace-nowrap est crucial ici pour que le texte ne se casse pas pendant l'animation */}
                  <Button className="rounded-full px-6 whitespace-nowrap">Offres d'emploi</Button>
               </a>
@@ -119,7 +119,7 @@ export function Header() {
             ))}
           </div>
           <div className="mt-auto pb-8 pt-4">
-            <a href="/carrieres/offres" className="w-full block" onClick={() => setOpen(false)}>
+            <a href="/offres" className="w-full block" onClick={() => setOpen(false)}>
               <Button className="w-full h-14 text-lg rounded-xl">Consulter les Offres d'emploi</Button>
             </a>
           </div>
