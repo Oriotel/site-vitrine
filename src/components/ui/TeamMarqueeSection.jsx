@@ -1,5 +1,5 @@
 import { team } from "@/constants/data";
-import { UserCheck } from "lucide-react";
+
 import { TeamCarousel } from "./TeamCarousel";
 import { ScribbleText } from "../Common/ScribbleText";
 import AnimatedSection from "../Common/AnimatedSection";
@@ -20,10 +20,6 @@ export function TeamMarqueeSection() {
       <div className="relative z-10 mx-auto max-w-[1600px]">
         <div className="mx-auto mb-20 flex max-w-4xl flex-col items-center px-6 text-center">
           <AnimatedSection>
-            <div className="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-600 text-white shadow-xl shadow-primary-600/20">
-              <UserCheck size={32} />
-            </div>
-
             <h2 className="relative mb-6 font-carmine text-5xl md:text-6xl text-slate-900 tracking-tight">
               {t('about.team.title')}
               <svg
