@@ -24,6 +24,7 @@ const AboutPage = lazy(() => import('./pages/AboutPage'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const EventApplyPage = lazy(() => import('./pages/EventApplyPage'))
 const ApplyPage = lazy(() => import('./pages/ApplyPage'))
+const OffresPage = lazy(() => import('./pages/OffresPage'))
 
 function App() {
   return (
@@ -33,11 +34,22 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/postuler" element={<ApplyPage />} />
-          <Route path="/evenement" element={<EventApplyPage />} />
 
+          {/* Routes Carrières */}
+          <Route path="/postuler" element={<ApplyPage />} />
+          <Route path="/carrieres/postuler" element={<ApplyPage />} />
+          <Route path="/carrieres/offres" element={<OffresPage />} />
+
+          {/* Routes Événements */}
+          <Route path="/evenement" element={<EventApplyPage />} />
+          <Route path="/evenements" element={<EventApplyPage />} />
+          <Route path="/evenements/inscription" element={<EventApplyPage />} />
+
+          {/* Autres Routes */}
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/a-propos" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/processus" element={<OffresPage />} />
 
         </Routes>
       </Suspense>
