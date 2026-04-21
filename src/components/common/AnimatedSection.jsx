@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react'
+
 const useInView = (options = {}) => {
     const { triggerOnce = false, ...observerOptions } = options;
     const [isInView, setIsInView] = useState(false);
@@ -30,4 +31,28 @@ const useInView = (options = {}) => {
     return [ref, isInView];
 };
 
-export default useInView;
+const AnimatedSection = ({
+  children,
+  animation = 'animate-fade-in-up',
+  delay = 0,
+  threshold = 0.15,
+  className = '',
+  as: Tag = 'div',
+  triggerOnce = true,
+}) => {
+  const [ref, isInView] = useInView({ threshold, triggerOnce })
+
+  return (
+    <Tag
+      ref={ref}
+      className={`transition-all duration-700 ${className} ${
+        isInView ? `${animation} opacity-100` : 'opacity-0 translate-y-8'
+      }`}
+      style={{ animationDelay: `${delay}ms`, animationFillMode: 'both' }}
+    >
+      {children}
+    </Tag>
+  )
+}
+
+export default AnimatedSection

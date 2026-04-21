@@ -1,57 +1,85 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-// import { Wifi } from 'lucide-react'; // On utilise Lucide pour l'icône de réseau
+import React, { useMemo } from 'react';
+import { ArrowRight, ArrowDown } from 'lucide-react';
+import Hyperspeed from '@/components/ui/Hyperspeed';
 
 export function Hero() {
+
+  const hyperspeedOptions = useMemo(() => ({
+    distortion: 'turbulentDistortion',
+    colors: {
+      roadColor: 0xfffafa,
+      islandColor: 0xf5f5f5,
+      background: 0xfffafa,
+      shoulderLines: 0x1428c9,
+      brokenLines: 0x1428c9,
+      leftCars: [0x1428c9, 0x071578, 0x020c1a],
+      rightCars: [0x1428c9, 0x071578, 0x020c1a],
+      sticks: 0x1428c9,
+    }
+  }), []);
+
   return (
-    <section className="relative w-full min-h-[85vh] flex items-center justify-center bg-cloud-white pt-24 pb-12 overflow-hidden font-sans">
-      
-      {/* 1. IMAGE DE FOND ET VOILE BLANC */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-          alt="Architecture moderne et croissance"
-          className="w-full h-full object-cover object-center"
-        />
-        {/* Voile blanc (85% d'opacité) pour rendre l'image subtile et le texte très lisible */}
-        <div className="absolute inset-0 bg-cloud-white/85 backdrop-blur-[2px]"></div>
+    <section className="relative w-full min-h-screen overflow-hidden bg-[#fffafa] font-sans flex flex-col">
+
+      {/* ── HYPERSPEED BACKGROUND ── */}
+      <div className="absolute inset-0 z-0 opacity-70">
+        <Hyperspeed effectOptions={hyperspeedOptions} />
       </div>
 
-      {/* 2. GRAND ICÔNE DE RÉSEAU (WIFI/ONDES) SUR LA DROITE */}
-      {/* Il est positionné en absolu, tourné, et rendu semi-transparent pour décorer sans gêner */}
-      {/* <div className="absolute top-1/2 -translate-y-1/2 -right-40 md:-right-20 z-0 pointer-events-none opacity-5 text-signal-blue">
-        <Wifi className="w-[600px] h-[600px] md:w-[800px] md:h-[800px] -rotate-90" strokeWidth={0.5} />
-      </div> */}
+      {/* ── TOP BAR ── */}
+      <div className="relative z-10 flex items-center justify-between px-6 md:px-12 lg:px-16 pt-10 text-[#020c1a]/40 text-xs tracking-[0.3em] uppercase">
+        <span>Telecom · Management · E-commerce</span>
+        <span className="hidden md:block">Est. 2009 — Maroc</span>
+      </div>
 
-      {/* 3. CONTENU CENTRAL (Texte et Boutons) */}
-      <div className="relative z-10 w-[90%] max-w-4xl mx-auto flex flex-col items-center text-center">
-        
-        {/* TITRE - Utilise la police Montserrat par défaut */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-light text-midnight-slate leading-tight md:leading-[1.1] mb-6 tracking-tight">
-          Telecom reliability.<br className="hidden md:block" />
-          Digital agility.
-        </h1>
+      {/* ── MAIN HERO AREA ── */}
+      <div className="relative z-10 flex-1 flex flex-col justify-between px-4 md:px-10 lg:px-14 pb-20 pt-8">
 
-        {/* SOUS-TITRE */}
-        <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl">
-          De la robustesse de vos infrastructures matérielles à l'intelligence de vos flux de travail. <span className="font-bold text-signal-blue">ORIOTEL</span> accompagne votre transformation avec des solutions ERP sur-mesure et des équipements de pointe.
-        </p>
-
-        {/* BOUTONS CENTRÉS */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-          <Button className="w-full sm:w-auto px-8 py-6 text-base rounded-full font-semibold shadow-lg hover:shadow-xl transition-all">
-            En savoir plus
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            className="w-full sm:w-auto px-8 py-6 text-base rounded-full font-semibold border-2 border-signal-blue/20 text-signal-blue hover:bg-blue-50 transition-all"
+        {/* ORIOTEL — Massive display word */}
+        <div className="flex-1 flex items-center justify-center md:items-start md:pt-10">
+          <h1
+            className="select-none font-extrabold tracking-tighter leading-none text-left w-full text-[#020c1a]"
+            style={{
+              fontSize: 'clamp(64px, 15vw, 240px)',
+            }}
           >
-            Voir nos services
-          </Button>
+            ORIOTEL.
+          </h1>
         </div>
 
+        {/* ── BOTTOM ROW ── */}
+        <div className="flex flex-col mt-auto relative z-20">
+          {/* Bottom-left: tagline + description */}
+          <div className="max-w-md flex flex-col gap-5">
+            {/* Thin accent line */}
+            <div className="w-10 h-[2px] bg-[#1428C9]" />
+            <p className="text-[#020c1a]/90 text-lg md:text-xl font-light leading-relaxed">
+              Orchestrer l'avenir<br />
+              <span className="font-semibold text-[#020c1a]">de vos opérations.</span>
+            </p>
+            <p className="text-[#020c1a]/60 text-sm leading-relaxed max-w-xs">
+              De l'infrastructure télécom à l'intelligence des flux de travail — des solutions sur-mesure pour votre croissance.
+            </p>
+            <a
+              href="/about"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#1428C9] hover:opacity-80 transition-opacity group mt-2"
+            >
+              Découvrir Oriotel
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
+        </div>
       </div>
+
+      {/* ── CENTER SCROLL ANIMATION ── */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#020c1a]/40 z-20">
+         <span className="text-[10px] tracking-[0.3em] uppercase hidden md:block">Scroll</span>
+         <ArrowDown className="w-5 h-5 animate-bounce text-[#1428C9]" />
+      </div>
+
+      {/* ── THIN BOTTOM ACCENT ── */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#1428C9]/20 to-transparent z-10" />
+
     </section>
   );
 }

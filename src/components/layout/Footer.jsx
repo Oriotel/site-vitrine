@@ -2,7 +2,6 @@ import React from "react";
 import { 
   Mail, Twitter, Linkedin, Facebook 
 } from "lucide-react";
-import ThemeToggle from "../ui/ThemeToggle";
 
 const navigation = {
   categories: [
@@ -42,16 +41,17 @@ const navigation = {
   ],
 };
 
-const Underline = `hover:-translate-y-1 rounded-xl p-2.5 transition-transform text-midnight-slate dark:text-cloud-white hover:text-signal-blue dark:hover:text-signal-blue`;
+// Application de la couleur #fff5ee par défaut
+const Underline = `hover:-translate-y-1 rounded-xl p-2.5 transition-transform text-[#fff5ee] hover:text-signal-blue`;
 
 const Footer = () => {
   return (
-    <footer className="w-full border-t border-gray-200 dark:border-gray-800 bg-cloud-white dark:bg-midnight-slate transition-colors duration-300 pt-10 flex flex-col">
+    <footer id="site-footer" className="w-full bg-[#020c1a] text-[#fff5ee] border-t border-white/10 transition-colors duration-300 pt-10 flex flex-col">
       
-      {/* CONTENEUR GLOBAL : Force 80% de largeur et centre parfaitement (marges égales) */}
+      {/* CONTENEUR GLOBAL */}
       <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col">
 
-        {/* 1. SECTION RÉSEAUX SOCIAUX & THEME */}
+        {/* 1. SECTION RÉSEAUX SOCIAUX */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pb-8">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
             <a aria-label="LinkedIn" href="#" className={Underline}>
@@ -67,23 +67,18 @@ const Footer = () => {
               <Mail strokeWidth={1.5} className="h-5 w-5" />
             </a>
           </div>
-          
-          <div className="flex justify-center md:justify-end">
-            <ThemeToggle />
-          </div>
         </div>
 
-        <div className="border-b border-gray-200 dark:border-gray-800 w-full mb-10"></div>
+        <div className="border-b border-white/10 w-full mb-10"></div>
 
         {/* 2. SECTION NAVIGATION */}
         <div className="pb-10 w-full">
           {navigation.categories.map((category) => (
             <div key={category.name} className="w-full">
-              {/* UTILISATION DE GRID : 3 colonnes égales, espacement parfait */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {category.sections.map((section) => (
                   <div key={section.name} className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <h3 className="text-base font-medium text-midnight-slate dark:text-cloud-white mb-6">
+                    <h3 className="text-base font-medium mb-6 !text-[#fff5ee]">
                       {section.name}
                     </h3>
                     <ul role="list" className="flex flex-col space-y-4">
@@ -91,7 +86,7 @@ const Footer = () => {
                         <li key={item.name} className="flow-root">
                           <a
                             href={item.href}
-                            className="text-sm font-normal text-gray-600 hover:text-signal-blue dark:text-gray-300 dark:hover:text-white transition-colors"
+                            className="text-sm font-normal text-[#fff5ee] opacity-80 hover:opacity-100 hover:text-signal-blue transition-all"
                           >
                             {item.name}
                           </a>
@@ -105,34 +100,36 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="border-b border-gray-200 dark:border-gray-800 w-full mb-10"></div>
+        <div className="border-b border-white/10 w-full mb-10"></div>
 
         {/* 3. SECTION LOGO ET DESCRIPTION */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10 pb-10">
           <a href="/" className="shrink-0">
             <div className="flex items-center justify-center">
+              {/* Le filtre invert transforme le logo noir en blanc pour contraster avec le fond très sombre */}
               <img 
                 src="/assets/images/logo-oriotel.svg" 
                 alt="Oriotel" 
-                className="h-10 w-auto object-contain" 
+                className="h-10 w-auto object-contain brightness-0 invert" 
               />
             </div>
           </a>
-          <p className="text-center md:text-left text-sm leading-relaxed text-gray-600 dark:text-gray-400 md:max-w-2xl lg:max-w-3xl">
-            <span className="font-medium text-midnight-slate dark:text-cloud-white">ORIOTEL</span> est une entreprise marocaine spécialisée dans l’achat et la vente d’appareils téléphoniques et électriques. Grâce à son expertise en négoce et en intermédiation, elle accompagne les grandes sociétés de télécommunications ainsi que les particuliers en leur offrant des produits et services fiables, modernes et accessibles.
+          
+          <p className="text-center md:text-left text-sm leading-relaxed text-[#fff5ee] opacity-90 md:max-w-2xl lg:max-w-3xl">
+            <span className="font-bold">ORIOTEL</span> est une entreprise marocaine spécialisée dans l’achat et la vente d’appareils téléphoniques et électriques. Grâce à son expertise en négoce et en intermédiation, elle accompagne les grandes sociétés de télécommunications ainsi que les particuliers en leur offrant des produits et services fiables, modernes et accessibles.
           </p>
         </div>
 
       </div>
 
       {/* 4. SECTION COPYRIGHT */}
-      <div className="w-full bg-cloud-white dark:bg-midnight-slate py-6 border-t border-gray-200 dark:border-gray-800 mt-auto">
-        <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500 dark:text-gray-400">
+      <div className="w-full py-6 border-t border-white/10 mt-auto">
+        <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#fff5ee] opacity-70">
           <span>© {new Date().getFullYear()} ORIOTEL - Tous droits réservés</span>
           
           <div className="flex items-center gap-4">
-             <a href="/mentions-legales" className="hover:text-midnight-slate dark:hover:text-cloud-white transition-colors">Mentions légales</a>
-             <a href="/confidentialite" className="hover:text-midnight-slate dark:hover:text-cloud-white transition-colors">Politique de confidentialité</a>
+             <a href="/mentions-legales" className="hover:text-signal-blue hover:opacity-100 transition-colors">Mentions légales</a>
+             <a href="/confidentialite" className="hover:text-signal-blue hover:opacity-100 transition-colors">Politique de confidentialité</a>
           </div>
         </div>
       </div>
