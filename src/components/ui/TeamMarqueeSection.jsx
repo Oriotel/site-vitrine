@@ -9,6 +9,7 @@ export function TeamMarqueeSection() {
   const { t } = useTranslation();
 
   return (
+    <>
     {/* Fusion : padding et background de HEAD + bordures et dark mode de develop */}
     <section className="relative w-full overflow-hidden bg-white py-16 md:py-24 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 max-w-[100vw]">
       
@@ -90,5 +91,6 @@ export function TeamMarqueeSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }
