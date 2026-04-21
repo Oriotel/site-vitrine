@@ -19,7 +19,7 @@ const SectionTitle = ({
       {/* Primary divider */}
       <div className={`w-16 h-1 rounded-full primary-gradient-bg mb-6 ${dividerAlign}`} />
       {subtitle && (
-        <p className="text-base md:text-xl max-w-2xl mx-auto text-slate-600">
+        <p className={`text-base md:text-xl max-w-2xl mx-auto ${light ? 'text-slate-300' : 'text-slate-600'}`}>
           {subtitle}
         </p>
       )}
