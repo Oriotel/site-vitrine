@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
 const events = [
   { id: 1, image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800', title: 'Conférence Annuelle', description: 'Une plongée immersive dans l\'innovation corporative et notre nouvelle identité de marque.' },
   { id: 2, image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800', title: 'Séminaire Stratégique', description: 'Analyse des grandes tendances du marché et élaboration des stratégies de croissance.' },
@@ -14,9 +16,12 @@ const EventsSection = () => {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
+  const handleNext = () => setActive((prev) => (prev + 1) % events.length);
+  const handlePrev = () => setActive((prev) => (prev - 1 + events.length) % events.length);
+
   useEffect(() => {
     if (isHovered) return;
-    const interval = setInterval(() => { setActive((prev) => (prev + 1) % events.length); }, 3000);
+    const interval = setInterval(handleNext, 3000);
     return () => clearInterval(interval);
   }, [isHovered]);
 
@@ -26,27 +31,34 @@ const EventsSection = () => {
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) { setIsHovered(false); return; }
     const distance = touchStart - touchEnd;
-    if (distance > minSwipeDistance) setActive((prev) => (prev + 1) % events.length);
-    if (distance < -minSwipeDistance) setActive((prev) => (prev - 1 + events.length) % events.length);
+    if (distance > minSwipeDistance) handleNext();
+    if (distance < -minSwipeDistance) handlePrev();
     setIsHovered(false);
   };
 
   return (
     <section className="font-sans overflow-hidden w-full">
-      <div className="max-w-full lg:max-w-[1600px] mx-auto px-0 sm:px-4 lg:px-8">
-        <SectionTitle 
-            subtitle="Agenda" 
-            title="Événements Oriotel" 
-            align="center" 
-            className="mb-16" 
-          />
-          <div className="flex justify-between items-end mb-4 px-4 sm:px-0">
-            <p className="text-gray-600 leading-relaxed mb-6 text-base md:text-lg">Découvrez nos prochains événements et conférences</p>
-            <a href="/evenements" className="text-[#1428C9] font-semibold text-sm hover:opacity-80 transition-opacity flex items-center gap-1 group pb-1">
-              Tout voir <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </a>
-          </div>
-        <div className="mt-4 relative w-full h-[350px] md:h-[500px] flex justify-center items-center [perspective:1000px] overflow-hidden touch-pan-y" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+      <div className="max-w-full lg:max-w-[1600px] mx-auto px-0 sm:px-4 lg:px-8 relative">
+        <div className="flex flex-col items-center mb-6">
+          <SectionTitle 
+              subtitle="Agenda" 
+              title="Événements Oriotel" 
+              description="Découvrez nos prochains événements et conférences"
+              align="center" 
+            />
+            <div className="mt-4">
+              <a href="/evenements" className="text-[#1428C9] font-semibold text-sm hover:opacity-80 transition-opacity flex items-center gap-1 group pb-1">
+                Tout voir <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
+            </div>
+        </div>
+        
+        <div 
+          className="mt-4 relative w-full h-[350px] md:h-[500px] flex justify-center items-center [perspective:1000px] overflow-hidden touch-pan-y" 
+          onTouchStart={onTouchStart} 
+          onTouchMove={onTouchMove} 
+          onTouchEnd={onTouchEnd}
+        >
           {events.map((item, index) => {
             let distance = (index - active + events.length) % events.length;
             if (distance > 2) distance -= events.length;
@@ -66,6 +78,23 @@ const EventsSection = () => {
               </div>
             );
           })}
+          
+          {/* Flèches de navigation */}
+          <button 
+            onClick={handlePrev} 
+            className="absolute left-2 md:left-8 z-[60] p-3 rounded-full bg-signal-blue hover:bg-signal-blue/90 text-white transition-all transform hover:scale-110 shadow-lg shadow-signal-blue/20"
+            aria-label="Previous event"
+          >
+            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+          </button>
+          
+          <button 
+            onClick={handleNext} 
+            className="absolute right-2 md:right-8 z-[60] p-3 rounded-full bg-signal-blue hover:bg-signal-blue/90 text-white transition-all transform hover:scale-110 shadow-lg shadow-signal-blue/20"
+            aria-label="Next event"
+          >
+            <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+          </button>
         </div>
       </div>
     </section>

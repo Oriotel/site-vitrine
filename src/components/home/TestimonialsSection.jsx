@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 const testimonials = [
   { id: 1, image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600', name: 'Sarah Connor', role: 'CEO, TechNova', quote: 'La stratégie opérationnelle d\'Oriotel nous a permis de scaler nos processus avec une fluidité déconcertante.' },
   { id: 2, image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600', name: 'David Guetta', role: 'Directeur des Opérations, FinTechPro', quote: 'Un accompagnement sur-mesure et une expertise inégalée. Ils ont identifié nos goulots d\'étranglement instantanément.' },
@@ -14,9 +15,12 @@ const TestimonialsSection = () => {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
+  const handleNext = () => setActive(prev => (prev + 1) % testimonials.length);
+  const handlePrev = () => setActive(prev => (prev - 1 + testimonials.length) % testimonials.length);
+
   useEffect(() => {
     if (isHovered) return;
-    const interval = setInterval(() => { setActive(prev => (prev + 1) % testimonials.length); }, 4000);
+    const interval = setInterval(handleNext, 4000);
     return () => clearInterval(interval);
   }, [isHovered]);
 
@@ -26,8 +30,8 @@ const TestimonialsSection = () => {
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) { setIsHovered(false); return; }
     const distance = touchStart - touchEnd;
-    if (distance > minSwipeDistance) setActive((prev) => (prev + 1) % testimonials.length);
-    if (distance < -minSwipeDistance) setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    if (distance > minSwipeDistance) handleNext();
+    if (distance < -minSwipeDistance) handlePrev();
     setIsHovered(false);
   };
 
@@ -37,8 +41,9 @@ const TestimonialsSection = () => {
         <SectionTitle 
           subtitle="Témoignages" 
           title="Ils nous font confiance" 
+          description="Découvrez les retours d'expérience de nos partenaires et clients qui ont transformé leur vision en succès."
           align="center" 
-          className="mb-16" 
+          className="mb-10" 
         />
         <div className="relative w-full h-[280px] md:h-[400px] flex justify-center items-center [perspective:1200px] touch-pan-y" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
           {testimonials.map((item, index) => {
@@ -56,6 +61,23 @@ const TestimonialsSection = () => {
               </div>
             );
           })}
+          
+          {/* Flèches de navigation */}
+          <button 
+            onClick={handlePrev} 
+            className="absolute left-2 md:left-8 z-[60] p-3 rounded-full bg-signal-blue hover:bg-signal-blue/90 text-white transition-all transform hover:scale-110 shadow-lg shadow-signal-blue/20"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+          </button>
+          
+          <button 
+            onClick={handleNext} 
+            className="absolute right-2 md:right-8 z-[60] p-3 rounded-full bg-signal-blue hover:bg-signal-blue/90 text-white transition-all transform hover:scale-110 shadow-lg shadow-signal-blue/20"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+          </button>
         </div>
         <div className="mt-12 text-center max-w-3xl mx-auto h-[160px] flex flex-col justify-start transition-all duration-500" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
           <p key={active} className="text-lg md:text-2xl italic text-[#111827]/80 leading-relaxed font-light animate-[fadeIn_0.5s_ease-out]">"{testimonials[active].quote}"</p>

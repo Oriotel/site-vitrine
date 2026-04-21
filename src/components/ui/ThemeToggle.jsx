@@ -1,36 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Moon, Sun, ArrowUp } from 'lucide-react';
 
-const ThemeToggle = () => {
-  // L'état initial vérifie si le mode sombre était déjà activé dans localStorage
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    // 1. Vérifier la préférence sauvegardée ou le système du pc
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    } else {
-      setIsDarkMode(false);
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
-
-  // 2. La fonction qui s'active quand on clique sur le bouton
-  const toggleTheme = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      setIsDarkMode(false);
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-      setIsDarkMode(true);
-    }
-  };
+const ThemeToggle = ({ isDarkMode, toggleTheme }) => {
   const handleScrollTop = () => {
     window.scroll({
       top: 0,

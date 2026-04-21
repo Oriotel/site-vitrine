@@ -30,20 +30,21 @@ const ExpertisesSection = () => {
         <SectionTitle 
           subtitle="Nos domaines d'intervention" 
           title="Expertises Sectorielles" 
+          description="Notre équipe pluridisciplinaire vous accompagne avec des solutions pointues et sur-mesure."
           align="center" 
-          className="mb-16" 
+          className="mb-8" 
         />
         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-4 relative touch-pan-y" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
           <div className="w-full md:w-1/2 relative h-[380px] md:h-[500px] flex-shrink-0 perspective-1000">
             {expertises.map((item, index) => {
               const position = (index - active + expertises.length) % expertises.length;
               let transformStyle = '', opacity = 'opacity-100', zIndex = 0, widthClass = '';
-              if (position === 0) { transformStyle = 'translateX(0) translateY(8%) scale(1) rotate(0deg)'; zIndex = 30; opacity = 'opacity-100'; widthClass = 'w-[75%] md:w-[70%]'; } 
-              else if (position === 1) { transformStyle = 'translateX(45%) translateY(-5%) scale(0.9) rotate(2deg)'; zIndex = 20; opacity = 'opacity-80'; widthClass = 'w-[55%] md:w-[50%]'; } 
-              else if (position === 2) { transformStyle = 'translateX(-45%) translateY(0%) scale(0.9) rotate(-2deg)'; zIndex = 20; opacity = 'opacity-80'; widthClass = 'w-[55%] md:w-[50%]'; }
+              if (position === 0) { transformStyle = 'translateX(0) translateY(0%) scale(1) rotate(0deg)'; zIndex = 30; opacity = 'opacity-100'; widthClass = 'w-[75%] md:w-[70%]'; } 
+              else if (position === 1) { transformStyle = 'translateX(45%) translateY(-10%) scale(0.9) rotate(2deg)'; zIndex = 20; opacity = 'opacity-80'; widthClass = 'w-[55%] md:w-[50%]'; } 
+              else if (position === 2) { transformStyle = 'translateX(-45%) translateY(-5%) scale(0.9) rotate(-2deg)'; zIndex = 20; opacity = 'opacity-80'; widthClass = 'w-[55%] md:w-[50%]'; }
               return (
                 <div key={item.id} className={`absolute m-auto inset-0 ${widthClass} h-[75%] md:h-[80%] rounded-3xl overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${opacity}`} style={{ zIndex, transform: transformStyle, boxShadow: position === 0 ? '0 25px 50px -12px rgba(0, 0, 0, 0.3)' : '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}>
-                  <div className={`absolute inset-0 bg-[#0f172a]/20 mix-blend-multiply transition-opacity duration-700 ${position === 0 ? 'opacity-0' : 'opacity-100'}`}></div>
+                  <div className={`absolute inset-0 bg-slate-900/40 mix-blend-multiply transition-opacity duration-700 ${position === 0 ? 'opacity-0' : 'opacity-100'}`}></div>
                   <img src={item.image} alt={item.name} draggable="false" className="w-full h-full object-cover pointer-events-none" />
                 </div>
               );
@@ -55,17 +56,17 @@ const ExpertisesSection = () => {
                 const isActive = active === index;
                 return (
                   <div key={item.id} className={`w-full flex-col transition-all duration-700 ease-out pointer-events-none ${isActive ? 'relative opacity-100 translate-y-0 z-10 flex' : 'absolute top-0 left-0 opacity-0 translate-y-8 -z-10 flex pointer-events-none'}`}>
-                    <h3 className="text-3xl font-extrabold text-[#1e293b] tracking-tight mb-2">{item.name}</h3>
-                    <h4 className="text-[#64748b] text-[1.05rem] font-medium mb-1">{item.role}</h4>
-                    <p className="text-[0.75rem] font-bold text-[#2563eb] uppercase tracking-wider mb-6">{item.title}</p>
-                    <p className="text-[#334155] leading-relaxed text-[1.1rem] mb-6 max-w-md">{item.text}</p>
+                    <h3 className="text-3xl font-extrabold text-slate-800 tracking-tight mb-2">{item.name}</h3>
+                    <h4 className="text-slate-500 text-[1.05rem] font-medium mb-1">{item.role}</h4>
+                    <p className="text-[0.75rem] font-bold text-signal-blue uppercase tracking-wider mb-6">{item.title}</p>
+                    <p className="text-slate-700 leading-relaxed text-[1.1rem] mb-6 max-w-md">{item.text}</p>
                   </div>
                 );
               })}
             </div>
             <div className="flex items-center gap-4 mt-8 md:mt-12 relative z-40">
-              <button onClick={handlePrev} className="w-11 h-11 rounded-full bg-[#0f172a] text-white flex items-center justify-center hover:bg-[#334155] hover:scale-105 active:scale-95 transition-all shadow-lg focus:outline-none"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg></button>
-              <button onClick={handleNext} className="w-11 h-11 rounded-full bg-[#0f172a] text-white flex items-center justify-center hover:bg-[#334155] hover:scale-105 active:scale-95 transition-all shadow-lg focus:outline-none"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg></button>
+              <button onClick={handlePrev} className="w-11 h-11 rounded-full bg-signal-blue text-white flex items-center justify-center hover:bg-signal-blue/90 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-signal-blue/20 focus:outline-none"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg></button>
+              <button onClick={handleNext} className="w-11 h-11 rounded-full bg-signal-blue text-white flex items-center justify-center hover:bg-signal-blue/90 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-signal-blue/20 focus:outline-none"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg></button>
             </div>
           </div>
         </div>

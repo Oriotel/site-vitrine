@@ -1,11 +1,24 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
+import SectionTitle from '@/components/ui/SectionTitle';
 
 export function AboutSection() {
   return (
     <section className="relative z-10 w-full">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        
+        {/* HEADER AREA : Title Centered, Button Right */}
+        <div className="flex flex-col relative mb-8 px-4">
+          <SectionTitle 
+            subtitle="Qui nous sommes"
+            title="Pionnier de la gestion des opérations."
+            align="center"
+            description="Chez ORIOTEL, nous croyons que la structure est le socle de l'innovation."
+            className="mb-0 mx-auto"
+          />
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           <div className="relative w-full max-w-md mx-auto lg:max-w-none">
@@ -22,33 +35,33 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="flex flex-col mt-10 lg:mt-0">
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-signal-blue font-bold uppercase tracking-widest text-sm">
-                Qui nous sommes
-              </span>
+          <div className="flex flex-col mt-10 lg:mt-0 justify-center h-full">
+            <div className="flex justify-end w-full mb-8">
               <a href="/about">
-                <Button size="sm" className="rounded-lg px-6 font-semibold shadow-sm">
-                  Plus
+                <Button className="group relative overflow-hidden rounded-xl bg-signal-blue px-8 py-6 text-white transition-all hover:bg-signal-blue/90 hover:shadow-xl hover:shadow-signal-blue/20">
+                  <span className="relative z-10 flex items-center gap-2 font-bold tracking-wide">
+                    En savoir plus
+                    <svg className="w-5 h-5 transform transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </span>
                 </Button>
               </a>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-midnight-slate leading-tight mb-4 tracking-tight">
-              Pionnier de la gestion des opérations modernes.
-            </h2>
-            <p className="text-gray-600 leading-relaxed mb-6 text-base md:text-lg">
-              Chez <span className="font-semibold text-midnight-slate">ORIOTEL</span>, nous croyons que la structure est le socle de l'innovation. Depuis notre création, nous accompagnons les entreprises dans la curation de leurs flux de travail, transformant la complexité en fluidité architecturale.
-            </p>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-3">
-                <CheckCircle2 className="text-signal-blue w-5 h-5 shrink-0" fill="#1428C920" />
-                <span className="text-midnight-slate font-medium text-base md:text-lg">
+            <ul className="space-y-6">
+              <li className="flex items-center gap-4 group">
+                <div className="p-3 bg-[#1428C9]/5 rounded-xl group-hover:scale-110 transition-transform">
+                  <CheckCircle2 className="text-signal-blue w-7 h-7 shrink-0" fill="#1428C915" />
+                </div>
+                <span className="text-midnight-slate font-semibold text-lg md:text-xl">
                   Optimisation des performances critiques
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <CheckCircle2 className="text-signal-blue w-5 h-5 shrink-0" fill="#1428C920" />
-                <span className="text-midnight-slate font-medium text-base md:text-lg">
+              <li className="flex items-center gap-4 group">
+                <div className="p-3 bg-[#1428C9]/5 rounded-xl group-hover:scale-110 transition-transform">
+                  <CheckCircle2 className="text-signal-blue w-7 h-7 shrink-0" fill="#1428C915" />
+                </div>
+                <span className="text-midnight-slate font-semibold text-lg md:text-xl">
                   Design de solutions scalables
                 </span>
               </li>

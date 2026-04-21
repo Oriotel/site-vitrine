@@ -1,7 +1,7 @@
 
 import { Marquee } from "@/components/ui/Marquee";
 import { team } from "@/constants/data";
-import { UserCheck } from "lucide-react"; // Using UserCheck or similar as a replacement for the custom star icon if needed, or I'll copy the SVG.
+import SectionTitle from "@/components/ui/SectionTitle";
 
 // Extending the team data with images if not present
 const teamMembers = team.map((member, index) => ({
@@ -17,61 +17,13 @@ const teamMembers = team.map((member, index) => ({
 export function TeamMarqueeSection() {
   return (
     <section className="relative w-full overflow-hidden bg-white py-12 md:py-24 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 max-w-[100vw]">
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <svg
-          className="absolute right-0 bottom-0 text-slate-900 dark:text-white"
-          fill="none"
-          height="154"
-          viewBox="0 0 460 154"
-          width="460"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clipPath="url(#clip0_494_1104)">
-            <path
-              d="M-87.463 458.432C-102.118 348.092 -77.3418 238.841 -15.0744 188.274C57.4129 129.408 180.708 150.071 351.748 341.128C278.246 -374.233 633.954 380.602 548.123 42.7707"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="40"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_494_1104">
-              <rect fill="white" height="154" width="460" />
-            </clipPath>
-          </defs>
-        </svg>
-      </div>
-
       <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="mx-auto mb-16 flex max-w-5xl flex-col items-center px-6 text-center lg:px-0 overflow-hidden">
-          <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-500 text-white shadow-lg shadow-primary-500/20">
-            <UserCheck size={28} />
-          </div>
-
-          <h2 className="relative mb-4 font-bold text-4xl text-slate-900 tracking-tight sm:text-5xl dark:text-white">
-            Notre Équipe d'Experts
-            <svg
-              className="absolute -top-6 -right-12 -z-10 w-24 text-primary-100 dark:text-primary-900/30"
-              fill="currentColor"
-              height="86"
-              viewBox="0 0 108 86"
-              width="108"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M38.8484 16.236L15 43.5793L78.2688 15L18.1218 71L93 34.1172L70.2047 65.2739"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="28"
-              />
-            </svg>
-          </h2>
-          <p className="max-w-2xl text-slate-600 dark:text-slate-400 text-lg">
-            Une équipe passionnée et dévouée à faire de votre événement un moment d'exception.
-          </p>
-        </div>
+        <SectionTitle 
+          title="Notre Équipe d'Experts"
+          description="Une équipe passionnée et dévouée à faire de votre événement un moment d'exception."
+          align="center"
+          className="mb-16"
+        />
 
         <div className="relative w-full overflow-hidden">
           <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-gradient-to-r from-white to-transparent dark:from-slate-900" />
