@@ -1,26 +1,16 @@
-// src/components/layout/Layout.jsx
 import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
 
 const Layout = ({ children }) => {
   return (
-    /* Utilisation de Flexbox pour s'assurer que le footer reste en bas
-      même si le contenu principal est vide.
-    */
-    <div className="min-h-screen flex flex-col bg-cloud-white text-midnight-slate font-sans">
-      
-      {/* 1. La barre de navigation */}
+    /* overflow-x-hidden empêche le site de "bouger" de gauche à droite sur mobile */
+    <div className="min-h-screen flex flex-col text-midnight-slate font-sans overflow-x-hidden">
       <Header />
-
-      {/* 2. Le contenu spécifique de chaque page */}
-      <main className="flex-grow flex flex-col w-full mx-auto">
+      <main className="flex-grow flex flex-col w-full">
         {children}
       </main>
-
-      {/* 3. Le pied de page */}
       <Footer />
-      
     </div>
   );
 };

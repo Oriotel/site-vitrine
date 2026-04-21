@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import Layout from '@/components/layout/Layout'
+import SplashCursor from '@/components/ui/SplashCursor'
 
 import { useTranslation } from 'react-i18next'
 
@@ -27,6 +28,7 @@ const ApplyPage = lazy(() => import('./pages/ApplyPage'))
 function App() {
   return (
     <Layout>
+      <SplashCursor />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
