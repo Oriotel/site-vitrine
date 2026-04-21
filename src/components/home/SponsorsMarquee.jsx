@@ -12,7 +12,7 @@ export function SponsorsMarquee() {
   ];
 
   return (
-    <section className="w-full bg-cloud-white border-y border-gray-200 overflow-hidden flex items-center py-8 md:py-12">
+    <section className="w-full border-y border-gray-200 dark:border-gray-800 overflow-hidden flex items-center py-8 md:py-12">
       <div className="flex w-max animate-marquee hover-pause items-center gap-20 md:gap-32 px-10">
         
         {repeatedPartners.map((partner, index) => (

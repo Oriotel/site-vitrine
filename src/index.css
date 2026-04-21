@@ -25,6 +25,10 @@
   --color-cloud-white: #F9FAFB;
   --color-midnight-slate: #111827;
 
+  /* Page backgrounds */
+  --color-bg-light: #fffafa;
+  --color-bg-dark: #282828;
+
   /* Brand Palette - Signal Blue (Ajout du collègue) */
   --color-primary-50: #EEF2FF;
   --color-primary-100: #E0E7FF;
@@ -190,7 +194,7 @@
   }
 }
 
-/* ========== Global Styles (Ajout du collègue - CORRIGÉ) ========== */
+/* ========== Global Styles (Ajout du collègue ) ========== */
 @layer base {
   *, *::before, *::after {
     box-sizing: border-box;
@@ -199,7 +203,7 @@
   html,
   body,
   #root {
-    background-color: var(--color-slate-50);
+    background-color: var(--color-bg-light);
     color: var(--color-slate-900);
     font-family: var(--font-sans);
     line-height: 1.6;
@@ -217,7 +221,7 @@
   :is(.dark) html,
   :is(.dark) body,
   :is(.dark) #root {
-    background-color: var(--color-midnight-slate);
+    background-color: var(--color-bg-dark);
     color: var(--color-cloud-white);
   }
 

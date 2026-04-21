@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import Layout from '@/components/layout/Layout'
+import SplashCursor from '@/components/ui/SplashCursor'
 
 const LoadingSpinner = () => (
   <div className="flex flex-col items-center justify-center h-screen bg-dark-900 gap-4">
@@ -22,6 +23,7 @@ const ApplyPage = lazy(() => import('./pages/ApplyPage'))
 function App() {
   return (
     <Layout>
+      <SplashCursor />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<HomePage />} />

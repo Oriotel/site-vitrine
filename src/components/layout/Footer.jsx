@@ -46,7 +46,7 @@ const Underline = `hover:-translate-y-1 rounded-xl p-2.5 transition-transform te
 
 const Footer = () => {
   return (
-    <footer className="w-full border-t border-gray-200 dark:border-gray-800 bg-cloud-white dark:bg-midnight-slate transition-colors duration-300 pt-10 flex flex-col">
+    <footer className="w-full border-t border-gray-200 dark:border-gray-800 transition-colors duration-300 pt-10 flex flex-col">
       
       {/* CONTENEUR GLOBAL : Force 80% de largeur et centre parfaitement (marges égales) */}
       <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col">
@@ -118,7 +118,7 @@ const Footer = () => {
               />
             </div>
           </a>
-          <p className="text-center md:text-left text-sm leading-relaxed text-gray-600 dark:text-gray-400 md:max-w-2xl lg:max-w-3xl">
+          <p className="text-center md:text-left text-sm leading-relaxed text-gray-600 dark:text-white md:max-w-2xl lg:max-w-3xl">
             <span className="font-medium text-midnight-slate dark:text-cloud-white">ORIOTEL</span> est une entreprise marocaine spécialisée dans l’achat et la vente d’appareils téléphoniques et électriques. Grâce à son expertise en négoce et en intermédiation, elle accompagne les grandes sociétés de télécommunications ainsi que les particuliers en leur offrant des produits et services fiables, modernes et accessibles.
           </p>
         </div>
@@ -126,7 +126,7 @@ const Footer = () => {
       </div>
 
       {/* 4. SECTION COPYRIGHT */}
-      <div className="w-full bg-cloud-white dark:bg-midnight-slate py-6 border-t border-gray-200 dark:border-gray-800 mt-auto">
+      <div className="w-full py-6 border-t border-gray-200 dark:border-gray-800 mt-auto">
         <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500 dark:text-gray-400">
           <span>© {new Date().getFullYear()} ORIOTEL - Tous droits réservés</span>
           

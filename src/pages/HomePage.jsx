@@ -4,6 +4,7 @@ import AboutSection from '@/components/home/AboutSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import ExpertisesSection from '@/components/home/ExpertisesSection';
 import EventsSection from '@/components/home/EventsSection';
+import ScrollReveal from '@/components/ui/ScrollReveal';
 
 const HomePage = () => {
   return (
@@ -11,19 +12,35 @@ const HomePage = () => {
       {/* 1. SECTION FULL-WIDTH : Le Hero touche les bords */}
       <Hero />
 
-      {/* 2. LE CONTENEUR D'ÉQUILIBRE (Ajusté)
-          - gap-10 md:gap-16 : (Avant c'était 12 et 24). Réduit l'espace entre les sections de ~30%.
-          - py-12 : (Avant c'était 16). Réduit l'espace tout en haut et tout en bas.
-      */}
+      {/* 2. LE CONTENEUR D'ÉQUILIBRE */}
       <div className="w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12 flex flex-col gap-10 md:gap-12 py-8">
-        <AboutSection />
-        <ExpertisesSection />
-        <EventsSection />
-        <TestimonialsSection />
+        
+        {/* About: slide in from the left with a slight skew for editorial feel */}
+        <ScrollReveal variant="fadeUp" duration={1000} distance={70} easing="cubic-bezier(0.22, 1, 0.36, 1)">
+          <AboutSection />
+        </ScrollReveal>
+
+        {/* Expertises: 3D perspective rotation for depth */}
+        <ScrollReveal variant="rotateIn" duration={1100} delay={80}>
+          <ExpertisesSection />
+        </ScrollReveal>
+
+        {/* Events: cinematic clip reveal from bottom */}
+        <ScrollReveal variant="fadeUp" duration={1200} distance={50}>
+          <EventsSection />
+        </ScrollReveal>
+
+        {/* Testimonials: soft blur-in for an ethereal effect */}
+        <ScrollReveal variant="blur" duration={1100} distance={50}>
+          <TestimonialsSection />
+        </ScrollReveal>
+
       </div>
 
       {/* 3. SECTION FULL-WIDTH : Les sponsors doivent toucher les bords */}
-      <SponsorsMarquee />
+      <ScrollReveal variant="fadeUp" duration={800} distance={30}>
+        <SponsorsMarquee />
+      </ScrollReveal>
     </>
   );
 };
