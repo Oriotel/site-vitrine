@@ -5,18 +5,25 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/utils/cn'
 
 export const TeamCarousel = ({ members }) => {
-  // Memoize the tripled members to avoid redundant array creation
-  const duplicatedMembers = React.useMemo(() => [...members, ...members, ...members], [members])
+  // Higher duplication factor to ensure a "truly infinite" feel for small datasets
+  const duplicatedMembers = React.useMemo(() => [
+    ...members, ...members, ...members,
+    ...members, ...members, ...members,
+    ...members, ...members, ...members,
+    ...members, ...members, ...members
+  ], [members])
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { 
-      loop: true, 
+    {
+      loop: true,
       align: 'center',
-      skipSnaps: false,
-      duration: 30, // Smooth scroll duration
+      skipSnaps: true,
+      dragFree: true,
+      containScroll: false,
+      duration: 25,
       inViewThreshold: 0.7
-    }, 
-    [Autoplay({ delay: 3500, stopOnInteraction: true })]
+    },
+    [Autoplay({ delay: 1800, stopOnInteraction: false, playOnInit: true })]
   )
 
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -88,7 +95,7 @@ export const TeamCarousel = ({ members }) => {
               className={cn(
                 "h-2 rounded-full transition-all duration-500",
                 index === (selectedIndex % members.length)
-                  ? "w-8 bg-primary-600 shadow-[0_0_10px_rgba(20,40,201,0.5)]" 
+                  ? "w-8 bg-primary-600 shadow-[0_0_10px_rgba(20,40,201,0.5)]"
                   : "w-2 bg-slate-300 hover:bg-slate-400"
               )}
               aria-label={`Go to slide ${index + 1}`}

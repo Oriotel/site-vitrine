@@ -7,9 +7,9 @@ import { useTranslation } from "react-i18next";
 
 export function TeamMarqueeSection() {
   const { t } = useTranslation();
-  
+
   return (
-    <section className="relative w-full overflow-hidden bg-white py-24 md:py-32 max-w-[100vw]">
+    <section className="relative w-full overflow-hidden bg-white py-16 md:py-20 max-w-[100vw]">
       {/* Premium Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Floating ambient blobs */}
@@ -52,7 +52,7 @@ export function TeamMarqueeSection() {
           </AnimatedSection>
         </div>
 
-        {/* Carousel with Fade Edges */}
+        {/* Truly Infinite Carousel */}
         <div className="relative w-full">
           {/* Edge Mask Gradients - matches section bg */}
           <div className="pointer-events-none absolute top-0 left-0 z-20 h-full w-24 md:w-48 bg-gradient-to-r from-white to-transparent" />
@@ -62,14 +62,13 @@ export function TeamMarqueeSection() {
             <TeamCarousel members={team} />
           </div>
         </div>
-
         {/* CEO Quote / Testimonial: Redesigned to match reference image */}
         <div className="mx-auto mt-32 max-w-4xl px-6 text-center">
           <AnimatedSection animation="animate-fade-in-up">
             <h3 className="mb-12 text-2xl md:text-3xl font-semibold text-slate-900 leading-tight max-w-3xl mx-auto italic">
               "{t('about.team.testimonial')}"
             </h3>
-            
+
             <div className="flex flex-col items-center gap-4">
               <div className="relative h-20 w-20 overflow-hidden rounded-full ring-4 ring-slate-100 shadow-lg">
                 <img

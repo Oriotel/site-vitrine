@@ -21,7 +21,7 @@ const ExploreSection = () => {
   }
 
   return (
-    <section className="section-padding bg-slate-50 overflow-x-hidden relative">
+    <section className="section-padding bg-white overflow-x-hidden relative">
       {/* Decorative ambient light */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-500/5 rounded-full blur-[120px] pointer-events-none" />
       

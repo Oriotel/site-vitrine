@@ -7,7 +7,7 @@ const TimelineSection = () => {
   const { t } = useTranslation()
   
   return (
-    <section className="section-padding bg-slate-50 relative overflow-hidden group/section">
+    <section className="section-padding bg-white relative overflow-hidden group/section">
       {/* Background Decorative Elements - Softened for light background */}
       <div className="absolute top-0 inset-x-0 h-full w-full pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] bg-primary-400/5 rounded-full blur-[100px] animate-pulse" />
