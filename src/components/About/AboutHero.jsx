@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import AnimatedSection from '@/components/Common/AnimatedSection'
+import AnimatedSection from '@/components/common/AnimatedSection'
 import { companyInfo } from '@/constants/data'
 
 const AboutHero = () => {

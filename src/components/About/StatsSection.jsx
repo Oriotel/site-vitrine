@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { stats } from '@/constants/data'
-import AnimatedSection from '@/components/Common/AnimatedSection'
+import AnimatedSection from '@/components/common/AnimatedSection'
 
 const StatsSection = () => {
   const { t } = useTranslation()

@@ -1,5 +1,5 @@
-import AnimatedSection from '@/components/Common/AnimatedSection'
-import SectionTitle from '@/components/Common/SectionTitle'
+import AnimatedSection from '@/components/common/AnimatedSection'
+import SectionTitle from '@/components/common/SectionTitle'
 import { timeline } from '@/constants/data'
 import { useTranslation } from 'react-i18next'
 

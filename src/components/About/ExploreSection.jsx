@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { exploreData } from '@/constants/data'
 import { Clock, Shield, Star, Compass, ArrowUpRight } from 'lucide-react'
-import Button from '@/components/Common/Button'
-import AnimatedSection from '@/components/Common/AnimatedSection'
+import Button from '@/components/common/Button'
+import AnimatedSection from '@/components/common/AnimatedSection'
 import { InteractiveStoryGallery } from './InteractiveStoryGallery'
 import { useTranslation } from 'react-i18next'
 

@@ -1,8 +1,8 @@
 import { team } from "@/constants/data";
 // import SectionTitle from "@/components/ui/SectionTitle"; // Ignoré pour conserver le titre i18n personnalisé avec SVG
 import { TeamCarousel } from "./TeamCarousel";
-import { ScribbleText } from "../Common/ScribbleText";
-import AnimatedSection from "../Common/AnimatedSection";
+import { ScribbleText } from "../common/ScribbleText";
+import AnimatedSection from "../common/AnimatedSection";
 import { useTranslation } from "react-i18next";
 
 export function TeamMarqueeSection() {
