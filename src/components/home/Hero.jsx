@@ -7,9 +7,9 @@ export function Hero() {
   const hyperspeedOptions = useMemo(() => ({
     distortion: 'turbulentDistortion',
     colors: {
-      roadColor: 0xfffafa,
-      islandColor: 0xf5f5f5,
-      background: 0xfffafa,
+      roadColor: 0xffffff,
+      islandColor: 0xffffff,
+      background: 0xffffff,
       shoulderLines: 0x1428c9,
       brokenLines: 0x1428c9,
       leftCars: [0x1428c9, 0x071578, 0x020c1a],
@@ -19,7 +19,7 @@ export function Hero() {
   }), []);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-[#fffafa] font-sans flex flex-col">
+    <section className="relative w-full min-h-screen overflow-hidden bg-white font-sans flex flex-col">
 
       {/* ── HYPERSPEED BACKGROUND ── */}
       <div className="absolute inset-0 z-0 opacity-70">

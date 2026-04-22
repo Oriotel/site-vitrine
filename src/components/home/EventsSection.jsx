@@ -41,18 +41,18 @@ const EventsSection = () => {
       <div className="max-w-full lg:max-w-[1600px] mx-auto px-0 sm:px-4 lg:px-8 relative">
         <div className="flex flex-col items-center mb-6">
           <SectionTitle 
-              subtitle="Agenda" 
+              subtitle="" 
               title="Événements Oriotel" 
               description="Découvrez nos prochains événements et conférences"
               align="center" 
             />
-            <div className="mt-4">
-              <a href="/evenements" className="text-[#1428C9] font-semibold text-sm hover:opacity-80 transition-opacity flex items-center gap-1 group pb-1">
+            
+        </div>
+        <div className="mt-4">
+              <a href="/evenements" className="text-[#1428C9] font-semibold text-sm hover:opacity-80 transition-opacity flex items-end gap-1 group pb-1">
                 Tout voir <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
               </a>
             </div>
-        </div>
-        
         <div 
           className="mt-4 relative w-full h-[350px] md:h-[500px] flex justify-center items-center [perspective:1000px] overflow-hidden touch-pan-y" 
           onTouchStart={onTouchStart} 

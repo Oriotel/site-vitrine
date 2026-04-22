@@ -11,10 +11,10 @@ export function AboutSection() {
         {/* HEADER AREA : Title Centered, Button Right */}
         <div className="flex flex-col relative mb-8 px-4">
           <SectionTitle 
-            subtitle="Qui nous sommes"
-            title="Pionnier de la gestion des opérations."
+            subtitle=""
+            title="Qui nous sommes ?"
             align="center"
-            description="Chez ORIOTEL, nous croyons que la structure est le socle de l'innovation."
+            description="Pionnier de la gestion des opérations."
             className="mb-0 mx-auto"
           />
         </div>
