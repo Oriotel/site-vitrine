@@ -1,4 +1,5 @@
 import React from 'react';
+import StatsSection from '../components/About/StatsSection';
 
 const servicesList = [
   { 
@@ -71,7 +72,7 @@ const ServicesPage = () => {
       </section>
 
       {/* 2. GRILLE DE 6 CARTES SIMPLES (Remplace l'animation de carrousel) */}
-      <section className="bg-[#F9FAFB] py-24 border-t border-slate-200/60">
+      <section className="bg-[#F9FAFB] pt-24 pb-12 border-t border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="mb-16 text-center lg:text-left">
@@ -123,6 +124,8 @@ const ServicesPage = () => {
         </div>
       </section>
 
+      {/* 3. SECTION STATISTIQUES */}
+      <StatsSection />
     </div>
   );
 };
