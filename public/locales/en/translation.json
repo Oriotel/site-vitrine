@@ -1,0 +1,85 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "explore": "EXPLORE"
+  },
+  "about": {
+    "hero": {
+      "title": "Who are we?"
+    },
+    "explore": {
+      "featured": {
+        "title": "Redefining Excellence",
+        "description": "We create bespoke experiences that transcend the ordinary. Every detail is meticulously orchestrated to reflect your unique vision.",
+        "cta": "Discover more"
+      },
+      "features": {
+        "service": "Bespoke Service",
+        "quality": "Premium Quality",
+        "innovation": "Innovation"
+      },
+      "gallery": {
+        "discover_more": "Discover more"
+      }
+    },
+    "team": {
+      "badge": "The Team",
+      "title": "Our Team of Experts",
+      "subtitle": "Excellence at the service of your ambitions",
+      "description": "A passionate team dedicated to transforming every detail of your event into an imperishable memory.",
+      "testimonial": "Excellence is not an act, but a habit. Our team strives every day to turn this vision into reality for our most demanding clients.",
+      "founder_role": "Founder · ORIOTEL PREMIUM"
+    },
+    "stories": {
+      "identity": {
+        "category": "The Team",
+        "title": "Identity & Vision",
+        "description": "At the heart of ORIOTEL, a passionate team cultivates excellence to transform each ambition into a prestigious reality."
+      },
+      "headquarters": {
+        "category": "Our House",
+        "title": "Headquarters & Prestige",
+        "description": "Our Parisian headquarters embodies the elegance and professionalism that we breathe into each of our services."
+      },
+      "collaboration": {
+        "category": "High Moments",
+        "title": "Collaboration & Events",
+        "description": "Every event is the fruit of close collaboration and limitless creativity to surprise and leave a mark."
+      },
+      "innovation": {
+        "category": "The Future",
+        "title": "Innovation & Excellence",
+        "description": "We constantly push back the boundaries of innovation to offer unique experiences at the cutting edge of technology."
+      }
+    },
+    "history": {
+      "title": "Our History",
+      "subtitle": "A journey marked by excellence and innovation.",
+      "items": {
+        "founding": "Founding",
+        "founding_desc": "Creation of ORIOTEL in Paris with a vision of event excellence.",
+        "expansion": "Expansion",
+        "expansion_desc": "Opening of our first international office and expansion of our service offering.",
+        "awards": "Excellence Award",
+        "awards_desc": "ORIOTEL receives the award for the best event agency of the year.",
+        "digital": "Digital Transformation",
+        "digital_desc": "Launch of our hybrid and 100% digital event solutions.",
+        "milestone": "500+ Events",
+        "milestone_desc": "Symbolic milestone of 500 events successfully organized worldwide.",
+        "future": "New Era",
+        "future_desc": "Launch of our integrated platform and expansion into new markets."
+      }
+    },
+    "stats": {
+      "events": "Events organized",
+      "clients": "Satisfied clients",
+      "experience": "Years of experience",
+      "experts": "Passionate experts"
+    },
+    "company": {
+      "slogan": "Excellence at the service of your ambitions",
+      "description": "ORIOTEL is a company specializing in the organization of premium events and the provision of high-quality professional services. Our commitment to excellence sets us apart.",
+      "longDescription": "Since our creation, ORIOTEL has established itself as a key player in the world of events and premium consulting. Our passionate team puts its expertise at the service of your success, offering bespoke solutions that combine innovation, elegance, and performance."
+    }
+  }
+}

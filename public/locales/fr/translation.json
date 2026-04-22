@@ -1,0 +1,85 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "explore": "EXPLORE"
+  },
+  "about": {
+    "hero": {
+      "title": "Qui sommes-nous?"
+    },
+    "explore": {
+      "featured": {
+        "title": "Redéfinir l'Excellence",
+        "description": "Nous créons des expériences sur mesure qui transcendent l'ordinaire. Chaque détail est méticuleusement orchestré pour refléter votre vision unique.",
+        "cta": "Découvrir plus"
+      },
+      "features": {
+        "service": "Service Sur-Mesure",
+        "quality": "Qualité Premium",
+        "innovation": "Innovation"
+      },
+      "gallery": {
+        "discover_more": "Découvrir plus"
+      }
+    },
+    "team": {
+      "badge": "L'Équipe",
+      "title": "Notre Équipe d'Experts",
+      "subtitle": "L'excellence au service de vos ambitions",
+      "description": "Une équipe passionnée et dévouée à transformer chaque détail de votre événement en un souvenir impérissable.",
+      "testimonial": "L'excellence n'est pas un acte, mais une habitude. Notre équipe s'efforce chaque jour de transformer cette vision en réalité pour nos clients les plus exigeants.",
+      "founder_role": "Fondateur · ORIOTEL PREMIUM"
+    },
+    "stories": {
+      "identity": {
+        "category": "L'Équipe",
+        "title": "Identité & Vision",
+        "description": "Au cœur d'ORIOTEL, une équipe passionnée cultive l'excellence pour transformer chaque ambition en une réalité prestigieuse."
+      },
+      "headquarters": {
+        "category": "Notre Maison",
+        "title": "Siège & Prestige",
+        "description": "Notre siège parisien incarne l'élégance et le professionnalisme que nous insufflons dans chacun de nos services."
+      },
+      "collaboration": {
+        "category": "Moments Forts",
+        "title": "Collaboration & Événements",
+        "description": "Chaque événement est le fruit d'une collaboration étroite et d'une créativité sans limite pour surprendre et marquer les esprits."
+      },
+      "innovation": {
+        "category": "Le Futur",
+        "title": "Innovation & Excellence",
+        "description": "Nous repousons sans cesse les frontières de l'innovation pour offrir des expériences uniques et à la pointe de la technologie."
+      }
+    },
+    "history": {
+      "title": "Notre Histoire",
+      "subtitle": "Un parcours jalonné d'excellence et d'innovations.",
+      "items": {
+        "founding": "Fondation",
+        "founding_desc": "Création d'ORIOTEL à Paris avec une vision d'excellence événementielle.",
+        "expansion": "Expansion",
+        "expansion_desc": "Ouverture de notre premier bureau international et élargissement de l'offre de services.",
+        "awards": "Prix d'Excellence",
+        "awards_desc": "ORIOTEL reçoit le prix de la meilleure agence événementielle de l'année.",
+        "digital": "Transformation Digitale",
+        "digital_desc": "Lancement de nos solutions d'événements hybrides et 100% digitaux.",
+        "milestone": "500+ Événements",
+        "milestone_desc": "Cap symbolique de 500 événements organisés avec succès à travers le monde.",
+        "future": "Nouvelle Ère",
+        "future_desc": "Lancement de notre plateforme intégrée et expansion vers de nouveaux marchés."
+      }
+    },
+    "stats": {
+      "events": "Événements organisés",
+      "clients": "Clients satisfaits",
+      "experience": "Années d'expérience",
+      "experts": "Experts passionnés"
+    },
+    "company": {
+      "slogan": "L'excellence au service de vos ambitions",
+      "description": "ORIOTEL est une entreprise spécialisée dans l'organisation d'événements premium et la fourniture de services professionnels de haute qualité. Notre engagement envers l'excellence nous distingue.",
+      "longDescription": "Depuis notre création, ORIOTEL s'est imposée comme un acteur incontournable dans l'univers de l'événementiel et du conseil premium. Notre équipe passionnée met son expertise au service de votre réussite, en proposant des solutions sur mesure qui allient innovation, élégance et performance."
+    }
+  }
+}
