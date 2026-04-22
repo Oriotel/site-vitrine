@@ -7,9 +7,9 @@ export function Hero() {
   const hyperspeedOptions = useMemo(() => ({
     distortion: 'turbulentDistortion',
     colors: {
-      roadColor: 0xfffafa,
-      islandColor: 0xf5f5f5,
-      background: 0xfffafa,
+      roadColor: 0xffffff,
+      islandColor: 0xffffff,
+      background: 0xffffff,
       shoulderLines: 0x1428c9,
       brokenLines: 0x1428c9,
       leftCars: [0x1428c9, 0x071578, 0x020c1a],
@@ -19,7 +19,7 @@ export function Hero() {
   }), []);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-[#fffafa] font-sans flex flex-col">
+    <section className="relative w-full min-h-screen overflow-hidden bg-white font-sans flex flex-col">
 
       {/* ── HYPERSPEED BACKGROUND ── */}
       <div className="absolute inset-0 z-0 opacity-70">
@@ -73,8 +73,8 @@ export function Hero() {
 
       {/* ── CENTER SCROLL ANIMATION ── */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#020c1a]/40 z-20">
-         <span className="text-[10px] tracking-[0.3em] uppercase hidden md:block">Scroll</span>
-         <ArrowDown className="w-5 h-5 animate-bounce text-[#1428C9]" />
+        <span className="text-[10px] tracking-[0.3em] uppercase hidden md:block">Scroll</span>
+        <ArrowDown className="w-5 h-5 animate-bounce text-[#1428C9]" />
       </div>
 
       {/* ── THIN BOTTOM ACCENT ── */}

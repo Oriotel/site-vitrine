@@ -7,14 +7,13 @@ import { Globe } from 'lucide-react';
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const scrolled = useScroll(20); 
-  
+  const scrolled = useScroll(20);
+
   const [language, setLanguage] = useState('FR');
 
   const links = [
     { label: 'Accueil', href: '/' },
     { label: 'À propos de nous', href: '/about' },
-    { label: 'Notre Méthodologie', href: '/processus' },
     { label: 'Services & Expertise', href: '/services' },
     { label: 'Événements', href: '/evenements' },
     { label: 'Nous contacter', href: '/contact' },
@@ -41,29 +40,29 @@ export function Header() {
         className={cn(
           'fixed z-50 mx-auto transition-all duration-500 ease-in-out',
           {
-            'top-4 left-0 right-0 w-[98%] lg:w-[85%] max-w-7xl rounded-2xl border border-gray-200 bg-cloud-white/90 backdrop-blur-md shadow-lg py-2 px-3': 
+            'top-4 left-0 right-0 w-[98%] lg:w-[85%] max-w-7xl rounded-2xl border border-gray-200 bg-cloud-white/90 backdrop-blur-md shadow-lg py-2 px-3':
               scrolled && !open,
-            'top-0 left-0 right-0 w-full rounded-none border-b border-gray-100 bg-cloud-white py-4 px-6 lg:px-10': 
+            'top-0 left-0 right-0 w-full rounded-none border-b border-gray-100 bg-cloud-white py-4 px-6 lg:px-10':
               !scrolled && !open,
-            'top-0 left-0 right-0 w-full bg-cloud-white py-4 px-4': 
+            'top-0 left-0 right-0 w-full bg-cloud-white py-4 px-4':
               open,
           }
         )}
       >
         <nav className="flex w-full items-center justify-between">
-          
+
           {/* ==========================================
               1. GAUCHE : LOGO (Prend un tiers de l'espace)
               ========================================== */}
           <div className="flex-1 flex justify-start items-center">
             <a href="/" className="pl-2 shrink-0">
-              <img 
-                src="/assets/images/logo-oriotel.svg" 
-                alt="Oriotel Logo" 
+              <img
+                src="/assets/images/logo-oriotel.svg"
+                alt="Oriotel Logo"
                 className={cn(
                   "w-auto object-contain transition-all duration-300",
                   scrolled ? "h-7" : "h-9"
-                )} 
+                )}
               />
             </a>
           </div>
@@ -74,12 +73,12 @@ export function Header() {
               ========================================== */}
           <div className="hidden lg:flex items-center justify-center gap-1 lg:gap-2 shrink-0">
             {links.map((link, i) => (
-              <a 
-                key={i} 
+              <a
+                key={i}
                 className={cn(
                   buttonVariants({ variant: 'ghost', size: 'sm' }),
                   "text-sm px-3"
-                )} 
+                )}
                 href={link.href}
               >
                 {link.label}
@@ -92,7 +91,7 @@ export function Header() {
               3. DROITE : ACTIONS (Prend le dernier tiers de l'espace)
               ========================================== */}
           <div className="flex-1 flex justify-end items-center gap-2">
-            
+
             {/* Conteneur Desktop (Langue + Offres) */}
             <div className="hidden lg:flex items-center gap-2">
               {/* SÉLECTEUR DE LANGUE (Disparaît au scroll) */}
@@ -100,9 +99,9 @@ export function Header() {
                 "transition-all duration-500 ease-in-out overflow-hidden flex items-center",
                 scrolled ? "max-w-0 opacity-0 ml-0 pointer-events-none" : "max-w-[100px] opacity-100"
               )}>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
+                <Button
+                  variant="ghost"
+                  size="sm"
                   onClick={toggleLanguage}
                   className="flex items-center gap-1 px-2 text-midnight-slate hover:bg-gray-100 rounded-full cursor-pointer"
                 >
@@ -114,24 +113,24 @@ export function Header() {
               {/* BOUTON OFFRES D'EMPLOI (Reste TOUJOURS visible) */}
               <div className="shrink-0">
                 <a href="/carrieres/offres">
-                   <Button className="rounded-full px-5 h-9 text-sm whitespace-nowrap shadow-md hover:shadow-lg transition-all">
-                     Offres d'emploi
-                   </Button>
+                  <Button className="rounded-full px-5 h-9 text-sm whitespace-nowrap shadow-md hover:shadow-lg transition-all">
+                    Offres d'emploi
+                  </Button>
                 </a>
               </div>
             </div>
 
             {/* BOUTON MENU MOBILE (Hamburger) */}
-            <Button 
-              size="icon" 
-              variant="ghost" 
-              onClick={() => setOpen(!open)} 
+            <Button
+              size="icon"
+              variant="ghost"
+              onClick={() => setOpen(!open)}
               className="lg:hidden text-midnight-slate"
             >
               <MenuToggleIcon open={open} className="size-6" duration={300} />
             </Button>
           </div>
-          
+
         </nav>
       </header>
 
@@ -143,17 +142,17 @@ export function Header() {
         )}
       >
         <div className="flex h-full flex-col gap-4">
-          
+
           <div className="flex justify-end border-b border-gray-100 pb-2">
-             <Button 
-               variant="ghost" 
-               size="sm" 
-               onClick={toggleLanguage}
-               className="flex items-center gap-2"
-             >
-                <Globe className="w-5 h-5" />
-                <span className="font-semibold">{language === 'FR' ? 'Français' : 'English'}</span>
-             </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleLanguage}
+              className="flex items-center gap-2"
+            >
+              <Globe className="w-5 h-5" />
+              <span className="font-semibold">{language === 'FR' ? 'Français' : 'English'}</span>
+            </Button>
           </div>
 
           <div className="flex flex-col gap-2 mt-2">

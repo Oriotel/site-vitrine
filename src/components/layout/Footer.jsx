@@ -42,18 +42,18 @@ const navigation = {
 };
 
 // Application de la couleur #fff5ee par défaut
-const Underline = `hover:-translate-y-1 rounded-xl p-2.5 transition-transform text-[#fff5ee] hover:text-signal-blue`;
+const Underline = `hover:-translate-y-1 rounded-xl p-2.5 transition-transform text-slate-800 hover:text-signal-blue`;
 
 const Footer = () => {
   return (
-    <footer id="site-footer" className="w-full bg-[#020c1a] text-[#fff5ee] border-t border-white/10 transition-colors duration-300 pt-10 flex flex-col">
+    <footer id="site-footer" className="w-full bg-white text-slate-900 border-t border-slate-200 transition-colors duration-300 pt-10 flex flex-col">
       
       {/* CONTENEUR GLOBAL */}
       <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col">
 
         {/* 1. SECTION RÉSEAUX SOCIAUX */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pb-8">
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 pb-8">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <a aria-label="LinkedIn" href="#" className={Underline}>
               <Linkedin className="h-5 w-5" />
             </a>
@@ -69,7 +69,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-b border-white/10 w-full mb-10"></div>
+        <div className="border-b border-slate-200 w-full mb-10"></div>
 
         {/* 2. SECTION NAVIGATION */}
         <div className="pb-10 w-full">
@@ -78,7 +78,7 @@ const Footer = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {category.sections.map((section) => (
                   <div key={section.name} className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <h3 className="text-base font-medium mb-6 !text-[#fff5ee]">
+                    <h3 className="text-base font-medium mb-6 !text-slate-900">
                       {section.name}
                     </h3>
                     <ul role="list" className="flex flex-col space-y-4">
@@ -86,7 +86,7 @@ const Footer = () => {
                         <li key={item.name} className="flow-root">
                           <a
                             href={item.href}
-                            className="text-sm font-normal text-[#fff5ee] opacity-80 hover:opacity-100 hover:text-signal-blue transition-all"
+                            className="text-sm font-normal text-slate-600 hover:text-signal-blue transition-all"
                           >
                             {item.name}
                           </a>
@@ -100,7 +100,7 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="border-b border-white/10 w-full mb-10"></div>
+        <div className="border-b border-slate-200 w-full mb-10"></div>
 
         {/* 3. SECTION LOGO ET DESCRIPTION */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10 pb-10">
@@ -110,12 +110,12 @@ const Footer = () => {
               <img 
                 src="/assets/images/logo-oriotel.svg" 
                 alt="Oriotel" 
-                className="h-10 w-auto object-contain brightness-0 invert" 
+                className="h-10 w-auto object-contain" 
               />
             </div>
           </a>
           
-          <p className="text-center md:text-left text-sm leading-relaxed text-[#fff5ee] opacity-90 md:max-w-2xl lg:max-w-3xl">
+          <p className="text-center md:text-left text-sm leading-relaxed text-slate-600 md:max-w-2xl lg:max-w-3xl">
             <span className="font-bold">ORIOTEL</span> est une entreprise marocaine spécialisée dans l’achat et la vente d’appareils téléphoniques et électriques. Grâce à son expertise en négoce et en intermédiation, elle accompagne les grandes sociétés de télécommunications ainsi que les particuliers en leur offrant des produits et services fiables, modernes et accessibles.
           </p>
         </div>
@@ -123,8 +123,8 @@ const Footer = () => {
       </div>
 
       {/* 4. SECTION COPYRIGHT */}
-      <div className="w-full py-6 border-t border-white/10 mt-auto">
-        <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#fff5ee] opacity-70">
+      <div className="w-full py-6 border-t border-slate-200 mt-auto">
+        <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <span>© {new Date().getFullYear()} ORIOTEL - Tous droits réservés</span>
           
           <div className="flex items-center gap-4">

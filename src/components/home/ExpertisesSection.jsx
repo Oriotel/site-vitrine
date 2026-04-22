@@ -25,16 +25,16 @@ const ExpertisesSection = () => {
   };
 
   return (
-    <section className="overflow-hidden font-sans w-full">
+    <section className="overflow-hidden font-sans w-full pt-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
-          subtitle="Nos domaines d'intervention" 
+          subtitle="" 
           title="Expertises Sectorielles" 
           description="Notre équipe pluridisciplinaire vous accompagne avec des solutions pointues et sur-mesure."
           align="center" 
           className="mb-8" 
         />
-        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-4 relative touch-pan-y" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-0 relative touch-pan-y" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
           <div className="w-full md:w-1/2 relative h-[380px] md:h-[500px] flex-shrink-0 perspective-1000">
             {expertises.map((item, index) => {
               const position = (index - active + expertises.length) % expertises.length;
@@ -50,7 +50,7 @@ const ExpertisesSection = () => {
               );
             })}
           </div>
-          <div className="w-full md:w-1/2 flex flex-col md:pl-8 lg:pl-16 relative">
+          <div className="w-full md:w-1/2 flex flex-col md:pl-8 lg:pl-10 relative">
             <div className="relative min-h-[220px]">
               {expertises.map((item, index) => {
                 const isActive = active === index;

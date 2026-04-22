@@ -39,8 +39,8 @@ const TestimonialsSection = () => {
     <section className="font-sans overflow-hidden w-full">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         <SectionTitle 
-          subtitle="Témoignages" 
-          title="Ils nous font confiance" 
+          subtitle="" 
+          title="Témoignages" 
           description="Découvrez les retours d'expérience de nos partenaires et clients qui ont transformé leur vision en succès."
           align="center" 
           className="mb-10" 
