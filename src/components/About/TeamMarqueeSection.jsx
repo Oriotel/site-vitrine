@@ -1,8 +1,8 @@
 import { team } from "@/constants/data";
 
-import { TeamCarousel } from "./TeamCarousel";
-import { ScribbleText } from "../Common/ScribbleText";
-import AnimatedSection from "../Common/AnimatedSection";
+import { TeamCarousel } from "@/components/ui/TeamCarousel";
+import { ScribbleText } from "@/components/Common/ScribbleText";
+import AnimatedSection from "@/components/Common/AnimatedSection";
 import { useTranslation } from "react-i18next";
 
 export function TeamMarqueeSection() {
