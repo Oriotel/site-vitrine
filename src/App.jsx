@@ -1,9 +1,12 @@
+
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import Layout from '@/components/layout/Layout'
 import SplashCursor from '@/components/ui/SplashCursor'
 
-import { useTranslation } from 'react-i18next'
+
+//import { useTranslation } from 'react-i18next'
+
 
 const LoadingSpinner = () => {
   const { t } = useTranslation()
@@ -50,10 +53,6 @@ function App() {
 
           {/* Routes À propos */}
           <Route path="/a-propos" element={<AboutPage />} />
-          <Route
-            path="/about"
-            element={<Navigate to="/a-propos" replace />}
-          />
 
           {/* Autres Routes */}
           <Route path="/services" element={<ServicesPage />} />
@@ -62,6 +61,7 @@ function App() {
         </Routes>
       </Suspense>
     </Layout>
+
   )
 }
 export default App;
