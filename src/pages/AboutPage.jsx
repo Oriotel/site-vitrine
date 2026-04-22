@@ -3,7 +3,7 @@ import AboutHero from '@/components/About/AboutHero'
 import ExploreSection from '@/components/About/ExploreSection'
 import TimelineSection from '@/components/About/TimelineSection'
 import StatsSection from '@/components/About/StatsSection'
-import { TeamMarqueeSection } from '@/components/UI/TeamMarqueeSection'
+import { TeamMarqueeSection } from '@/components/ui/TeamMarqueeSection'
 
 const AboutPage = () => {
   return (
