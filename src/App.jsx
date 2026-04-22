@@ -1,27 +1,32 @@
 import { Routes, Route } from 'react-router-dom'
-import { Suspense, lazy } from 'react'
 import Layout from '@/components/layout/Layout'
+import SplashCursor from '@/components/ui/SplashCursor'
 
-const LoadingSpinner = () => (
-  <div className="flex justify-center items-center h-screen">
-    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-600"></div>
-  </div>
-)
-
-const HomePage = lazy(() => import('./pages/HomePage'))
-const ContactPage = lazy(() => import('./pages/ContactPage'))
-
+import HomePage from './pages/HomePage'
+import ContactPage from './pages/ContactPage'
+import AboutPage from './pages/AboutPage'
+import ServicesPage from './pages/ServicesPage'
+import EventApplyPage from './pages/EventApplyPage'
+import ApplyPage from './pages/ApplyPage'
+import OffresPage from './pages/OffresPage'
 
 function App() {
   return (
     <Layout>
-    <Suspense fallback={<LoadingSpinner />}>
+      <SplashCursor />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
-
+        <Route path="/postuler" element={<ApplyPage />} />
+        <Route path="/carrieres/postuler" element={<ApplyPage />} />
+        <Route path="/carrieres/offres" element={<OffresPage />} />
+        <Route path="/evenement" element={<EventApplyPage />} />
+        <Route path="/evenements" element={<EventApplyPage />} />
+        <Route path="/evenements/inscription" element={<EventApplyPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/processus" element={<OffresPage />} />
       </Routes>
-    </Suspense>
     </Layout>
   )
 }
