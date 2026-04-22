@@ -68,6 +68,7 @@ export function Hero() {
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
+
         </div>
       </div>
 
