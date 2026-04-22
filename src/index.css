@@ -15,12 +15,11 @@
 }
 
 /* ========== Theme Tokens ========== */
-@theme inline {
+@theme {
   /* Page backgrounds */
   --color-bg-light: #ffffff;
 
   /* Typographie */
-  color-scheme: light;
   --font-carmine: "Carmine", ui-sans-serif, system-ui;
   --font-sans: "Montserrat", ui-sans-serif, system-ui;
 
