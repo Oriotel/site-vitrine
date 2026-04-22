@@ -3,6 +3,7 @@ import ProcessSteps from '@/components/offres/ProcessSteps';
 import OpportunityList from '@/components/offres/OpportunityList';
 import OpportunityDetails from '@/components/offres/OpportunityDetails';
 import WhyJoinSection from '@/components/offres/WhyJoinSection';
+import { BorderBeam } from '@/components/ui/BorderBeam';
 
 const jobsData = [
   {
@@ -54,10 +55,10 @@ const OffresPage = () => {
   return (
     <main className="bg-[#F9FAFB] min-h-screen pt-24 pb-20 font-sans text-[#111827]">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        
+
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#111827]">
+          <h1 className="text-4xl md:text-5xl primary-gradient-text mb-4 text-[#111827]">
             Notre Processus de <span className="text-[#1428C9]">Travail</span>
           </h1>
           <p className="text-lg text-gray-500">
@@ -71,10 +72,10 @@ const OffresPage = () => {
         {/* Main Section: Opportunities & Details */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mt-10">
           <div className="lg:col-span-5">
-            <OpportunityList 
-              opportunities={jobsData} 
-              selectedId={selectedJobId} 
-              onSelect={setSelectedJobId} 
+            <OpportunityList
+              opportunities={jobsData}
+              selectedId={selectedJobId}
+              onSelect={setSelectedJobId}
             />
           </div>
           <div className="lg:col-span-7">
@@ -84,7 +85,7 @@ const OffresPage = () => {
 
         {/* Why Join Us Section */}
         <WhyJoinSection />
-        
+
       </div>
     </main>
   );
