@@ -4,7 +4,7 @@ import { companyInfo } from '@/constants/data'
 
 const AboutHero = () => {
   const { t } = useTranslation()
-  
+
   return (
     <section className="relative pt-20 pb-12 lg:pt-24 lg:pb-16 overflow-x-hidden bg-white">
       <div className="absolute inset-0 bg-white" />

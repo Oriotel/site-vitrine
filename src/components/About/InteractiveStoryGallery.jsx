@@ -29,7 +29,7 @@ export const InteractiveStoryGallery = ({ stories }) => {
           />
           {/* Overlay Gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-          
+
           {/* Content: Integrated for cleaner look */}
           <div className="absolute bottom-10 left-10 right-10 z-10 transition-all duration-500 transform group-hover:translate-x-2">
             <span className="inline-block px-4 py-1.5 bg-primary-600 text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-xl mb-4 shadow-lg">
@@ -64,14 +64,14 @@ export const InteractiveStoryGallery = ({ stories }) => {
         <div className="relative w-full h-[280px] flex items-center justify-center xl:justify-start mb-6">
           {stories.map((story, index) => {
             if (index === activeIndex) return null;
-            
+
             const stackIndex = (index - activeIndex + stories.length) % stories.length;
-            
-            const xOffset = (stackIndex - 1) * 70; 
-            const yOffset = (stackIndex - 1) * 15; 
-            const scale = 1 - (stackIndex - 1) * 0.12; 
-            const opacity = 1 - (stackIndex - 1) * 0.25; 
-            const rotate = (stackIndex - 1) * 6; 
+
+            const xOffset = (stackIndex - 1) * 70;
+            const yOffset = (stackIndex - 1) * 15;
+            const scale = 1 - (stackIndex - 1) * 0.12;
+            const opacity = 1 - (stackIndex - 1) * 0.25;
+            const rotate = (stackIndex - 1) * 6;
 
             return (
               <button

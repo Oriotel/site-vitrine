@@ -16,7 +16,7 @@ const LoadingSpinner = () => {
       <span className="text-slate-500 text-xs font-montserrat font-bold tracking-[0.3em] uppercase">{t('common.loading')}</span>
     </div>
   )
-}
+} 
 
 const HomePage = lazy(() => import('./pages/HomePage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
@@ -43,11 +43,19 @@ function App() {
           {/* Routes Événements */}
           <Route path="/evenement" element={<EventApplyPage />} />
           <Route path="/evenements" element={<EventApplyPage />} />
-          <Route path="/evenements/inscription" element={<EventApplyPage />} />
+          <Route
+            path="/evenements/inscription"
+            element={<EventApplyPage />}
+          />
+
+          {/* Routes À propos */}
+          <Route path="/a-propos" element={<AboutPage />} />
+          <Route
+            path="/about"
+            element={<Navigate to="/a-propos" replace />}
+          />
 
           {/* Autres Routes */}
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/a-propos" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/processus" element={<OffresPage />} />
 

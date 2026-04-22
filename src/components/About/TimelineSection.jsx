@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const TimelineSection = () => {
   const { t } = useTranslation()
-  
+
   return (
     <section className="section-padding bg-white relative overflow-hidden group/section">
       {/* Background Decorative Elements - Softened for light background */}
@@ -46,11 +46,11 @@ const TimelineSection = () => {
 
                     {/* Premium Dark Timeline Card: High impact with background image */}
                     <div className={`relative group/card overflow-hidden bg-slate-900 rounded-3xl w-full max-w-md shadow-2xl transition-all duration-700 cursor-pointer hover:-translate-y-3 flex flex-col ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-left`}>
-                      
+
                       {/* Background Image Layer (Optimized for dark theme) */}
                       <div className="absolute inset-0 transition-transform duration-700 group-hover/card:scale-110 pointer-events-none">
-                        <img 
-                          src={item.image} 
+                        <img
+                          src={item.image}
                           alt={t(item.title)}
                           className="w-full h-full object-cover opacity-[0.35] transition-all duration-700 group-hover/card:opacity-[0.5]"
                         />
