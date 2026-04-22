@@ -5,7 +5,7 @@ import Layout from '@/components/layout/Layout'
 import SplashCursor from '@/components/ui/SplashCursor'
 
 
-//import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
 
 const LoadingSpinner = () => {

@@ -23,7 +23,7 @@ export function TeamMarqueeSection() {
         {/* Titre animé avec SVG réparé et traductions (HEAD) */}
         <div className="mx-auto mb-20 flex max-w-4xl flex-col items-center px-6 text-center">
           <AnimatedSection>
-            <h2 className="relative mb-6 font-carmine text-5xl md:text-6xl text-slate-900 dark:text-white tracking-tight">
+            <h2 className="relative mb-6 font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight primary-gradient-text pb-2">
               {t('about.team.title')}
               <svg
                 className="absolute -top-4 -right-12 -z-10 w-48 md:w-64 text-primary-500/20 opacity-100"
