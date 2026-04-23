@@ -48,7 +48,7 @@ export function Hero() {
           {/* <h1 className="text-7xl md:text-9xl tracking-[-0.02em] text-[#020c1a] font-gugi select-none">
             Oriotel
           </h1> */}
-          <Logo asLink={false} className="h-16 sm:h-24 md:h-36 lg:h-48 shrink-0" />
+          <Logo asLink={false} className="h-20 sm:h-24 md:h-36 lg:h-48 shrink-0" />
 
           {/* Tagline + description */}
           <div className="flex flex-col items-center gap-3 md:gap-4 shrink-0">
@@ -57,7 +57,7 @@ export function Hero() {
               Orchestrer l'avenir<br />
               <span className="font-semibold text-[#020c1a]">de vos opérations.</span>
             </p>
-            <p className="text-[#020c1a]/50 text-xs sm:text-sm md:text-base leading-relaxed max-w-md hidden sm:block">
+            <p className="text-[#020c1a]/60 text-xs sm:text-sm md:text-base leading-relaxed max-w-sm block">
               De l'infrastructure télécom à l'intelligence des flux de travail — des solutions sur-mesure pour votre croissance.
             </p>
             <a
@@ -73,7 +73,7 @@ export function Hero() {
       </div>
 
       {/* ── CENTER SCROLL ANIMATION ── */}
-      <div className="relative pb-4 md:pb-10 pt-2 flex flex-col items-center gap-2 text-[#020c1a]/40 z-20 shrink-0">
+      <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#020c1a]/40 z-20">
         <span className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase animate-bounce text-[#1428C9]">Scroll</span>
       </div>
 
