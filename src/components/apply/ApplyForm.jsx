@@ -28,30 +28,22 @@ const ApplyForm = () => {
       alert('Veuillez télécharger votre CV.');
       return;
     }
-<<<<<<< HEAD
+
 
     setStatus('submitting');
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-=======
-    
-    setStatus('submitting');
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
->>>>>>> feature/offres
+
     console.log('Application Submitted:', { ...formData, cv: selectedFile });
     setStatus('success');
   };
 
   if (status === 'success') {
     return (
-<<<<<<< HEAD
+
       <motion.div
-=======
-      <motion.div 
->>>>>>> feature/offres
+
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center space-y-4"
@@ -63,13 +55,10 @@ const ApplyForm = () => {
         <p className="text-gray-500 max-w-sm">
           Merci d'avoir postulé chez Oriotel. Notre équipe RH examinera votre profil et reviendra vers vous prochainement.
         </p>
-<<<<<<< HEAD
+
         <Button
           variant="outline"
-=======
-        <Button 
-          variant="outline" 
->>>>>>> feature/offres
+
           onClick={() => {
             setStatus('idle');
             setFormData({ firstName: '', lastName: '', email: '', phone: '', position: '', message: '' });
@@ -97,11 +86,9 @@ const ApplyForm = () => {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-<<<<<<< HEAD
+
             placeholder="ahmad"
-=======
-            placeholder="Jean"
->>>>>>> feature/offres
+
             required
           />
           <FormInput
@@ -109,11 +96,9 @@ const ApplyForm = () => {
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-<<<<<<< HEAD
+
             placeholder="ben"
-=======
-            placeholder="Dupont"
->>>>>>> feature/offres
+
             required
           />
         </div>
@@ -125,11 +110,8 @@ const ApplyForm = () => {
             type="email"
             value={formData.email}
             onChange={handleChange}
-<<<<<<< HEAD
-            placeholder="ahmad@entreprise.com"
-=======
-            placeholder="jean@entreprise.com"
->>>>>>> feature/offres
+
+
             required
           />
           <FormInput
@@ -138,13 +120,11 @@ const ApplyForm = () => {
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-<<<<<<< HEAD
+
 
             placeholder="+212 6 12 34 56 78"
 
-=======
-            placeholder="+33 6 12 34 56 78"
->>>>>>> feature/offres
+
             required
           />
         </div>
@@ -178,42 +158,28 @@ const ApplyForm = () => {
           isTextArea
         />
 
-<<<<<<< HEAD
+
         <UploadCV
           onFileSelect={setSelectedFile}
           selectedFile={selectedFile}
         />
 
         <div className="pt-2">
-      <Button
-  type="submit"
-  disabled={status === 'submitting'}
-  className="w-full h-14 text-base font-bold rounded-xl shadow-lg shadow-signal-blue/20 hover:shadow-xl transition-all"
->
-  {status === 'submitting' ? (
-    <span className="flex items-center gap-2">
-      <svg className="animate-spin h-5 w-5 text-current" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
-      </svg>
-      Envoi en cours...
-    </span>
-  ) : "Soumettre ma candidature"}
-</Button>
-=======
-        <UploadCV 
-          onFileSelect={setSelectedFile} 
-          selectedFile={selectedFile} 
-        />
-
-        <div className="pt-2">
-          <Button 
-            type="submit" 
+          <Button
+            type="submit"
             disabled={status === 'submitting'}
-            className="w-full h-14 text-base font-bold bg-signal-blue text-white rounded-xl shadow-lg hover:shadow-xl transition-all"
+            className="w-full h-14 text-base font-bold rounded-xl shadow-lg shadow-signal-blue/20 hover:shadow-xl transition-all"
           >
-            {status === 'submitting' ? "Envoi en cours..." : "Soumettre ma candidature"}
+            {status === 'submitting' ? (
+              <span className="flex items-center gap-2">
+                <svg className="animate-spin h-5 w-5 text-current" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                </svg>
+                Envoi en cours...
+              </span>
+            ) : "Soumettre ma candidature"}
           </Button>
->>>>>>> feature/offres
+
         </div>
       </form>
     </div>
