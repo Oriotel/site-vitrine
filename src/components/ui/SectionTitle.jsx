@@ -28,13 +28,6 @@ export function SectionTitle({
         </div>
       )}
 
-      {/* Le Sous-titre (ex: "QUI NOUS SOMMES") */}
-      {subtitle && (
-        <span className="text-signal-blue font-bold text-[0.75rem] md:text-sm uppercase tracking-[0.2em] mb-3 block">
-          {subtitle}
-        </span>
-      )}
-      
       {/* Le Titre principal */}
       <div className="relative inline-block mb-4">
         <h2 className={cn(
@@ -69,6 +62,12 @@ export function SectionTitle({
         </svg>
       </div>
 
+      {/* Le Sous-titre (ex: "QUI NOUS SOMMES") */}
+      {subtitle && (
+        <span className="text-signal-blue font-bold text-[0.75rem] md:text-sm uppercase tracking-[0.2em] mb-3 block">
+          {subtitle}
+        </span>
+      )}
       {/* Description optionnelle */}
       {description && (
         <p className={cn(
