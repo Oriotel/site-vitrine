@@ -1,8 +1,15 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
 import { ArrowRight, ArrowDown } from 'lucide-react';
 import Hyperspeed from '@/components/ui/Hyperspeed';
+import ParticlesLogoReveal from '@/components/home/ParticlesLogoReveal';
+import { Logo } from '@/components/ui/Logo';
 
 export function Hero() {
+  const [introComplete, setIntroComplete] = useState(false);
+
+  const handleIntroComplete = useCallback(() => {
+    setIntroComplete(true);
+  }, []);
 
   const hyperspeedOptions = useMemo(() => ({
     distortion: 'turbulentDistortion',
@@ -19,67 +26,56 @@ export function Hero() {
   }), []);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-white font-sans flex flex-col">
+    <section className="relative w-full h-screen h-[100dvh] overflow-hidden bg-white font-sans flex flex-col">
+
+      {/* ── PARTICLES LOGO REVEAL INTRO (inside hero only) ── */}
+      {/* {!introComplete && (
+        <ParticlesLogoReveal onComplete={handleIntroComplete} />
+      )} */}
 
       {/* ── HYPERSPEED BACKGROUND ── */}
       <div className="absolute inset-0 z-0 opacity-70">
         <Hyperspeed effectOptions={hyperspeedOptions} />
       </div>
 
-      {/* ── TOP BAR ── */}
-      <div className="relative z-10 flex items-center justify-between px-6 md:px-12 lg:px-16 pt-10 text-[#020c1a]/40 text-xs tracking-[0.3em] uppercase">
-        <span>Telecom · Management · E-commerce</span>
-        <span className="hidden md:block">Est. 2009 — Maroc</span>
-      </div>
-
       {/* ── MAIN HERO AREA ── */}
-      <div className="relative z-10 flex-1 flex flex-col justify-between px-4 md:px-10 lg:px-14 pb-20 pt-8">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 md:px-[20%] pt-16 md:pt-20 text-center overflow-hidden">
 
-        {/* ORIOTEL — Massive display word */}
-        <div className="flex-1 flex items-center justify-center md:items-start md:pt-10">
-          <h1
-            className="select-none font-extrabold tracking-tighter leading-none text-left w-full text-[#020c1a]"
-            style={{
-              fontSize: 'clamp(64px, 15vw, 240px)',
-            }}
-          >
-            ORIOTEL.
-          </h1>
-        </div>
+        {/* ── Content block: Logo + Tagline ── */}
+        <div className="flex flex-col items-center gap-6 md:gap-10 w-full max-w-4xl">
 
-        {/* ── BOTTOM ROW ── */}
-        <div className="flex flex-col mt-auto relative z-20">
-          {/* Bottom-left: tagline + description */}
-          <div className="max-w-md flex flex-col gap-5">
-            {/* Thin accent line */}
-            <div className="w-10 h-[2px] bg-[#1428C9]" />
-            <p className="text-[#020c1a]/90 text-lg md:text-xl font-light leading-relaxed">
+          {/* ORIOTEL Title — centered */}
+          {/* <h1 className="text-7xl md:text-9xl tracking-[-0.02em] text-[#020c1a] font-gugi select-none">
+            Oriotel
+          </h1> */}
+          <Logo asLink={false} className="h-24 sm:h-32 md:h-44 lg:h-52" />
+
+          {/* Tagline + description */}
+          <div className="flex flex-col items-center gap-3 md:gap-4">
+            <div className="w-10 md:w-12 h-[2px] bg-[#1428C9]" />
+            <p className="text-[#020c1a]/90 text-lg sm:text-xl md:text-2xl font-light leading-relaxed">
               Orchestrer l'avenir<br />
               <span className="font-semibold text-[#020c1a]">de vos opérations.</span>
             </p>
-            <p className="text-[#020c1a]/60 text-sm leading-relaxed max-w-xs">
+            <p className="text-[#020c1a]/50 text-sm md:text-base leading-relaxed max-w-md hidden sm:block">
               De l'infrastructure télécom à l'intelligence des flux de travail — des solutions sur-mesure pour votre croissance.
             </p>
             <a
               href="/about"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#1428C9] hover:opacity-80 transition-opacity group mt-2"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#1428C9] hover:opacity-80 transition-opacity group px-6 sm:px-8 py-2 md:py-2.5 border border-[#1428C9]/20 rounded-full hover:bg-[#1428C9] hover:text-white transition-all duration-300"
             >
               Découvrir Oriotel
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
-
         </div>
+
       </div>
 
       {/* ── CENTER SCROLL ANIMATION ── */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#020c1a]/40 z-20">
-        <span className="text-[10px] tracking-[0.3em] uppercase hidden md:block">Scroll</span>
-        <ArrowDown className="w-5 h-5 animate-bounce text-[#1428C9]" />
+      <div className="relative pb-6 md:pb-10 flex flex-col items-center gap-2 text-[#020c1a]/40 z-20">
+        <span className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase animate-bounce text-[#1428C9]">Scroll</span>
       </div>
-
-      {/* ── THIN BOTTOM ACCENT ── */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#1428C9]/20 to-transparent z-10" />
 
     </section>
   );

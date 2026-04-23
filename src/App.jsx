@@ -28,40 +28,42 @@ const OffresPage = lazy(() => import('./pages/OffresPage'))
 
 function App() {
   return (
-    <Layout>
-      <SplashCursor />
-      <Suspense fallback={<LoadingSpinner />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/contact" element={<ContactPage />} />
+    <>
+      <Layout>
+        <SplashCursor />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/contact" element={<ContactPage />} />
 
-          {/* Routes Carrières */}
-          <Route path="/postuler" element={<ApplyPage />} />
-          <Route path="/carrieres/postuler" element={<ApplyPage />} />
-          <Route path="/carrieres/offres" element={<OffresPage />} />
+            {/* Routes Carrières */}
+            <Route path="/postuler" element={<ApplyPage />} />
+            <Route path="/carrieres/postuler" element={<ApplyPage />} />
+            <Route path="/carrieres/offres" element={<OffresPage />} />
 
-          {/* Routes Événements */}
-          <Route path="/evenement" element={<EventApplyPage />} />
-          <Route path="/evenements" element={<EventApplyPage />} />
-          <Route
-            path="/evenements/inscription"
-            element={<EventApplyPage />}
-          />
+            {/* Routes Événements */}
+            <Route path="/evenement" element={<EventApplyPage />} />
+            <Route path="/evenements" element={<EventApplyPage />} />
+            <Route
+              path="/evenements/inscription"
+              element={<EventApplyPage />}
+            />
 
-          {/* Routes À propos */}
-          <Route path="/a-propos" element={<AboutPage />} />
-          <Route
-            path="/about"
-            element={<Navigate to="/a-propos" replace />}
-          />
+            {/* Routes À propos */}
+            <Route path="/a-propos" element={<AboutPage />} />
+            <Route
+              path="/about"
+              element={<Navigate to="/a-propos" replace />}
+            />
 
-          {/* Autres Routes */}
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/processus" element={<OffresPage />} />
+            {/* Autres Routes */}
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/processus" element={<OffresPage />} />
 
-        </Routes>
-      </Suspense>
-    </Layout>
+          </Routes>
+        </Suspense>
+      </Layout>
+    </>
   )
 }
 export default App;

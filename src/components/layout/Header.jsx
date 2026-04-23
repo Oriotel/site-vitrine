@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button, buttonVariants } from '@/components/ui/button';
+import { PremiumButton } from '@/components/ui/PremiumButton';
 import { cn } from '@/utils/cn';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/hooks/use-scroll';
 import { Globe } from 'lucide-react';
+import { Logo } from '@/components/ui/Logo';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -42,7 +44,7 @@ export function Header() {
           {
             'top-4 left-0 right-0 w-[98%] lg:w-[85%] max-w-7xl rounded-2xl border border-gray-200 bg-cloud-white/90 backdrop-blur-md shadow-lg py-2 px-3':
               scrolled && !open,
-            'top-0 left-0 right-0 w-full rounded-none border-b border-gray-100 bg-cloud-white py-4 px-6 lg:px-10':
+            'top-0 left-0 right-0 w-full rounded-none border-b border-gray-100/50 bg-white/40 backdrop-blur-md py-4 px-6 lg:px-10':
               !scrolled && !open,
             'top-0 left-0 right-0 w-full bg-cloud-white py-4 px-4':
               open,
@@ -55,16 +57,10 @@ export function Header() {
               1. GAUCHE : LOGO (Prend un tiers de l'espace)
               ========================================== */}
           <div className="flex-1 flex justify-start items-center">
-            <a href="/" className="pl-2 shrink-0">
-              <img
-                src="/assets/images/logo-oriotel.svg"
-                alt="Oriotel Logo"
-                className={cn(
-                  "w-auto object-contain transition-all duration-300",
-                  scrolled ? "h-7" : "h-9"
-                )}
-              />
-            </a>
+            <Logo 
+              className={scrolled ? "h-7" : "h-9"} 
+              href="/"
+            />
           </div>
 
 
@@ -112,11 +108,9 @@ export function Header() {
 
               {/* BOUTON OFFRES D'EMPLOI (Reste TOUJOURS visible) */}
               <div className="shrink-0">
-                <a href="/carrieres/offres">
-                  <Button className="rounded-full px-5 h-9 text-sm whitespace-nowrap shadow-md hover:shadow-lg transition-all">
-                    Offres d'emploi
-                  </Button>
-                </a>
+                <PremiumButton href="/carrieres/offres" size="sm" showIcon={false}>
+                  Offres d'emploi
+                </PremiumButton>
               </div>
             </div>
 

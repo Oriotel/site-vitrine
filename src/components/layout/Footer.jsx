@@ -1,7 +1,7 @@
-import React from "react";
 import { 
   Mail, Twitter, Linkedin, Facebook 
 } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
 
 const navigation = {
   categories: [
@@ -42,11 +42,11 @@ const navigation = {
 };
 
 // Application de la couleur #fff5ee par défaut
-const Underline = `hover:-translate-y-1 rounded-xl p-2.5 transition-transform text-slate-800 hover:text-signal-blue`;
+const Underline = `hover:-translate-y-1 rounded-xl p-2.5 transition-transform text-slate-300 hover:text-white`;
 
 const Footer = () => {
   return (
-    <footer id="site-footer" className="w-full bg-white text-slate-900 border-t border-slate-200 transition-colors duration-300 pt-10 flex flex-col">
+    <footer id="site-footer" className="w-full bg-[#020C1A] text-slate-200 border-t border-white/10 transition-colors duration-300 pt-10 flex flex-col">
       
       {/* CONTENEUR GLOBAL */}
       <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col">
@@ -69,7 +69,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-b border-slate-200 w-full mb-10"></div>
+        <div className="border-b border-white/10 w-full mb-10"></div>
 
         {/* 2. SECTION NAVIGATION */}
         <div className="pb-10 w-full">
@@ -78,7 +78,7 @@ const Footer = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {category.sections.map((section) => (
                   <div key={section.name} className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <h3 className="text-base font-medium mb-6 !text-slate-900">
+                    <h3 className="text-base font-semibold mb-6 !text-white uppercase tracking-wider">
                       {section.name}
                     </h3>
                     <ul role="list" className="flex flex-col space-y-4">
@@ -86,7 +86,7 @@ const Footer = () => {
                         <li key={item.name} className="flow-root">
                           <a
                             href={item.href}
-                            className="text-sm font-normal text-slate-600 hover:text-signal-blue transition-all"
+                            className="text-sm font-normal text-slate-400 hover:text-white transition-all"
                           >
                             {item.name}
                           </a>
@@ -100,22 +100,16 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="border-b border-slate-200 w-full mb-10"></div>
+        <div className="border-b border-white/10 w-full mb-10"></div>
 
         {/* 3. SECTION LOGO ET DESCRIPTION */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10 pb-10">
-          <a href="/" className="shrink-0">
-            <div className="flex items-center justify-center">
-              {/* Le filtre invert transforme le logo noir en blanc pour contraster avec le fond très sombre */}
-              <img 
-                src="/assets/images/logo-oriotel.svg" 
-                alt="Oriotel" 
-                className="h-10 w-auto object-contain" 
-              />
-            </div>
-          </a>
+          <Logo 
+            variant="white" 
+            className="h-10" 
+          />
           
-          <p className="text-center md:text-left text-sm leading-relaxed text-slate-600 md:max-w-2xl lg:max-w-3xl">
+          <p className="text-center md:text-left text-sm leading-relaxed text-slate-400 md:max-w-2xl lg:max-w-3xl">
             <span className="font-bold">ORIOTEL</span> est une entreprise marocaine spécialisée dans l’achat et la vente d’appareils téléphoniques et électriques. Grâce à son expertise en négoce et en intermédiation, elle accompagne les grandes sociétés de télécommunications ainsi que les particuliers en leur offrant des produits et services fiables, modernes et accessibles.
           </p>
         </div>
@@ -123,13 +117,13 @@ const Footer = () => {
       </div>
 
       {/* 4. SECTION COPYRIGHT */}
-      <div className="w-full py-6 border-t border-slate-200 mt-auto">
+      <div className="w-full py-6 border-t border-white/10 mt-auto">
         <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <span>© {new Date().getFullYear()} ORIOTEL - Tous droits réservés</span>
           
           <div className="flex items-center gap-4">
-             <a href="/mentions-legales" className="hover:text-signal-blue hover:opacity-100 transition-colors">Mentions légales</a>
-             <a href="/confidentialite" className="hover:text-signal-blue hover:opacity-100 transition-colors">Politique de confidentialité</a>
+             <a href="/mentions-legales" className="hover:text-white hover:opacity-100 transition-colors">Mentions légales</a>
+             <a href="/confidentialite" className="hover:text-white hover:opacity-100 transition-colors">Politique de confidentialité</a>
           </div>
         </div>
       </div>
