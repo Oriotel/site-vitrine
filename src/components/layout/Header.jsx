@@ -80,6 +80,7 @@ export function Header() {
                 {link.label}
               </a>
             ))}
+
           </div>
 
 
@@ -165,7 +166,7 @@ export function Header() {
             ))}
           </div>
           <div className="mt-auto pb-8 pt-4">
-            <a href="/carrieres/offres" className="w-full block" onClick={() => setOpen(false)}>
+            <a href="/offres" className="w-full block" onClick={() => setOpen(false)}>
               <Button className="w-full h-14 text-lg rounded-xl">Consulter les Offres d'emploi</Button>
             </a>
           </div>

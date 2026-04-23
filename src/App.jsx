@@ -40,6 +40,7 @@ function App() {
         />
 
         {/* Autres Routes */}
+
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/processus" element={<OffresPage />} />
       </Routes>
