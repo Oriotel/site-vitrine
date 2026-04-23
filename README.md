@@ -1,52 +1,16 @@
-# Oriotel Site Vitrine
+# React + Vite
 
-Site vitrine premium pour Oriotel, spécialisé dans les solutions télécoms et opérationnelles.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🚀 Technologies
-- **React** (Vite)
-- **Tailwind CSS v4**
-- **Framer Motion** (Animations)
-- **Lucide React** (Icônes)
+Currently, two official plugins are available:
 
-## 🎨 Design System & Composants UI
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-### Composants Partagés
-Le projet utilise une série de composants UI centralisés pour garantir la cohérence visuelle.
+## React Compiler
 
-#### 1. `SectionTitle`
-Composant standard pour tous les titres de sections.
-- **Chemin** : `src/components/ui/SectionTitle.jsx`
-- **Props** : `title`, `subtitle`, `description`, `align` ('left' | 'center' | 'right').
-- **Style** : Utilise la police **Oswald** et inclut un effet "Scribble" SVG animé.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-#### 2. `PageHero`
-En-tête premium réutilisable pour les pages secondaires (Services, À propos, Contact, Carrières).
-- **Chemin** : `src/components/ui/PageHero.jsx`
-- **Props** : `title`, `subtitle`, `description`, `image`, `overlayOpacity`.
-- **Style** : Image de fond plein écran avec overlay sombre et animations d'entrée Framer Motion.
+## Expanding the ESLint configuration
 
-#### 3. `PremiumButton`
-Bouton interactif avec effets de survol et transitions soignées.
-- **Chemin** : `src/components/ui/PremiumButton.jsx`
-
-#### 4. `Shimmer`
-Utilitaire de base pour les effets de chargement (skeletons).
-
-## ⏳ Système de Loading & Skeletons
-Le site implémente un système de chargement progressif :
-- **LoadingContext** : Gère l'état de chargement global du layout.
-- **LayoutSkeleton** : Affiche des versions simplifiées du Header et du Footer pendant le chargement des données de la page.
-- **Page Skeletons** : Chaque page majeure possède son propre squelette (ex: `HomePageSkeleton`, `ServicesPageSkeleton`) pour une transition fluide.
-
-## 🛠️ Installation & Développement
-
-```bash
-# Installation des dépendances
-npm install
-
-# Lancer en mode développement
-npm run dev
-
-# Build pour la production
-npm run build
-```
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
