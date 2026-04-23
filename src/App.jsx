@@ -1,40 +1,49 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Suspense, lazy } from 'react'
 import Layout from '@/components/layout/Layout'
+import SplashCursor from '@/components/ui/SplashCursor'
+import { LoadingProvider } from '@/context/LoadingContext'
 
-const LoadingSpinner = () => (
-  <div className="flex flex-col items-center justify-center h-screen bg-dark-900 gap-4">
-    <div className="relative w-12 h-12">
-      <div className="absolute inset-0 rounded-full border-2 border-gold-500/20" />
-      <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-gold-500 animate-spin" />
-    </div>
-    <span className="text-dark-400 text-sm font-montserrat tracking-wider">Chargement...</span>
-  </div>
-)
-
-const HomePage = lazy(() => import('./pages/HomePage'))
-const ContactPage = lazy(() => import('./pages/ContactPage'))
-const AboutPage = lazy(() => import('./pages/AboutPage'))
-const ServicesPage = lazy(() => import('./pages/ServicesPage'))
-const EventApplyPage = lazy(() => import('./pages/EventApplyPage'))
-const ApplyPage = lazy(() => import('./pages/ApplyPage'))
-const EventsPage = lazy(() => import('./pages/EventsPage'))
+import HomePage from './pages/HomePage'
+import ContactPage from './pages/ContactPage'
+import AboutPage from './pages/AboutPage'
+import ServicesPage from './pages/ServicesPage'
+import EventApplyPage from './pages/EventApplyPage'
+import ApplyPage from './pages/ApplyPage'
+import OffresPage from './pages/OffresPage'
+import EventsPage from './pages/EventsPage'
 
 function App() {
   return (
-    <Layout>
-      <Suspense fallback={<LoadingSpinner />}>
+    <LoadingProvider>
+      <Layout>
+        <SplashCursor />
+
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
+
+          {/* Routes Carrières */}
           <Route path="/postuler" element={<ApplyPage />} />
+          <Route path="/carrieres/postuler" element={<ApplyPage />} />
+          <Route path="/carrieres/offres" element={<OffresPage />} />
+
+          {/* Routes Événements */}
           <Route path="/evenement" element={<EventApplyPage />} />
           <Route path="/evenements" element={<EventsPage />} />
-          <Route path="/about" element={<AboutPage />} />
+          <Route path="/evenements/inscription" element={<EventApplyPage />} />
+
+          {/* Routes À propos */}
+          <Route path="/a-propos" element={<AboutPage />} />
+          <Route
+            path="/about"
+            element={<Navigate to="/a-propos" replace />}
+          />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/processus" element={<OffresPage />} />
         </Routes>
-      </Suspense>
-    </Layout>
+      </Layout>
+    </LoadingProvider>
   )
 }
+
 export default App

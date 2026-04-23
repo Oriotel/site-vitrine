@@ -1,57 +1,82 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-// import { Wifi } from 'lucide-react'; // On utilise Lucide pour l'icône de réseau
+import React, { useMemo, useState, useCallback } from 'react';
+import { ArrowRight, ArrowDown } from 'lucide-react';
+import Hyperspeed from '@/components/ui/Hyperspeed';
+// import ParticlesLogoReveal from '@/components/home/ParticlesLogoReveal';
+import { Logo } from '@/components/ui/Logo';
 
 export function Hero() {
+  const [introComplete, setIntroComplete] = useState(false);
+
+  const handleIntroComplete = useCallback(() => {
+    setIntroComplete(true);
+  }, []);
+
+  const hyperspeedOptions = useMemo(() => ({
+    distortion: 'turbulentDistortion',
+    colors: {
+      roadColor: 0xffffff,
+      islandColor: 0xffffff,
+      background: 0xffffff,
+      shoulderLines: 0x1428c9,
+      brokenLines: 0x1428c9,
+      leftCars: [0x1428c9, 0x071578, 0x020c1a],
+      rightCars: [0x1428c9, 0x071578, 0x020c1a],
+      sticks: 0x1428c9,
+    }
+  }), []);
+
   return (
-    <section className="relative w-full min-h-[85vh] flex items-center justify-center bg-cloud-white pt-24 pb-12 overflow-hidden font-sans">
-      
-      {/* 1. IMAGE DE FOND ET VOILE BLANC */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-          alt="Architecture moderne et croissance"
-          className="w-full h-full object-cover object-center"
-        />
-        {/* Voile blanc (85% d'opacité) pour rendre l'image subtile et le texte très lisible */}
-        <div className="absolute inset-0 bg-cloud-white/85 backdrop-blur-[2px]"></div>
+    <section className="relative w-full h-screen h-[100dvh] overflow-hidden bg-white font-sans flex flex-col">
+
+      {/* ── PARTICLES LOGO REVEAL INTRO (inside hero only) ── */}
+      {/* {!introComplete && (
+        <ParticlesLogoReveal onComplete={handleIntroComplete} />
+      )} */}
+
+      {/* ── HYPERSPEED BACKGROUND ── */}
+      <div className="absolute inset-0 z-0 opacity-70">
+        <Hyperspeed effectOptions={hyperspeedOptions} />
       </div>
 
-      {/* 2. GRAND ICÔNE DE RÉSEAU (WIFI/ONDES) SUR LA DROITE */}
-      {/* Il est positionné en absolu, tourné, et rendu semi-transparent pour décorer sans gêner */}
-      {/* <div className="absolute top-1/2 -translate-y-1/2 -right-40 md:-right-20 z-0 pointer-events-none opacity-5 text-signal-blue">
-        <Wifi className="w-[600px] h-[600px] md:w-[800px] md:h-[800px] -rotate-90" strokeWidth={0.5} />
-      </div> */}
+      {/* ── MAIN HERO AREA ── */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 md:px-[20%] pt-12 md:pt-20 text-center overflow-y-auto sm:overflow-hidden">
 
-      {/* 3. CONTENU CENTRAL (Texte et Boutons) */}
-      <div className="relative z-10 w-[90%] max-w-4xl mx-auto flex flex-col items-center text-center">
-        
-        {/* TITRE - Utilise la police Montserrat par défaut */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-light text-midnight-slate leading-tight md:leading-[1.1] mb-6 tracking-tight">
-          Telecom reliability.<br className="hidden md:block" />
-          Digital agility.
-        </h1>
+        {/* ── Content block: Logo + Tagline ── */}
+        <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-10 w-full max-w-4xl py-4 shrink-0">
 
-        {/* SOUS-TITRE */}
-        <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl">
-          De la robustesse de vos infrastructures matérielles à l'intelligence de vos flux de travail. <span className="font-bold text-signal-blue">ORIOTEL</span> accompagne votre transformation avec des solutions ERP sur-mesure et des équipements de pointe.
-        </p>
+          {/* ORIOTEL Title — centered */}
+          {/* <h1 className="text-7xl md:text-9xl tracking-[-0.02em] text-[#020c1a] font-gugi select-none">
+            Oriotel
+          </h1> */}
+          <Logo asLink={false} className="h-20 sm:h-24 md:h-36 lg:h-48 shrink-0" />
 
-        {/* BOUTONS CENTRÉS */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-          <Button className="w-full sm:w-auto px-8 py-6 text-base rounded-full font-semibold shadow-lg hover:shadow-xl transition-all">
-            En savoir plus
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            className="w-full sm:w-auto px-8 py-6 text-base rounded-full font-semibold border-2 border-signal-blue/20 text-signal-blue hover:bg-blue-50 transition-all"
-          >
-            Voir nos services
-          </Button>
+          {/* Tagline + description */}
+          <div className="flex flex-col items-center gap-3 md:gap-4 shrink-0">
+            <div className="w-8 md:w-12 h-[2px] bg-[#1428C9]" />
+            <p className="text-[#020c1a]/90 text-base sm:text-xl md:text-2xl font-light leading-relaxed">
+              Orchestrer l'avenir<br />
+              <span className="font-semibold text-[#020c1a]">de vos opérations.</span>
+            </p>
+            <p className="text-[#020c1a]/60 text-xs sm:text-sm md:text-base leading-relaxed max-w-sm block">
+              De l'infrastructure télécom à l'intelligence des flux de travail — des solutions sur-mesure pour votre croissance.
+            </p>
+            <a
+              href="/about"
+              className="mt-2 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#1428C9] hover:opacity-80 transition-opacity group px-6 sm:px-8 py-2.5 border border-[#1428C9]/20 rounded-full hover:bg-[#1428C9] hover:text-white transition-all duration-300"
+            >
+              Découvrir Oriotel
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
         </div>
 
       </div>
+
+      {/* ── CENTER SCROLL ANIMATION ── */}
+      <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#020c1a]/40 z-20">
+        <span className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase animate-bounce text-[#1428C9]">Scroll</span>
+      </div>
+
     </section>
   );
 }

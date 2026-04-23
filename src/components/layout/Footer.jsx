@@ -1,8 +1,7 @@
-import React from "react";
 import { 
   Mail 
 } from "lucide-react";
-import ThemeToggle from "../ui/ThemeToggle";
+import { Logo } from "@/components/ui/Logo";
 
 const navigation = {
   categories: [
@@ -42,18 +41,19 @@ const navigation = {
   ],
 };
 
-const Underline = `hover:-translate-y-1 rounded-xl p-2.5 transition-transform text-midnight-slate dark:text-cloud-white hover:text-signal-blue dark:hover:text-signal-blue`;
+// Application de la couleur #fff5ee par défaut
+const Underline = `hover:-translate-y-1 rounded-xl p-2.5 transition-transform text-slate-300 hover:text-white`;
 
 const Footer = () => {
   return (
-    <footer className="w-full border-t border-gray-200 dark:border-gray-800 bg-cloud-white dark:bg-midnight-slate transition-colors duration-300 pt-10 flex flex-col">
+    <footer id="site-footer" className="w-full bg-[#020C1A] text-slate-200 border-t border-white/10 transition-colors duration-300 pt-10 flex flex-col">
       
-      {/* CONTENEUR GLOBAL : Force 80% de largeur et centre parfaitement (marges égales) */}
+      {/* CONTENEUR GLOBAL */}
       <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col">
 
-        {/* 1. SECTION RÉSEAUX SOCIAUX & THEME */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pb-8">
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+        {/* 1. SECTION RÉSEAUX SOCIAUX */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 pb-8">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <a aria-label="LinkedIn" href="#" className={Underline}>
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
             </a>
@@ -67,23 +67,18 @@ const Footer = () => {
               <Mail strokeWidth={1.5} className="h-5 w-5" />
             </a>
           </div>
-          
-          <div className="flex justify-center md:justify-end">
-            <ThemeToggle />
-          </div>
         </div>
 
-        <div className="border-b border-gray-200 dark:border-gray-800 w-full mb-10"></div>
+        <div className="border-b border-white/10 w-full mb-10"></div>
 
         {/* 2. SECTION NAVIGATION */}
         <div className="pb-10 w-full">
           {navigation.categories.map((category) => (
             <div key={category.name} className="w-full">
-              {/* UTILISATION DE GRID : 3 colonnes égales, espacement parfait */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {category.sections.map((section) => (
                   <div key={section.name} className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <h3 className="text-base font-medium text-midnight-slate dark:text-cloud-white mb-6">
+                    <h3 className="text-base font-semibold mb-6 !text-white uppercase tracking-wider">
                       {section.name}
                     </h3>
                     <ul role="list" className="flex flex-col space-y-4">
@@ -91,7 +86,7 @@ const Footer = () => {
                         <li key={item.name} className="flow-root">
                           <a
                             href={item.href}
-                            className="text-sm font-normal text-gray-600 hover:text-signal-blue dark:text-gray-300 dark:hover:text-white transition-colors"
+                            className="text-sm font-normal text-slate-400 hover:text-white transition-all"
                           >
                             {item.name}
                           </a>
@@ -105,34 +100,30 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="border-b border-gray-200 dark:border-gray-800 w-full mb-10"></div>
+        <div className="border-b border-white/10 w-full mb-10"></div>
 
         {/* 3. SECTION LOGO ET DESCRIPTION */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10 pb-10">
-          <a href="/" className="shrink-0">
-            <div className="flex items-center justify-center">
-              <img 
-                src="/assets/images/logo-oriotel.svg" 
-                alt="Oriotel" 
-                className="h-10 w-auto object-contain" 
-              />
-            </div>
-          </a>
-          <p className="text-center md:text-left text-sm leading-relaxed text-gray-600 dark:text-gray-400 md:max-w-2xl lg:max-w-3xl">
-            <span className="font-medium text-midnight-slate dark:text-cloud-white">ORIOTEL</span> est une entreprise marocaine spécialisée dans l’achat et la vente d’appareils téléphoniques et électriques. Grâce à son expertise en négoce et en intermédiation, elle accompagne les grandes sociétés de télécommunications ainsi que les particuliers en leur offrant des produits et services fiables, modernes et accessibles.
+          <Logo 
+            variant="white" 
+            className="h-10" 
+          />
+          
+          <p className="text-center md:text-left text-sm leading-relaxed text-slate-400 md:max-w-2xl lg:max-w-3xl">
+            <span className="font-bold">ORIOTEL</span> est une entreprise marocaine spécialisée dans l’achat et la vente d’appareils téléphoniques et électriques. Grâce à son expertise en négoce et en intermédiation, elle accompagne les grandes sociétés de télécommunications ainsi que les particuliers en leur offrant des produits et services fiables, modernes et accessibles.
           </p>
         </div>
 
       </div>
 
       {/* 4. SECTION COPYRIGHT */}
-      <div className="w-full bg-cloud-white dark:bg-midnight-slate py-6 border-t border-gray-200 dark:border-gray-800 mt-auto">
-        <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500 dark:text-gray-400">
+      <div className="w-full py-6 border-t border-white/10 mt-auto">
+        <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <span>© {new Date().getFullYear()} ORIOTEL - Tous droits réservés</span>
           
           <div className="flex items-center gap-4">
-             <a href="/mentions-legales" className="hover:text-midnight-slate dark:hover:text-cloud-white transition-colors">Mentions légales</a>
-             <a href="/confidentialite" className="hover:text-midnight-slate dark:hover:text-cloud-white transition-colors">Politique de confidentialité</a>
+             <a href="/mentions-legales" className="hover:text-white hover:opacity-100 transition-colors">Mentions légales</a>
+             <a href="/confidentialite" className="hover:text-white hover:opacity-100 transition-colors">Politique de confidentialité</a>
           </div>
         </div>
       </div>

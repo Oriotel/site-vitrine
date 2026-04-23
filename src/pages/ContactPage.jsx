@@ -1,16 +1,32 @@
-import React from 'react';
-import Hero from '@/components/contact/Hero';
+import React, { useState, useEffect } from 'react';
+import PageHero from '@/components/ui/PageHero';
 import ContactCard from '@/components/contact/ContactCard';
 import ContactForm from '@/components/contact/ContactForm';
+import ContactPageSkeleton from '@/components/contact/ContactPageSkeleton';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ContactPage = () => {
-  return (
-    <div className="bg-cloud-white min-h-screen">
-      <Hero />
+  // Affiche le squelette pendant 1.8s, puis révèle le vrai contenu
+  const [isLoading, setIsLoading] = useState(true);
 
-      <section className="pb-24">
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) return <ContactPageSkeleton />;
+
+  return (
+    <div className="bg-cloud-white min-h-screen animate-[fadeIn_0.5s_ease-out_both]">
+      <PageHero 
+        title="Contactez-nous"
+        subtitle="Nous contacter"
+        description="Vous avez un projet en tête ou une question sur nos services ? Notre équipe d'experts est prête à vous accompagner dans la réalisation de vos ambitions."
+        image="/contact-hero.png"
+      />
+
+      <section className="pt-16 pb-24 md:pt-10">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
@@ -27,7 +43,7 @@ const ContactPage = () => {
                   icon={Phone}
                   title="Téléphone"
                   value="+212 6 23 45 67 89"
-                  subtext="Lun-Ven : 09:00 - 18:00\nSam : Fermé"
+                  subtext="Lun-Ven : 09:00 - 18:00 \Sam : Fermé"
                 />
                 <ContactCard
                   icon={MapPin}
@@ -52,7 +68,7 @@ const ContactPage = () => {
                 />
                 <div className="absolute inset-0 bg-midnight-slate/20 group-hover:bg-midnight-slate/10 transition-colors" />
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-lg border border-gray-200">
-                  <p className="text-sm font-bold text-midnight-slate">Oriotel Paris</p>
+                  <p className="text-sm font-bold text-midnight-slate">Oriotel Oujda</p>
                   <p className="text-xs text-gray-500">Cliquez pour ouvrir Maps</p>
                 </div>
               </motion.div>
