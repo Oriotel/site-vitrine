@@ -22,7 +22,7 @@ export const TeamCarousel = ({ members }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      align: 'start',       // 'start' avoids the centre-snap artefact
+      align: 'center',       // 'center' aligns the fixed-width cards in the middle of small screens
       dragFree: false,       // keep snapping so slides always land cleanly
       skipSnaps: false,
       containScroll: false,
@@ -79,8 +79,7 @@ export const TeamCarousel = ({ members }) => {
           {slides.map((member, i) => (
             <div
               key={`${member.name}-${i}`}
-              className="flex-[0_0_280px] md:flex-[0_0_340px] lg:flex-[0_0_380px] min-w-0"
-            >
+              className="flex-[0_0_260px] sm:flex-[0_0_280px] md:flex-[0_0_320px] lg:flex-[0_0_360px] xl:flex-[0_0_380px] min-w-0"            >
               <SlideCard member={member} primary={PRIMARY} />
             </div>
           ))}

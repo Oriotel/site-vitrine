@@ -3,7 +3,8 @@ import AboutHero from '@/components/About/AboutHero'
 import ExploreSection from '@/components/About/ExploreSection'
 import TimelineSection from '@/components/About/TimelineSection'
 import StatsSection from '@/components/About/StatsSection'
-import { TeamMarqueeSection } from '@/components/ui/TeamMarqueeSection'
+import {TeamMarqueeSection} from '@/components/About/TeamMarqueeSection'
+
 
 const AboutPage = () => {
   return (
@@ -13,7 +14,7 @@ const AboutPage = () => {
       <ExploreSection />
       <TimelineSection />
       <TeamMarqueeSection />
-      <StatsSection />
+
     </main>
     </>
   )

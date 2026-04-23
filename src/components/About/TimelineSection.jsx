@@ -8,12 +8,6 @@ const TimelineSection = () => {
 
   return (
     <section className="section-padding bg-white relative overflow-hidden group/section">
-      {/* Background Decorative Elements - Softened for light background */}
-      <div className="absolute top-0 inset-x-0 h-full w-full pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] bg-primary-400/5 rounded-full blur-[100px] animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-indigo-400/5 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }} />
-      </div>
-
       <div className="max-w-5xl mx-auto relative z-10">
         <SectionTitle
           title={t('about.history.title')}
