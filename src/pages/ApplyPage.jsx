@@ -35,7 +35,7 @@ const ApplyPage = () => {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]"
             >
-              <img src="/career-hero.png" className="w-full h-full object-cover" />
+              <img src="/career-hero.png" className="w-full h-full object-cover" alt="Travailler chez Oriotel" />
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -55,7 +55,7 @@ const ApplyPage = () => {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
           >
             <ApplyForm />
           </motion.div>

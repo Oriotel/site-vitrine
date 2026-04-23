@@ -84,6 +84,22 @@ export function Header() {
                 {link.label}
               </a>
             ))}
+<<<<<<< HEAD
+=======
+            
+            {/* BOUTON OFFRES D'EMPLOI (Avec animation de disparition) */}
+            <div className={cn(
+              "transition-all duration-500 ease-in-out overflow-hidden flex items-center",
+              // Si on scroll : largeur 0, opacité 0, marge 0 (Disparaît en douceur)
+              // Sinon : largeur max, opacité 1, marge (Apparaît)
+              scrolled ? "max-w-0 opacity-0 ml-0 pointer-events-none" : "max-w-[200px] opacity-100 ml-4"
+            )}>
+              <a href="/offres">
+                 {/* whitespace-nowrap est crucial ici pour que le texte ne se casse pas pendant l'animation */}
+                 <Button className="rounded-full px-6 whitespace-nowrap">Offres d'emploi</Button>
+              </a>
+            </div>
+>>>>>>> feature/offres
           </div>
 
 
@@ -171,7 +187,7 @@ export function Header() {
             ))}
           </div>
           <div className="mt-auto pb-8 pt-4">
-            <a href="/carrieres/offres" className="w-full block" onClick={() => setOpen(false)}>
+            <a href="/offres" className="w-full block" onClick={() => setOpen(false)}>
               <Button className="w-full h-14 text-lg rounded-xl">Consulter les Offres d'emploi</Button>
             </a>
           </div>
