@@ -16,13 +16,13 @@ import Shimmer from '@/components/ui/Shimmer';
 
 /* ── 1. Hero ─────────────────────────────────────────────── */
 const HeroSkeleton = () => (
-  <section className="relative w-full h-[55vh] md:h-[65vh] min-h-[450px] flex items-center justify-center pt-20 bg-slate-800 overflow-hidden">
-    <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-600/30 to-transparent" />
+  <section className="relative w-full h-[55vh] md:h-[65vh] min-h-[450px] flex items-center justify-center pt-20 bg-white overflow-hidden">
+    <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-100/50 to-transparent" />
     <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-5">
-      <Shimmer className="h-8 w-48 rounded-full bg-slate-700" />
-      <Shimmer className="h-14 md:h-20 w-72 md:w-96 rounded-xl bg-slate-700" />
-      <Shimmer className="h-5 w-full max-w-xl bg-slate-700" />
-      <Shimmer className="h-5 w-3/4 max-w-lg bg-slate-700" />
+      <Shimmer className="h-8 w-48 rounded-full" />
+      <Shimmer className="h-14 md:h-20 w-72 md:w-96 rounded-xl" />
+      <Shimmer className="h-5 w-full max-w-xl" />
+      <Shimmer className="h-5 w-3/4 max-w-lg" />
     </div>
   </section>
 );

@@ -44,7 +44,7 @@ export function Header() {
           {
             'top-4 left-0 right-0 w-[98%] lg:w-[85%] max-w-7xl rounded-2xl border border-gray-200 bg-cloud-white/90 backdrop-blur-md shadow-lg py-2 px-3':
               scrolled && !open,
-            'top-0 left-0 right-0 w-full rounded-none border-b border-gray-100/50 bg-white/40 backdrop-blur-md py-4 px-6 lg:px-10':
+            'top-0 left-0 right-0 w-full rounded-none border-b border-gray-100/50 bg-white/80 backdrop-blur-md py-4 px-6 lg:px-10':
               !scrolled && !open,
             'top-0 left-0 right-0 w-full bg-cloud-white py-4 px-4':
               open,

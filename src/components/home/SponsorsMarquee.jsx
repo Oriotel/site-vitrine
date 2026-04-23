@@ -14,7 +14,7 @@ export function SponsorsMarquee() {
 
   return (
     <section className="w-full overflow-hidden flex items-center py-8 md:py-12">
-      <div className="flex w-max animate-marquee hover-pause items-center gap-20 md:gap-32 px-10">
+      <div className="flex w-max animate-marquee-logos items-center gap-20 md:gap-32 px-10">
         
         {repeatedPartners.map((partner, index) => (
           <div key={index} className="flex items-center justify-center min-w-[120px]">

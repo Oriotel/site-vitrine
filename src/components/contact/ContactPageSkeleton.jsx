@@ -18,20 +18,20 @@ import Shimmer from '@/components/ui/Shimmer';
 
 /* ── 1. Hero (identique au hero Services) ────────────────── */
 const HeroSkeleton = () => (
-  <section className="relative w-full h-[55vh] md:h-[65vh] min-h-[450px] flex items-center justify-center pt-20 bg-slate-800 overflow-hidden">
+  <section className="relative w-full h-[55vh] md:h-[65vh] min-h-[450px] flex items-center justify-center pt-20 bg-white overflow-hidden">
     {/* Barre lumineuse de fond */}
-    <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-600/30 to-transparent" />
+    <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-100/50 to-transparent" />
 
     {/* Contenu centré – miroir exact du vrai hero */}
     <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-5">
       {/* Badge */}
-      <Shimmer className="h-8 w-40 rounded-full bg-slate-700" />
+      <Shimmer className="h-8 w-40 rounded-full" />
       {/* Titre H1 */}
-      <Shimmer className="h-14 md:h-20 w-72 md:w-[420px] rounded-xl bg-slate-700" />
+      <Shimmer className="h-14 md:h-20 w-72 md:w-[420px] rounded-xl" />
       {/* Sous-titre ligne 1 */}
-      <Shimmer className="h-5 w-full max-w-xl bg-slate-700" />
+      <Shimmer className="h-5 w-full max-w-xl" />
       {/* Sous-titre ligne 2 */}
-      <Shimmer className="h-5 w-3/4 max-w-lg bg-slate-700" />
+      <Shimmer className="h-5 w-3/4 max-w-lg" />
     </div>
   </section>
 );

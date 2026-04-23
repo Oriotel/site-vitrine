@@ -25,7 +25,7 @@ const ExpertisesSection = () => {
   };
 
   return (
-    <section className="overflow-hidden font-sans w-full pt-12">
+    <section className="font-sans w-full pt-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
           subtitle="" 

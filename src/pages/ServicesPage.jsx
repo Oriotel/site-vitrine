@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import StatsSection from '../components/About/StatsSection';
 import ServicesPageSkeleton from '../components/services/ServicesPageSkeleton';
+import SectionTitle from '../components/ui/SectionTitle';
+import { useLoading } from '@/context/LoadingContext';
+import PageHero from '../components/ui/PageHero';
 
 const servicesList = [
   { 
@@ -45,11 +48,19 @@ const ServicesPage = () => {
   // État de chargement : affiche le squelette pendant 1.8s,
   // puis révèle le vrai contenu avec un fondu enchaîné.
   const [isLoading, setIsLoading] = useState(true);
+  const { setIsLayoutLoading } = useLoading();
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1800);
-    return () => clearTimeout(timer);
-  }, []);
+    setIsLayoutLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      setIsLayoutLoading(false);
+    }, 1800);
+    return () => {
+      clearTimeout(timer);
+      setIsLayoutLoading(false);
+    };
+  }, [setIsLayoutLoading]);
 
   // ── Rendu du squelette ────────────────────────────────────
   if (isLoading) {
@@ -91,9 +102,8 @@ const ServicesPage = () => {
       <section className="bg-[#F9FAFB] pt-24 pb-12 border-t border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="mb-16 text-center lg:text-left">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827] tracking-tight">Découvrez nos solutions</h2>
-            <div className="w-16 h-1 bg-[#1428C9] mt-4 mx-auto lg:mx-0 rounded-full"></div>
+          <div className="mb-16 flex flex-col items-start text-left">
+            <SectionTitle title="Découvrez nos solutions" align="left" />
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

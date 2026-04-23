@@ -3,6 +3,7 @@ import { TeamCarousel } from "@/components/ui/TeamCarousel";
 import { ScribbleText } from "@/components/common/ScribbleText";
 import AnimatedSection from "@/components/common/AnimatedSection";
 import { useTranslation } from "react-i18next";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export function TeamMarqueeSection() {
   const { t } = useTranslation();
@@ -13,34 +14,15 @@ export function TeamMarqueeSection() {
 
         <div className="relative z-10 mx-auto max-w-[1600px]">
 
-          {/* Titre animé avec SVG réparé et traductions (HEAD) */}
+          {/* Titre animé avec SectionTitle (HEAD) */}
           <div className="mx-auto mb-20 flex max-w-4xl flex-col items-center px-6 text-center">
             <AnimatedSection>
-              <h2 className="relative mb-6 font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight primary-gradient-text pb-2">
-                {t('about.team.title')}
-                <svg
-                  className="absolute -top-4 -right-12 -z-10 w-48 md:w-64 text-primary-500/20 opacity-100"
-                  fill="none"
-                  height="86"
-                  viewBox="0 0 108 86"
-                  width="108"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M38.8484 16.236L15 43.5793L78.2688 15L18.1218 71L93 34.1172L70.2047 65.2739"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="28"
-                  />
-                </svg>
-                <span className="block text-lg font-sans font-medium text-primary-600 dark:text-primary-400 mt-4 uppercase tracking-[0.2em]">
-                  {t('about.team.subtitle')}
-                </span>
-              </h2>
-              <p className="max-w-2xl text-slate-600 dark:text-slate-300 text-lg md:text-xl leading-relaxed">
-                {t('about.team.description')}
-              </p>
+              <SectionTitle
+                title="Notre Équipe d'Experts"
+                subtitle="L'excellence au service de vos ambitions"
+                description="Une équipe passionnée et dévouée à transformer chaque détail de votre événement en un souvenir impérissable"
+                align="center"
+              />
             </AnimatedSection>
           </div>
 
