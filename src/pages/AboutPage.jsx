@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import PageHero from '@/components/ui/PageHero';
 import { useTranslation } from 'react-i18next';
@@ -60,4 +59,4 @@ const AboutPage = () => {
   )
 }
 
-export default AboutPage
+export default AboutPage;
