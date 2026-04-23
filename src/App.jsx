@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Routes, Route, Navigate } from 'react-router-dom'
+=======
+import { Routes, Route } from 'react-router-dom'
+>>>>>>> feature/contact
 import Layout from '@/components/layout/Layout'
 import SplashCursor from '@/components/ui/SplashCursor'
 
@@ -14,6 +18,7 @@ function App() {
   return (
     <Layout>
       <SplashCursor />
+<<<<<<< HEAD
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -41,6 +46,18 @@ function App() {
 
         {/* Autres Routes */}
 
+=======
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/postuler" element={<ApplyPage />} />
+        <Route path="/carrieres/postuler" element={<ApplyPage />} />
+        <Route path="/carrieres/offres" element={<OffresPage />} />
+        <Route path="/evenement" element={<EventApplyPage />} />
+        <Route path="/evenements" element={<EventApplyPage />} />
+        <Route path="/evenements/inscription" element={<EventApplyPage />} />
+        <Route path="/about" element={<AboutPage />} />
+>>>>>>> feature/contact
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/processus" element={<OffresPage />} />
       </Routes>
