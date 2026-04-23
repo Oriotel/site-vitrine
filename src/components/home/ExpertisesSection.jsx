@@ -34,23 +34,10 @@ const ExpertisesSection = () => {
           align="center" 
           className="mb-8" 
         />
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-0 relative touch-pan-y" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
-          <div className="w-full md:w-1/2 relative h-[380px] md:h-[500px] flex-shrink-0 perspective-1000">
-            {expertises.map((item, index) => {
-              const position = (index - active + expertises.length) % expertises.length;
-              let transformStyle = '', opacity = 'opacity-100', zIndex = 0, widthClass = '';
-              if (position === 0) { transformStyle = 'translateX(0) translateY(0%) scale(1) rotate(0deg)'; zIndex = 30; opacity = 'opacity-100'; widthClass = 'w-[75%] md:w-[70%]'; } 
-              else if (position === 1) { transformStyle = 'translateX(45%) translateY(-10%) scale(0.9) rotate(2deg)'; zIndex = 20; opacity = 'opacity-80'; widthClass = 'w-[55%] md:w-[50%]'; } 
-              else if (position === 2) { transformStyle = 'translateX(-45%) translateY(-5%) scale(0.9) rotate(-2deg)'; zIndex = 20; opacity = 'opacity-80'; widthClass = 'w-[55%] md:w-[50%]'; }
-              return (
-                <div key={item.id} className={`absolute m-auto inset-0 ${widthClass} h-[75%] md:h-[80%] rounded-3xl overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${opacity}`} style={{ zIndex, transform: transformStyle, boxShadow: position === 0 ? '0 25px 50px -12px rgba(0, 0, 0, 0.3)' : '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}>
-                  <div className={`absolute inset-0 bg-slate-900/40 mix-blend-multiply transition-opacity duration-700 ${position === 0 ? 'opacity-0' : 'opacity-100'}`}></div>
-                  <img src={item.image} alt={item.name} draggable="false" className="w-full h-full object-cover pointer-events-none" />
-                </div>
-              );
-            })}
-          </div>
-          <div className="w-full md:w-1/2 flex flex-col md:pl-8 lg:pl-10 relative">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-0 relative touch-pan-y" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+          
+          {/* DESCRIPTION (Now Left on Desktop) */}
+          <div className="w-full md:w-1/2 flex flex-col md:pr-8 lg:pr-10 relative">
             <div className="relative min-h-[220px]">
               {expertises.map((item, index) => {
                 const isActive = active === index;
@@ -69,6 +56,24 @@ const ExpertisesSection = () => {
               <button onClick={handleNext} className="w-11 h-11 rounded-xl bg-primary-500/10 backdrop-blur-md border border-primary-400/30 text-primary-600 flex items-center justify-center hover:bg-primary-500/20 hover:border-primary-400/60 active:scale-95 transition-all duration-300 shadow-md focus:outline-none"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg></button>
             </div>
           </div>
+
+          {/* CARDS (Now Right on Desktop) */}
+          <div className="w-full md:w-1/2 relative h-[380px] md:h-[500px] flex-shrink-0 perspective-1000">
+            {expertises.map((item, index) => {
+              const position = (index - active + expertises.length) % expertises.length;
+              let transformStyle = '', opacity = 'opacity-100', zIndex = 0, widthClass = '';
+              if (position === 0) { transformStyle = 'translateX(0) translateY(0%) scale(1) rotate(0deg)'; zIndex = 30; opacity = 'opacity-100'; widthClass = 'w-[75%] md:w-[70%]'; } 
+              else if (position === 1) { transformStyle = 'translateX(45%) translateY(-10%) scale(0.9) rotate(2deg)'; zIndex = 20; opacity = 'opacity-80'; widthClass = 'w-[55%] md:w-[50%]'; } 
+              else if (position === 2) { transformStyle = 'translateX(-45%) translateY(-5%) scale(0.9) rotate(-2deg)'; zIndex = 20; opacity = 'opacity-80'; widthClass = 'w-[55%] md:w-[50%]'; }
+              return (
+                <div key={item.id} className={`absolute m-auto inset-0 ${widthClass} h-[75%] md:h-[80%] rounded-3xl overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${opacity}`} style={{ zIndex, transform: transformStyle, boxShadow: position === 0 ? '0 25px 50px -12px rgba(0, 0, 0, 0.3)' : '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}>
+                  <div className={`absolute inset-0 bg-slate-900/40 mix-blend-multiply transition-opacity duration-700 ${position === 0 ? 'opacity-0' : 'opacity-100'}`}></div>
+                  <img src={item.image} alt={item.name} draggable="false" className="w-full h-full object-cover pointer-events-none" />
+                </div>
+              );
+            })}
+          </div>
+
         </div>
       </div>
     </section>
