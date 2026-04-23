@@ -10,7 +10,7 @@ const ContactPage = () => {
     <div className="bg-cloud-white min-h-screen">
       <Hero />
 
-      <section className="pb-24">
+      <section className="pt-16 pb-24 md:pt-10">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
@@ -27,7 +27,7 @@ const ContactPage = () => {
                   icon={Phone}
                   title="Téléphone"
                   value="+212 6 23 45 67 89"
-                  subtext="Lun-Ven : 09:00 - 18:00\nSam : Fermé"
+                  subtext="Lun-Ven : 09:00 - 18:00 \Sam : Fermé"
                 />
                 <ContactCard
                   icon={MapPin}
@@ -52,7 +52,7 @@ const ContactPage = () => {
                 />
                 <div className="absolute inset-0 bg-midnight-slate/20 group-hover:bg-midnight-slate/10 transition-colors" />
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-lg border border-gray-200">
-                  <p className="text-sm font-bold text-midnight-slate">Oriotel Paris</p>
+                  <p className="text-sm font-bold text-midnight-slate">Oriotel Oujda</p>
                   <p className="text-xs text-gray-500">Cliquez pour ouvrir Maps</p>
                 </div>
               </motion.div>

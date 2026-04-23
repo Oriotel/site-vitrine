@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaMapMarkerAlt, FaBriefcase } from 'react-icons/fa';
+import { BorderBeam } from '@/components/ui/BorderBeam';
 
 const OpportunityList = ({ opportunities, selectedId, onSelect }) => {
   return (
@@ -9,18 +10,26 @@ const OpportunityList = ({ opportunities, selectedId, onSelect }) => {
         {opportunities.map((job) => {
           const isActive = job.id === selectedId;
           return (
-            <div 
+            <div
               key={job.id}
               onClick={() => onSelect(job.id)}
               className={`
-                cursor-pointer rounded-xl p-5 border transition-all duration-200
-                ${isActive 
-                  ? 'border-[#1428C9] bg-[#1428C9]/5 shadow-md' 
+                relative cursor-pointer rounded-xl p-5 border transition-all duration-200 overflow-hidden
+                ${isActive
+                  ? 'border-[#1428C9] bg-[#1428C9]/5 shadow-md scale-[1.02]'
                   : 'border-gray-200 bg-white hover:border-[#1428C9]/50 hover:shadow-sm'
                 }
               `}
             >
-              <h3 className={`font-bold text-lg mb-2 ${isActive ? 'text-[#1428C9]' : 'text-gray-900'}`}>
+              {isActive && (
+                <BorderBeam
+                  duration={6}
+                  lightWidth={150}
+                  lightColor=" #1428C9"
+                  borderWidth={0.5}
+                />
+              )}
+              <h3 className={` text-lg mb-2 ${isActive ? 'text-[#1428C9]' : 'text-gray-900'}`}>
                 {job.title}
               </h3>
               <div className="flex items-center gap-4 text-sm text-gray-500">

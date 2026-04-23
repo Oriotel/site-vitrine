@@ -29,9 +29,11 @@ const ApplyForm = () => {
       return;
     }
 
+
     setStatus('submitting');
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000));
+
 
     console.log('Application Submitted:', { ...formData, cv: selectedFile });
     setStatus('success');
@@ -39,7 +41,9 @@ const ApplyForm = () => {
 
   if (status === 'success') {
     return (
+
       <motion.div
+
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center space-y-4"
@@ -51,8 +55,10 @@ const ApplyForm = () => {
         <p className="text-gray-500 max-w-sm">
           Merci d'avoir postulé chez Oriotel. Notre équipe RH examinera votre profil et reviendra vers vous prochainement.
         </p>
+
         <Button
           variant="outline"
+
           onClick={() => {
             setStatus('idle');
             setFormData({ firstName: '', lastName: '', email: '', phone: '', position: '', message: '' });
@@ -80,7 +86,9 @@ const ApplyForm = () => {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
+
             placeholder="ahmad"
+
             required
           />
           <FormInput
@@ -88,7 +96,9 @@ const ApplyForm = () => {
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
+
             placeholder="ben"
+
             required
           />
         </div>
@@ -100,7 +110,8 @@ const ApplyForm = () => {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="ahmad@entreprise.com"
+
+
             required
           />
           <FormInput
@@ -110,7 +121,9 @@ const ApplyForm = () => {
             value={formData.phone}
             onChange={handleChange}
 
+
             placeholder="+212 6 12 34 56 78"
+
 
             required
           />
@@ -145,26 +158,28 @@ const ApplyForm = () => {
           isTextArea
         />
 
+
         <UploadCV
           onFileSelect={setSelectedFile}
           selectedFile={selectedFile}
         />
 
         <div className="pt-2">
-      <Button
-  type="submit"
-  disabled={status === 'submitting'}
-  className="w-full h-14 text-base font-bold rounded-xl shadow-lg shadow-signal-blue/20 hover:shadow-xl transition-all"
->
-  {status === 'submitting' ? (
-    <span className="flex items-center gap-2">
-      <svg className="animate-spin h-5 w-5 text-current" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
-      </svg>
-      Envoi en cours...
-    </span>
-  ) : "Soumettre ma candidature"}
-</Button>
+          <Button
+            type="submit"
+            disabled={status === 'submitting'}
+            className="w-full h-14 text-base font-bold rounded-xl shadow-lg shadow-signal-blue/20 hover:shadow-xl transition-all"
+          >
+            {status === 'submitting' ? (
+              <span className="flex items-center gap-2">
+                <svg className="animate-spin h-5 w-5 text-current" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                </svg>
+                Envoi en cours...
+              </span>
+            ) : "Soumettre ma candidature"}
+          </Button>
+
         </div>
       </form>
     </div>

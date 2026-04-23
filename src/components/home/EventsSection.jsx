@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { PremiumButton } from '@/components/ui/PremiumButton';
 
 const events = [
   { id: 1, image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800', title: 'Conférence Annuelle', description: 'Une plongée immersive dans l\'innovation corporative et notre nouvelle identité de marque.' },
@@ -48,11 +49,11 @@ const EventsSection = () => {
             />
             
         </div>
-        <div className="mt-4">
-              <a href="/evenements" className="text-[#1428C9] font-semibold text-sm hover:opacity-80 transition-opacity flex items-end gap-1 group pb-1">
-                Tout voir <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-              </a>
-            </div>
+        <div className="mt-6 flex justify-center">
+          <PremiumButton href="/evenements">
+            Tout voir
+          </PremiumButton>
+        </div>
         <div 
           className="mt-4 relative w-full h-[350px] md:h-[500px] flex justify-center items-center [perspective:1000px] overflow-hidden touch-pan-y" 
           onTouchStart={onTouchStart} 

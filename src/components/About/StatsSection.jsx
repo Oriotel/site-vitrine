@@ -4,7 +4,7 @@ import AnimatedSection from '@/components/common/AnimatedSection'
 
 const StatsSection = () => {
   const { t } = useTranslation()
-  
+
   return (
     <section className="py-16 bg-white relative overflow-hidden border-y border-slate-100">
       {/* Decorative background elements */}
@@ -16,7 +16,7 @@ const StatsSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
-            <AnimatedSection 
+            <AnimatedSection
               key={stat.label}
               className="text-center"
               animation="fade-in-up"

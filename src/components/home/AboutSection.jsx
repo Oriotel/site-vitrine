@@ -1,5 +1,4 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
+import { PremiumButton } from '@/components/ui/PremiumButton';
 import { CheckCircle2 } from 'lucide-react';
 import SectionTitle from '@/components/ui/SectionTitle';
 
@@ -36,36 +35,33 @@ export function AboutSection() {
           </div>
 
           <div className="flex flex-col mt-10 lg:mt-0 justify-center h-full">
-            <div className="flex justify-end w-full mb-8">
-              <a href="/about">
-                <Button className="group relative overflow-hidden rounded-xl bg-signal-blue px-8 py-6 text-white transition-all hover:bg-signal-blue/90 hover:shadow-xl hover:shadow-signal-blue/20">
-                  <span className="relative z-10 flex items-center gap-2 font-bold tracking-wide">
-                    En savoir plus
-                    <svg className="w-5 h-5 transform transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
+            <div className="mb-8">
+              <p className="text-midnight-slate/70 text-lg leading-relaxed mb-6">
+                Depuis plus de 15 ans, Oriotel accompagne les entreprises dans leur transformation numérique et l'optimisation de leurs infrastructures critiques. Notre expertise s'étend de la gestion des réseaux télécom à l'implémentation de solutions logicielles sur-mesure pour orchestrer vos opérations avec précision et agilité.
+              </p>
+              <ul className="space-y-4 mb-10">
+                <li className="flex items-center gap-4 group">
+                  <div className="p-2 bg-[#1428C9]/5 rounded-lg group-hover:scale-110 transition-transform">
+                    <CheckCircle2 className="text-signal-blue w-6 h-6 shrink-0" fill="#1428C915" />
+                  </div>
+                  <span className="text-midnight-slate font-medium text-lg">
+                    Optimisation des performances critiques
                   </span>
-                </Button>
-              </a>
+                </li>
+                <li className="flex items-center gap-4 group">
+                  <div className="p-2 bg-[#1428C9]/5 rounded-lg group-hover:scale-110 transition-transform">
+                    <CheckCircle2 className="text-signal-blue w-6 h-6 shrink-0" fill="#1428C915" />
+                  </div>
+                  <span className="text-midnight-slate font-medium text-lg">
+                    Design de solutions scalables
+                  </span>
+                </li>
+              </ul>
+              
+              <PremiumButton href="/about">
+                En savoir plus
+              </PremiumButton>
             </div>
-            <ul className="space-y-6">
-              <li className="flex items-center gap-4 group">
-                <div className="p-3 bg-[#1428C9]/5 rounded-xl group-hover:scale-110 transition-transform">
-                  <CheckCircle2 className="text-signal-blue w-7 h-7 shrink-0" fill="#1428C915" />
-                </div>
-                <span className="text-midnight-slate font-semibold text-lg md:text-xl">
-                  Optimisation des performances critiques
-                </span>
-              </li>
-              <li className="flex items-center gap-4 group">
-                <div className="p-3 bg-[#1428C9]/5 rounded-xl group-hover:scale-110 transition-transform">
-                  <CheckCircle2 className="text-signal-blue w-7 h-7 shrink-0" fill="#1428C915" />
-                </div>
-                <span className="text-midnight-slate font-semibold text-lg md:text-xl">
-                  Design de solutions scalables
-                </span>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
