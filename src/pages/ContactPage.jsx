@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Hero from '@/components/contact/Hero';
 import ContactCard from '@/components/contact/ContactCard';
 import ContactForm from '@/components/contact/ContactForm';
+import ContactPageSkeleton from '@/components/contact/ContactPageSkeleton';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ContactPage = () => {
+  // Affiche le squelette pendant 1.8s, puis révèle le vrai contenu
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) return <ContactPageSkeleton />;
+
   return (
-    <div className="bg-cloud-white min-h-screen">
+    <div className="bg-cloud-white min-h-screen animate-[fadeIn_0.5s_ease-out_both]">
       <Hero />
 
       <section className="pt-16 pb-24 md:pt-10">

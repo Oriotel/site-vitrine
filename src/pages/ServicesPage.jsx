@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import StatsSection from '../components/About/StatsSection';
+import ServicesPageSkeleton from '../components/services/ServicesPageSkeleton';
 
 const servicesList = [
   { 
@@ -41,8 +42,23 @@ const servicesList = [
 ];
 
 const ServicesPage = () => {
+  // État de chargement : affiche le squelette pendant 1.8s,
+  // puis révèle le vrai contenu avec un fondu enchaîné.
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // ── Rendu du squelette ────────────────────────────────────
+  if (isLoading) {
+    return <ServicesPageSkeleton />;
+  }
+
+  // ── Rendu réel (avec fondu à l'apparition) ───────────────
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white font-sans animate-[fadeIn_0.5s_ease-out_both]">
       
       {/* 1. HERO SECTION (Pleine Largeur et Sombre) */}
       <section className="relative w-full h-[55vh] md:h-[65vh] min-h-[450px] flex items-center justify-center pt-20">
@@ -71,7 +87,7 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* 2. GRILLE DE 6 CARTES SIMPLES (Remplace l'animation de carrousel) */}
+      {/* 2. GRILLE DE 6 CARTES SIMPLES */}
       <section className="bg-[#F9FAFB] pt-24 pb-12 border-t border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -97,7 +113,7 @@ const ServicesPage = () => {
                   <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
                 </div>
                 
-                {/* Contenu et Détails (Flex-grow pour aligner les boutons en bas) */}
+                {/* Contenu et Détails */}
                 <div className="p-8 flex flex-col flex-grow">
                   <h3 className="text-xl font-bold text-[#111827] mb-3 leading-snug">{svc.title}</h3>
                   <p className="text-slate-600 leading-relaxed max-w-prose flex-grow mb-8 line-clamp-3">
@@ -106,11 +122,8 @@ const ServicesPage = () => {
                   
                   {/* Action : Voir les détails */}
                   <div className="mt-auto border-t border-slate-100 pt-6">
-                    <span 
-                      className="inline-flex items-center text-[#1428C9] font-bold text-sm uppercase tracking-widest group-hover:text-[#111827] transition-colors"
-                    >
+                    <span className="inline-flex items-center text-[#1428C9] font-bold text-sm uppercase tracking-widest group-hover:text-[#111827] transition-colors">
                       Voir les détails
-                      {/* Flèche qui s'anime vers la droite */}
                       <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                       </svg>
