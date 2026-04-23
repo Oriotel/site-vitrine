@@ -14,16 +14,29 @@ function App() {
   return (
     <Layout>
       <SplashCursor />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
+
+        {/* Routes Carrières */}
         <Route path="/postuler" element={<ApplyPage />} />
         <Route path="/carrieres/postuler" element={<ApplyPage />} />
         <Route path="/carrieres/offres" element={<OffresPage />} />
+
+        {/* Routes Événements */}
         <Route path="/evenement" element={<EventApplyPage />} />
         <Route path="/evenements" element={<EventApplyPage />} />
-        <Route path="/evenements/inscription" element={<EventApplyPage />} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route
+          path="/evenements/inscription"
+          element={<EventApplyPage />}
+        />
+
+        {/* Routes À propos */}
+        <Route path="/a-propos" element={<AboutPage />} />
+
+        {/* Autres Routes */}
+
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/processus" element={<OffresPage />} />
       </Routes>

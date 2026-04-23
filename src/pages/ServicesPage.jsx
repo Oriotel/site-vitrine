@@ -1,4 +1,5 @@
 import React from 'react';
+import StatsSection from '../components/About/StatsSection';
 
 const servicesList = [
   { 
@@ -41,36 +42,37 @@ const servicesList = [
 
 const ServicesPage = () => {
   return (
-    <div className="min-h-screen bg-white font-sans pt-24 lg:pt-32">
+    <div className="min-h-screen bg-white font-sans">
       
-      {/* 1. HERO SECTION (Conservée à l'identique) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 lg:pb-24 flex flex-col lg:flex-row items-center gap-12">
-        <div className="lg:w-1/2">
-          <span className="text-[#1428C9] font-bold text-xs md:text-sm uppercase tracking-[0.2em] mb-4 block">
-            Expertise et conseil
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#111827] mb-6 tracking-tight">
-            Nos Services
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
-            Propulsez votre structure vers l'excellence grâce à nos solutions architecturales et opérationnelles sur mesure. Nous transformons vos défis en avantages compétitifs.
-          </p>
+      {/* 1. HERO SECTION (Pleine Largeur et Sombre) */}
+      <section className="relative w-full h-[55vh] md:h-[65vh] min-h-[450px] flex items-center justify-center pt-20">
+        
+        {/* Image de fond pleine largeur avec overlay sombre */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" 
+            alt="Bureau Oriotel Services" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/65"></div>
         </div>
         
-        {/* Visuel Hero Carré */}
-        <div className="lg:w-1/2 flex justify-center lg:justify-end">
-          <div className="w-full max-w-[450px] aspect-square bg-slate-100 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-200">
-            <img 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" 
-              alt="Bureau Oriotel" 
-              className="w-full h-full object-cover rounded-[2rem]"
-            />
-          </div>
+        {/* Contenu textuel centré par dessus l'image */}
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+          <span className="text-white/80 font-bold text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 block border border-white/20 px-5 py-2 rounded-full backdrop-blur-sm">
+            Expertise et conseil
+          </span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 md:mb-8 tracking-tight drop-shadow-xl">
+            Nos Services
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light drop-shadow-md">
+            Propulsez votre structure vers l'excellence grâce à nos solutions architecturales et opérationnelles sur mesure. Nous transformons vos défis en avantages compétitifs.
+          </p>
         </div>
       </section>
 
       {/* 2. GRILLE DE 6 CARTES SIMPLES (Remplace l'animation de carrousel) */}
-      <section className="bg-[#F9FAFB] py-24 border-t border-slate-200/60">
+      <section className="bg-[#F9FAFB] pt-24 pb-12 border-t border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="mb-16 text-center lg:text-left">
@@ -122,6 +124,8 @@ const ServicesPage = () => {
         </div>
       </section>
 
+      {/* 3. SECTION STATISTIQUES */}
+      <StatsSection />
     </div>
   );
 };
