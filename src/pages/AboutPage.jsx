@@ -14,7 +14,7 @@ const AboutPage = () => {
       <ExploreSection />
       <TimelineSection />
       <TeamMarqueeSection />
-      <StatsSection />
+
     </main>
     </>
   )
