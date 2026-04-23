@@ -65,8 +65,8 @@ const ExpertisesSection = () => {
               })}
             </div>
             <div className="flex items-center gap-4 mt-8 md:mt-12 relative z-40">
-              <button onClick={handlePrev} className="w-11 h-11 rounded-full bg-signal-blue text-white flex items-center justify-center hover:bg-signal-blue/90 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-signal-blue/20 focus:outline-none"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg></button>
-              <button onClick={handleNext} className="w-11 h-11 rounded-full bg-signal-blue text-white flex items-center justify-center hover:bg-signal-blue/90 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-signal-blue/20 focus:outline-none"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg></button>
+              <button onClick={handlePrev} className="w-11 h-11 rounded-xl bg-primary-500/10 backdrop-blur-md border border-primary-400/30 text-primary-600 flex items-center justify-center hover:bg-primary-500/20 hover:border-primary-400/60 active:scale-95 transition-all duration-300 shadow-md focus:outline-none"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg></button>
+              <button onClick={handleNext} className="w-11 h-11 rounded-xl bg-primary-500/10 backdrop-blur-md border border-primary-400/30 text-primary-600 flex items-center justify-center hover:bg-primary-500/20 hover:border-primary-400/60 active:scale-95 transition-all duration-300 shadow-md focus:outline-none"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg></button>
             </div>
           </div>
         </div>

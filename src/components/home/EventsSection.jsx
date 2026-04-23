@@ -83,18 +83,18 @@ const EventsSection = () => {
           {/* Flèches de navigation */}
           <button 
             onClick={handlePrev} 
-            className="absolute left-2 md:left-8 z-[60] p-3 rounded-full bg-signal-blue hover:bg-signal-blue/90 text-white transition-all transform hover:scale-110 shadow-lg shadow-signal-blue/20"
+            className="absolute left-2 md:left-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
             aria-label="Previous event"
           >
-            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+            <ChevronLeft size={24} />
           </button>
           
           <button 
             onClick={handleNext} 
-            className="absolute right-2 md:right-8 z-[60] p-3 rounded-full bg-signal-blue hover:bg-signal-blue/90 text-white transition-all transform hover:scale-110 shadow-lg shadow-signal-blue/20"
+            className="absolute right-2 md:right-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
             aria-label="Next event"
           >
-            <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+            <ChevronRight size={24} />
           </button>
         </div>
       </div>
