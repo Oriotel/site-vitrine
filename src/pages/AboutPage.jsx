@@ -1,62 +1,86 @@
 import React, { useState, useEffect } from 'react';
-import PageHero from '@/components/ui/PageHero';
 import { useTranslation } from 'react-i18next';
-import { companyInfo } from '@/constants/data';
-import { useLoading } from '@/context/LoadingContext';
-import ExploreSection from '@/components/About/ExploreSection'
-import TimelineSection from '@/components/About/TimelineSection'
-import StatsSection from '@/components/About/StatsSection'
-import {TeamMarqueeSection} from '@/components/About/TeamMarqueeSection'
-import Shimmer from '@/components/ui/Shimmer'
 
+// Components
+import PageHero from '@/components/ui/PageHero';
+import ExploreSection from '@/components/About/ExploreSection';
+import TimelineSection from '@/components/About/TimelineSection';
+import { TeamSection } from '@/components/About/TeamSection';
+import AboutPageSkeleton from '@/components/About/AboutPageSkeleton';
+
+// Hooks & Context
+import { useLoading } from '@/context/LoadingContext';
+
+// Data Constants
+import { companyInfo } from '@/constants/data';
+
+/**
+ * AboutPage Component
+ * 
+ * Senior-level implementation of the "À propos" (About Us) page.
+ * Manages synchronized loading states between local UI and global layout context.
+ * 
+ * Features:
+ * - High-fidelity skeleton screen during initial load.
+ * - Predictable state management with proper side-effect cleanup.
+ * - Clean separation of concerns through modular section components.
+ */
 const AboutPage = () => {
   const { t } = useTranslation();
-  const [isLoading, setIsLoading] = useState(true);
   const { setIsLayoutLoading } = useLoading();
+  const [isLoading, setIsLoading] = useState(true);
 
+  /**
+   * Effect: Orchestrates the page's loading sequence.
+   * Ensures the global Layout Loader and local Skeleton are synchronized.
+   */
   useEffect(() => {
+    // Notify global Layout that a page-level transition is starting
     setIsLayoutLoading(true);
-    const timer = setTimeout(() => {
+
+    const PAGE_LOAD_SIMULATION_MS = 1500;
+    
+    const loadingTimer = setTimeout(() => {
       setIsLoading(false);
       setIsLayoutLoading(false);
-    }, 1500);
+    }, PAGE_LOAD_SIMULATION_MS);
+
+    // Cleanup to prevent memory leaks and inconsistent loading states on fast navigation
     return () => {
-      clearTimeout(timer);
+      clearTimeout(loadingTimer);
       setIsLayoutLoading(false);
     };
   }, [setIsLayoutLoading]);
 
+  /**
+   * Loading State
+   * Displays the high-fidelity skeleton screen while components resolve.
+   */
   if (isLoading) {
-    return (
-      <div className="min-h-screen bg-white">
-        <section className="relative w-full h-[55vh] flex items-center justify-center bg-white overflow-hidden">
-           <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-100/50 to-transparent" />
-           <div className="relative z-10 flex flex-col items-center gap-5">
-             <Shimmer className="h-8 w-40 rounded-full" />
-             <Shimmer className="h-16 w-80 rounded-xl" />
-             <Shimmer className="h-4 w-96" />
-           </div>
-        </section>
-      </div>
-    );
+    return <AboutPageSkeleton />;
   }
 
   return (
-    <>
-    <main className="w-full overflow-x-hidden relative bg-white">
+    <main 
+      className="w-full relative bg-white overflow-x-hidden"
+      aria-label={t('nav.about') || "À propos"}
+    >
+      {/* Hero Section: Brand Story & Mission */}
       <PageHero 
         title={t('about.hero.title')}
         subtitle="À propos"
         description={t(companyInfo.longDescription)}
         image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000"
       />
-      <ExploreSection />
-      <TimelineSection />
-      <TeamMarqueeSection />
 
+      {/* Main Content Flow */}
+      <div className="flex flex-col">
+        <ExploreSection />
+        <TimelineSection />
+        <TeamSection />
+      </div>
     </main>
-    </>
-  )
-}
+  );
+};
 
 export default AboutPage;
