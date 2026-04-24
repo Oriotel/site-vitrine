@@ -17,7 +17,6 @@ import React, { useState, useEffect } from 'react';
 import StatsSection from '../components/About/StatsSection';
 import ServicesPageSkeleton from '../components/services/ServicesPageSkeleton';
 import SectionTitle from '../components/ui/SectionTitle';
-import { useLoading } from '@/context/LoadingContext';
 import PageHero from '../components/ui/PageHero';
 import ServiceModal from '../components/services/ServiceModal';
 import ServiceCards, { servicesList } from '../components/services/Servicecards';
@@ -25,19 +24,13 @@ import ServiceCards, { servicesList } from '../components/services/Servicecards'
 const ServicesPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedService, setSelected] = useState(null);
-  const { setIsLayoutLoading } = useLoading();
 
   useEffect(() => {
-    setIsLayoutLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
-      setIsLayoutLoading(false);
     }, 1800);
-    return () => {
-      clearTimeout(timer);
-      setIsLayoutLoading(false);
-    };
-  }, [setIsLayoutLoading]);
+    return () => clearTimeout(timer);
+  }, []);
 
   if (isLoading) return <ServicesPageSkeleton />;
 
