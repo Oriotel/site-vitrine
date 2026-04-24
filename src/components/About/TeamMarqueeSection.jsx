@@ -26,26 +26,20 @@ export function TeamMarqueeSection() {
             </AnimatedSection>
           </div>
 
-          {/* Truly Infinite Carousel (HEAD + develop gradients) */}
-          <div className="relative w-full overflow-hidden">
-            {/* Edge Mask Gradients - Fusionnés avec le dark mode de develop */}
-            <div className="pointer-events-none absolute top-0 left-0 z-20 h-full w-24 md:w-48 bg-gradient-to-r from-white to-transparent dark:from-slate-900" />
-            <div className="pointer-events-none absolute top-0 right-0 z-20 h-full w-24 md:w-48 bg-gradient-to-l from-white to-transparent dark:from-slate-900" />
-
-            <div>
-              <TeamCarousel members={team} />
-            </div>
+          {/* Truly Infinite Carousel */}
+          <div className="relative w-full">
+            <TeamCarousel members={team} />
           </div>
 
           {/* CEO Quote / Testimonial (HEAD) */}
           <div className="mx-auto mt-32 max-w-4xl px-6 text-center">
             <AnimatedSection animation="animate-fade-in-up">
-              <h3 className="mb-12 text-2xl md:text-3xl font-semibold text-slate-900 dark:text-white leading-tight max-w-3xl mx-auto italic">
+              <h3 className="mb-12 text-2xl md:text-3xl font-semibold text-slate-900 leading-tight max-w-3xl mx-auto italic">
                 "{t('about.team.testimonial')}"
               </h3>
 
               <div className="flex flex-col items-center gap-4">
-                <div className="relative h-20 w-20 overflow-hidden rounded-full ring-4 ring-slate-100 dark:ring-slate-800 shadow-lg">
+                <div className="relative h-20 w-20 overflow-hidden rounded-full ring-4 ring-slate-100 shadow-lg">
                   <img
                     alt="Alexandre Moreau"
                     className="h-full w-full object-cover"
@@ -53,10 +47,10 @@ export function TeamMarqueeSection() {
                   />
                 </div>
                 <div className="mt-2 text-center">
-                  <p className="text-xl font-bold text-slate-900 dark:text-white mb-1">
+                  <p className="text-xl font-bold text-slate-900 mb-1">
                     Alexandre Moreau
                   </p>
-                  <p className="text-slate-500 dark:text-slate-400 font-medium text-sm md:text-base uppercase tracking-widest">
+                  <p className="text-slate-500 font-medium text-sm md:text-base uppercase tracking-widest">
                     {t('about.team.founder_role')}
                   </p>
                 </div>
