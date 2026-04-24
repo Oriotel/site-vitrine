@@ -1,7 +1,12 @@
 {
   "common": {
     "loading": "Loading...",
-    "explore": "EXPLORE"
+    "explore": "EXPLORE",
+    "details": "Details",
+    "more_info": "Learn more"
+  },
+  "nav": {
+    "about": "About"
   },
   "about": {
     "hero": {
@@ -79,7 +84,7 @@
     "company": {
       "slogan": "Excellence at the service of your ambitions",
       "description": "ORIOTEL is a company specializing in the organization of premium events and the provision of high-quality professional services. Our commitment to excellence sets us apart.",
-      "longDescription": "Since our creation, ORIOTEL has established itself as a key player in the world of events and premium consulting. Our passionate team puts its expertise at the service of your success, offering bespoke solutions that combine innovation, elegance, and performance."
+      "longDescription": "ORIOTEL has established itself as a key player in premium events, combining innovation, elegance, and performance at the service of your success."
     }
   }
 }
