@@ -1,89 +1,135 @@
 /**
- * ServicesPageSkeleton.jsx
+ * ServicesPageSkeleton.jsx — WOW Edition
  * -----------------------------------------------------------
- * Squelette de chargement de la page Services.
- * Structure mimée :
- *   1. Hero       → bloc sombre pleine largeur + blocs gris
- *   2. Grille     → 6 cartes (image + titre + desc + lien)
- *   3. Stats      → 4 blocs chiffres clés
- *
- * Utilise le composant partagé <Shimmer /> (src/components/ui/Shimmer.jsx)
+ * Skeleton premium, brillant et scintillant avec keyframes CSS
+ * injectés directement. Hero animé, Cards glow, Stats éclatantes.
  * -----------------------------------------------------------
  */
 
 import React from 'react';
-import Shimmer from '@/components/ui/Shimmer';
+import SkeletonSection from '@/components/ui/SkeletonSection';
+import ServiceCardsSkeleton from '@/components/services/ServiceCardsSkeleton';
 
-/* ── 1. Hero ─────────────────────────────────────────────── */
-const HeroSkeleton = () => (
-  <section className="relative w-full h-[55vh] md:h-[65vh] min-h-[450px] flex items-center justify-center pt-20 bg-slate-800 overflow-hidden">
-    <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-600/30 to-transparent" />
-    <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-5">
-      <Shimmer className="h-8 w-48 rounded-full bg-slate-700" />
-      <Shimmer className="h-14 md:h-20 w-72 md:w-96 rounded-xl bg-slate-700" />
-      <Shimmer className="h-5 w-full max-w-xl bg-slate-700" />
-      <Shimmer className="h-5 w-3/4 max-w-lg bg-slate-700" />
-    </div>
-  </section>
+/* ── Styles Globaux pour les Skeletons WOW ───────────────── */
+const GlobalWowStyles = () => (
+  <style>{`
+    @keyframes wowShimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.95; box-shadow: 0 4px 15px rgba(20, 40, 201, 0.02); transform: translateY(0px); }
+      50% { opacity: 1; box-shadow: 0 15px 30px rgba(20, 40, 201, 0.08); transform: translateY(-4px); }
+    }
+    @keyframes gradientShiftHero {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes floatLight {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+      50% { transform: translate(15px, -15px) scale(1.15); opacity: 0.8; }
+    }
+  `}</style>
 );
 
-/* ── 2. Carte individuelle ───────────────────────────────── */
-const ServiceCardSkeleton = () => (
-  <div className="bg-white rounded-2xl overflow-hidden border border-slate-100 flex flex-col">
-    <Shimmer className="h-56 w-full rounded-none" />
-    <div className="p-8 flex flex-col gap-4 flex-grow">
-      <Shimmer className="h-6 w-3/4 rounded-md" />
-      <div className="flex flex-col gap-2 flex-grow">
-        <Shimmer className="h-4 w-full rounded-md" />
-        <Shimmer className="h-4 w-full rounded-md" />
-        <Shimmer className="h-4 w-2/3 rounded-md" />
-      </div>
-      <div className="border-t border-slate-100 pt-5 mt-auto">
-        <Shimmer className="h-4 w-36 rounded-md" />
-      </div>
-    </div>
-  </div>
-);
+/* ── 1. Hero WOW ─────────────────────────────────────────── */
+const HeroSkeletonWow = () => (
+  <SkeletonSection>
+    <section className="relative w-full h-[55vh] md:h-[65vh] min-h-[450px] flex items-center justify-center pt-20 overflow-hidden bg-slate-900">
+      
+      {/* Background animé dynamique (Bleu nuit vers éclat) */}
+      <div 
+        className="absolute inset-0 bg-[linear-gradient(-45deg,#040829,#111827,#1428C9,#081051)] bg-[length:400%_400%]"
+        style={{ animation: 'gradientShiftHero 12s ease infinite' }}
+      />
 
-/* ── 3. Grille 6 cartes ──────────────────────────────────── */
-const GridSkeleton = () => (
-  <section className="bg-[#F9FAFB] pt-24 pb-12 border-t border-slate-200/60">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="mb-16 flex flex-col items-center lg:items-start gap-4">
-        <Shimmer className="h-9 w-72 rounded-xl" />
-        <Shimmer className="h-1 w-16 rounded-full" />
+      {/* Texture douce & Light sweeps over the hero */}
+      <div className="absolute inset-0 bg-black/40 mix-blend-overlay" />
+      <div 
+        className="absolute inset-0 w-[200%] h-full opacity-30"
+        style={{ animation: 'wowShimmer 4s infinite cubic-bezier(0.4, 0, 0.2, 1)' }}
+      >
+        <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-white to-transparent skew-x-[-30deg]" />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <ServiceCardSkeleton key={i} />
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
-/* ── 4. Stats ────────────────────────────────────────────── */
-const StatsSkeleton = () => (
-  <section className="py-16 bg-white border-y border-slate-100">
-    <div className="container mx-auto px-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <div key={i} className="flex flex-col items-center gap-3">
-            <Shimmer className="h-14 md:h-20 w-28 md:w-36 rounded-xl" />
-            <Shimmer className="h-4 w-24 rounded-md" />
+      {/* Contenu Hero */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-6 w-full">
+        {/* Titre H1 */}
+        <div className="h-16 md:h-20 lg:h-24 2xl:h-32 w-4/5 max-w-[600px] rounded-[2rem] bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_0_40px_rgba(255,255,255,0.1)] relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-[200%] h-full" style={{ animation: 'wowShimmer 2.5s infinite 0.2s' }}>
+            <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg]" />
           </div>
-        ))}
+        </div>
+        
+        {/* Sous-titre Ligne 1 */}
+        <div className="h-5 md:h-6 2xl:h-7 w-[90%] max-w-[800px] rounded-full bg-white/10 backdrop-blur-md border border-white/10 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-[200%] h-full" style={{ animation: 'wowShimmer 2.5s infinite 0.4s' }}>
+            <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg]" />
+          </div>
+        </div>
+        
+        {/* Sous-titre Ligne 2 */}
+        <div className="h-5 md:h-6 2xl:h-7 w-[75%] max-w-[600px] rounded-full bg-white/10 backdrop-blur-md border border-white/10 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-[200%] h-full" style={{ animation: 'wowShimmer 2.5s infinite 0.5s' }}>
+            <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg]" />
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </SkeletonSection>
 );
 
-/* ── Squelette complet ───────────────────────────────────── */
+/* ── 3. Stats WOW ────────────────────────────────────────── */
+const StatsSkeletonWow = () => (
+  <SkeletonSection delay={120}>
+    <section className="py-16 md:py-20 bg-white border-y border-slate-100 relative overflow-hidden">
+      
+      {/* Background glow subtil */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-transparent via-[#1428C9]/[0.02] to-transparent pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <SkeletonSection key={i} delay={i * 100}>
+               <div className="flex flex-col items-center gap-5">
+                {/* Gros chiffre stat */}
+                <div 
+                  className="h-16 md:h-20 w-32 md:w-40 rounded-[2rem] bg-gradient-to-b from-slate-100 to-slate-50 relative overflow-hidden shadow-[inset_0_2px_10px_rgba(0,0,0,0.02)] border border-slate-200/50" 
+                  style={{ animation: `pulseGlow 4s infinite ${i * 0.2}s` }}
+                >
+                   <div className="absolute top-0 left-0 w-[200%] h-full" style={{ animation: `wowShimmer 2.5s infinite ${i * 0.1}s` }}>
+                     <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-white/90 to-transparent skew-x-[-20deg]" />
+                   </div>
+                </div>
+                {/* Titre stat */}
+                <div className="h-4 md:h-5 w-24 md:w-28 rounded-full bg-slate-200/80 relative overflow-hidden">
+                   <div className="absolute top-0 left-0 w-[200%] h-full" style={{ animation: `wowShimmer 2.5s infinite ${i * 0.1 + 0.1}s` }}>
+                     <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-white/80 to-transparent skew-x-[-20deg]" />
+                   </div>
+                </div>
+              </div>
+            </SkeletonSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  </SkeletonSection>
+);
+
+/* ── Squelette complet de la page ────────────────────────── */
 const ServicesPageSkeleton = () => (
-  <div className="min-h-screen bg-white font-sans" aria-busy="true" aria-label="Chargement de la page Services">
-    <HeroSkeleton />
-    <GridSkeleton />
-    <StatsSkeleton />
+  <div className="min-h-screen bg-white font-sans" aria-busy="true" aria-label="Chargement flamboyant de la page Services">
+    {/* Injection des styles WOW vitaux */}
+    <GlobalWowStyles />
+    
+    <HeroSkeletonWow />
+    
+    <SkeletonSection delay={80}>
+      <ServiceCardsSkeleton />
+    </SkeletonSection>
+
+    <StatsSkeletonWow />
   </div>
 );
 
