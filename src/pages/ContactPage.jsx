@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Hero from '@/components/contact/Hero';
+import PageHero from '@/components/ui/PageHero';
 import ContactCard from '@/components/contact/ContactCard';
 import ContactForm from '@/components/contact/ContactForm';
 import ContactPageSkeleton from '@/components/contact/ContactPageSkeleton';
@@ -19,7 +19,12 @@ const ContactPage = () => {
 
   return (
     <div className="bg-cloud-white min-h-screen animate-[fadeIn_0.5s_ease-out_both]">
-      <Hero />
+      <PageHero 
+        title="Contactez-nous"
+        subtitle="Nous contacter"
+        description="Vous avez un projet en tête ou une question sur nos services ? Notre équipe d'experts est prête à vous accompagner dans la réalisation de vos ambitions."
+        image="/contact-hero.png"
+      />
 
       <section className="pt-16 pb-24 md:pt-10">
         <div className="container mx-auto px-4 md:px-6">

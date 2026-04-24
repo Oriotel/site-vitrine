@@ -1,12 +1,35 @@
-import SponsorsMarquee from '@/components/home/SponsorsMarquee';
+import React, { useState, useEffect } from 'react';
 import Hero from '@/components/home/Hero';
 import AboutSection from '@/components/home/AboutSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import ExpertisesSection from '@/components/home/ExpertisesSection';
 import EventsSection from '@/components/home/EventsSection';
+import SponsorsMarquee from '@/components/home/SponsorsMarquee';
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import HomePageSkeleton from '@/components/home/HomePageSkeleton';
+import { useLoading } from '@/context/LoadingContext';
 
 const HomePage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const { setIsLayoutLoading } = useLoading();
+
+  useEffect(() => {
+    setIsLayoutLoading(true);
+    // Simule un temps de chargement pour le squelette
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      setIsLayoutLoading(false);
+    }, 1800);
+    return () => {
+      clearTimeout(timer);
+      setIsLayoutLoading(false);
+    };
+  }, [setIsLayoutLoading]);
+
+  if (isLoading) {
+    return <HomePageSkeleton />;
+  }
+
   return (
     <>
       {/* 1. SECTION FULL-WIDTH : Le Hero touche les bords */}
@@ -25,17 +48,19 @@ const HomePage = () => {
           <ExpertisesSection />
         </ScrollReveal>
 
-        {/* Events: cinematic clip reveal from bottom */}
-        <ScrollReveal variant="fadeUp" duration={1200} distance={50}>
-          <EventsSection />
-        </ScrollReveal>
-
-        {/* Testimonials: soft blur-in for an ethereal effect */}
-        <ScrollReveal variant="blur" duration={1100} distance={50}>
-          <TestimonialsSection />
-        </ScrollReveal>
-
       </div>
+
+      {/* ── FULL-WIDTH SECTIONS ── */}
+      
+      {/* Events: cinematic clip reveal from bottom */}
+      <ScrollReveal variant="fadeUp" duration={1200} distance={50}>
+        <EventsSection />
+      </ScrollReveal>
+
+      {/* Testimonials: soft blur-in for an ethereal effect */}
+      <ScrollReveal variant="blur" duration={1100} distance={50}>
+        <TestimonialsSection />
+      </ScrollReveal>
 
       {/* 3. SECTION FULL-WIDTH : Les sponsors doivent toucher les bords */}
       <ScrollReveal variant="fadeUp" duration={800} distance={30}>
