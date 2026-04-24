@@ -70,24 +70,27 @@ export const TeamCarousel = ({ members }) => {
 
   return (
     <div className="relative w-full">
-      {/* ── Viewport (overflow clipped here — gradients live inside) ── */}
-      <div
-        className="relative overflow-hidden cursor-grab active:cursor-grabbing"
-        ref={emblaRef}
-      >
-        {/* Edge Mask Gradients — inside overflow-hidden so cards fade at edges */}
+      {/* ── Track area: relative wrapper for gradient positioning ── */}
+      <div className="relative">
+        {/* Embla viewport — clean, no extra children */}
+        <div
+          className="overflow-hidden cursor-grab active:cursor-grabbing"
+          ref={emblaRef}
+        >
+          <div className="flex" style={{ gap: '1.5rem', padding: '1.5rem 0' }}>
+            {slides.map((member, i) => (
+              <div
+                key={`${member.name}-${i}`}
+                className="flex-[0_0_260px] sm:flex-[0_0_280px] md:flex-[0_0_320px] lg:flex-[0_0_360px] xl:flex-[0_0_380px] min-w-0"            >
+                <SlideCard member={member} primary={PRIMARY} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Edge Mask Gradients — outside embla viewport, overlaid via absolute positioning */}
         <div className="pointer-events-none absolute top-0 left-0 z-20 h-full w-24 md:w-48 bg-gradient-to-r from-white to-transparent" />
         <div className="pointer-events-none absolute top-0 right-0 z-20 h-full w-24 md:w-48 bg-gradient-to-l from-white to-transparent" />
-
-        <div className="flex" style={{ gap: '1.5rem', padding: '1.5rem 0' }}>
-          {slides.map((member, i) => (
-            <div
-              key={`${member.name}-${i}`}
-              className="flex-[0_0_260px] sm:flex-[0_0_280px] md:flex-[0_0_320px] lg:flex-[0_0_360px] xl:flex-[0_0_380px] min-w-0"            >
-              <SlideCard member={member} primary={PRIMARY} />
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* ── Controls ── */}
