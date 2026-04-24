@@ -70,11 +70,15 @@ export const TeamCarousel = ({ members }) => {
 
   return (
     <div className="relative w-full">
-      {/* ── Viewport ── */}
+      {/* ── Viewport (overflow clipped here — gradients live inside) ── */}
       <div
-        className="overflow-hidden cursor-grab active:cursor-grabbing"
+        className="relative overflow-hidden cursor-grab active:cursor-grabbing"
         ref={emblaRef}
       >
+        {/* Edge Mask Gradients — inside overflow-hidden so cards fade at edges */}
+        <div className="pointer-events-none absolute top-0 left-0 z-20 h-full w-24 md:w-48 bg-gradient-to-r from-white to-transparent" />
+        <div className="pointer-events-none absolute top-0 right-0 z-20 h-full w-24 md:w-48 bg-gradient-to-l from-white to-transparent" />
+
         <div className="flex" style={{ gap: '1.5rem', padding: '1.5rem 0' }}>
           {slides.map((member, i) => (
             <div
