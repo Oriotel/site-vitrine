@@ -5,7 +5,7 @@ export function SponsorsMarquee() {
     { name: "Maroc Telecom (IAM)", logo: "/assets/images/logo-iam.svg" },
     { name: "INWI", logo: "/assets/images/logo-inwi.svg" },
     { name: "Orange", logo: "/assets/images/logo-orange.svg" },
-    { name: "Supmti", logo: "/assets/images/logo-supmti.svg" },
+    { name: "Supmti", logo: "/assets/images/logo-supmti.png" },
   ];
 
   const repeatedPartners = [

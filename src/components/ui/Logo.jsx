@@ -9,7 +9,7 @@ export function Logo({
 }) {
   const logoImg = (
     <img
-      src="/assets/images/logo-oriotel.svg"
+      src="/assets/images/logo-oriotel.png"
       alt="Oriotel Logo"
       className={cn(
         "w-auto object-contain transition-all duration-300",
