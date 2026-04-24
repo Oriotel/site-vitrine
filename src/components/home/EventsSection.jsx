@@ -38,22 +38,22 @@ const EventsSection = () => {
   };
 
   return (
-    <section className="font-sans overflow-hidden w-full">
-      <div className="max-w-full lg:max-w-[1600px] mx-auto px-0 sm:px-4 lg:px-8 relative">
-        <div className="flex flex-col items-center mb-6">
+    <section className="font-sans w-full py-6 md:py-10">
+      <div className="max-w-full mx-auto relative">
+        <div className="px-6 md:px-8 lg:px-12 flex flex-col items-center mb-6 text-center">
           <SectionTitle 
               subtitle="" 
               title="Événements Oriotel" 
               description="Découvrez nos prochains événements et conférences"
               align="center" 
             />
-            
+          <div className="mt-6 flex justify-center">
+            <PremiumButton href="/evenements">
+              Tout voir
+            </PremiumButton>
+          </div>
         </div>
-        <div className="mt-6 flex justify-center">
-          <PremiumButton href="/evenements">
-            Tout voir
-          </PremiumButton>
-        </div>
+
         <div 
           className="mt-4 relative w-full h-[350px] md:h-[500px] flex justify-center items-center [perspective:1000px] overflow-hidden touch-pan-y" 
           onTouchStart={onTouchStart} 
@@ -64,11 +64,11 @@ const EventsSection = () => {
             let distance = (index - active + events.length) % events.length;
             if (distance > 2) distance -= events.length;
             let transformStyle = '', zIndex = 50 - Math.abs(distance) * 10, opacityStyle = 1;
-            if (distance === 0) { transformStyle = 'translateX(0) translateZ(0) rotateY(0)'; opacityStyle = 1; } 
-            else if (distance === 1) { transformStyle = 'translateX(120%) translateZ(-150px) rotateY(-30deg)'; opacityStyle = 0.7; } 
-            else if (distance === -1) { transformStyle = 'translateX(-120%) translateZ(-150px) rotateY(30deg)'; opacityStyle = 0.7; } 
-            else if (distance === 2) { transformStyle = 'translateX(260%) translateZ(-350px) rotateY(-45deg)'; opacityStyle = 0.3; } 
-            else if (distance === -2) { transformStyle = 'translateX(-260%) translateZ(-350px) rotateY(45deg)'; opacityStyle = 0.3; }
+            if (distance === 0) { transformStyle = 'translateX(0) translateZ(50px) rotateY(0)'; opacityStyle = 1; } 
+            else if (distance === 1) { transformStyle = 'translateX(120%) translateZ(-50px) rotateY(-30deg)'; opacityStyle = 0.8; } 
+            else if (distance === -1) { transformStyle = 'translateX(-120%) translateZ(-50px) rotateY(30deg)'; opacityStyle = 0.8; } 
+            else if (distance === 2) { transformStyle = 'translateX(240%) translateZ(-150px) rotateY(-45deg)'; opacityStyle = 0.4; } 
+            else if (distance === -2) { transformStyle = 'translateX(-240%) translateZ(-150px) rotateY(45deg)'; opacityStyle = 0.4; }
             return (
               <div key={item.id} onClick={() => setActive(index)} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="absolute w-[200px] md:w-[320px] h-[280px] md:h-[420px] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group cursor-pointer" style={{ transform: transformStyle, zIndex, opacity: opacityStyle, transformStyle: 'preserve-3d' }}>
                 <img src={item.image} alt={item.title} className="w-full h-full object-cover shadow-2xl rounded-2xl pointer-events-none" />

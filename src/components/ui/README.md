@@ -95,6 +95,32 @@ import { Logo } from '@/components/ui/Logo';
 
 ---
 
+## 4. PageHero
+Le composant `PageHero` est une section d'en-tête premium utilisée pour les pages secondaires du site. Il intègre une image de fond avec overlay et des animations fluides.
+
+### Utilisation
+```jsx
+import PageHero from '@/components/ui/PageHero';
+
+<PageHero 
+  title="Nos Services"
+  subtitle="Expertise et conseil"
+  description="Découvrez comment nous transformons vos défis en avantages compétitifs."
+  image="/path-to-image.jpg"
+/>
+```
+
+### Propriétés (Props)
+| Prop | Type | Par défaut | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | **Requis** | Le titre principal de la page (police Oswald). |
+| `subtitle` | `string` | `undefined` | Petit texte (badge) au-dessus du titre. |
+| `description` | `string` | `undefined` | Paragraphe descriptif sous le titre. |
+| `image` | `string` | `Unsplash URL` | Chemin vers l'image de fond. |
+| `overlayOpacity` | `string` | `'bg-black/65'` | Classe Tailwind pour l'opacité de l'overlay sombre. |
+
+---
+
 ## Bonnes Pratiques
 - **Cohérence** : Utilisez toujours `PremiumButton` pour les appels à l'action principaux (CTA).
 - **Branding** : Utilisez toujours le composant `Logo` au lieu d'une balise `<img>` manuelle pour garantir que le bon fichier source est utilisé partout.

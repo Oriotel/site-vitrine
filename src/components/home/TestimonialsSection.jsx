@@ -36,8 +36,8 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="font-sans overflow-hidden w-full">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <section className="font-sans w-full py-6 md:py-10">
+      <div className="max-w-full mx-auto px-6 md:px-8 lg:px-12 flex flex-col items-center">
         <SectionTitle 
           subtitle="" 
           title="Témoignages" 
@@ -51,10 +51,10 @@ const TestimonialsSection = () => {
             if (distance > 2) distance -= testimonials.length;
             let transformStyle = '', zIndex = 50 - Math.abs(distance) * 10, opacityStyle = 1;
             if (distance === 0) { transformStyle = 'translateX(0) translateZ(50px) rotateY(0deg)'; opacityStyle = 1; } 
-            else if (distance === 1) { transformStyle = 'translateX(65%) translateZ(-50px) rotateY(-40deg)'; opacityStyle = 0.8; } 
-            else if (distance === -1) { transformStyle = 'translateX(-65%) translateZ(-50px) rotateY(40deg)'; opacityStyle = 0.8; } 
-            else if (distance === 2) { transformStyle = 'translateX(120%) translateZ(-150px) rotateY(-55deg)'; opacityStyle = 0.4; } 
-            else if (distance === -2) { transformStyle = 'translateX(-120%) translateZ(-150px) rotateY(55deg)'; opacityStyle = 0.4; }
+            else if (distance === 1) { transformStyle = 'translateX(90%) translateZ(-50px) rotateY(-40deg)'; opacityStyle = 0.8; } 
+            else if (distance === -1) { transformStyle = 'translateX(-90%) translateZ(-50px) rotateY(40deg)'; opacityStyle = 0.8; } 
+            else if (distance === 2) { transformStyle = 'translateX(180%) translateZ(-150px) rotateY(-55deg)'; opacityStyle = 0.4; } 
+            else if (distance === -2) { transformStyle = 'translateX(-180%) translateZ(-150px) rotateY(55deg)'; opacityStyle = 0.4; }
             return (
               <div key={item.id} onClick={() => setActive(index)} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="absolute w-[220px] h-[220px] md:w-[340px] md:h-[340px] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer rounded-[2rem] overflow-hidden shadow-xl" style={{ transform: transformStyle, zIndex, opacity: opacityStyle, transformStyle: 'preserve-3d' }}>
                 <img src={item.image} alt={item.name} draggable="false" className="w-full h-full object-cover pointer-events-none" />

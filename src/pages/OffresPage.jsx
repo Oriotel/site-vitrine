@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProcessSteps from '@/components/offres/ProcessSteps';
 import OpportunityList from '@/components/offres/OpportunityList';
 import OpportunityDetails from '@/components/offres/OpportunityDetails';
 import WhyJoinSection from '@/components/offres/WhyJoinSection';
 import { BorderBeam } from '@/components/ui/BorderBeam';
+import PageHero from '@/components/ui/PageHero';
+import { useLoading } from '@/context/LoadingContext';
+import Shimmer from '@/components/ui/Shimmer';
 
 const jobsData = [
   {
@@ -49,22 +52,48 @@ const jobsData = [
 
 const OffresPage = () => {
   const [selectedJobId, setSelectedJobId] = useState(jobsData[0].id);
+  const [isLoading, setIsLoading] = useState(true);
+  const { setIsLayoutLoading } = useLoading();
+
+  useEffect(() => {
+    setIsLayoutLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      setIsLayoutLoading(false);
+    }, 1200);
+    return () => {
+      clearTimeout(timer);
+      setIsLayoutLoading(false);
+    };
+  }, [setIsLayoutLoading]);
 
   const selectedJob = jobsData.find((job) => job.id === selectedJobId);
 
-  return (
-    <main className="bg-[#F9FAFB] min-h-screen pt-24 pb-20 font-sans text-[#111827]">
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white">
+        <section className="relative w-full h-[55vh] flex items-center justify-center bg-white overflow-hidden">
+           <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-100/50 to-transparent" />
+           <div className="relative z-10 flex flex-col items-center gap-5">
+             <Shimmer className="h-8 w-40 rounded-full" />
+             <Shimmer className="h-16 w-80 rounded-xl" />
+             <Shimmer className="h-4 w-64" />
+           </div>
+        </section>
+      </div>
+    );
+  }
 
-        {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-4xl md:text-5xl primary-gradient-text mb-4 text-[#111827]">
-            Notre Processus de <span className="text-[#1428C9]">Travail</span>
-          </h1>
-          <p className="text-lg text-gray-500">
-            Découvrez comment nous intégrons nos nouveaux talents et explorez les opportunités actuelles au sein de notre équipe.
-          </p>
-        </div>
+  return (
+    <main className="bg-[#F9FAFB] min-h-screen pb-20 font-sans text-[#111827]">
+      <PageHero 
+        title="Carrières"
+        subtitle="Nous rejoindre"
+        description="Découvrez comment nous intégrons nos nouveaux talents et explorez les opportunités actuelles au sein de notre équipe."
+        image="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=2000"
+      />
+      <div className="container mx-auto px-4 md:px-6 max-w-7xl mt-20">
+
 
         {/* Process Steps Section */}
         <ProcessSteps />

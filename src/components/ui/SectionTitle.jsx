@@ -5,7 +5,7 @@ export function SectionTitle({
   subtitle, 
   description,
   icon: Icon,
-  align = 'left', // 'left', 'center', ou 'right'
+  align = 'center', // 'left', 'center', ou 'right'
   withLine = false, // Optionnel : pour la petite ligne bleue (obsoldète mais gardée pour compatibilité)
   className,
   titleClassName,
@@ -13,7 +13,7 @@ export function SectionTitle({
 }) {
   return (
     <div className={cn(
-      "flex flex-col relative",
+      "flex flex-col relative z-10",
       {
         "items-start text-left": align === 'left',
         "items-center text-center": align === 'center',
@@ -28,17 +28,10 @@ export function SectionTitle({
         </div>
       )}
 
-      {/* Le Sous-titre (ex: "QUI NOUS SOMMES") */}
-      {subtitle && (
-        <span className="text-signal-blue font-bold text-[0.75rem] md:text-sm uppercase tracking-[0.2em] mb-3 block">
-          {subtitle}
-        </span>
-      )}
-      
       {/* Le Titre principal */}
       <div className="relative inline-block mb-4">
         <h2 className={cn(
-          "relative z-10 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight primary-gradient-text pb-2",
+          "relative z-10 text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight primary-gradient-text pb-2 font-oswald",
           titleClassName
         )}>
           {title}
@@ -47,13 +40,13 @@ export function SectionTitle({
         {/* SVG Scribble Effect */}
         <svg
           className={cn(
-            "absolute -top-6 -z-0 w-24 text-signal-blue/10 transition-transform duration-700",
+            "absolute -top-4 -z-10 w-48 md:w-64 text-signal-blue/20 opacity-100 transition-transform duration-700",
             {
-              "-right-12": align === 'center' || align === 'left',
-              "-left-12 rotate-180": align === 'right',
+              "-right-12 md:-right-16": align === 'center' || align === 'left',
+              "-left-12 md:-left-16 rotate-180": align === 'right',
             }
           )}
-          fill="currentColor"
+          fill="none"
           height="86"
           viewBox="0 0 108 86"
           width="108"
@@ -69,6 +62,12 @@ export function SectionTitle({
         </svg>
       </div>
 
+      {/* Le Sous-titre (ex: "QUI NOUS SOMMES") */}
+      {subtitle && (
+        <span className="text-signal-blue font-bold text-[0.75rem] md:text-sm uppercase tracking-[0.2em] mb-3 block">
+          {subtitle}
+        </span>
+      )}
       {/* Description optionnelle */}
       {description && (
         <p className={cn(
