@@ -2,6 +2,7 @@ import React from 'react';
 import SlideEvent from '@/components/Events/SlideEvent';
 import QuoteEvent from '@/components/Events/QuoteEvent';
 import NetworkersEvent from '@/components/Events/NetworkersEvent';
+import { TeamMarqueeSection } from '@/components/About/TeamMarqueeSection';
 
 const EventsPage = () => {
   return (
@@ -14,6 +15,7 @@ const EventsPage = () => {
 
       {/* 3. Réseau de networkers */}
       <NetworkersEvent />
+      <TeamMarqueeSection />
     </main>
   );
 };

@@ -84,76 +84,76 @@ const NetworkerCard = ({ person, index }) => {
             transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
           }}
         >
-        {/* FRONT */}
-        <div
-          className="absolute inset-0 rounded-2xl overflow-hidden shadow-lg"
-          style={{ backfaceVisibility: 'hidden' }}
-        >
-          <img
-            src={person.image}
-            alt={person.name}
-            className="w-full h-full object-cover"
-          />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/40 to-transparent" />
+          {/* FRONT */}
+          <div
+            className="absolute inset-0 rounded-2xl overflow-hidden shadow-lg"
+            style={{ backfaceVisibility: 'hidden' }}
+          >
+            <img
+              src={person.image}
+              alt={person.name}
+              className="w-full h-full object-cover"
+            />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/40 to-transparent" />
 
 
 
-          <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
-            <h3 className="!text-white font-bold text-xl leading-tight mb-1">{person.name}</h3>
-            <p className="!text-white text-sm font-medium opacity-90">{person.role}</p>
-            <p className="!text-white text-xs opacity-70 mt-1">{person.company}</p>
-          </div>
-        </div>
-
-        {/* BACK */}
-        <div
-          className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#0C1879] to-[#111827] flex flex-col items-center justify-center p-7 text-center shadow-lg border border-[#1428C9]/30"
-          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-        >
-          {/* Avatar small */}
-          <img
-            src={person.image}
-            alt={person.name}
-            className="w-20 h-20 rounded-full object-cover border-2 border-[#1428C9] shadow-[0_0_20px_rgba(20,40,201,0.5)] mb-4"
-          />
-          <h3 className="!text-white font-bold text-lg">{person.name}</h3>
-          <p className="!text-white text-sm mt-1">{person.role} · {person.company}</p>
-
-          {/* Divider */}
-          <div className="w-10 h-[2px] bg-[#1428C9] rounded-full my-5" />
-
-          <p className="!text-white text-sm leading-relaxed">
-            Un acteur clé du réseau ORIOTEL, apportant son expertise et sa vision au sein de la communauté.
-          </p>
-
-          {/* Social links */}
-          <div className="flex gap-4 mt-6">
-            <a
-              href={person.linkedin}
-              aria-label="LinkedIn"
-              className="w-9 h-9 rounded-full bg-[#1428C9]/20 hover:bg-[#1428C9] border border-[#1428C9]/40 flex items-center justify-center text-white transition-all duration-300"
-            >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-              </svg>
-            </a>
-            <a
-              href={person.twitter}
-              aria-label="Twitter"
-              className="w-9 h-9 rounded-full bg-[#1428C9]/20 hover:bg-[#1428C9] border border-[#1428C9]/40 flex items-center justify-center text-white transition-all duration-300"
-            >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-              </svg>
-            </a>
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+              <h3 className="!text-white font-bold text-xl leading-tight mb-1">{person.name}</h3>
+              <p className="!text-white text-sm font-medium opacity-90">{person.role}</p>
+              <p className="!text-white text-xs opacity-70 mt-1">{person.company}</p>
+            </div>
           </div>
 
-          {/* CTA */}
-          <button className="mt-5 px-6 py-2.5 bg-[#1428C9] hover:bg-[#1020A1] text-white text-xs font-semibold rounded-full transition-all duration-300">
-            Contacter
-          </button>
-        </div>
+          {/* BACK */}
+          <div
+            className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#0C1879] to-[#111827] flex flex-col items-center justify-center p-7 text-center shadow-lg border border-[#1428C9]/30"
+            style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+          >
+            {/* Avatar small */}
+            <img
+              src={person.image}
+              alt={person.name}
+              className="w-20 h-20 rounded-full object-cover border-2 border-[#1428C9] shadow-[0_0_20px_rgba(20,40,201,0.5)] mb-4"
+            />
+            <h3 className="!text-white font-bold text-lg">{person.name}</h3>
+            <p className="!text-white text-sm mt-1">{person.role} · {person.company}</p>
+
+            {/* Divider */}
+            <div className="w-10 h-[2px] bg-[#1428C9] rounded-full my-5" />
+
+            <p className="!text-white text-sm leading-relaxed">
+              Un acteur clé du réseau ORIOTEL, apportant son expertise et sa vision au sein de la communauté.
+            </p>
+
+            {/* Social links */}
+            <div className="flex gap-4 mt-6">
+              <a
+                href={person.linkedin}
+                aria-label="LinkedIn"
+                className="w-9 h-9 rounded-full bg-[#1428C9]/20 hover:bg-[#1428C9] border border-[#1428C9]/40 flex items-center justify-center text-white transition-all duration-300"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+              </a>
+              <a
+                href={person.twitter}
+                aria-label="Twitter"
+                className="w-9 h-9 rounded-full bg-[#1428C9]/20 hover:bg-[#1428C9] border border-[#1428C9]/40 flex items-center justify-center text-white transition-all duration-300"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                </svg>
+              </a>
+            </div>
+
+            {/* CTA */}
+            <button className="mt-5 px-6 py-2.5 bg-[#1428C9] hover:bg-[#1020A1] text-white text-xs font-semibold rounded-full transition-all duration-300">
+              Contacter
+            </button>
+          </div>
         </div>
       </div>
     </AnimatedSection>
@@ -163,7 +163,7 @@ const NetworkerCard = ({ person, index }) => {
 const NetworkersEvent = () => {
 
   return (
-    <section className="pt-10 pb-24 bg-[#F9FAFB] dark:bg-[#111827] font-sans overflow-hidden">
+    <section className="pt-12 pb-12 bg-[#F9FAFB] dark:bg-[#111827] font-sans overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
 
         {/* Header */}

@@ -116,8 +116,8 @@ const SlideEvent = () => {
       </div>
 
       {/* ── Content ── */}
-      <div className="relative z-[4] h-full flex flex-col justify-center px-6 lg:px-10 pt-10">
-        <div className="w-full max-w-[1400px] mr-auto">
+      <div className="relative z-[4] h-full flex flex-col justify-center px-6 lg:px-10 ">
+        <div className="w-full max-w-[1400px] mx-auto px-0 lg:px-6">
           <div className="max-w-[750px]">
             
             {/* Header info bar (Combined Tag + Date + Location) */}
