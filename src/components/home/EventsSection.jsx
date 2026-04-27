@@ -39,63 +39,64 @@ const EventsSection = () => {
 
   return (
     <section className="font-sans w-full py-6 md:py-10">
-      <div className="max-w-full mx-auto relative">
-        <div className="px-6 md:px-8 lg:px-12 flex flex-col items-center mb-6 text-center">
+      <div className="max-w-6xl mx-auto relative px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center mb-6 text-center">
           <SectionTitle 
               subtitle="" 
               title="Événements Oriotel" 
               description="Découvrez nos prochains événements et conférences"
               align="center" 
             />
-          <div className="mt-6 flex justify-center">
-            <PremiumButton href="/evenements">
+        </div>
+          <div className="flex flex-col items-start gap-8 mt-8 md:mt-12 relative z-40">
+            <PremiumButton 
+              href="/evenements"
+              className="bg-[#1428C9]/10 backdrop-blur-md border border-[#1428C9]/20 text-[#1428C9] hover:bg-[#1428C9]/20 transition-all shadow-lg"
+            >
               Tout voir
             </PremiumButton>
           </div>
-        </div>
 
         <div 
-          className="mt-4 relative w-full h-[350px] md:h-[500px] flex justify-center items-center [perspective:1000px] overflow-hidden touch-pan-y" 
+          className="relative w-full h-[350px] md:h-[500px] flex justify-center items-center [perspective:1200px] touch-pan-y" 
           onTouchStart={onTouchStart} 
           onTouchMove={onTouchMove} 
           onTouchEnd={onTouchEnd}
         >
+          {/* Flèches de navigation */}
+          <button
+            onClick={handlePrev}
+            className="absolute left-2 md:left-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
+            aria-label="Événement précédent"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={handleNext}
+            className="absolute right-2 md:right-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
+            aria-label="Événement suivant"
+          >
+            <ChevronRight size={24} />
+          </button>
           {events.map((item, index) => {
             let distance = (index - active + events.length) % events.length;
             if (distance > 2) distance -= events.length;
             let transformStyle = '', zIndex = 50 - Math.abs(distance) * 10, opacityStyle = 1;
             if (distance === 0) { transformStyle = 'translateX(0) translateZ(50px) rotateY(0)'; opacityStyle = 1; } 
-            else if (distance === 1) { transformStyle = 'translateX(120%) translateZ(-50px) rotateY(-30deg)'; opacityStyle = 0.8; } 
-            else if (distance === -1) { transformStyle = 'translateX(-120%) translateZ(-50px) rotateY(30deg)'; opacityStyle = 0.8; } 
-            else if (distance === 2) { transformStyle = 'translateX(240%) translateZ(-150px) rotateY(-45deg)'; opacityStyle = 0.4; } 
-            else if (distance === -2) { transformStyle = 'translateX(-240%) translateZ(-150px) rotateY(45deg)'; opacityStyle = 0.4; }
+            else if (distance === 1) { transformStyle = 'translateX(75%) translateZ(-50px) rotateY(-30deg)'; opacityStyle = 0.8; } 
+            else if (distance === -1) { transformStyle = 'translateX(-75%) translateZ(-50px) rotateY(30deg)'; opacityStyle = 0.8; } 
+            else if (distance === 2) { transformStyle = 'translateX(125%) translateZ(-150px) rotateY(-45deg)'; opacityStyle = 0.4; } 
+            else if (distance === -2) { transformStyle = 'translateX(-125%) translateZ(-150px) rotateY(45deg)'; opacityStyle = 0.4; }
             return (
-              <div key={item.id} onClick={() => setActive(index)} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="absolute w-[200px] md:w-[320px] h-[280px] md:h-[420px] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group cursor-pointer" style={{ transform: transformStyle, zIndex, opacity: opacityStyle, transformStyle: 'preserve-3d' }}>
+              <div key={item.id} onClick={() => setActive(index)} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="absolute w-[220px] md:w-[340px] h-[280px] md:h-[420px] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group cursor-pointer" style={{ transform: transformStyle, zIndex, opacity: opacityStyle, transformStyle: 'preserve-3d' }}>
                 <img src={item.image} alt={item.title} className="w-full h-full object-cover shadow-2xl rounded-2xl pointer-events-none" />
-                <div className="absolute inset-0 bg-[#111827]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 border-[1px] border-[#F9FAFB]/10 rounded-2xl pointer-events-none">
-                  <h3 className="text-[#F9FAFB] font-bold text-xl mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{item.title}</h3>
-                  <p className="text-[#F9FAFB]/80 text-sm leading-relaxed translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{item.description}</p>
+                <div className={`absolute inset-0 bg-[#111827]/80 ${distance === 0 ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-300 flex flex-col justify-end p-6 border-[1px] border-[#F9FAFB]/10 rounded-2xl pointer-events-none`}>
+                  <h3 className={`text-[#F9FAFB] font-bold text-xl mb-2 ${distance === 0 ? 'translate-y-0' : 'translate-y-4 group-hover:translate-y-0'} transition-transform duration-300`}>{item.title}</h3>
+                  <p className={`text-[#F9FAFB]/80 text-sm leading-relaxed ${distance === 0 ? 'translate-y-0' : 'translate-y-4 group-hover:translate-y-0'} transition-transform duration-300 delay-75`}>{item.description}</p>
                 </div>
               </div>
             );
           })}
-          
-          {/* Flèches de navigation */}
-          <button 
-            onClick={handlePrev} 
-            className="absolute left-2 md:left-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
-            aria-label="Previous event"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          
-          <button 
-            onClick={handleNext} 
-            className="absolute right-2 md:right-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
-            aria-label="Next event"
-          >
-            <ChevronRight size={24} />
-          </button>
         </div>
       </div>
     </section>
