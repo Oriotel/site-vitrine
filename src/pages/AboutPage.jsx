@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 // Components
 import PageHero from '@/components/ui/PageHero';
 import ExploreSection from '@/components/About/ExploreSection';
+import StatsSection from '@/components/About/StatsSection';
 import TimelineSection from '@/components/About/TimelineSection';
 import { TeamSection } from '@/components/About/TeamSection';
 import AboutPageSkeleton from '@/components/About/AboutPageSkeleton';
@@ -68,14 +69,15 @@ const AboutPage = () => {
       {/* Hero Section: Brand Story & Mission */}
       <PageHero
         title={t('about.hero.title')}
-        subtitle="À propos"
-        description={t(companyInfo.longDescription)}
+        subtitle={t('about.hero.subtitle')}
+        description={t('about.hero.description')}
         image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000"
       />
 
       {/* Main Content Flow */}
       <div className="flex flex-col">
         <ExploreSection />
+        <StatsSection />
         <TimelineSection />
         <TeamSection />
       </div>

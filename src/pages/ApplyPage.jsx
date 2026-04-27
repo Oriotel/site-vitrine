@@ -1,10 +1,13 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Clock } from 'lucide-react';
 import ApplyForm from '@/components/apply/ApplyForm';
 import InfoCard from '@/components/apply/InfoCard';
 
 const ApplyPage = () => {
+  const { t } = useTranslation();
+
   return (
     <motion.main
       initial={{ opacity: 0 }}
@@ -18,14 +21,13 @@ const ApplyPage = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <span className="inline-block px-4 py-1.5 rounded-full bg-signal-blue/10 text-signal-blue text-sm font-bold tracking-widest uppercase">
-                Rejoignez-nous
+                {t('apply.tag')}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl primary-gradient-text text-midnight-slate leading-[1.1]">
-                Postuler à <br />
-                <span className="text-signal-blue">une offre.</span>
+                {t('apply.title')}
               </h1>
               <p className="text-lg text-gray-500 max-w-md leading-relaxed">
-                Prêt à dessiner le futur avec nous ? Nous sommes toujours à la recherche de nouveaux talents passionnés.
+                {t('apply.description')}
               </p>
             </div>
 
@@ -41,13 +43,13 @@ const ApplyPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <InfoCard
                 icon={ShieldCheck}
-                title="Données sécurisées"
-                description="Vos informations sont protégées."
+                title={t('apply.cards.security.title')}
+                description={t('apply.cards.security.description')}
               />
               <InfoCard
                 icon={Clock}
-                title="Réponse rapide"
-                description="Réponse sous 5 à 10 jours."
+                title={t('apply.cards.response.title')}
+                description={t('apply.cards.response.description')}
               />
             </div>
           </div>

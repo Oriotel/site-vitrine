@@ -1,30 +1,40 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { PremiumButton } from '@/components/ui/PremiumButton';
 
-const events = [
-  { id: 1, image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800', title: 'Conférence Annuelle', description: 'Une plongée immersive dans l\'innovation corporative et notre nouvelle identité de marque.' },
-  { id: 2, image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800', title: 'Séminaire Stratégique', description: 'Analyse des grandes tendances du marché et élaboration des stratégies de croissance.' },
-  { id: 3, image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=800', title: 'Gala de l\'Excellence', description: 'Célébration des résultats exceptionnels de l\'année avec tous nos partenaires de confiance.' },
-  { id: 4, image: 'https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&q=80&w=800', title: 'Atelier Opérations', description: 'Workshops interactifs destinés à optimiser les flux de travail dans un cadre dynamique.' },
-  { id: 5, image: 'https://images.unsplash.com/photo-1475721025505-1113afab0f43?auto=format&fit=crop&q=80&w=800', title: 'Networking VIP', description: 'Rencontrez les leaders mondiaux de votre industrie lors de cette soirée exclusive et inspirante.' }
-];
-
 const EventsSection = () => {
+  const { t } = useTranslation();
   const [active, setActive] = useState(2);
   const [isHovered, setIsHovered] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
+  const eventsData = t('home.events_section.items', { returnObjects: true }) || [];
+  
+  const images = [
+    'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800',
+    'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800',
+    'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=800',
+    'https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&q=80&w=800',
+    'https://images.unsplash.com/photo-1475721025505-1113afab0f43?auto=format&fit=crop&q=80&w=800'
+  ];
+
+  const events = eventsData.map((item, index) => ({
+    ...item,
+    id: index + 1,
+    image: images[index]
+  }));
+
   const handleNext = () => setActive((prev) => (prev + 1) % events.length);
   const handlePrev = () => setActive((prev) => (prev - 1 + events.length) % events.length);
 
   useEffect(() => {
-    if (isHovered) return;
+    if (isHovered || events.length === 0) return;
     const interval = setInterval(handleNext, 3000);
     return () => clearInterval(interval);
-  }, [isHovered]);
+  }, [isHovered, events.length]);
 
   const minSwipeDistance = 50;
   const onTouchStart = (e) => { setTouchEnd(0); setTouchStart(e.targetTouches[0].clientX); setIsHovered(true); };
@@ -43,8 +53,8 @@ const EventsSection = () => {
         <div className="flex flex-col items-center mb-6 text-center">
           <SectionTitle 
               subtitle="" 
-              title="Événements Oriotel" 
-              description="Découvrez nos prochains événements et conférences"
+              title={t('home.events_section.title')}
+              description={t('home.events_section.description')}
               align="center" 
             />
         </div>
@@ -53,7 +63,7 @@ const EventsSection = () => {
               href="/evenements"
               className="text-[#1428C9]"
             >
-              Tout voir
+              {t('home.events_section.all_cta')}
             </PremiumButton>
           </div>
 
@@ -67,14 +77,14 @@ const EventsSection = () => {
           <button
             onClick={handlePrev}
             className="absolute left-2 md:left-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
-            aria-label="Événement précédent"
+            aria-label={t('common.prev_event') || 'Événement précédent'}
           >
             <ChevronLeft size={24} />
           </button>
           <button
             onClick={handleNext}
             className="absolute right-2 md:right-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
-            aria-label="Événement suivant"
+            aria-label={t('common.next_event') || 'Événement suivant'}
           >
             <ChevronRight size={24} />
           </button>

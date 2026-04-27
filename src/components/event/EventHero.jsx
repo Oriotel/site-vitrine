@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 
 const EventHero = () => {
+  const { t } = useTranslation();
   const scrollToForm = () => {
     document.getElementById('event-application-form')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -33,23 +35,20 @@ const EventHero = () => {
             transition={{ delay: 0.3 }}
             className="inline-block px-4 py-1.5 rounded-full bg-orange-500/20 text-orange-400 text-sm font-bold tracking-widest uppercase mb-6 backdrop-blur-sm border border-orange-500/30"
           >
-            Exclusive Event
+            {t('event_apply.hero.tag')}
           </motion.span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6 shadow-sm">
-            Apply for the <br className="hidden md:block" />
-            Networking Event <br className="hidden md:block" />
-            <span className="text-orange-500">in Morocco</span>
+            {t('event_apply.hero.title')}
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-xl font-medium leading-relaxed">
-            Join top professionals, innovators, and companies. <br className="hidden md:block" />
-            Submit your application to participate in the biggest networking experience.
+            {t('event_apply.hero.description')}
           </p>
           
           <Button 
             onClick={scrollToForm}
             className="h-14 px-10 text-lg font-bold bg-orange-500 hover:bg-orange-600 text-white rounded-full transition-all hover:scale-105 active:scale-95 shadow-xl shadow-orange-600/20"
           >
-            Apply Now
+            {t('event_apply.hero.cta')}
           </Button>
         </motion.div>
       </div>

@@ -7,7 +7,7 @@ import AnimatedSection from "@/components/common/AnimatedSection";
 import SectionTitle from "@/components/ui/SectionTitle";
 
 // Data
-import { team } from "@/constants/data";
+import { team as localTeam } from "@/constants/data";
 
 /**
  * CEOQuote Component
@@ -58,7 +58,17 @@ FounderTestimonial.displayName = 'FounderTestimonial';
  */
 export const TeamSection = memo(() => {
   const { t } = useTranslation();
-  const founder = team[0]; // Conventionally, the first member is the founder
+  
+  const teamData = t('about.team_members', { returnObjects: true });
+  
+  const team = Array.isArray(teamData) 
+    ? teamData.map((member, index) => ({
+        ...member,
+        image: localTeam[index]?.image || ''
+      }))
+    : [];
+
+  const founder = team[0] || localTeam[0];
 
   return (
     <section 
@@ -86,7 +96,7 @@ export const TeamSection = memo(() => {
         </div>
 
         {/* Personal Layer: Founder's Vision */}
-        <FounderTestimonial founder={founder} />
+        {founder && <FounderTestimonial founder={founder} />}
       </div>
     </section>
   );

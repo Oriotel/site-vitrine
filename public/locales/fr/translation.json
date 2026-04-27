@@ -3,14 +3,116 @@
     "loading": "Chargement...",
     "explore": "EXPLORE",
     "details": "Détails",
-    "more_info": "En savoir plus"
+    "more_info": "En savoir plus",
+    "send": "Envoyer le message",
+    "sending": "Envoi en cours..."
   },
   "nav": {
-    "about": "À propos"
+    "home": "Accueil",
+    "about": "À propos de nous",
+    "services": "Services & Expertise",
+    "events": "Événements",
+    "contact": "Nous contacter",
+    "careers": "Offres d'emploi"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Orchestrer l'avenir",
+      "subtagline": "de vos opérations.",
+      "description": "De l'infrastructure télécom à l'intelligence des flux de travail — des solutions sur-mesure pour votre croissance.",
+      "cta": "Découvrir Oriotel"
+    },
+    "about": {
+      "title": "Qui nous sommes ?",
+      "description": "Pionnier de la gestion des opérations.",
+      "expertise_years": "15+",
+      "expertise_label": "Années d'expertise",
+      "paragraph": "Depuis plus de 15 ans, Oriotel accompagne les entreprises dans leur transformation numérique et l'optimisation de leurs infrastructures critiques. Notre expertise s'étend de la gestion des réseaux télécom à l'implémentation de solutions logicielles sur-mesure pour orchestrer vos opérations avec précision et agilité.",
+      "point_1": "Optimisation des performances critiques",
+      "point_2": "Design de solutions scalables",
+      "cta": "En savoir plus"
+    },
+    "expertises_section": {
+      "title": "Expertises Sectorielles",
+      "description": "Notre équipe pluridisciplinaire vous accompagne avec des solutions pointues et sur-mesure.",
+      "all_cta": "Tout voir",
+      "items": [
+        {
+          "title": "Architecture & Stratégie",
+          "name": "Ahmed Mansouri",
+          "role": "Senior Partner",
+          "text": "Une vision claire et une exécution sans faille pour vos projets critiques d'infrastructure."
+        },
+        {
+          "title": "Audit & Performance",
+          "name": "Sarah Lefevre",
+          "role": "Consultante en stratégie",
+          "text": "Un audit précis et des recommandations concrètes qui ont transformé notre organisation opérationnelle."
+        },
+        {
+          "title": "Accompagnement Métier",
+          "name": "Karim Alaoui",
+          "role": "Expert Métier",
+          "text": "Une expertise pointue et un accompagnement sur mesure pour des résultats visibles dès les premières semaines."
+        }
+      ]
+    },
+    "events_section": {
+      "title": "Événements Oriotel",
+      "description": "Découvrez nos prochains événements et conférences",
+      "all_cta": "Tout voir",
+      "items": [
+        { "title": "Conférence Annuelle", "description": "Une plongée immersive dans l'innovation corporative et notre nouvelle identité de marque." },
+        { "title": "Séminaire Stratégique", "description": "Analyse des grandes tendances du marché et élaboration des stratégies de croissance." },
+        { "title": "Gala de l'Excellence", "description": "Célébration des résultats exceptionnels de l'année avec tous nos partenaires de confiance." },
+        { "title": "Atelier Opérations", "description": "Workshops interactifs destinés à optimiser les flux de travail dans un cadre dynamique." },
+        { "title": "Networking VIP", "description": "Rencontrez les leaders mondiaux de votre industrie lors de cette soirée exclusive et inspirante." }
+      ]
+    },
+    "testimonials_section": {
+      "title": "Témoignages",
+      "description": "Découvrez les retours d'expérience de nos partenaires et clients qui ont transformé leur vision en succès.",
+      "items": [
+        { "name": "Sarah Connor", "role": "CEO, TechNova", "quote": "La stratégie opérationnelle d'Oriotel nous a permis de scaler nos processus avec une fluidité déconcertante." },
+        { "name": "David Guetta", "role": "Directeur des Opérations, FinTechPro", "quote": "Un accompagnement sur-mesure et une expertise inégalée. Ils ont identifié nos goulots d'étranglement instantanément." },
+        { "name": "Alice Dubois", "role": "Fondatrice, GreenSolutions", "quote": "Nous avons doublé notre rentabilité en moins de 6 mois grâce aux recommandations stratégiques d'Oriotel." },
+        { "name": "Marc Lefebvre", "role": "COO, Logistix", "quote": "Une vision claire et un plan d'action concret. C'est exactement ce que nous recherchions chez un partenaire à long terme." },
+        { "name": "Emma Rousseau", "role": "VP Média, CreativLab", "quote": "Les équipes d'Oriotel maîtrisent l'art d'optimiser tous les niveaux tout en respectant l'identité de l'entreprise." }
+      ]
+    }
+  },
+  "footer": {
+    "nav": {
+      "company": {
+        "title": "Navigation",
+        "sections": {
+          "enterprise": "L'Entreprise",
+          "solutions": "Nos Solutions",
+          "join_us": "Nous Rejoindre"
+        }
+      },
+      "methodology": "Notre Méthodologie",
+      "upcoming_events": "Événements à venir",
+      "register_event": "S'inscrire à un événement",
+      "apply": "Déposer une candidature"
+    },
+    "description": "ORIOTEL est une entreprise marocaine spécialisée dans l’achat et la vente d’appareils téléphoniques et électriques. Grâce à son expertise en négoce et en intermédiation, elle accompagne les grandes sociétés de télécommunications ainsi que les particuliers en leur offrant des produits et services fiables, modernes et accessibles.",
+    "copyright": "© {{year}} ORIOTEL - Tous droits réservés",
+    "legal": {
+      "mentions": "Mentions légales",
+      "privacy": "Politique de confidentialité"
+    }
   },
   "about": {
     "hero": {
-      "title": "Qui sommes-nous?"
+      "title": "Une vision d'excellence",
+      "subtitle": "À propos",
+      "description": "ORIOTEL est née de l'ambition de redéfinir les standards de l'architecture d'entreprise et de l'excellence opérationnelle. Nous accompagnons les organisations les plus exigeantes dans leur transformation stratégique."
+    },
+    "company": {
+      "slogan": "Orchestrer l'avenir de vos opérations",
+      "description": "ORIOTEL est un pionnier dans la gestion des infrastructures critiques.",
+      "longDescription": "Depuis plus de 15 ans, nous accompagnons les entreprises dans leur transformation numérique avec une précision et une agilité inégalées."
     },
     "explore": {
       "featured": {
@@ -21,70 +123,371 @@
       "features": {
         "service": "Service Sur-Mesure",
         "quality": "Qualité Premium",
-        "innovation": "Innovation"
+        "innovation": "Innovation Continue"
       },
-      "gallery": {
-        "discover_more": "Découvrir plus"
-      }
-    },
-    "team": {
-      "badge": "L'Équipe",
-      "title": "Notre Équipe d'Experts",
-      "subtitle": "L'excellence au service de vos ambitions",
-      "description": "Une équipe passionnée et dévouée à transformer chaque détail de votre événement en un souvenir impérissable.",
-      "testimonial": "L'excellence n'est pas un acte, mais une habitude. Notre équipe s'efforce chaque jour de transformer cette vision en réalité pour nos clients les plus exigeants.",
-      "founder_role": "Fondateur · ORIOTEL PREMIUM"
-    },
-    "stories": {
-      "identity": {
-        "category": "L'Équipe",
-        "title": "Identité & Vision",
-        "description": "Au cœur d'ORIOTEL, une équipe passionnée cultive l'excellence pour transformer chaque ambition en une réalité prestigieuse."
-      },
-      "headquarters": {
-        "category": "Notre Maison",
-        "title": "Siège & Prestige",
-        "description": "Notre siège parisien incarne l'élégance et le professionnalisme que nous insufflons dans chacun de nos services."
-      },
-      "collaboration": {
-        "category": "Moments Forts",
-        "title": "Collaboration & Événements",
-        "description": "Chaque événement est le fruit d'une collaboration étroite et d'une créativité sans limite pour surprendre et marquer les esprits."
-      },
-      "innovation": {
-        "category": "Le Futur",
-        "title": "Innovation & Excellence",
-        "description": "Nous repousons sans cesse les frontières de l'innovation pour offrir des expériences uniques et à la pointe de la technologie."
+      "stats": {
+        "events": "Événements",
+        "clients": "Clients Satisfaits",
+        "experience": "Années d'Expérience",
+        "experts": "Experts"
       }
     },
     "history": {
       "title": "Notre Histoire",
-      "subtitle": "Un parcours jalonné d'excellence et d'innovations.",
+      "subtitle": "Un parcours d'excellence",
       "items": {
         "founding": "Fondation",
-        "founding_desc": "Création d'ORIOTEL à Paris avec une vision d'excellence événementielle.",
-        "expansion": "Expansion",
-        "expansion_desc": "Ouverture de notre premier bureau international et élargissement de l'offre de services.",
-        "awards": "Prix d'Excellence",
-        "awards_desc": "ORIOTEL reçoit le prix de la meilleure agence événementielle de l'année.",
-        "digital": "Transformation Digitale",
-        "digital_desc": "Lancement de nos solutions d'événements hybrides et 100% digitaux.",
-        "milestone": "500+ Événements",
-        "milestone_desc": "Cap symbolique de 500 événements organisés avec succès à travers le monde.",
-        "future": "Nouvelle Ère",
-        "future_desc": "Lancement de notre plateforme intégrée et expansion vers de nouveaux marchés."
+        "founding_desc": "Création d'ORIOTEL avec une vision claire de transformation opérationnelle.",
+        "expansion": "Expansion Nationale",
+        "expansion_desc": "Ouverture de nouveaux bureaux et élargissement de notre gamme de services.",
+        "awards": "Reconnaissance",
+        "awards_desc": "Prix de l'innovation et de l'excellence opérationnelle.",
+        "digital": "Ère Digitale",
+        "digital_desc": "Transformation complète de nos processus vers le 100% numérique.",
+        "milestone": "Cap des 500 projets",
+        "milestone_desc": "Célébration de notre 500ème projet réussi avec succès.",
+        "future": "Vers l'avenir",
+        "future_desc": "Poursuite de notre mission d'orchestration de l'avenir."
       }
     },
-    "stats": {
-      "events": "Événements organisés",
-      "clients": "Clients satisfaits",
-      "experience": "Années d'expérience",
-      "experts": "Experts passionnés"
+    "stories": {
+      "identity": {
+        "title": "Notre Identité",
+        "description": "L'excellence au cœur de chaque action.",
+        "category": "Vision"
+      },
+      "headquarters": {
+        "title": "Notre Siège",
+        "description": "Un hub d'innovation et de créativité.",
+        "category": "Infrastructure"
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "L'intelligence collective au service de vos projets.",
+        "category": "Équipe"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Explorer de nouveaux horizons technologiques.",
+        "category": "Futur"
+      }
     },
-    "company": {
-      "slogan": "L'excellence au service de vos ambitions",
-      "description": "ORIOTEL est une entreprise spécialisée dans l'organisation d'événements premium et la fourniture de services professionnels de haute qualité. Notre engagement envers l'excellence nous distingue.",
-      "longDescription": "ORIOTEL s'est imposée comme un acteur incontournable de l'événementiel premium, alliant innovation, élégance et performance au service de votre réussite."
+    "team": {
+      "title": "Notre Équipe d'Experts",
+      "subtitle": "Talent & Vision",
+      "description": "Rencontrez les esprits passionnés qui orchestrent votre transformation.",
+      "testimonial": "Les grands événements ne se produisent pas par hasard. Ils se construisent avec vision, précision et une équipe qui croit en l'excellence.",
+      "founder_role": "Fondateur & CEO"
+    },
+    "team_members": [
+      { 
+        "name": "Ahmed Benali", 
+        "role": "Directeur Général", 
+        "bio": "Expert en stratégie avec 20 ans d'expérience dans l'orchestration opérationnelle." 
+      },
+      { 
+        "name": "Yasmine Mansouri", 
+        "role": "Directrice Opérationnelle", 
+        "bio": "Passionnée par l'optimisation des processus et la performance critique." 
+      },
+      {
+        "name": "Alexandre Moreau",
+        "role": "Fondateur & CEO",
+        "bio": "Avec plus de 15 ans d'expérience, Alexandre dirige ORIOTEL avec passion et vision."
+      },
+      {
+        "name": "Claire Valmont",
+        "role": "Directrice Événementiel",
+        "bio": "Experte en conception d'événements premium, Claire transforme chaque projet en une expérience mémorable."
+      }
+    ]
+  },
+  "services": {
+    "hero": {
+      "title": "Nos Services",
+      "description": "Propulsez votre structure vers l'excellence grâce à nos solutions architecturales et opérationnelles sur mesure. Nous transformons vos défis en avantages compétitifs."
+    },
+    "grid": {
+      "title": "Découvrez nos solutions",
+      "cta": "Voir les détails"
+    },
+    "items": [
+      {
+        "title": "Architecture d'entreprise",
+        "desc": "Conception et modélisation de structures organisationnelles robustes et agiles face aux évolutions du marché.",
+        "details": "Nous analysons votre organisation de A à Z pour concevoir un modèle structurel qui allie clarté, efficacité et scalabilité. Notre approche intègre les meilleures pratiques internationales tout en respectant votre culture d'entreprise.",
+        "points": [
+          "Diagnostic de la structure organisationnelle existante",
+          "Modélisation des processus métier (BPMN, ArchiMate)",
+          "Alignement stratégique entre IT et business",
+          "Définition des rôles, responsabilités et gouvernances",
+          "Feuille de route de transformation architectural"
+        ]
+      },
+      {
+        "title": "Optimisation opérationnelle",
+        "desc": "Amélioration continue de vos processus internes pour un rendement maximal et des coûts maîtrisés.",
+        "details": "Nos experts identifient les inefficacités, goulots d'étranglement et sources de gaspillage dans vos opérations pour déployer des leviers d'amélioration mesurables et durables.",
+        "points": [
+          "Cartographie et audit des processus opérationnels",
+          "Déploiement des méthodologies Lean & Six Sigma",
+          "Réduction des coûts et délais de production",
+          "Mise en place d'indicateurs de performance (KPIs)",
+          "Accompagnement au changement et formation des équipes"
+        ]
+      },
+      {
+        "title": "Conseil stratégique",
+        "desc": "Accompagnement de vos dirigeants vers des prises de décisions à fort impact pour l'avenir de l'entreprise.",
+        "details": "Nos consultants seniors travaillent directement avec votre comité de direction pour co-construire des stratégies différenciantes, ancrées dans la réalité du marché et orientées résultats.",
+        "points": [
+          "Analyse de marché et veille concurrentielle",
+          "Définition de la vision et des orientations stratégiques",
+          "Élaboration du business plan et business model",
+          "Stratégie de croissance, fusion-acquisition et expansion",
+          "Coaching exécutif et facilitation de comités de direction"
+        ]
+      },
+      {
+        "title": "Accompagnement sur mesure",
+        "desc": "Une présence continue et un suivi personnalisé à chaque étape clé de la croissance de votre structure.",
+        "details": "Chaque entreprise est unique. C'est pourquoi nos programmes d'accompagnement sont entièrement personnalisés selon votre secteur, votre maturité et vos objectifs spécifiques.",
+        "points": [
+          "Programme de suivi mensuel avec revues de performance",
+          "Référent dédié disponible tout au long du projet",
+          "Ateliers de co-construction et workshops stratégiques",
+          "Adaptation continue du plan d'action selon les résultats",
+          "Reporting transparent et tableaux de bord personnalisés"
+        ]
+      },
+      {
+        "title": "Transformation digitale",
+        "desc": "Intégrez les nouvelles technologies au cœur de votre métier pour gagner en agilité et en performance.",
+        "details": "La transformation digitale ne se résume pas à la technologie : c'est un changement culturel profond. Nous vous guidons de la stratégie numérique jusqu'à l'implémentation, en embarquant vos collaborateurs.",
+        "points": [
+          "Audit de maturité numérique et diagnostic digital",
+          "Définition de la roadmap de transformation",
+          "Sélection et intégration des outils digitaux (ERP, CRM, BI…)",
+          "Conduite du changement et montée en compétences",
+          "Optimisation de l'expérience client et collaborateur"
+        ]
+      },
+      {
+        "title": "Management de transition",
+        "desc": "Intervention d'experts de haut niveau pour piloter vos équipes lors de phases critiques ou de transformation.",
+        "details": "Quand votre entreprise traverse une crise, une restructuration ou une période de croissance rapide, nos managers de transition interviennent rapidement pour stabiliser, piloter et transformer.",
+        "points": [
+          "Prise de fonction rapide (48h à 72h) en mode opérationnel",
+          "Gestion de crise et plan de redressement",
+          "Pilotage de projets de restructuration et réorganisation",
+          "Intérim de direction générale, DG, DAF, DRH, DSI",
+          "Transfert de compétences et passation avec les équipes internes"
+        ]
+      }
+    ]
+  },
+  "events": {
+    "hero": {
+      "title": "Événements ORIOTEL",
+      "description": "Découvrez nos moments forts et notre réseau d'excellence."
+    },
+    "slides": [
+      {
+        "tag": "Conférence",
+        "title": "Conférence Annuelle ORIOTEL",
+        "subtitle": "Innovation & Excellence",
+        "location": "Oujda, Maroc",
+        "description": "Une plongée immersive dans l'innovation corporative et notre nouvelle identité."
+      },
+      {
+        "tag": "Gala",
+        "title": "Gala de l'Excellence 2026",
+        "subtitle": "Célébration & Prestige",
+        "location": "Casablanca, Maroc",
+        "description": "Célébration des résultats exceptionnels de l'année avec nos partenaires."
+      }
+    ],
+    "cta": "S'inscrire à l'événement",
+    "quote": {
+      "title": "MESSAGE DU FONDATEUR",
+      "text": "Les grands événements ne se produisent pas par hasard. Ils se construisent avec vision, précision et une équipe qui croit en l'excellence.",
+      "bg": "ORIO TEL"
+    },
+    "networkers": {
+      "title": "Notre Réseau de Networkers",
+      "subtitle": "Connecter les Talents",
+      "description": "Rejoignez une communauté d'experts et de décideurs pour partager vos visions et créer des opportunités uniques.",
+      "card_desc": "Un acteur clé du réseau ORIOTEL, apportant son expertise et sa vision au sein de la communauté."
     }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contactez-nous",
+      "subtitle": "Une question ?",
+      "description": "Notre équipe est à votre disposition pour vous accompagner dans vos projets."
+    },
+    "cards": {
+      "email": {
+        "title": "Email",
+        "subtext": "Contactez-nous par email pour toute demande."
+      },
+      "phone": {
+        "title": "Téléphone",
+        "subtext": "Notre équipe est disponible du lundi au vendredi."
+      },
+      "address": {
+        "title": "Adresse",
+        "subtext": "Retrouvez-nous dans nos bureaux à Oujda."
+      }
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "name_label": "Nom complet",
+      "name_placeholder": "Ahmad Benjelloun",
+      "email_label": "Email professionnel",
+      "email_placeholder": "ahmad@entreprise.com",
+      "dept_label": "Département concerné",
+      "dept_select": "Sélectionnez un département",
+      "dept_architecture": "Architecture Intérieure",
+      "dept_urbanisme": "Urbanisme & Paysage",
+      "dept_consulting": "Conseil & Audit",
+      "dept_other": "Autre demande",
+      "message_label": "Votre message",
+      "message_placeholder": "Décrivez votre projet ou votre question...",
+      "success_title": "Message envoyé !",
+      "success_desc": "Nous reviendrons vers vous sous peu.",
+      "response_time": "Temps de réponse moyen : Moins de 24 heures ouvrées"
+    },
+    "map": {
+      "title": "Notre Emplacement",
+      "cta": "Voir sur Google Maps"
+    }
+  },
+  "careers": {
+    "hero": {
+      "title": "Carrières",
+      "subtitle": "Nous rejoindre",
+      "description": "Découvrez comment nous intégrons nos nouveaux talents et explorez les opportunités actuelles au sein de notre équipe."
+    },
+    "jobs": [
+      {
+        "title": "Architecte d'Intérieur Senior",
+        "location": "Casablanca, Maroc",
+        "type": "CDI",
+        "responsibilities": [
+          "Concevoir des espaces intérieurs innovants et fonctionnels.",
+          "Gérer les projets de l'esquisse jusqu'à la livraison finale.",
+          "Coordonner avec les fournisseurs, prestataires et clients.",
+          "Assurer le suivi des chantiers et le respect des normes."
+        ],
+        "skills": ["AutoCAD", "SketchUp", "Design Spatial", "Gestion de projet", "3ds Max"]
+      },
+      {
+        "title": "Ingénieur Réseaux et Télécoms",
+        "location": "Rabat, Maroc",
+        "type": "CDI",
+        "responsibilities": [
+          "Déployer, configurer et maintenir les infrastructures réseaux.",
+          "Assurer la sécurité des systèmes et la prévention des risques.",
+          "Intervenir en support technique de niveau 3.",
+          "Rédiger la documentation technique et les procédures."
+        ],
+        "skills": ["Cisco", "Sécurité Réseau", "Routage / Switching", "TCP/IP", "Linux"]
+      },
+      {
+        "title": "Chef de Projet Électrique",
+        "location": "Tanger, Maroc",
+        "type": "CDD",
+        "responsibilities": [
+          "Superviser l'ensemble des chantiers d'installation électrique.",
+          "Gérer et animer les équipes techniques sur le terrain.",
+          "S'assurer du respect des normes de sécurité en vigueur.",
+          "Gérer les budgets et les plannings du projet."
+        ],
+        "skills": ["Gestion de projet", "Électricité Industrielle", "Normes ISO", "Management", "AutoCAD Électrique"]
+      }
+    ],
+    "offres": {
+      "title": "Offres d'Emploi",
+      "description": "Rejoignez une équipe dynamique et innovante.",
+      "view_details": "Voir les détails",
+      "apply_now": "Postuler maintenant"
+    },
+    "process": {
+      "title": "Notre Processus de Recrutement",
+      "steps": [
+        { "title": "Inscription", "description": "Rejoignez notre écosystème. Une prise de contact simplifiée." },
+        { "title": "Audit & Traitement", "description": "Nos experts analysent vos besoins techniques." },
+        { "title": "Validation", "description": "Confirmation finale des plans et des ressources." },
+        { "title": "Participation", "description": "Lancement de la phase opérationnelle." }
+      ]
+    },
+    "why": {
+      "title": "Pourquoi nous rejoindre ?",
+      "features": [
+        { "title": "Équipe Diverse", "description": "Rejoignez des talents de tous horizons." },
+        { "title": "Excellence", "description": "Nous visons toujours la plus haute qualité." },
+        { "title": "Évolution", "description": "Des opportunités de carrière stimulantes." }
+      ]
+    }
+  },
+  "apply": {
+    "tag": "Rejoignez-nous",
+    "title": "Postuler à une offre",
+    "description": "Prêt à dessiner le futur avec nous ? Nous sommes toujours à la recherche de nouveaux talents passionnés.",
+    "cards": {
+      "security": {
+        "title": "Données sécurisées",
+        "description": "Vos informations sont protégées."
+      },
+      "response": {
+        "title": "Réponse rapide",
+        "description": "Réponse sous 5 à 10 jours."
+      }
+    },
+    "form": {
+      "title": "Candidature Spontanée",
+      "subtitle": "Remplissez le formulaire ci-dessous pour rejoindre l'aventure.",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "email": "Email professionnel",
+      "phone": "Téléphone",
+      "position_label": "Poste souhaité",
+      "position_select": "Sélectionnez un poste",
+      "position_arch": "Architecte d'intérieur",
+      "position_urban": "Urbaniste & Paysage",
+      "position_mgr": "Chef de projet",
+      "position_other": "Autre / Stage",
+      "message_label": "Message de motivation",
+      "message_placeholder": "Dites-nous ce qui vous motive à nous rejoindre...",
+      "cv_alert": "Veuillez télécharger votre CV.",
+      "success_title": "Candidature envoyée !",
+      "success_desc": "Merci d'avoir postulé chez Oriotel. Notre équipe RH examinera votre profil et reviendra vers vous prochainement.",
+      "another_apply": "Envoyer une autre candidature",
+      "submit": "Soumettre ma candidature"
+    }
+  },
+  "event_apply": {
+    "hero": {
+      "tag": "Événement Exclusif",
+      "title": "Inscrivez-vous à l'événement Networking au Maroc",
+      "description": "Rejoignez les meilleurs professionnels, innovateurs et entreprises. Soumettez votre candidature pour participer à la plus grande expérience de networking.",
+      "cta": "Postuler maintenant"
+    },
+    "cards": {
+      "email": {
+        "title": "Email",
+        "subtext": "Contactez-nous pour toute question relative à l'événement."
+      },
+      "phone": {
+        "title": "Téléphone",
+        "subtext": "Notre standard est ouvert de 09:00 à 18:00."
+      },
+      "address": {
+        "title": "Adresse",
+        "subtext": "Lieu principal de l'événement networking."
+      }
+    },
+    "map_cta": "Voir sur Google Maps"
   }
 }

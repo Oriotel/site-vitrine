@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { PremiumButton } from '@/components/ui/PremiumButton';
-const expertises = [
-  { id: 1, title: 'Gestion des opérations', name: 'Tamar Mendelson', role: 'Restaurant Critic', text: "I was impressed by the food! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive. I'll definitely be back for more!", image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600&h=600' },
-  { id: 2, title: 'Audit stratégique', name: 'Sarah Lefevre', role: 'Consultante en stratégie', text: "Un audit précis et des recommandations concrètes qui ont transformé notre organisation. Leur approche personnalisée nous a permis de dépasser nos objectifs de croissance.", image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600&h=600' },
-  { id: 3, title: 'Expertise sectorielle', name: 'Karim Alaoui', role: 'CEO, TechSolutions', text: "Une expertise pointue et un accompagnement sur mesure. Les résultats ont été visibles dès les premières semaines. La méthode de travail est fluide et orientée vers la performance.", image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=600' }
-];
 
 const ExpertisesSection = () => {
+  const { t } = useTranslation();
   const [active, setActive] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+
+  const expertisesData = t('home.expertises_section.items', { returnObjects: true }) || [];
+  
+  // Attach images to the translated data
+  const images = [
+    'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600&h=600',
+    'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600&h=600',
+    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=600'
+  ];
+
+  const expertises = expertisesData.map((item, index) => ({
+    ...item,
+    id: index + 1,
+    image: images[index]
+  }));
 
   const handleNext = () => setActive((prev) => (prev + 1) % expertises.length);
   const handlePrev = () => setActive((prev) => (prev - 1 + expertises.length) % expertises.length);
@@ -30,10 +42,9 @@ const ExpertisesSection = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
           subtitle="" 
-          title="Expertises Sectorielles" 
-          description="Notre équipe pluridisciplinaire vous accompagne avec des solutions pointues et sur-mesure."
+          title={t('home.expertises_section.title')}
+          description={t('home.expertises_section.description')}
           align="center" 
-          // className="mb-8" 
         />
         <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-0 relative touch-pan-y" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
           
@@ -55,7 +66,7 @@ const ExpertisesSection = () => {
                 href="/services" 
                 className="text-[#1428C9]"
               >
-                Tout voir
+                {t('home.expertises_section.all_cta')}
               </PremiumButton>
             </div>
             <div className="flex flex-col items-start gap-8 mt-8 md:mt-12 relative z-40">
