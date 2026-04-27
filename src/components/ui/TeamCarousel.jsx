@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef, memo } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import Autoplay from 'embla-carousel-autoplay'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/utils/cn'
 
@@ -15,9 +14,6 @@ export const TeamCarousel = ({ members }) => {
     [members]
   )
 
-  const autoplayRef = useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: false, playOnInit: true })
-  )
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -27,8 +23,7 @@ export const TeamCarousel = ({ members }) => {
       skipSnaps: false,
       containScroll: false,
       duration: 65, // Increased for ultra-smooth movement
-    },
-    [autoplayRef.current]
+    }
   )
 
   const [activeIndex, setActiveIndex] = useState(0)
@@ -55,20 +50,17 @@ export const TeamCarousel = ({ members }) => {
 
   const scrollPrev = useCallback(() => {
     if (!emblaApi) return
-    autoplayRef.current.reset()
     emblaApi.scrollPrev()
   }, [emblaApi])
 
   const scrollNext = useCallback(() => {
     if (!emblaApi) return
-    autoplayRef.current.reset()
     emblaApi.scrollNext()
   }, [emblaApi])
 
   // Scroll to the nearest occurrence of the chosen logical index
   const scrollToLogical = useCallback((logicalIdx) => {
     if (!emblaApi) return
-    autoplayRef.current.reset()
     const snap = emblaApi.selectedScrollSnap()
     // Find the nearest clone of logicalIdx relative to current position
     const totalSlides = slides.length
