@@ -1,12 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import ProcessSteps from '@/components/offres/ProcessSteps';
-import OpportunityList from '@/components/offres/OpportunityList';
-import OpportunityDetails from '@/components/offres/OpportunityDetails';
-import WhyJoinSection from '@/components/offres/WhyJoinSection';
-import { BorderBeam } from '@/components/ui/BorderBeam';
+import React, { useState, Suspense } from 'react';
+import LazySection from '@/components/ui/LazySection';
 import PageHero from '@/components/ui/PageHero';
-import { useLoading } from '@/context/LoadingContext';
-import Shimmer from '@/components/ui/Shimmer';
+
+// Skeletons
+import {
+  ProcessSectionSkeleton,
+  JobCardSkeleton,
+  JobDetailsSkeleton,
+  WhyJoinUsSkeleton
+} from '@/components/jobs/skeletons';
+
+// Lazy Components
+const ProcessSteps = React.lazy(() => import('@/components/offres/ProcessSteps'));
+const OpportunityList = React.lazy(() => import('@/components/offres/OpportunityList'));
+const OpportunityDetails = React.lazy(() => import('@/components/offres/OpportunityDetails'));
+const WhyJoinSection = React.lazy(() => import('@/components/offres/WhyJoinSection'));
 
 const jobsData = [
   {
@@ -52,37 +60,7 @@ const jobsData = [
 
 const OffresPage = () => {
   const [selectedJobId, setSelectedJobId] = useState(jobsData[0].id);
-  const [isLoading, setIsLoading] = useState(true);
-  const { setIsLayoutLoading } = useLoading();
-
-  useEffect(() => {
-    setIsLayoutLoading(true);
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      setIsLayoutLoading(false);
-    }, 1200);
-    return () => {
-      clearTimeout(timer);
-      setIsLayoutLoading(false);
-    };
-  }, [setIsLayoutLoading]);
-
   const selectedJob = jobsData.find((job) => job.id === selectedJobId);
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-white">
-        <section className="relative w-full h-[55vh] flex items-center justify-center bg-white overflow-hidden">
-          <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-100/50 to-transparent" />
-          <div className="relative z-10 flex flex-col items-center gap-5">
-            <Shimmer className="h-8 w-40 rounded-full" />
-            <Shimmer className="h-16 w-80 rounded-xl" />
-            <Shimmer className="h-4 w-64" />
-          </div>
-        </section>
-      </div>
-    );
-  }
 
   return (
     <main className="bg-[#F9FAFB] min-h-screen pb-20 font-sans text-[#111827]">
@@ -94,26 +72,33 @@ const OffresPage = () => {
       />
       <div className="container mx-auto px-4 md:px-6 max-w-7xl mt-20">
 
-
         {/* Process Steps Section */}
-        <ProcessSteps />
+        <LazySection skeleton={<ProcessSectionSkeleton />}>
+          <ProcessSteps />
+        </LazySection>
 
         {/* Main Section: Opportunities & Details */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mt-10">
           <div className="lg:col-span-5">
-            <OpportunityList
-              opportunities={jobsData}
-              selectedId={selectedJobId}
-              onSelect={setSelectedJobId}
-            />
+            <LazySection skeleton={<JobCardSkeleton />}>
+              <OpportunityList
+                opportunities={jobsData}
+                selectedId={selectedJobId}
+                onSelect={setSelectedJobId}
+              />
+            </LazySection>
           </div>
           <div className="lg:col-span-7">
-            <OpportunityDetails job={selectedJob} />
+            <LazySection skeleton={<JobDetailsSkeleton />}>
+              <OpportunityDetails job={selectedJob} />
+            </LazySection>
           </div>
         </div>
 
         {/* Why Join Us Section */}
-        <WhyJoinSection />
+        <LazySection skeleton={<WhyJoinUsSkeleton />}>
+          <WhyJoinSection />
+        </LazySection>
 
       </div>
     </main>

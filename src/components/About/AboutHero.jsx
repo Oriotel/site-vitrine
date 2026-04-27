@@ -13,7 +13,7 @@ const AboutHero = () => {
           <h1 className="font-bold mb-6 text-3xl md:text-4xl lg:text-5xl">
             <span className="primary-gradient-text">{t('about.hero.title')}</span>
           </h1>
-          <p className="font-carmine text-base md:text-lg lg:text-xl text-slate-800 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-base md:text-lg lg:text-xl text-slate-800 max-w-3xl mx-auto leading-relaxed font-medium">
             {t(companyInfo.longDescription)}
           </p>
         </AnimatedSection>

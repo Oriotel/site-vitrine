@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import LazySection from '@/components/ui/LazySection';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Clock } from 'lucide-react';
-import ApplyForm from '@/components/apply/ApplyForm';
-import InfoCard from '@/components/apply/InfoCard';
+
+// Skeletons
+import { InfoCardSkeleton, ApplyFormSkeleton } from '@/components/apply/skeletons';
+
+// Lazy Components
+const ApplyForm = React.lazy(() => import('@/components/apply/ApplyForm'));
+const InfoCard = React.lazy(() => import('@/components/apply/InfoCard'));
 
 const ApplyPage = () => {
   return (
@@ -29,36 +35,33 @@ const ApplyPage = () => {
               </p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]"
-            >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] bg-gray-100">
               <img src="/career-hero.png" className="w-full h-full object-cover" alt="Travailler chez Oriotel" />
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InfoCard
-                icon={ShieldCheck}
-                title="Données sécurisées"
-                description="Vos informations sont protégées."
-              />
-              <InfoCard
-                icon={Clock}
-                title="Réponse rapide"
-                description="Réponse sous 5 à 10 jours."
-              />
+              <LazySection skeleton={<InfoCardSkeleton />}>
+                <InfoCard
+                  icon={ShieldCheck}
+                  title="Données sécurisées"
+                  description="Vos informations sont protégées."
+                />
+              </LazySection>
+              <LazySection skeleton={<InfoCardSkeleton />}>
+                <InfoCard
+                  icon={Clock}
+                  title="Réponse rapide"
+                  description="Réponse sous 5 à 10 jours."
+                />
+              </LazySection>
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            <ApplyForm />
-          </motion.div>
+          <div className="w-full">
+            <LazySection skeleton={<ApplyFormSkeleton />}>
+              <ApplyForm />
+            </LazySection>
+          </div>
 
         </div>
       </div>
