@@ -37,13 +37,12 @@ export function SectionTitle({
           {title}
         </h2>
         
-        {/* SVG Scribble Effect */}
         <svg
           className={cn(
-            "absolute -top-4 -z-10 w-48 md:w-64 text-signal-blue/20 opacity-100 transition-transform duration-700",
+            "absolute -top-4 md:-top-6 -z-10 w-16 md:w-20 text-signal-blue/20 opacity-100 transition-transform duration-700",
             {
-              "-right-12 md:-right-16": align === 'center' || align === 'left',
-              "-left-12 md:-left-16 rotate-180": align === 'right',
+              "-right-6 md:-right-8": align === 'center' || align === 'left',
+              "-left-6 md:-left-8 rotate-180": align === 'right',
             }
           )}
           fill="none"
