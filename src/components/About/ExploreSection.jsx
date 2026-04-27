@@ -76,10 +76,10 @@ const ExploreSection = () => {
 
                   <div className="flex flex-wrap gap-2 sm:gap-3">
                     {left.features.map((feature) => (
-                      <FeatureTag 
-                        key={feature.label} 
-                        icon={feature.icon} 
-                        label={feature.label} 
+                      <FeatureTag
+                        key={feature.label}
+                        icon={feature.icon}
+                        label={feature.label}
                       />
                     ))}
                   </div>
@@ -93,7 +93,7 @@ const ExploreSection = () => {
                   >
                     {t(left.cta)}
                   </Button>
-                  <button 
+                  <button
                     className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 rounded-lg bg-white text-slate-900 flex items-center justify-center hover:scale-105 transition-all border border-slate-200 shadow-sm group"
                     aria-label={t('common.more_info') || "En savoir plus"}
                   >
@@ -105,9 +105,9 @@ const ExploreSection = () => {
 
             {/* Interactive Media Pane */}
             <main className="lg:col-span-8 relative flex flex-col lg:h-full overflow-hidden">
-              <AnimatedSection 
-                animation="fade-in" 
-                delay={200} 
+              <AnimatedSection
+                animation="fade-in"
+                delay={200}
                 className="w-full lg:h-full flex items-center"
               >
                 <InteractiveStoryGallery stories={exploreData.stories} />

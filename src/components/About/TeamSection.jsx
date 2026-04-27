@@ -15,7 +15,7 @@ import { team } from "@/constants/data";
  */
 const FounderTestimonial = memo(({ founder }) => {
   const { t } = useTranslation();
-  
+
   return (
     <div className="mx-auto mt-12 max-w-4xl px-6 text-center">
       <AnimatedSection animation="animate-fade-in-up">
@@ -26,7 +26,7 @@ const FounderTestimonial = memo(({ founder }) => {
 
         {/* Founder Attribution */}
         <footer className="flex flex-col items-center gap-4">
-          <div className="relative h-20 w-20 overflow-hidden rounded-full ring-4 ring-slate-100 shadow-lg">
+          <div className="relative h-20 w-20 overflow-hidden rounded-full ring-4 ring-slate-100 shadow-lg max-[335px]:shadow-none">
             <img
               alt={founder.name}
               className="h-full w-full object-cover"

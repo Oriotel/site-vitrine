@@ -6,7 +6,7 @@ import PageHero from '@/components/ui/PageHero';
 import ExploreSection from '@/components/About/ExploreSection';
 import TimelineSection from '@/components/About/TimelineSection';
 import { TeamSection } from '@/components/About/TeamSection';
-import AboutPageSkeleton from '@/components/About/AboutPageSkeleton';
+import AboutPageSkeleton from '@/components/About/skeletons/AboutPageSkeleton';
 
 // Hooks & Context
 import { useLoading } from '@/context/LoadingContext';

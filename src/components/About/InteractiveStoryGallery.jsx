@@ -9,7 +9,7 @@ import { cn } from '@/utils/cn';
  */
 const StoryMainCard = memo(({ story, onNext, onPrev }) => {
   const { t } = useTranslation();
-  
+
   return (
     <div className="xl:flex-1 relative group w-full h-[320px] sm:h-[340px] md:h-[380px] lg:h-[400px]">
       <div className="relative h-full w-full overflow-hidden rounded-[2rem] bg-slate-200 transition-all duration-700">
@@ -20,7 +20,7 @@ const StoryMainCard = memo(({ story, onNext, onPrev }) => {
           className="absolute inset-0 h-full w-full object-cover transition-all duration-1000 animate-fade-in"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-        
+
         {/* Information Overlay */}
         <div className="absolute bottom-5 left-5 right-5 z-10 transition-all duration-500 transform group-hover:translate-x-1">
           <span className="inline-block px-2.5 py-1 bg-primary-600 text-white text-[8px] font-bold uppercase tracking-[0.2em] rounded-md mb-2 shadow-lg">
@@ -61,10 +61,10 @@ StoryMainCard.displayName = 'StoryMainCard';
  */
 const ThumbnailItem = memo(({ story, index, activeIndex, totalStories, onSelect }) => {
   const { t } = useTranslation();
-  
+
   // Calculate stack relative position
   const stackIndex = (index - activeIndex + totalStories) % totalStories;
-  
+
   // Visual transformation metrics
   const xOffset = (stackIndex - 1) * 60;
   const yOffset = (stackIndex - 1) * 12;
@@ -115,7 +115,7 @@ const ThumbnailStack = memo(({ stories, activeIndex, onSelect }) => {
     <div className="relative w-full h-[140px] md:h-[160px] flex items-center justify-center xl:justify-start mb-4">
       {stories.map((story, index) => {
         if (index === activeIndex) return null;
-        
+
         return (
           <ThumbnailItem
             key={story.id}
@@ -160,22 +160,22 @@ export const InteractiveStoryGallery = memo(({ stories }) => {
 
   return (
     <div className="flex flex-col xl:flex-row gap-6 lg:gap-8 w-full items-stretch lg:h-full py-1">
-      
+
       {/* Primary Display Area */}
-      <StoryMainCard 
-        story={activeStory} 
-        onNext={handleNext} 
-        onPrev={handlePrev} 
+      <StoryMainCard
+        story={activeStory}
+        onNext={handleNext}
+        onPrev={handlePrev}
       />
 
       {/* Secondary Context Area */}
       <div className="xl:flex-1 relative w-full h-[320px] sm:h-[340px] md:h-[380px] lg:h-[400px]">
         <div className="relative h-full w-full p-4 md:p-6 flex flex-col justify-center items-center xl:items-start overflow-hidden bg-slate-50/30 rounded-[2rem] border border-slate-100">
-          
-          <ThumbnailStack 
-            stories={stories} 
-            activeIndex={activeIndex} 
-            onSelect={handleSelect} 
+
+          <ThumbnailStack
+            stories={stories}
+            activeIndex={activeIndex}
+            onSelect={handleSelect}
           />
 
           {/* Description Block */}
