@@ -62,10 +62,10 @@ export const TeamSection = memo(() => {
 
   return (
     <section 
-      className="relative w-full overflow-hidden bg-white py-16 md:py-24 max-w-[100vw]"
+      className="relative w-full overflow-hidden bg-white pt-8 pb-16 md:pt-12 md:pb-24 max-w-[100vw]"
       aria-labelledby="team-section-title"
     >
-      <div className="relative z-10 mx-auto max-w-[1600px]">
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-16">
         
         {/* Header: Title & Context */}
         <header className="mx-auto mb-20 flex max-w-4xl flex-col items-center px-6 text-center">

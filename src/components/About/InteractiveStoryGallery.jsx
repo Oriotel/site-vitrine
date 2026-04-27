@@ -5,7 +5,7 @@ import { cn } from '@/utils/cn';
 
 /**
  * StoryCard Component
- * Displays the main focal point of the gallery.
+ * Displays the main focal point of the gallery. 
  */
 const StoryMainCard = memo(({ story, onNext, onPrev }) => {
   const { t } = useTranslation();
