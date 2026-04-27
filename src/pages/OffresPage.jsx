@@ -73,12 +73,12 @@ const OffresPage = () => {
     return (
       <div className="min-h-screen bg-white">
         <section className="relative w-full h-[55vh] flex items-center justify-center bg-white overflow-hidden">
-           <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-100/50 to-transparent" />
-           <div className="relative z-10 flex flex-col items-center gap-5">
-             <Shimmer className="h-8 w-40 rounded-full" />
-             <Shimmer className="h-16 w-80 rounded-xl" />
-             <Shimmer className="h-4 w-64" />
-           </div>
+          <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-100/50 to-transparent" />
+          <div className="relative z-10 flex flex-col items-center gap-5">
+            <Shimmer className="h-8 w-40 rounded-full" />
+            <Shimmer className="h-16 w-80 rounded-xl" />
+            <Shimmer className="h-4 w-64" />
+          </div>
         </section>
       </div>
     );
@@ -86,7 +86,7 @@ const OffresPage = () => {
 
   return (
     <main className="bg-[#F9FAFB] min-h-screen pb-20 font-sans text-[#111827]">
-      <PageHero 
+      <PageHero
         title="Carrières"
         subtitle="Nous rejoindre"
         description="Découvrez comment nous intégrons nos nouveaux talents et explorez les opportunités actuelles au sein de notre équipe."

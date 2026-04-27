@@ -39,7 +39,7 @@ const AboutPage = () => {
     setIsLayoutLoading(true);
 
     const PAGE_LOAD_SIMULATION_MS = 1500;
-    
+
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
       setIsLayoutLoading(false);
@@ -61,12 +61,12 @@ const AboutPage = () => {
   }
 
   return (
-    <main 
+    <main
       className="w-full relative bg-white overflow-x-hidden"
       aria-label={t('nav.about') || "À propos"}
     >
       {/* Hero Section: Brand Story & Mission */}
-      <PageHero 
+      <PageHero
         title={t('about.hero.title')}
         subtitle="À propos"
         description={t(companyInfo.longDescription)}

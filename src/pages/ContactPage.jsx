@@ -19,7 +19,7 @@ const ContactPage = () => {
 
   return (
     <div className="bg-cloud-white min-h-screen animate-[fadeIn_0.5s_ease-out_both]">
-      <PageHero 
+      <PageHero
         title="Contactez-nous"
         subtitle="Nous contacter"
         description="Vous avez un projet en tête ou une question sur nos services ? Notre équipe d'experts est prête à vous accompagner dans la réalisation de vos ambitions."

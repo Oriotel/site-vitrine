@@ -62,7 +62,7 @@ const ServiceCardSkeletonWow = ({ delayAnim = 0, idx }) => (
 );
 
 /* ── Grille complète ─────────────────────────────────────── */
-const ServiceCardsSkeletonWow = () => (
+const ServiceCardsSkeleton = () => (
   <section className="pt-24 pb-12 relative overflow-hidden bg-[#F9FAFB] border-t border-slate-200/60">
     
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -94,4 +94,4 @@ const ServiceCardsSkeletonWow = () => (
   </section>
 );
 
-export default ServiceCardsSkeletonWow;
+export default ServiceCardsSkeleton;
