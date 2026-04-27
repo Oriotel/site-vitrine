@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import React, { useState, Suspense } from 'react';
-import LazySection from '@/components/ui/LazySection';
-=======
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
-import ProcessSteps from '@/components/offres/ProcessSteps';
-import OpportunityList from '@/components/offres/OpportunityList';
-import OpportunityDetails from '@/components/offres/OpportunityDetails';
-import WhyJoinSection from '@/components/offres/WhyJoinSection';
->>>>>>> 542a43cf8930394cf6d0d173e32fc8ea4df6f95a
+import { useLoading } from '@/context/LoadingContext';
+import LazySection from '@/components/ui/LazySection';
 import PageHero from '@/components/ui/PageHero';
 
 // Skeletons
@@ -26,14 +19,10 @@ const OpportunityDetails = React.lazy(() => import('@/components/offres/Opportun
 const WhyJoinSection = React.lazy(() => import('@/components/offres/WhyJoinSection'));
 
 const OffresPage = () => {
-<<<<<<< HEAD
-  const [selectedJobId, setSelectedJobId] = useState(jobsData[0].id);
-  const selectedJob = jobsData.find((job) => job.id === selectedJobId);
-=======
   const { t } = useTranslation();
+  const { setIsLayoutLoading } = useLoading();
   const [selectedJobId, setSelectedJobId] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-  const { setIsLayoutLoading } = useLoading();
 
   const jobsDataRaw = t('careers.jobs', { returnObjects: true });
   
@@ -60,7 +49,6 @@ const OffresPage = () => {
   const selectedJob = useMemo(() => 
     jobsData.find((job) => job.id === selectedJobId) || jobsData[0],
   [jobsData, selectedJobId]);
->>>>>>> 542a43cf8930394cf6d0d173e32fc8ea4df6f95a
 
   return (
     <main className="bg-[#F9FAFB] min-h-screen pb-20 font-sans text-[#111827]">
@@ -89,13 +77,9 @@ const OffresPage = () => {
             </LazySection>
           </div>
           <div className="lg:col-span-7">
-<<<<<<< HEAD
             <LazySection skeleton={<JobDetailsSkeleton />}>
-              <OpportunityDetails job={selectedJob} />
+              {selectedJob && <OpportunityDetails job={selectedJob} />}
             </LazySection>
-=======
-            {selectedJob && <OpportunityDetails job={selectedJob} />}
->>>>>>> 542a43cf8930394cf6d0d173e32fc8ea4df6f95a
           </div>
         </div>
 
