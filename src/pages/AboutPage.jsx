@@ -6,12 +6,6 @@ import PageHero from '@/components/ui/PageHero';
 import LazySection from '@/components/ui/LazySection';
 
 // Skeletons
-
-import { TeamSectionSkeleton } from '@/components/About/skeletons';
-import ExploreSectionSkeleton from '@/components/About/skeletons/ExploreSectionSkeleton';
-import TimelineSectionSkeleton from '@/components/About/skeletons/TimelineSectionSkeleton';
-
-
 import ExploreSectionSkeleton from '@/components/About/skeletons/ExploreSectionSkeleton';
 import StatsSectionSkeleton from '@/components/About/skeletons/StatsSectionSkeleton';
 import TimelineSectionSkeleton from '@/components/About/skeletons/TimelineSectionSkeleton';
