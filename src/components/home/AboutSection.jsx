@@ -4,7 +4,7 @@ import SectionTitle from '@/components/ui/SectionTitle';
 
 export function AboutSection() {
   return (
-    <section className="relative z-10 w-full">
+    <section id="about" className="relative z-10 w-full">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* HEADER AREA : Title Centered, Button Right */}
@@ -34,31 +34,30 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="flex flex-col mt-10 lg:mt-0 justify-center h-full">
-            <div className="mb-8">
-              <p className="text-midnight-slate/70 text-lg leading-relaxed mb-6">
-                Depuis plus de 15 ans, Oriotel accompagne les entreprises dans leur transformation numérique et l'optimisation de leurs infrastructures critiques. Notre expertise s'étend de la gestion des réseaux télécom à l'implémentation de solutions logicielles sur-mesure pour orchestrer vos opérations avec précision et agilité.
-              </p>
-              <ul className="space-y-4 mb-10">
-                <li className="flex items-center gap-4 group">
-                  <div className="p-2 bg-[#1428C9]/5 rounded-lg group-hover:scale-110 transition-transform">
-                    <CheckCircle2 className="text-signal-blue w-6 h-6 shrink-0" fill="#1428C915" />
-                  </div>
-                  <span className="text-midnight-slate font-medium text-lg">
-                    Optimisation des performances critiques
-                  </span>
-                </li>
-                <li className="flex items-center gap-4 group">
-                  <div className="p-2 bg-[#1428C9]/5 rounded-lg group-hover:scale-110 transition-transform">
-                    <CheckCircle2 className="text-signal-blue w-6 h-6 shrink-0" fill="#1428C915" />
-                  </div>
-                  <span className="text-midnight-slate font-medium text-lg">
-                    Design de solutions scalables
-                  </span>
-                </li>
-              </ul>
-              
-              <PremiumButton href="/about">
+          <div className="flex flex-col mt-10 lg:mt-0">
+            <p className="text-midnight-slate/70 text-lg leading-relaxed mb-6">
+              Depuis plus de 15 ans, Oriotel accompagne les entreprises dans leur transformation numérique et l'optimisation de leurs infrastructures critiques. Notre expertise s'étend de la gestion des réseaux télécom à l'implémentation de solutions logicielles sur-mesure pour orchestrer vos opérations avec précision et agilité.
+            </p>
+            <ul className="space-y-4 mb-10">
+              <li className="flex items-center gap-4 group">
+                <div className="p-2 bg-[#1428C9]/5 rounded-lg group-hover:scale-110 transition-transform">
+                  <CheckCircle2 className="text-signal-blue w-6 h-6 shrink-0" fill="#1428C915" />
+                </div>
+                <span className="text-midnight-slate font-medium text-lg">
+                  Optimisation des performances critiques
+                </span>
+              </li>
+              <li className="flex items-center gap-4 group">
+                <div className="p-2 bg-[#1428C9]/5 rounded-lg group-hover:scale-110 transition-transform">
+                  <CheckCircle2 className="text-signal-blue w-6 h-6 shrink-0" fill="#1428C915" />
+                </div>
+                <span className="text-midnight-slate font-medium text-lg">
+                  Design de solutions scalables
+                </span>
+              </li>
+            </ul>
+            <div>
+              <PremiumButton href="/about" className="text-[#1428C9]">
                 En savoir plus
               </PremiumButton>
             </div>

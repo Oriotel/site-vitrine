@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
 
   return (
     <section className="font-sans w-full py-6 md:py-10">
-      <div className="max-w-full mx-auto px-6 md:px-8 lg:px-12 flex flex-col items-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         <SectionTitle 
           subtitle="" 
           title="Témoignages" 
@@ -50,11 +50,11 @@ const TestimonialsSection = () => {
             let distance = (index - active + testimonials.length) % testimonials.length;
             if (distance > 2) distance -= testimonials.length;
             let transformStyle = '', zIndex = 50 - Math.abs(distance) * 10, opacityStyle = 1;
-            if (distance === 0) { transformStyle = 'translateX(0) translateZ(50px) rotateY(0deg)'; opacityStyle = 1; } 
-            else if (distance === 1) { transformStyle = 'translateX(90%) translateZ(-50px) rotateY(-40deg)'; opacityStyle = 0.8; } 
-            else if (distance === -1) { transformStyle = 'translateX(-90%) translateZ(-50px) rotateY(40deg)'; opacityStyle = 0.8; } 
-            else if (distance === 2) { transformStyle = 'translateX(180%) translateZ(-150px) rotateY(-55deg)'; opacityStyle = 0.4; } 
-            else if (distance === -2) { transformStyle = 'translateX(-180%) translateZ(-150px) rotateY(55deg)'; opacityStyle = 0.4; }
+            if (distance === 0) { transformStyle = 'translateX(0) translateZ(50px) rotateY(0)'; opacityStyle = 1; } 
+            else if (distance === 1) { transformStyle = 'translateX(75%) translateZ(-50px) rotateY(-30deg)'; opacityStyle = 0.8; } 
+            else if (distance === -1) { transformStyle = 'translateX(-75%) translateZ(-50px) rotateY(30deg)'; opacityStyle = 0.8; } 
+            else if (distance === 2) { transformStyle = 'translateX(125%) translateZ(-150px) rotateY(-45deg)'; opacityStyle = 0.4; } 
+            else if (distance === -2) { transformStyle = 'translateX(-125%) translateZ(-150px) rotateY(45deg)'; opacityStyle = 0.4; }
             return (
               <div key={item.id} onClick={() => setActive(index)} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="absolute w-[220px] h-[220px] md:w-[340px] md:h-[340px] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer rounded-[2rem] overflow-hidden shadow-xl" style={{ transform: transformStyle, zIndex, opacity: opacityStyle, transformStyle: 'preserve-3d' }}>
                 <img src={item.image} alt={item.name} draggable="false" className="w-full h-full object-cover pointer-events-none" />
@@ -80,11 +80,11 @@ const TestimonialsSection = () => {
           </button>
         </div>
         <div className="mt-12 text-center max-w-3xl mx-auto h-[160px] flex flex-col justify-start transition-all duration-500" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-          <p key={active} className="text-lg md:text-2xl italic text-[#111827]/80 leading-relaxed font-light animate-[fadeIn_0.5s_ease-out]">"{testimonials[active].quote}"</p>
-          <div className="mt-8 flex flex-col items-center">
+          <div className="mb-8 flex flex-col items-center">
             <h4 className="text-xl font-bold text-[#1428C9]">{testimonials[active].name}</h4>
             <span className="text-xs text-[#111827]/50 uppercase tracking-widest mt-1">{testimonials[active].role}</span>
           </div>
+          <p key={active} className="text-lg md:text-2xl italic text-[#111827]/80 leading-relaxed font-light animate-[fadeIn_0.5s_ease-out]">"{testimonials[active].quote}"</p>
         </div>
       </div>
     </section>

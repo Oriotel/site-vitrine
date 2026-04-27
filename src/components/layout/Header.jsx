@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, buttonVariants } from '@/components/ui/button';
-import { PremiumButton } from '@/components/ui/PremiumButton';
+import { PremiumButtonBlue } from '@/components/ui/PremiumButtonBlue';
 import { cn } from '@/utils/cn';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/hooks/use-scroll';
@@ -42,11 +42,11 @@ export function Header() {
         className={cn(
           'fixed z-50 mx-auto transition-all duration-500 ease-in-out',
           {
-            'top-4 left-0 right-0 w-[98%] lg:w-[85%] max-w-7xl rounded-2xl border border-gray-200 bg-cloud-white/90 backdrop-blur-md shadow-lg py-2 px-3':
+            'top-4 left-0 right-0 w-[98%] lg:w-[85%] max-w-7xl rounded-2xl border border-gray-200 bg-cloud-white/90 backdrop-blur-md shadow-lg py-4 px-6':
               scrolled && !open,
-            'top-0 left-0 right-0 w-full rounded-none border-b border-gray-100/50 bg-white/80 backdrop-blur-md py-4 px-6 lg:px-10':
+            'top-0 left-0 right-0 w-full rounded-none border-b border-gray-100/50 bg-white/80 backdrop-blur-md py-4 px-8':
               !scrolled && !open,
-            'top-0 left-0 right-0 w-full bg-cloud-white py-4 px-4':
+            'top-0 left-0 right-0 w-full bg-cloud-white py-4 px-6':
               open,
           }
         )}
@@ -56,9 +56,9 @@ export function Header() {
           {/* ==========================================
               1. GAUCHE : LOGO (Prend un tiers de l'espace)
               ========================================== */}
-          <div className="flex-1 flex justify-start items-center">
+          <div className="flex justify-start items-center">
             <Logo 
-              className={scrolled ? "h-7" : "h-9"} 
+              className={scrolled ? "h-9" : "h-9"} 
               href="/"
             />
           </div>
@@ -87,7 +87,7 @@ export function Header() {
           {/* ==========================================
               3. DROITE : ACTIONS (Prend le dernier tiers de l'espace)
               ========================================== */}
-          <div className="flex-1 flex justify-end items-center gap-2">
+          <div className="flex justify-end items-center gap-2">
 
             {/* Conteneur Desktop (Langue + Offres) */}
             <div className="hidden lg:flex items-center gap-2">
@@ -109,9 +109,9 @@ export function Header() {
 
               {/* BOUTON OFFRES D'EMPLOI (Reste TOUJOURS visible) */}
               <div className="shrink-0">
-                <PremiumButton href="/carrieres/offres" size="sm" showIcon={false}>
+                <PremiumButtonBlue href="/carrieres/offres" size="sm" showIcon={false}>
                   Offres d'emploi
-                </PremiumButton>
+                </PremiumButtonBlue>
               </div>
             </div>
 

@@ -1,7 +1,12 @@
 {
   "common": {
     "loading": "Chargement...",
-    "explore": "EXPLORE"
+    "explore": "EXPLORE",
+    "details": "Détails",
+    "more_info": "En savoir plus"
+  },
+  "nav": {
+    "about": "À propos"
   },
   "about": {
     "hero": {
@@ -79,7 +84,7 @@
     "company": {
       "slogan": "L'excellence au service de vos ambitions",
       "description": "ORIOTEL est une entreprise spécialisée dans l'organisation d'événements premium et la fourniture de services professionnels de haute qualité. Notre engagement envers l'excellence nous distingue.",
-      "longDescription": "Depuis notre création, ORIOTEL s'est imposée comme un acteur incontournable dans l'univers de l'événementiel et du conseil premium. Notre équipe passionnée met son expertise au service de votre réussite, en proposant des solutions sur mesure qui allient innovation, élégance et performance."
+      "longDescription": "ORIOTEL s'est imposée comme un acteur incontournable de l'événementiel premium, alliant innovation, élégance et performance au service de votre réussite."
     }
   }
 }
