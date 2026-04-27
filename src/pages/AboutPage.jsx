@@ -6,14 +6,12 @@ import PageHero from '@/components/ui/PageHero';
 import LazySection from '@/components/ui/LazySection';
 
 // Skeletons
-<<<<<<< HEAD
+
 import { TeamSectionSkeleton } from '@/components/About/skeletons';
-import ExploreSectionSkeleton from '@/components/About/skeletons/ExploreSectionSkeleton'; 
+import ExploreSectionSkeleton from '@/components/About/skeletons/ExploreSectionSkeleton';
 import TimelineSectionSkeleton from '@/components/About/skeletons/TimelineSectionSkeleton';
 
-// Lazy Components
-const ExploreSection = React.lazy(() => import('@/components/About/ExploreSection'));
-=======
+
 import ExploreSectionSkeleton from '@/components/About/skeletons/ExploreSectionSkeleton';
 import StatsSectionSkeleton from '@/components/About/skeletons/StatsSectionSkeleton';
 import TimelineSectionSkeleton from '@/components/About/skeletons/TimelineSectionSkeleton';
@@ -22,23 +20,14 @@ import TeamSectionSkeleton from '@/components/About/skeletons/TeamSectionSkeleto
 // Lazy load components
 const ExploreSection = React.lazy(() => import('@/components/About/ExploreSection'));
 const StatsSection = React.lazy(() => import('@/components/About/StatsSection'));
->>>>>>> 542a43cf8930394cf6d0d173e32fc8ea4df6f95a
+
 const TimelineSection = React.lazy(() => import('@/components/About/TimelineSection'));
 const TeamSection = React.lazy(() => import('@/components/About/TeamSection').then(m => ({ default: m.TeamSection })));
 
 // Data Constants
 import { companyInfo } from '@/constants/data';
 
-<<<<<<< HEAD
-=======
-/**
- * AboutPage Component
- * 
- * High-performance implementation of the "À propos" page.
- * Uses intersection-based lazy loading and high-fidelity skeletons
- * for optimal Core Web Vitals and user experience.
- */
->>>>>>> 542a43cf8930394cf6d0d173e32fc8ea4df6f95a
+
 const AboutPage = () => {
   const { t } = useTranslation();
 
@@ -61,13 +50,12 @@ const AboutPage = () => {
           <ExploreSection />
         </LazySection>
 
-<<<<<<< HEAD
-=======
+
         <LazySection skeleton={<StatsSectionSkeleton />}>
           <StatsSection />
         </LazySection>
 
->>>>>>> 542a43cf8930394cf6d0d173e32fc8ea4df6f95a
+
         <LazySection skeleton={<TimelineSectionSkeleton />}>
           <TimelineSection />
         </LazySection>
