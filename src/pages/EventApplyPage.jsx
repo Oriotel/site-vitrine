@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import EventHero from '@/components/event/EventHero';
@@ -6,6 +7,8 @@ import EventForm from '@/components/event/EventForm';
 import ContactCard from '@/components/contact/ContactCard';
 
 const EventApplyPage = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-cloud-white min-h-screen">
       <EventHero />
@@ -19,21 +22,21 @@ const EventApplyPage = () => {
               <div className="space-y-6">
                 <ContactCard
                   icon={Mail}
-                  title="Email"
+                  title={t('event_apply.cards.email.title')}
                   value="event@oriotel.fr"
-                  subtext="Contactez-nous pour toute question relative à l'événement."
+                  subtext={t('event_apply.cards.email.subtext')}
                 />
                 <ContactCard
                   icon={Phone}
-                  title="Téléphone"
+                  title={t('event_apply.cards.phone.title')}
                   value="+212 5 23 45 67 89"
-                  subtext="Notre standard est ouvert de 09:00 à 18:00."
+                  subtext={t('event_apply.cards.phone.subtext')}
                 />
                 <ContactCard
                   icon={MapPin}
-                  title="Adresse"
+                  title={t('event_apply.cards.address.title')}
                   value="Marina Casablanca, Tour Crystal, Maroc"
-                  subtext="Lieu principal de l'événement networking."
+                  subtext={t('event_apply.cards.address.subtext')}
                 />
               </div>
 
@@ -47,7 +50,7 @@ const EventApplyPage = () => {
                 <div className="absolute inset-0 flex items-center justify-center bg-midnight-slate/10">
                   <div className="px-6 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-200">
                     <p className="text-sm font-bold text-signal-blue flex items-center gap-2">
-                      <MapPin size={16} /> Voir sur Google Maps
+                      <MapPin size={16} /> {t('event_apply.map_cta')}
                     </p>
                   </div>
                 </div>

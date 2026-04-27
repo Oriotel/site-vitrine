@@ -7,11 +7,13 @@ import LazySection from '@/components/ui/LazySection';
 
 // Skeletons
 import ExploreSectionSkeleton from '@/components/About/skeletons/ExploreSectionSkeleton';
+import StatsSectionSkeleton from '@/components/About/skeletons/StatsSectionSkeleton';
 import TimelineSectionSkeleton from '@/components/About/skeletons/TimelineSectionSkeleton';
 import TeamSectionSkeleton from '@/components/About/skeletons/TeamSectionSkeleton';
 
 // Lazy load components
 const ExploreSection = React.lazy(() => import('@/components/About/ExploreSection'));
+const StatsSection = React.lazy(() => import('@/components/About/StatsSection'));
 const TimelineSection = React.lazy(() => import('@/components/About/TimelineSection'));
 const TeamSection = React.lazy(() => import('@/components/About/TeamSection').then(m => ({ default: m.TeamSection })));
 
@@ -36,8 +38,8 @@ const AboutPage = () => {
       {/* Hero Section: Immediate load for LCP optimization */}
       <PageHero
         title={t('about.hero.title')}
-        subtitle="À propos"
-        description={t(companyInfo.longDescription)}
+        subtitle={t('about.hero.subtitle')}
+        description={t('about.hero.description')}
         image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000"
       />
 
@@ -45,6 +47,10 @@ const AboutPage = () => {
       <div className="flex flex-col">
         <LazySection skeleton={<ExploreSectionSkeleton />}>
           <ExploreSection />
+        </LazySection>
+
+        <LazySection skeleton={<StatsSectionSkeleton />}>
+          <StatsSection />
         </LazySection>
 
         <LazySection skeleton={<TimelineSectionSkeleton />}>
