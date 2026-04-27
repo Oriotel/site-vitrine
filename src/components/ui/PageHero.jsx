@@ -40,11 +40,6 @@ const PageHero = ({
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center w-full"
         >
-          {subtitle && (
-            <span className="text-white/80 font-bold text-[10px] md:text-xs lg:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 md:mb-6 block border border-white/20 px-4 md:px-5 py-1.5 md:py-2 rounded-full backdrop-blur-sm">
-              {subtitle}
-            </span>
-          )}
           
           <h1 className="text-3xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 md:mb-8 tracking-tight drop-shadow-xl font-oswald leading-[1.1]">
             {title}
