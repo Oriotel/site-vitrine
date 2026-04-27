@@ -57,7 +57,7 @@ export function AboutSection() {
               </li>
             </ul>
             <div>
-              <PremiumButton href="/about">
+              <PremiumButton href="/about" className="text-[#1428C9]">
                 En savoir plus
               </PremiumButton>
             </div>

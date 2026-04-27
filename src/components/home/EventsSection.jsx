@@ -48,10 +48,10 @@ const EventsSection = () => {
               align="center" 
             />
         </div>
-          <div className="flex flex-col items-start gap-8 mt-8 md:mt-12 relative z-40">
+          <div className="flex flex-col items-start gap-8 mt-8 md:mt-12 ml-3 relative z-40">
             <PremiumButton 
               href="/evenements"
-              className="bg-[#1428C9]/10 backdrop-blur-md border border-[#1428C9]/20 text-[#1428C9] hover:bg-[#1428C9]/20 transition-all shadow-lg"
+              className="text-[#1428C9]"
             >
               Tout voir
             </PremiumButton>

@@ -51,18 +51,18 @@ const ExpertisesSection = () => {
                   </div>
                 );
               })}
+              <PremiumButton 
+                href="/services" 
+                className="text-[#1428C9]"
+              >
+                Tout voir
+              </PremiumButton>
             </div>
             <div className="flex flex-col items-start gap-8 mt-8 md:mt-12 relative z-40">
               <div className="flex items-center gap-4">
                 <button onClick={handlePrev} className="w-11 h-11 rounded-xl bg-[#1428C9]/10 backdrop-blur-md border border-[#1428C9]/20 text-[#1428C9] flex items-center justify-center hover:bg-[#1428C9]/20 hover:border-[#1428C9]/40 active:scale-95 transition-all duration-300 shadow-md focus:outline-none" aria-label="Expertise précédente"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg></button>
                 <button onClick={handleNext} className="w-11 h-11 rounded-xl bg-[#1428C9]/10 backdrop-blur-md border border-[#1428C9]/20 text-[#1428C9] flex items-center justify-center hover:bg-[#1428C9]/20 hover:border-[#1428C9]/40 active:scale-95 transition-all duration-300 shadow-md focus:outline-none" aria-label="Expertise suivante"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg></button>
               </div>
-              <PremiumButton 
-                href="/services" 
-                className="bg-[#1428C9]/10 backdrop-blur-md border border-[#1428C9]/20 text-[#1428C9] hover:bg-[#1428C9]/20 transition-all shadow-lg"
-              >
-                Tout voir
-              </PremiumButton>
             </div>
           </div>
 

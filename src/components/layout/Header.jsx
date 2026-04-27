@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, buttonVariants } from '@/components/ui/button';
-import { PremiumButton } from '@/components/ui/PremiumButton';
+import { PremiumButtonBlue } from '@/components/ui/PremiumButtonBlue';
 import { cn } from '@/utils/cn';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/hooks/use-scroll';
@@ -109,9 +109,9 @@ export function Header() {
 
               {/* BOUTON OFFRES D'EMPLOI (Reste TOUJOURS visible) */}
               <div className="shrink-0">
-                <PremiumButton href="/carrieres/offres" size="sm" showIcon={false}>
+                <PremiumButtonBlue href="/carrieres/offres" size="sm" showIcon={false}>
                   Offres d'emploi
-                </PremiumButton>
+                </PremiumButtonBlue>
               </div>
             </div>
 
