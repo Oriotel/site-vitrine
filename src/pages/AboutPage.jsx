@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 
-// Components
+// Shared UI Components
 import PageHero from '@/components/ui/PageHero';
-import ExploreSection from '@/components/About/ExploreSection';
-import TimelineSection from '@/components/About/TimelineSection';
-import { TeamSection } from '@/components/About/TeamSection';
-import AboutPageSkeleton from '@/components/About/skeletons/AboutPageSkeleton';
+import LazySection from '@/components/ui/LazySection';
 
-// Hooks & Context
-import { useLoading } from '@/context/LoadingContext';
+// Skeletons
+import ExploreSectionSkeleton from '@/components/About/skeletons/ExploreSectionSkeleton';
+import TimelineSectionSkeleton from '@/components/About/skeletons/TimelineSectionSkeleton';
+import TeamSectionSkeleton from '@/components/About/skeletons/TeamSectionSkeleton';
+
+// Lazy load components
+const ExploreSection = React.lazy(() => import('@/components/About/ExploreSection'));
+const TimelineSection = React.lazy(() => import('@/components/About/TimelineSection'));
+const TeamSection = React.lazy(() => import('@/components/About/TeamSection').then(m => ({ default: m.TeamSection })));
 
 // Data Constants
 import { companyInfo } from '@/constants/data';
@@ -17,55 +21,19 @@ import { companyInfo } from '@/constants/data';
 /**
  * AboutPage Component
  * 
- * Senior-level implementation of the "À propos" (About Us) page.
- * Manages synchronized loading states between local UI and global layout context.
- * 
- * Features:
- * - High-fidelity skeleton screen during initial load.
- * - Predictable state management with proper side-effect cleanup.
- * - Clean separation of concerns through modular section components.
+ * High-performance implementation of the "À propos" page.
+ * Uses intersection-based lazy loading and high-fidelity skeletons
+ * for optimal Core Web Vitals and user experience.
  */
 const AboutPage = () => {
   const { t } = useTranslation();
-  const { setIsLayoutLoading } = useLoading();
-  const [isLoading, setIsLoading] = useState(true);
-
-  /**
-   * Effect: Orchestrates the page's loading sequence.
-   * Ensures the global Layout Loader and local Skeleton are synchronized.
-   */
-  useEffect(() => {
-    // Notify global Layout that a page-level transition is starting
-    setIsLayoutLoading(true);
-
-    const PAGE_LOAD_SIMULATION_MS = 1500;
-
-    const loadingTimer = setTimeout(() => {
-      setIsLoading(false);
-      setIsLayoutLoading(false);
-    }, PAGE_LOAD_SIMULATION_MS);
-
-    // Cleanup to prevent memory leaks and inconsistent loading states on fast navigation
-    return () => {
-      clearTimeout(loadingTimer);
-      setIsLayoutLoading(false);
-    };
-  }, [setIsLayoutLoading]);
-
-  /**
-   * Loading State
-   * Displays the high-fidelity skeleton screen while components resolve.
-   */
-  if (isLoading) {
-    return <AboutPageSkeleton />;
-  }
 
   return (
     <main
       className="w-full relative bg-white overflow-x-hidden"
       aria-label={t('nav.about') || "À propos"}
     >
-      {/* Hero Section: Brand Story & Mission */}
+      {/* Hero Section: Immediate load for LCP optimization */}
       <PageHero
         title={t('about.hero.title')}
         subtitle="À propos"
@@ -73,11 +41,19 @@ const AboutPage = () => {
         image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000"
       />
 
-      {/* Main Content Flow */}
+      {/* Lazy Loaded Sections with Skeletons */}
       <div className="flex flex-col">
-        <ExploreSection />
-        <TimelineSection />
-        <TeamSection />
+        <LazySection skeleton={<ExploreSectionSkeleton />}>
+          <ExploreSection />
+        </LazySection>
+
+        <LazySection skeleton={<TimelineSectionSkeleton />}>
+          <TimelineSection />
+        </LazySection>
+
+        <LazySection skeleton={<TeamSectionSkeleton />}>
+          <TeamSection />
+        </LazySection>
       </div>
     </main>
   );
