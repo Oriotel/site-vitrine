@@ -44,7 +44,7 @@ const HomePage = () => {
       </Suspense>
 
       {/* 2. LE CONTENEUR D'ÉQUILIBRE */}
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12 flex flex-col gap-14 md:gap-16 py-8">
+      <div className="w-full max-w-7xl mx-auto px-0 sm:px-6 md:px-8 lg:px-12 flex flex-col gap-14 md:gap-16 py-8">
         
         {/* About: slide in from the left with a slight skew for editorial feel */}
         <ScrollReveal variant="fadeUp" duration={1000} distance={70} easing="cubic-bezier(0.22, 1, 0.36, 1)">
