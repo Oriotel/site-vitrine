@@ -63,20 +63,20 @@ const EventsSection = () => {
           onTouchMove={onTouchMove} 
           onTouchEnd={onTouchEnd}
         >
-          {/* Flèches de navigation */}
+          {/* Flèches de navigation (Skeleton Tech style) */}
           <button
             onClick={handlePrev}
-            className="absolute left-2 md:left-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
+            className="absolute left-2 md:left-8 z-[60] w-11 h-11 flex items-center justify-center rounded-full border-2 border-slate-800 bg-transparent text-slate-800 hover:bg-slate-800 hover:text-white active:scale-95 transition-all duration-300"
             aria-label="Événement précédent"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} strokeWidth={2} />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-2 md:right-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
+            className="absolute right-2 md:right-8 z-[60] w-11 h-11 flex items-center justify-center rounded-full border-2 border-slate-800 bg-transparent text-slate-800 hover:bg-slate-800 hover:text-white active:scale-95 transition-all duration-300"
             aria-label="Événement suivant"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} strokeWidth={2} />
           </button>
           {events.map((item, index) => {
             let distance = (index - active + events.length) % events.length;
@@ -89,8 +89,8 @@ const EventsSection = () => {
             else if (distance === -2) { transformStyle = 'translateX(-125%) translateZ(-150px) rotateY(45deg)'; opacityStyle = 0.4; }
             return (
               <div key={item.id} onClick={() => setActive(index)} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="absolute w-[220px] md:w-[340px] h-[280px] md:h-[420px] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group cursor-pointer" style={{ transform: transformStyle, zIndex, opacity: opacityStyle, transformStyle: 'preserve-3d' }}>
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover shadow-2xl rounded-2xl pointer-events-none" />
-                <div className={`absolute inset-0 bg-[#111827]/80 ${distance === 0 ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-300 flex flex-col justify-end p-6 border-[1px] border-[#F9FAFB]/10 rounded-2xl pointer-events-none`}>
+                <img src={item.image} alt={item.title} className="w-full h-full object-cover shadow-2xl rounded-none pointer-events-none" />
+                <div className={`absolute inset-0 bg-[#111827]/80 ${distance === 0 ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-300 flex flex-col justify-end p-6 border-[1px] border-[#F9FAFB]/10 rounded-none pointer-events-none`}>
                   <h3 className={`text-[#F9FAFB] font-bold text-xl mb-2 ${distance === 0 ? 'translate-y-0' : 'translate-y-4 group-hover:translate-y-0'} transition-transform duration-300`}>{item.title}</h3>
                   <p className={`text-[#F9FAFB]/80 text-sm leading-relaxed ${distance === 0 ? 'translate-y-0' : 'translate-y-4 group-hover:translate-y-0'} transition-transform duration-300 delay-75`}>{item.description}</p>
                 </div>

@@ -24,9 +24,9 @@ export function AboutSection() {
             <img 
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
               alt="Bureaux Oriotel" 
-              className="w-full h-auto aspect-[4/3] object-cover rounded-[1.5rem] shadow-lg"
+              className="w-full h-auto aspect-[4/3] object-cover rounded-none shadow-lg"
             />
-            <div className="absolute -bottom-6 right-4 md:-bottom-8 md:-right-6 bg-signal-blue text-cloud-white p-5 md:p-6 rounded-2xl shadow-xl flex flex-col items-center justify-center border-4 border-cloud-white">
+            <div className="absolute -bottom-6 right-4 md:-bottom-8 md:-right-6 bg-signal-blue text-cloud-white p-5 md:p-6 rounded-none shadow-xl flex flex-col items-center justify-center border-4 border-cloud-white">
               <span className="text-3xl md:text-4xl font-bold mb-1">15+</span>
               <span className="text-[10px] md:text-xs uppercase tracking-widest font-semibold">
                 Années d'expertise

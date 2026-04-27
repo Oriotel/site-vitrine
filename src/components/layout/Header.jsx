@@ -42,11 +42,11 @@ export function Header() {
         className={cn(
           'fixed z-50 mx-auto transition-all duration-500 ease-in-out',
           {
-            'top-4 left-0 right-0 w-[98%] lg:w-[85%] max-w-7xl rounded-2xl border border-gray-200 bg-cloud-white/90 backdrop-blur-md shadow-lg py-4 px-6':
+            'top-4 left-0 right-0 w-[98%] lg:w-[85%] max-w-7xl rounded-none border border-white/10 bg-[#020c1a]/60 backdrop-blur-lg shadow-lg py-4 px-6':
               scrolled && !open,
-            'top-0 left-0 right-0 w-full rounded-none border-b border-gray-100/50 bg-white/80 backdrop-blur-md py-4 px-8':
+            'top-0 left-0 right-0 w-full rounded-none border-b border-white/5 bg-[#020c1a]/30 backdrop-blur-sm py-4 px-8':
               !scrolled && !open,
-            'top-0 left-0 right-0 w-full bg-cloud-white py-4 px-6':
+            'top-0 left-0 right-0 w-full bg-[#020c1a] py-4 px-6':
               open,
           }
         )}
@@ -58,7 +58,7 @@ export function Header() {
               ========================================== */}
           <div className="flex justify-start items-center">
             <Logo 
-              className={scrolled ? "h-9" : "h-9"} 
+              className={cn(scrolled ? "h-9" : "h-9", "brightness-0 invert")} 
               href="/"
             />
           </div>
@@ -73,7 +73,7 @@ export function Header() {
                 key={i}
                 className={cn(
                   buttonVariants({ variant: 'ghost', size: 'sm' }),
-                  "text-sm px-3"
+                  "text-sm px-3 text-white/80 hover:text-white hover:bg-white/10"
                 )}
                 href={link.href}
               >
@@ -100,7 +100,7 @@ export function Header() {
                   variant="ghost"
                   size="sm"
                   onClick={toggleLanguage}
-                  className="flex items-center gap-1 px-2 text-midnight-slate hover:bg-gray-100 rounded-full cursor-pointer"
+                  className="flex items-center gap-1 px-2 text-white/80 hover:bg-white/10 rounded-full cursor-pointer"
                 >
                   <Globe className="w-4 h-4" />
                   <span className="font-semibold text-xs transition-all">{language}</span>
@@ -120,7 +120,7 @@ export function Header() {
               size="icon"
               variant="ghost"
               onClick={() => setOpen(!open)}
-              className="lg:hidden text-midnight-slate"
+              className="lg:hidden text-white"
             >
               <MenuToggleIcon open={open} className="size-6" duration={300} />
             </Button>
@@ -132,18 +132,18 @@ export function Header() {
       {/* MENU MOBILE (Inchangé) */}
       <div
         className={cn(
-          'fixed top-[72px] right-0 bottom-0 left-0 z-40 flex flex-col overflow-y-auto bg-cloud-white px-6 py-6 lg:hidden transition-all duration-300 ease-in-out',
+          'fixed top-[72px] right-0 bottom-0 left-0 z-40 flex flex-col overflow-y-auto bg-[#020c1a] px-6 py-6 lg:hidden transition-all duration-300 ease-in-out',
           open ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
         )}
       >
         <div className="flex h-full flex-col gap-4">
 
-          <div className="flex justify-end border-b border-gray-100 pb-2">
+          <div className="flex justify-end border-b border-white/10 pb-2">
             <Button
               variant="ghost"
               size="sm"
               onClick={toggleLanguage}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 text-white/80 hover:bg-white/10"
             >
               <Globe className="w-5 h-5" />
               <span className="font-semibold">{language === 'FR' ? 'Français' : 'English'}</span>
@@ -156,7 +156,7 @@ export function Header() {
                 key={link.label}
                 className={cn(
                   buttonVariants({ variant: 'ghost', size: 'lg' }),
-                  'justify-start text-lg font-medium w-full border-b border-gray-50 rounded-none py-6'
+                  'justify-start text-lg font-medium w-full border-b border-white/5 rounded-none py-6 text-white/80 hover:text-white hover:bg-white/10'
                 )}
                 href={link.href}
                 onClick={() => setOpen(false)}

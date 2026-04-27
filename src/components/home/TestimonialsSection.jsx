@@ -56,27 +56,27 @@ const TestimonialsSection = () => {
             else if (distance === 2) { transformStyle = 'translateX(125%) translateZ(-150px) rotateY(-45deg)'; opacityStyle = 0.4; } 
             else if (distance === -2) { transformStyle = 'translateX(-125%) translateZ(-150px) rotateY(45deg)'; opacityStyle = 0.4; }
             return (
-              <div key={item.id} onClick={() => setActive(index)} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="absolute w-[220px] h-[220px] md:w-[340px] md:h-[340px] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer rounded-[2rem] overflow-hidden shadow-xl" style={{ transform: transformStyle, zIndex, opacity: opacityStyle, transformStyle: 'preserve-3d' }}>
+              <div key={item.id} onClick={() => setActive(index)} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="absolute w-[220px] h-[220px] md:w-[340px] md:h-[340px] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer rounded-none overflow-hidden shadow-xl" style={{ transform: transformStyle, zIndex, opacity: opacityStyle, transformStyle: 'preserve-3d' }}>
                 <img src={item.image} alt={item.name} draggable="false" className="w-full h-full object-cover pointer-events-none" />
               </div>
             );
           })}
           
-          {/* Flèches de navigation */}
+          {/* Flèches de navigation (Skeleton Tech style) */}
           <button 
             onClick={handlePrev} 
-            className="absolute left-2 md:left-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
+            className="absolute left-2 md:left-8 z-[60] w-11 h-11 flex items-center justify-center rounded-full border-2 border-slate-800 bg-transparent text-slate-800 hover:bg-slate-800 hover:text-white active:scale-95 transition-all duration-300"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} strokeWidth={2} />
           </button>
           
           <button 
             onClick={handleNext} 
-            className="absolute right-2 md:right-8 z-[60] w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/75 border border-white/30 text-white hover:bg-slate-700/90 transition-all duration-300 shadow-xl"
+            className="absolute right-2 md:right-8 z-[60] w-11 h-11 flex items-center justify-center rounded-full border-2 border-slate-800 bg-transparent text-slate-800 hover:bg-slate-800 hover:text-white active:scale-95 transition-all duration-300"
             aria-label="Next testimonial"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} strokeWidth={2} />
           </button>
         </div>
         <div className="mt-12 text-center max-w-3xl mx-auto h-[160px] flex flex-col justify-start transition-all duration-500" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
