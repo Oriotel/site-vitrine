@@ -1,12 +1,8 @@
-
 import React, { Suspense } from 'react';
-import LazySection from '@/components/ui/LazySection';
-
-import React from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { motion } from 'framer-motion';
 import { ShieldCheck, Clock } from 'lucide-react';
+import LazySection from '@/components/ui/LazySection';
 
 // Skeletons
 import { InfoCardSkeleton, ApplyFormSkeleton } from '@/components/apply/skeletons';
@@ -46,33 +42,20 @@ const ApplyPage = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
               <LazySection skeleton={<InfoCardSkeleton />}>
                 <InfoCard
                   icon={ShieldCheck}
-                  title="Données sécurisées"
-                  description="Vos informations sont protégées."
+                  title={t('apply.cards.security.title')}
+                  description={t('apply.cards.security.description')}
                 />
               </LazySection>
               <LazySection skeleton={<InfoCardSkeleton />}>
                 <InfoCard
                   icon={Clock}
-                  title="Réponse rapide"
-                  description="Réponse sous 5 à 10 jours."
+                  title={t('apply.cards.response.title')}
+                  description={t('apply.cards.response.description')}
                 />
               </LazySection>
-
-              <InfoCard
-                icon={ShieldCheck}
-                title={t('apply.cards.security.title')}
-                description={t('apply.cards.security.description')}
-              />
-              <InfoCard
-                icon={Clock}
-                title={t('apply.cards.response.title')}
-                description={t('apply.cards.response.description')}
-              />
-
             </div>
           </div>
 
