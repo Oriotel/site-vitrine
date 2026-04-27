@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Send } from 'lucide-react';
 
 const ContactForm = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -47,15 +49,15 @@ const ContactForm = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
             </svg>
           </div>
-          <h3 className="text-2xl font-bold text-midnight-slate mb-2">Message envoyé !</h3>
-          <p className="text-gray-500">Nous reviendrons vers vous sous peu.</p>
+          <h3 className="text-2xl font-bold text-midnight-slate mb-2">{t('contact.form.success_title')}</h3>
+          <p className="text-gray-500">{t('contact.form.success_desc')}</p>
         </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label htmlFor="fullName" className="text-sm font-medium text-midnight-slate ml-1">
-                Nom complet
+                {t('contact.form.name_label')}
               </label>
               <input
                 required
@@ -64,13 +66,13 @@ const ContactForm = () => {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                placeholder="ahmad benjeloun"
+                placeholder={t('contact.form.name_placeholder')}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-signal-blue/20 focus:border-signal-blue transition-all bg-gray-50/50"
               />
             </div>
             <div className="space-y-2">
               <label htmlFor="email" className="text-sm font-medium text-midnight-slate ml-1">
-                Email professionnel
+                {t('contact.form.email_label')}
               </label>
               <input
                 required
@@ -79,7 +81,7 @@ const ContactForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="ahmad@entreprise.com"
+                placeholder={t('contact.form.email_placeholder')}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-signal-blue/20 focus:border-signal-blue transition-all bg-gray-50/50"
               />
             </div>
@@ -87,7 +89,7 @@ const ContactForm = () => {
 
           <div className="space-y-2">
             <label htmlFor="department" className="text-sm font-medium text-midnight-slate ml-1">
-              Département concerné
+              {t('contact.form.dept_label')}
             </label>
             <select
               required
@@ -97,17 +99,17 @@ const ContactForm = () => {
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-signal-blue/20 focus:border-signal-blue transition-all bg-gray-50/50 appearance-none"
             >
-              <option value="" disabled>Sélectionnez un département</option>
-              <option value="architecture">Architecture Intérieure</option>
-              <option value="urbanisme">Urbanisme & Paysage</option>
-              <option value="consulting">Conseil & Audit</option>
-              <option value="other">Autre demande</option>
+              <option value="" disabled>{t('contact.form.dept_select')}</option>
+              <option value="architecture">{t('contact.form.dept_architecture')}</option>
+              <option value="urbanisme">{t('contact.form.dept_urbanisme')}</option>
+              <option value="consulting">{t('contact.form.dept_consulting')}</option>
+              <option value="other">{t('contact.form.dept_other')}</option>
             </select>
           </div>
 
           <div className="space-y-2">
             <label htmlFor="message" className="text-sm font-medium text-midnight-slate ml-1">
-              Votre message
+              {t('contact.form.message_label')}
             </label>
             <textarea
               required
@@ -116,7 +118,7 @@ const ContactForm = () => {
               rows="5"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Décrivez votre projet ou votre question..."
+              placeholder={t('contact.form.message_placeholder')}
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-signal-blue/20 focus:border-signal-blue transition-all bg-gray-50/50 resize-none"
             ></textarea>
           </div>
@@ -127,17 +129,17 @@ const ContactForm = () => {
             className="w-full h-12 text-base font-semibold transition-all flex items-center justify-center gap-2"
           >
             {status === 'loading' ? (
-              <span className="animate-pulse">Envoi en cours...</span>
+              <span className="animate-pulse">{t('common.sending')}</span>
             ) : (
               <>
-                Envoyer le message
+                {t('common.send')}
                 <Send size={18} />
               </>
             )}
           </Button>
 
           <p className="text-center text-xs text-gray-400 mt-4 leading-relaxed">
-            Temps de réponse moyen : <span className="font-medium text-gray-500">Moins de 24 heures ouvrées</span>
+            {t('contact.form.response_time')}
           </p>
         </form>
       )}

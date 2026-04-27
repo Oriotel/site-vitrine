@@ -1,32 +1,35 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaUsers, FaStar, FaChartLine } from 'react-icons/fa';
 
-const features = [
-  { 
-    id: 1, 
-    title: 'Équipe Diverse', 
-    description: 'Rejoignez des talents de tous horizons passionnés par léur métier.', 
-    icon: FaUsers 
-  },
-  { 
-    id: 2, 
-    title: 'Excellence', 
-    description: 'Nous visons toujours la plus haute qualité dans nos réalisations.', 
-    icon: FaStar 
-  },
-  { 
-    id: 3, 
-    title: 'Évolution', 
-    description: 'Des opportunités de carrière stimulantes et un apprentissage continu.', 
-    icon: FaChartLine 
-  }
-];
-
 const WhyJoinSection = () => {
+  const { t } = useTranslation();
+
+  const features = [
+    { 
+      id: 1, 
+      title: t('careers.why.features.0.title'), 
+      description: t('careers.why.features.0.description'), 
+      icon: FaUsers 
+    },
+    { 
+      id: 2, 
+      title: t('careers.why.features.1.title'), 
+      description: t('careers.why.features.1.description'), 
+      icon: FaStar 
+    },
+    { 
+      id: 3, 
+      title: t('careers.why.features.2.title'), 
+      description: t('careers.why.features.2.description'), 
+      icon: FaChartLine 
+    }
+  ];
+
   return (
     <div className="w-full mt-24">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-900">Pourquoi nous rejoindre ?</h2>
+        <h2 className="text-3xl font-bold text-gray-900">{t('careers.why.title')}</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {features.map((feature) => {

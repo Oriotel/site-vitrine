@@ -32,17 +32,24 @@ i18n
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        lng: getSavedLanguage(), // Use saved language
+        lng: getSavedLanguage(),
         fallbackLng: 'fr',
         supportedLngs: ['en', 'fr', 'es'],
-        debug: false,
+        load: 'languageOnly',
+        ns: ['translation'],
+        defaultNS: 'translation',
+        debug: true, // Help user see loading issues in console
 
         interpolation: {
             escapeValue: false,
         },
 
+        react: {
+            useSuspense: false,
+        },
+
         backend: {
-            loadPath: '/locales/{{lng}}/{{ns}}.json',
+            loadPath: '/locales/{{lng}}/{{ns}}.json?v=1.1',
         },
 
         detection: {

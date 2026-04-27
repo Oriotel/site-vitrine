@@ -146,7 +146,7 @@ const NavButton = memo(({ direction, onClick, primary }) => {
   return (
     <button
       onClick={onClick}
-      className="h-11 w-11 flex items-center justify-center rounded-full bg-white shadow-md border border-slate-200 text-slate-800 transition-all duration-300 hover:scale-110"
+      className="h-11 w-11 flex items-center justify-center rounded-full bg-white shadow-md max-[335px]:shadow-none border border-slate-200 text-slate-800 transition-all duration-300 hover:scale-110"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       aria-label={`${direction === 'prev' ? 'Previous' : 'Next'} slide`}
@@ -179,8 +179,8 @@ DotButton.displayName = 'DotButton';
 /* ─── Premium Slide Card ──────────────────────────────────── */
 const SlideCard = memo(({ member, primary, isActive }) => (
   <div className={cn(
-    "relative h-[450px] md:h-[500px] w-full overflow-hidden rounded-3xl bg-slate-100 shadow-xl select-none transition-all duration-1000 ease-out",
-    isActive ? "shadow-2xl -translate-y-2 scale-[1.02] z-10" : "opacity-80"
+    "relative h-[450px] md:h-[500px] w-full overflow-hidden rounded-3xl bg-slate-100 shadow-xl max-[335px]:shadow-none select-none transition-all duration-1000 ease-out",
+    isActive ? "shadow-2xl max-[335px]:shadow-none -translate-y-2 scale-[1.02] z-10" : "opacity-80"
   )}>
     {/* Photo */}
     <img
@@ -203,7 +203,7 @@ const SlideCard = memo(({ member, primary, isActive }) => (
     {/* Name tag */}
     <div className="absolute bottom-4 left-4 right-4 pointer-events-none">
       <div className={cn(
-        "rounded-2xl bg-white/92 backdrop-blur-sm px-4 py-3 border border-white/30 shadow-lg transition-transform duration-700 ease-out",
+        "rounded-2xl bg-white/92 backdrop-blur-sm px-4 py-3 border border-white/30 shadow-lg max-[335px]:shadow-none transition-transform duration-700 ease-out",
         isActive ? "translate-y-0" : "translate-y-10 opacity-0"
       )}>
         <h3 className="font-bold text-slate-900 text-sm leading-tight truncate">

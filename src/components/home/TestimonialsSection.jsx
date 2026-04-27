@@ -1,28 +1,39 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-const testimonials = [
-  { id: 1, image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600', name: 'Sarah Connor', role: 'CEO, TechNova', quote: 'La stratégie opérationnelle d\'Oriotel nous a permis de scaler nos processus avec une fluidité déconcertante.' },
-  { id: 2, image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600', name: 'David Guetta', role: 'Directeur des Opérations, FinTechPro', quote: 'Un accompagnement sur-mesure et une expertise inégalée. Ils ont identifié nos goulots d\'étranglement instantanément.' },
-  { id: 3, image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=600', name: 'Alice Dubois', role: 'Fondatrice, GreenSolutions', quote: 'Nous avons doublé notre rentabilité en moins de 6 mois grâce aux recommandations stratégiques d\'Oriotel.' },
-  { id: 4, image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600', name: 'Marc Lefebvre', role: 'COO, Logistix', quote: 'Une vision claire et un plan d\'action concret. C\'est exactement ce que nous recherchions chez un partenaire à long terme.' },
-  { id: 5, image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=600', name: 'Emma Rousseau', role: 'VP Média, CreativLab', quote: 'Les équipes d\'Oriotel maîtrisent l\'art d\'optimiser tous les niveaux tout en respectant l\'identité de l\'entreprise.' }
-];
 
 const TestimonialsSection = () => {
+  const { t } = useTranslation();
   const [active, setActive] = useState(2);
   const [isHovered, setIsHovered] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
+  const testimonialsData = t('home.testimonials_section.items', { returnObjects: true }) || [];
+  
+  const images = [
+    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600',
+    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600',
+    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=600',
+    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600',
+    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=600'
+  ];
+
+  const testimonials = testimonialsData.map((item, index) => ({
+    ...item,
+    id: index + 1,
+    image: images[index]
+  }));
+
   const handleNext = () => setActive(prev => (prev + 1) % testimonials.length);
   const handlePrev = () => setActive(prev => (prev - 1 + testimonials.length) % testimonials.length);
 
   useEffect(() => {
-    if (isHovered) return;
+    if (isHovered || testimonials.length === 0) return;
     const interval = setInterval(handleNext, 4000);
     return () => clearInterval(interval);
-  }, [isHovered]);
+  }, [isHovered, testimonials.length]);
 
   const minSwipeDistance = 50;
   const onTouchStart = (e) => { setTouchEnd(0); setTouchStart(e.targetTouches[0].clientX); setIsHovered(true); };
@@ -40,8 +51,8 @@ const TestimonialsSection = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         <SectionTitle 
           subtitle="" 
-          title="Témoignages" 
-          description="Découvrez les retours d'expérience de nos partenaires et clients qui ont transformé leur vision en succès."
+          title={t('home.testimonials_section.title')}
+          description={t('home.testimonials_section.description')}
           align="center" 
           className="mb-10" 
         />

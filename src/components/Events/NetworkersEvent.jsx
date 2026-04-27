@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import AnimatedSection from '@/components/common/AnimatedSection';
 import SectionTitle from '@/components/common/SectionTitle';
 
@@ -62,6 +63,7 @@ const networkers = [
 
 
 const NetworkerCard = ({ person, index }) => {
+  const { t } = useTranslation();
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -97,8 +99,6 @@ const NetworkerCard = ({ person, index }) => {
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/40 to-transparent" />
 
-
-
             <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
               <h3 className="!text-white font-bold text-xl leading-tight mb-1">{person.name}</h3>
               <p className="!text-white text-sm font-medium opacity-90">{person.role}</p>
@@ -124,7 +124,7 @@ const NetworkerCard = ({ person, index }) => {
             <div className="w-10 h-[2px] bg-[#1428C9] rounded-full my-5" />
 
             <p className="!text-white text-sm leading-relaxed">
-              Un acteur clé du réseau ORIOTEL, apportant son expertise et sa vision au sein de la communauté.
+              {t('events.networkers.card_desc') || "Un acteur clé du réseau ORIOTEL, apportant son expertise et sa vision au sein de la communauté."}
             </p>
 
             {/* Social links */}
@@ -151,7 +151,7 @@ const NetworkerCard = ({ person, index }) => {
 
             {/* CTA */}
             <button className="mt-5 px-6 py-2.5 bg-[#1428C9] hover:bg-[#1020A1] text-white text-xs font-semibold rounded-full transition-all duration-300">
-              Contacter
+              {t('contact.hero.title')}
             </button>
           </div>
         </div>
@@ -161,6 +161,7 @@ const NetworkerCard = ({ person, index }) => {
 };
 
 const NetworkersEvent = () => {
+  const { t } = useTranslation();
 
   return (
     <section className="pt-12 pb-12 bg-[#F9FAFB] dark:bg-[#111827] font-sans overflow-hidden">
@@ -168,12 +169,10 @@ const NetworkersEvent = () => {
 
         {/* Header */}
         <SectionTitle
-          title="Nos Networkers"
-          subtitle="Découvrez les professionnels qui animent notre réseau. Passez votre souris sur une carte pour en apprendre davantage."
+          title={t('events.networkers.title')}
+          subtitle={t('events.networkers.description')}
           align="center"
         />
-
-
 
         {/* Cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -185,10 +184,10 @@ const NetworkersEvent = () => {
         {/* Bottom CTA */}
         <AnimatedSection delay={200} className="text-center mt-16">
           <p className="text-[#6B7280] dark:text-[#9CA3AF] mb-6">
-            Rejoignez notre réseau de professionnels d'exception
+            {t('events.networkers.subtitle')}
           </p>
           <button className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#1428C9] hover:bg-[#1020A1] text-white font-semibold text-sm rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(20,40,201,0.4)] hover:-translate-y-0.5 group">
-            Rejoindre le réseau
+            {t('nav.contact')}
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>

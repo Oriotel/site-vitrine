@@ -8,8 +8,8 @@ const ServiceCards = React.lazy(() => import('../components/services/Servicecard
 const StatsSection = React.lazy(() => import('../components/About/StatsSection'));
 const ServiceModal = React.lazy(() => import('../components/services/ServiceModal'));
 
-// Import services data
-import { servicesList } from '../components/services/Servicecards';
+// Import translation
+import { useTranslation } from 'react-i18next';
 
 /**
  * ServicesPage Component
@@ -21,6 +21,7 @@ import { servicesList } from '../components/services/Servicecards';
  * -----------------------------------------------------------
  */
 const ServicesPage = () => {
+  const { t } = useTranslation();
   const [selectedService, setSelected] = useState(null);
 
   return (
@@ -31,15 +32,15 @@ const ServicesPage = () => {
       {/* 1. HERO SECTION (Lazy but immediate) */}
       <Suspense fallback={<HeroSkeleton />}>
         <PageHero
-          title="Nos Services"
-          description="Propulsez votre structure vers l'excellence grâce à nos solutions architecturales et opérationnelles sur mesure. Nous transformons vos défis en avantages compétitifs."
-          image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000"
+          title={t('services.hero.title')}
+          description={t('services.hero.description')}
+          image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000"
         />
       </Suspense>
 
       {/* 2. GRILLE DES CARTES (Lazy Intersection) */}
       <LazySection skeleton={<ServiceCardsSkeleton />}>
-        <ServiceCards services={servicesList} onSelect={setSelected} />
+        <ServiceCards onSelect={setSelected} />
       </LazySection>
 
       {/* 3. STATISTIQUES (Lazy Intersection) */}

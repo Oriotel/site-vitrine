@@ -1,10 +1,12 @@
 import React, { useMemo, useState, useCallback } from 'react';
 import { ArrowRight, ArrowDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Hyperspeed from '@/components/ui/Hyperspeed';
 // import ParticlesLogoReveal from '@/components/home/ParticlesLogoReveal';
 import { Logo } from '@/components/ui/Logo';
 
 export function Hero() {
+  const { t } = useTranslation();
   const [introComplete, setIntroComplete] = useState(false);
 
   const handleIntroComplete = useCallback(() => {
@@ -54,17 +56,17 @@ export function Hero() {
           <div className="flex flex-col lg:items-start items-center gap-3 md:gap-4 shrink-0">
             <div className="w-8 md:w-12 h-[2px] bg-[#1428C9]" />
             <p className="text-[#020c1a]/90 text-base sm:text-xl md:text-2xl font-light leading-relaxed">
-              Orchestrer l'avenir<br />
-              <span className="font-semibold text-[#020c1a]">de vos opérations.</span>
+              {t('home.hero.tagline')}<br />
+              <span className="font-semibold text-[#020c1a]">{t('home.hero.subtagline')}</span>
             </p>
             <p className="text-[#020c1a]/60 text-xs sm:text-sm md:text-base leading-relaxed max-w-sm lg:max-w-md block">
-              De l'infrastructure télécom à l'intelligence des flux de travail — des solutions sur-mesure pour votre croissance.
+              {t('home.hero.description')}
             </p>
             <a
               href="/about"
               className="mt-2 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#1428C9] hover:opacity-80 transition-opacity group px-6 sm:px-8 py-2.5 border border-[#1428C9]/20 rounded-full hover:bg-[#1428C9] hover:text-white transition-all duration-300"
             >
-              Découvrir Oriotel
+              {t('home.hero.cta')}
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
