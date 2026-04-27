@@ -66,7 +66,7 @@ const ExploreSection = () => {
                 {/* Information Area */}
                 <div className="flex flex-col flex-1 justify-center gap-6 sm:gap-8">
                   <header className="flex flex-col gap-3">
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 leading-tight font-carmine">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 leading-tight">
                       {t(left.title)}
                     </h3>
                     <p className="text-slate-600 leading-relaxed text-xs sm:text-sm md:text-base font-medium">

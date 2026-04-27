@@ -13,7 +13,7 @@ const SectionTitle = ({
 
   return (
     <AnimatedSection className={`mb-16 ${alignClass} ${className}`}>
-      <h2 className={`font-carmine mb-4 text-3xl md:text-5xl lg:text-5xl ${light ? 'text-white' : 'primary-gradient-text'}`}>
+      <h2 className={`mb-4 text-3xl md:text-5xl lg:text-5xl ${light ? 'text-white' : 'primary-gradient-text'}`}>
         {title}
       </h2>
       {/* Primary divider */}

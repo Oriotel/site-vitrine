@@ -26,7 +26,7 @@ const StoryMainCard = memo(({ story, onNext, onPrev }) => {
           <span className="inline-block px-2.5 py-1 bg-primary-600 text-white text-[8px] font-bold uppercase tracking-[0.2em] rounded-md mb-2 shadow-lg">
             {t(story.category)}
           </span>
-          <h3 className="text-sm md:text-base lg:text-lg font-bold !text-white leading-tight font-carmine">
+          <h3 className="text-sm md:text-base lg:text-lg font-bold !text-white leading-tight">
             {t(story.title)}
           </h3>
         </div>

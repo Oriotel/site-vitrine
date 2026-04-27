@@ -31,6 +31,7 @@
   --font-comfortaa: "Comfortaa", ui-sans-serif, system-ui;
   --font-gugi: "Gugi", system-ui;
   --font-oswald: "Oswald", sans-serif;
+  --font-ink: "Ink Free", "Segoe Print", "Comic Sans MS", system-ui;
 
   /* Brand Palette - Signal Blue */
   --color-signal-blue: #1428C9;
@@ -345,6 +346,7 @@
   h4,
   h5,
   h6 {
+    font-family: var(--font-ink);
     font-weight: 700;
     color: var(--color-midnight-slate);
   }

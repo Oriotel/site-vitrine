@@ -31,7 +31,7 @@ export function SectionTitle({
       {/* Le Titre principal */}
       <div className="relative inline-block mb-4">
         <h2 className={cn(
-          "relative z-10 text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight primary-gradient-text pb-2 font-oswald",
+          "relative z-10 text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight primary-gradient-text pb-2",
           titleClassName
         )}>
           {title}

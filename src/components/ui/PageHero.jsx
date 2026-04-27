@@ -41,7 +41,7 @@ const PageHero = ({
           className="flex flex-col items-center w-full"
         >
           
-          <h1 className="text-3xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 md:mb-8 tracking-tight drop-shadow-xl font-oswald leading-[1.1]">
+          <h1 className="text-3xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 md:mb-8 tracking-tight drop-shadow-xl leading-[1.1]">
             {title}
           </h1>
           
