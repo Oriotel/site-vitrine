@@ -1,6 +1,5 @@
 import React, { Suspense, useState } from 'react';
 import { GlobalWowStyles, StatsSkeleton, ServiceCardsSkeleton, HeroSkeleton } from '@/components/services/skeletons';
-import LazySection from '@/components/ui/LazySection';
 import PageHero from '@/components/ui/PageHero';
 import useInView from '@/hooks/useInView';
 
@@ -56,15 +55,15 @@ const ServicesPage = () => {
           />
         </div>
 
-        {/* GRILLE DES CARTES (Lazy Intersection) */}
-        <LazySection skeleton={<ServiceCardsSkeleton />}>
+        {/* GRILLE DES CARTES (Loaded immediately with Suspense) */}
+        <Suspense fallback={<ServiceCardsSkeleton />}>
           <ServiceCards onSelect={setSelected} />
-        </LazySection>
+        </Suspense>
 
-        {/* STATISTIQUES (Lazy Intersection) */}
-        <LazySection skeleton={<StatsSkeleton />}>
+        {/* STATISTIQUES (Loaded immediately with Suspense) */}
+        <Suspense fallback={<StatsSkeleton />}>
           <StatsSection />
-        </LazySection>
+        </Suspense>
 
       </div>
 
