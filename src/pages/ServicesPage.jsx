@@ -2,6 +2,7 @@ import React, { Suspense, useState } from 'react';
 import { GlobalWowStyles, StatsSkeleton, ServiceCardsSkeleton, HeroSkeleton } from '@/components/services/skeletons';
 import LazySection from '@/components/ui/LazySection';
 import PageHero from '@/components/ui/PageHero';
+import useInView from '@/hooks/useInView';
 
 // Lazy load sections
 const ServiceCards = React.lazy(() => import('@/components/services/ServiceCards'));
@@ -25,6 +26,9 @@ const ServicesPage = () => {
   const { t } = useTranslation();
   const [selectedService, setSelected] = useState(null);
 
+  // useInView for the main title reveal
+  const [titleRef, titleInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
   return (
     <div className="min-h-screen bg-white font-sans animate-[fadeIn_0.5s_ease-out_both] overflow-x-hidden">
       {/* 0. GLOBAL WOW STYLES */}
@@ -39,8 +43,13 @@ const ServicesPage = () => {
       {/* 2. CONTENEUR D'ÉQUILIBRE (Sections below hero) */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col gap-14 md:gap-16 py-8">
         
-        {/* Titre de la grille (Immediate) */}
-        <div className="flex justify-center">
+        {/* Titre de la grille (Immediate but with reveal) */}
+        <div 
+          ref={titleRef}
+          className={`flex justify-center transition-all duration-1000 ${
+            titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <SectionTitle
             title={t('services.grid.title')}
             align="center"
