@@ -89,13 +89,6 @@ const ServiceCards = ({ onSelect }) => {
     <section className="bg-[#F9FAFB] pt-24 pb-12 border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="mb-16 flex justify-center">
-          <SectionTitle
-            title={t('services.grid.title')}
-            align="center"
-          />
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((svc) => (
             <ServiceCard 

@@ -1,10 +1,10 @@
 import React, { Suspense, useState } from 'react';
 import { GlobalWowStyles, StatsSkeleton, ServiceCardsSkeleton, HeroSkeleton } from '@/components/services/skeletons';
 import LazySection from '@/components/ui/LazySection';
-const PageHero = React.lazy(() => import('@/components/ui/PageHero'));
+import PageHero from '@/components/ui/PageHero';
 
 // Lazy load sections
-import ServiceCards from '@/components/services/ServiceCards';
+const ServiceCards = React.lazy(() => import('@/components/services/ServiceCards'));
 const StatsSection = React.lazy(() => import('@/components/About/StatsSection'));
 const ServiceModal = React.lazy(() => import('@/components/services/ServiceModal'));
 
@@ -30,30 +30,34 @@ const ServicesPage = () => {
       {/* 0. GLOBAL WOW STYLES */}
       <GlobalWowStyles />
 
-      {/* 1. HERO SECTION (Lazy but immediate) */}
-      <Suspense fallback={<HeroSkeleton />}>
-        <PageHero
-          title={t('services.hero.title')}
-          description={t('services.hero.description')}
-          image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000"
-        />
-      </Suspense>
-        <div className="mt-8 flex justify-center">
+      {/* 1. HERO SECTION (Direct load for immediate LCP) */}
+      <PageHero
+        title={t('services.hero.title')}
+        description={t('services.hero.description')}
+        image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000"
+      />
+      {/* 2. CONTENEUR D'ÉQUILIBRE (Sections below hero) */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col gap-14 md:gap-16 py-8">
+        
+        {/* Titre de la grille (Immediate) */}
+        <div className="flex justify-center">
           <SectionTitle
             title={t('services.grid.title')}
             align="center"
           />
         </div>
 
-      {/* 2. GRILLE DES CARTES (Lazy Intersection) */}
-      <LazySection skeleton={<ServiceCardsSkeleton />}>
-        <ServiceCards onSelect={setSelected} />
-      </LazySection>
+        {/* GRILLE DES CARTES (Lazy Intersection) */}
+        <LazySection skeleton={<ServiceCardsSkeleton />}>
+          <ServiceCards onSelect={setSelected} />
+        </LazySection>
 
-      {/* 3. STATISTIQUES (Lazy Intersection) */}
-      <LazySection skeleton={<StatsSkeleton />}>
-        <StatsSection />
-      </LazySection>
+        {/* STATISTIQUES (Lazy Intersection) */}
+        <LazySection skeleton={<StatsSkeleton />}>
+          <StatsSection />
+        </LazySection>
+
+      </div>
 
       {/* 4. MODAL DÉTAILS (Suspense required) */}
       <Suspense fallback={null}>
