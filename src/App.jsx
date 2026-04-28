@@ -1,18 +1,18 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Layout from '@/components/layout/Layout'
 import SplashCursor from '@/components/ui/SplashCursor'
 import { LoadingProvider } from '@/context/LoadingContext'
 
-// Lazy-loaded page components for route-level code splitting
-const HomePage = React.lazy(() => import('./pages/HomePage'))
-const ContactPage = React.lazy(() => import('./pages/ContactPage'))
-const AboutPage = React.lazy(() => import('./pages/AboutPage'))
-const ServicesPage = React.lazy(() => import('./pages/ServicesPage'))
-const EventApplyPage = React.lazy(() => import('./pages/EventApplyPage'))
-const ApplyPage = React.lazy(() => import('./pages/ApplyPage'))
-const OffresPage = React.lazy(() => import('./pages/OffresPage'))
-const EventsPage = React.lazy(() => import('./pages/EventsPage'))
+// Page components
+import HomePage from './pages/HomePage'
+import ContactPage from './pages/ContactPage'
+import AboutPage from './pages/AboutPage'
+import ServicesPage from './pages/ServicesPage'
+import EventApplyPage from './pages/EventApplyPage'
+import ApplyPage from './pages/ApplyPage'
+import OffresPage from './pages/OffresPage'
+import EventsPage from './pages/EventsPage'
 
 function App() {
   return (
@@ -20,7 +20,6 @@ function App() {
       <Layout>
         <SplashCursor />
 
-        <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/contact" element={<ContactPage />} />
@@ -44,7 +43,6 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/processus" element={<OffresPage />} />
           </Routes>
-        </Suspense>
       </Layout>
     </LoadingProvider>
   )
