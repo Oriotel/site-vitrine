@@ -38,7 +38,7 @@ const ServicesPage = () => {
           image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000"
         />
       </Suspense>
-        <div className="mb-16 flex justify-center">
+        <div className="mt-8 flex justify-center">
           <SectionTitle
             title={t('services.grid.title')}
             align="center"
