@@ -10,6 +10,7 @@ const ServiceModal = React.lazy(() => import('@/components/services/ServiceModal
 
 // Import translation
 import { useTranslation } from 'react-i18next';
+import { SectionTitle } from '@/components/ui/SectionTitle';
 
 /**
  * ServicesPage Component
@@ -37,6 +38,12 @@ const ServicesPage = () => {
           image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000"
         />
       </Suspense>
+        <div className="mb-16 flex justify-center">
+          <SectionTitle
+            title={t('services.grid.title')}
+            align="center"
+          />
+        </div>
 
       {/* 2. GRILLE DES CARTES (Lazy Intersection) */}
       <LazySection skeleton={<ServiceCardsSkeleton />}>
