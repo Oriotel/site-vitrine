@@ -1,5 +1,5 @@
 /* ========== Base ========== */
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Gugi&family=Montserrat:wght@100..900&family=Oswald:wght@200..700&family=Fraunces:opsz,wght,soft@9..144,100..900,100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Gugi&family=Montserrat:wght@100..900&family=Oswald:wght@200..700&family=Fraunces:opsz,wght,soft@9..144,100..900,100&display=swap");
 
 /* Point d'entrée principal de Tailwind v4 */
 @import "tailwindcss";
@@ -30,7 +30,7 @@
   --font-comfortaa: "Comfortaa", ui-sans-serif, system-ui;
   --font-gugi: "Gugi", system-ui;
   --font-oswald: "Oswald", sans-serif;
-  --font-ink: "Ink Free", "Segoe Print", "Comic Sans MS", system-ui;
+  --font-ink: "Caveat", "Ink Free", "Segoe Print", "Comic Sans MS", cursive, system-ui;
 
   /* Brand Palette - Signal Blue */
   --color-signal-blue: #1428C9;
