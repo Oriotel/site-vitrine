@@ -38,7 +38,7 @@ i18n
         load: 'languageOnly',
         ns: ['translation'],
         defaultNS: 'translation',
-        debug: true, // Help user see loading issues in console
+        debug: false,
 
         interpolation: {
             escapeValue: false,

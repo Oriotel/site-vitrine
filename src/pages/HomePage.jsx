@@ -1,9 +1,7 @@
-import React, { Suspense } from 'react';
-import ScrollReveal from '@/components/ui/ScrollReveal';
-import useInView from '@/hooks/useInView';
+import React from 'react';
+import LazySection from '@/components/ui/LazySection';
 
 // Skeletons
-import HeroSkeleton from '@/components/home/skeletons/HeroSkeleton';
 import AboutSkeleton from '@/components/home/skeletons/AboutSkeleton';
 import ExpertisesSkeleton from '@/components/home/skeletons/ExpertisesSkeleton';
 import EventsSkeleton from '@/components/home/skeletons/EventsSkeleton';
@@ -17,23 +15,6 @@ const ExpertisesSection = React.lazy(() => import('@/components/home/ExpertisesS
 const EventsSection = React.lazy(() => import('@/components/home/EventsSection'));
 const TestimonialsSection = React.lazy(() => import('@/components/home/TestimonialsSection'));
 const SponsorsMarquee = React.lazy(() => import('@/components/home/SponsorsMarquee'));
-
-// Wrapper for intersection-based lazy loading
-const LazySection = ({ children, skeleton }) => {
-  const [ref, isInView] = useInView({ triggerOnce: true,  });//
-
-  return (
-    <div ref={ref} className="w-full">
-      {isInView ? (
-        <Suspense fallback={skeleton}>
-          {children}
-        </Suspense>
-      ) : (
-        skeleton
-      )}
-    </div>
-  );
-};
 
 const HomePage = () => {
   return (

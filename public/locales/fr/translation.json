@@ -124,13 +124,13 @@
         "service": "Service Sur-Mesure",
         "quality": "Qualité Premium",
         "innovation": "Innovation Continue"
-      },
-      "stats": {
-        "events": "Événements",
-        "clients": "Clients Satisfaits",
-        "experience": "Années d'Expérience",
-        "experts": "Experts"
       }
+    },
+    "stats": {
+      "events": "Événements",
+      "clients": "Clients Satisfaits",
+      "experience": "Années d'Expérience",
+      "experts": "Experts"
     },
     "history": {
       "title": "Notre Histoire",

@@ -1,6 +1,5 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import LazySection from '@/components/ui/LazySection';
 
@@ -59,7 +58,7 @@ const EventApplyPage = () => {
               <LazySection skeleton={<MapSkeleton />}>
                 <div className="relative h-[300px] w-full bg-gray-200 rounded-3xl overflow-hidden border border-gray-100 shadow-sm group">
                   <img
-                    src="/map-bg.png"
+                    src="/assets/images/map-bg.png"
                     alt="Emplacement de l'événement"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
                   />

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Clock, Shield, Star, ArrowUpRight } from 'lucide-react';
 
 // Components
-import Button from '@/components/common/Button';
+import { Button } from '@/components/ui/button';
 import AnimatedSection from '@/components/common/AnimatedSection';
 import { InteractiveStoryGallery } from './InteractiveStoryGallery';
 

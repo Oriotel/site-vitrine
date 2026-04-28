@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import LazySection from '@/components/ui/LazySection';
 
 // Skeletons

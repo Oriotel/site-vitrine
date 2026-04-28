@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Clock } from 'lucide-react';
@@ -38,7 +38,7 @@ const ApplyPage = () => {
             </div>
 
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] bg-gray-100">
-              <img src="/career-hero.png" className="w-full h-full object-cover" alt="Travailler chez Oriotel" />
+              <img src="/assets/images/career-hero.png" className="w-full h-full object-cover" alt="Travailler chez Oriotel" />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

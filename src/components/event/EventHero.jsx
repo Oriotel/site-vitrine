@@ -14,7 +14,7 @@ const EventHero = () => {
       {/* Background Image with Overlays */}
       <div className="absolute inset-0">
         <img 
-          src="/event-hero.png" 
+          src="/assets/images/event-hero.png" 
           alt="Modern Business Event Morocco" 
           className="w-full h-full object-cover"
         />

@@ -1,6 +1,5 @@
 /* ========== Base ========== */
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Gugi&family=Montserrat:wght@100..900&family=Oswald:wght@200..700&family=Fraunces:opsz,wght,soft@9..144,100..900,100&display=swap");
-@import "@/styles/typography.css";
 
 /* Point d'entrée principal de Tailwind v4 */
 @import "tailwindcss";

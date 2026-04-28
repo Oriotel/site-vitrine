@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import AnimatedSection from '@/components/common/AnimatedSection';
-import SectionTitle from '@/components/common/SectionTitle';
+import SectionTitle from '@/components/ui/SectionTitle';
 
 const networkers = [
   {
@@ -149,10 +149,7 @@ const NetworkerCard = ({ person, index }) => {
               </a>
             </div>
 
-            {/* CTA */}
-            <button className="mt-5 px-6 py-2.5 bg-[#1428C9] hover:bg-[#1020A1] text-white text-xs font-semibold rounded-full transition-all duration-300">
-              {t('contact.hero.title')}
-            </button>
+           
           </div>
         </div>
       </div>
@@ -179,20 +176,8 @@ const NetworkersEvent = () => {
           {networkers.map((person, i) => (
             <NetworkerCard key={person.id} person={person} index={i} />
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <AnimatedSection delay={200} className="text-center mt-16">
-          <p className="text-[#6B7280] dark:text-[#9CA3AF] mb-6">
-            {t('events.networkers.subtitle')}
-          </p>
-          <button className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#1428C9] hover:bg-[#1020A1] text-white font-semibold text-sm rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(20,40,201,0.4)] hover:-translate-y-0.5 group">
-            {t('nav.contact')}
-            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </button>
-        </AnimatedSection>
+        </div> 
+       
       </div>
     </section>
   );

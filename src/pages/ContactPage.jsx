@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -26,7 +26,7 @@ const ContactPage = () => {
         title={t('contact.hero.title')}
         subtitle={t('contact.hero.subtitle')}
         description={t('contact.hero.description')}
-        image="/contact-hero.png"
+        image="/assets/images/contact-hero.png"
       />
 
       <section className="pt-16 pb-24 md:pt-10">
@@ -71,7 +71,7 @@ const ContactPage = () => {
                   className="relative h-[300px] rounded-2xl overflow-hidden shadow-sm border border-gray-100 group"
                 >
                   <img
-                    src="/map-bg.png"
+                    src="/assets/images/map-bg.png"
                     alt={t('contact.map.title')}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />

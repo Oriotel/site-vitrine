@@ -1,4 +1,3 @@
-import React from 'react';
 import Shimmer from '@/components/ui/Shimmer';
 
 export const HeaderSkeleton = () => (

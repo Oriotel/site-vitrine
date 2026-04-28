@@ -43,7 +43,7 @@ export function AboutSection() {
             </p>
             <ul className="space-y-4 mb-10">
               <li className="flex items-center gap-4 group">
-                <div className="p-2 bg-[#1428C9]/5 rounded-lg group-hover:scale-110 transition-transform">
+                <div className="p-2 bg-signal-blue/5 rounded-lg group-hover:scale-110 transition-transform">
                   <CheckCircle2 className="text-signal-blue w-6 h-6 shrink-0" fill="#1428C915" />
                 </div>
                 <span className="text-midnight-slate font-medium text-lg">
@@ -51,7 +51,7 @@ export function AboutSection() {
                 </span>
               </li>
               <li className="flex items-center gap-4 group">
-                <div className="p-2 bg-[#1428C9]/5 rounded-lg group-hover:scale-110 transition-transform">
+                <div className="p-2 bg-signal-blue/5 rounded-lg group-hover:scale-110 transition-transform">
                   <CheckCircle2 className="text-signal-blue w-6 h-6 shrink-0" fill="#1428C915" />
                 </div>
                 <span className="text-midnight-slate font-medium text-lg">
@@ -60,7 +60,7 @@ export function AboutSection() {
               </li>
             </ul>
             <div>
-              <PremiumButton href="/about" className="text-[#1428C9]">
+              <PremiumButton href="/about" className="text-signal-blue">
                 {t('home.about.cta')}
               </PremiumButton>
             </div>

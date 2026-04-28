@@ -4,7 +4,7 @@ import LazySection from '@/components/ui/LazySection';
 const PageHero = React.lazy(() => import('../components/ui/PageHero'));
 
 // Lazy load sections
-const ServiceCards = React.lazy(() => import('../components/services/Servicecards'));
+const ServiceCards = React.lazy(() => import('../components/services/ServiceCards'));
 const StatsSection = React.lazy(() => import('../components/About/StatsSection'));
 const ServiceModal = React.lazy(() => import('../components/services/ServiceModal'));
 

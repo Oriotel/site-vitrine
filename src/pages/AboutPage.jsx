@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Shared UI Components
@@ -17,9 +17,6 @@ const StatsSection = React.lazy(() => import('@/components/About/StatsSection'))
 
 const TimelineSection = React.lazy(() => import('@/components/About/TimelineSection'));
 const TeamSection = React.lazy(() => import('@/components/About/TeamSection').then(m => ({ default: m.TeamSection })));
-
-// Data Constants
-import { companyInfo } from '@/constants/data';
 
 
 const AboutPage = () => {
@@ -43,12 +40,6 @@ const AboutPage = () => {
         <LazySection skeleton={<ExploreSectionSkeleton />}>
           <ExploreSection />
         </LazySection>
-
-
-        <LazySection skeleton={<StatsSectionSkeleton />}>
-          <StatsSection />
-        </LazySection>
-
 
         <LazySection skeleton={<TimelineSectionSkeleton />}>
           <TimelineSection />

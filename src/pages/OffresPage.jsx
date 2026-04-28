@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLoading } from '@/context/LoadingContext';
 import LazySection from '@/components/ui/LazySection';
@@ -51,7 +51,7 @@ const OffresPage = () => {
   [jobsData, selectedJobId]);
 
   return (
-    <main className="bg-[#F9FAFB] min-h-screen pb-20 font-sans text-[#111827]">
+    <main className="bg-cloud-white min-h-screen pb-20 font-sans text-midnight-slate">
       <PageHero
         title={t('careers.hero.title')}
         subtitle={t('careers.hero.subtitle')}

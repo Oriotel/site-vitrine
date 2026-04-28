@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { PremiumButtonBlue } from '@/components/ui/PremiumButtonBlue';
 import { cn } from '@/utils/cn';
-import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
-import { useScroll } from '@/hooks/use-scroll';
+import { MenuToggleIcon } from '@/components/ui/MenuToggleIcon';
+import { useScroll } from '@/hooks/useScroll';
 import { Globe } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 

@@ -35,7 +35,7 @@ const ApplyForm = () => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    console.log('Application Submitted:', { ...formData, cv: selectedFile });
+
     setStatus('success');
   };
 

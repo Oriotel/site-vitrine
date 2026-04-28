@@ -124,13 +124,13 @@
         "service": "Bespoke Service",
         "quality": "Premium Quality",
         "innovation": "Continuous Innovation"
-      },
-      "stats": {
-        "events": "Events",
-        "clients": "Happy Clients",
-        "experience": "Years of Experience",
-        "experts": "Experts"
       }
+    },
+    "stats": {
+      "events": "Events",
+      "clients": "Happy Clients",
+      "experience": "Years of Experience",
+      "experts": "Experts"
     },
     "history": {
       "title": "Our History",
