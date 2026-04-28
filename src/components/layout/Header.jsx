@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { PremiumButtonBlue } from '@/components/ui/PremiumButtonBlue';
@@ -12,6 +13,7 @@ export function Header() {
   const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
   const scrolled = useScroll(20);
+  const location = useLocation();
 
   const links = [
     { label: t('nav.home'), href: '/' },
@@ -89,18 +91,26 @@ export function Header() {
               2. CENTRE : LIENS
               ========================================== */}
           <div className="hidden lg:flex items-center justify-center gap-1 lg:gap-2 shrink-0">
-            {links.map((link, i) => (
-              <a
-                key={i}
-                className={cn(
-                  buttonVariants({ variant: 'ghost', size: 'sm' }),
-                  "text-sm px-3"
-                )}
-                href={link.href}
-              >
-                {link.label}
-              </a>
-            ))}
+            {links.map((link, i) => {
+              const isActive = location.pathname === link.href || (link.href !== '/' && location.pathname.startsWith(link.href));
+              return (
+                <a
+                  key={i}
+                  className={cn(
+                    buttonVariants({ variant: 'ghost', size: 'sm' }),
+                    "text-sm px-3 relative group",
+                    isActive ? "text-[#1428C9] bg-transparent hover:bg-transparent" : "hover:bg-transparent"
+                  )}
+                  href={link.href}
+                >
+                  {link.label}
+                  <span className={cn(
+                    "absolute bottom-1 left-1/2 -translate-x-1/2 h-[2px] bg-[#1428C9] transition-all duration-300 rounded-full",
+                    isActive ? "w-[60%]" : "w-0 group-hover:w-[60%]"
+                  )} />
+                </a>
+              );
+            })}
 
           </div>
 
@@ -114,8 +124,7 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-2">
               {/* DROPDOWN DE LANGUE */}
               <div className={cn(
-                "transition-all duration-500 ease-in-out relative lang-dropdown",
-                scrolled ? "max-w-0 opacity-0 ml-0 pointer-events-none" : "max-w-[120px] opacity-100"
+                "transition-all duration-500 ease-in-out relative lang-dropdown max-w-[120px] opacity-100"
               )}>
                 <button
                   onClick={() => setLangOpen(!langOpen)}
@@ -208,19 +217,26 @@ export function Header() {
           </div>
 
           <div className="flex flex-col gap-2 mt-2">
-            {links.map((link) => (
-              <a
-                key={link.label}
-                className={cn(
-                  buttonVariants({ variant: 'ghost', size: 'lg' }),
-                  'justify-start text-lg font-medium w-full border-b border-gray-50 rounded-none py-6'
-                )}
-                href={link.href}
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
+            {links.map((link) => {
+              const isActive = location.pathname === link.href || (link.href !== '/' && location.pathname.startsWith(link.href));
+              return (
+                <a
+                  key={link.label}
+                  className={cn(
+                    buttonVariants({ variant: 'ghost', size: 'lg' }),
+                    'justify-start text-lg font-medium w-full border-b border-gray-50 rounded-none py-6 relative',
+                    isActive ? "text-[#1428C9]" : ""
+                  )}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-8 bg-[#1428C9] rounded-r-full" />
+                  )}
+                </a>
+              );
+            })}
           </div>
           <div className="mt-auto pb-8 pt-4">
             <a href="/offres" className="w-full block" onClick={() => setOpen(false)}>
