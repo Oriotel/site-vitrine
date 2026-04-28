@@ -2,6 +2,8 @@
 import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
+import CookieBanner from '@/components/cookies/CookieBanner';
+import CookieReopenButton from '@/components/cookies/CookieReopenButton';
 
 const Layout = ({ children }) => {
   return (
@@ -20,6 +22,10 @@ const Layout = ({ children }) => {
 
       {/* 3. Le pied de page */}
       <Footer />
+
+      {/* 4. Système de gestion des cookies (RGPD) */}
+      <CookieBanner />
+      <CookieReopenButton />
       
     </div>
   );
