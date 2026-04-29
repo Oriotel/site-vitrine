@@ -149,10 +149,6 @@ const NetworkerCard = ({ person, index }) => {
               </a>
             </div>
 
-            {/* CTA */}
-            <button className="mt-5 px-6 py-2.5 bg-[#1428C9] hover:bg-[#1020A1] text-white text-xs font-semibold rounded-full transition-all duration-300">
-              Contacter
-            </button>
           </div>
         </div>
       </div>
