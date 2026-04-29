@@ -1,48 +1,29 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const slides = [
+const localSlidesData = [
   {
     id: 1,
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1600',
-    tag: 'Conférence',
-    title: 'Conférence Annuelle ORIOTEL',
-    subtitle: 'Innovation & Excellence',
     date: '15 Juin 2026',
-    location: 'Paris, France',
-    description: 'Une plongée immersive dans l\'innovation corporative.',
     accent: '#1428C9',
   },
   {
     id: 2,
     image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1600',
-    tag: 'Gala',
-    title: 'Gala de l\'Excellence 2026',
-    subtitle: 'Célébration & Prestige',
     date: '22 Juillet 2026',
-    location: 'Monaco',
-    description: 'Célébration des résultats exceptionnels de l\'année.',
     accent: '#818CF8',
   },
   {
     id: 3,
     image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1600',
-    tag: 'Séminaire',
-    title: 'Séminaire Stratégique',
-    subtitle: 'Vision & Croissance',
     date: '10 Septembre 2026',
-    location: 'Casablanca, Maroc',
-    description: 'Analyse des grandes tendances du marché.',
     accent: '#1428C9',
   },
   {
     id: 4,
     image: 'https://images.unsplash.com/photo-1475721025505-1113afab0f43?auto=format&fit=crop&q=80&w=1600',
-    tag: 'Networking',
-    title: 'Soirée Networking VIP',
-    subtitle: 'Connexions & Opportunités',
     date: '5 Novembre 2026',
-    location: 'Dubai, UAE',
-    description: 'Rencontrez les leaders mondiaux de votre industrie.',
     accent: '#818CF8',
   },
 ];
@@ -50,10 +31,21 @@ const slides = [
 const DURATION = 3000;
 
 const SlideEvent = () => {
+  const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
+
+  const slidesData = t('events.slides', { returnObjects: true });
+  
+  const slides = useMemo(() => {
+    if (!Array.isArray(slidesData)) return [];
+    return slidesData.map((slide, index) => ({
+      ...slide,
+      ...localSlidesData[index]
+    }));
+  }, [slidesData]);
 
   const goTo = useCallback((index) => {
     if (isAnimating || index === current) return;
@@ -63,22 +55,31 @@ const SlideEvent = () => {
     setTimeout(() => setIsAnimating(false), 600);
   }, [isAnimating, current]);
 
-  const next = useCallback(() => goTo((current + 1) % slides.length), [current, goTo]);
-  const prev = useCallback(() => goTo((current - 1 + slides.length) % slides.length), [current, goTo]);
+  const next = useCallback(() => {
+    if (slides.length === 0) return;
+    goTo((current + 1) % slides.length);
+  }, [current, goTo, slides.length]);
+  
+  const prev = useCallback(() => {
+    if (slides.length === 0) return;
+    goTo((current - 1 + slides.length) % slides.length);
+  }, [current, goTo, slides.length]);
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || slides.length === 0) return;
     const interval = setInterval(() => { setProgress(0); next(); }, DURATION);
     return () => clearInterval(interval);
-  }, [isPaused, next]);
+  }, [isPaused, next, slides.length]);
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || slides.length === 0) return;
     setProgress(0);
     const step = 100 / (DURATION / 50);
     const timer = setInterval(() => setProgress(p => Math.min(p + step, 100)), 50);
     return () => clearInterval(timer);
-  }, [isPaused, current]);
+  }, [isPaused, current, slides.length]);
+
+  if (slides.length === 0) return null;
 
   const slide = slides[current];
 
@@ -186,7 +187,7 @@ const SlideEvent = () => {
                 }}
               >
                 <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span>Participer à l'événement</span>
+                <span>{t('events.cta')}</span>
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>

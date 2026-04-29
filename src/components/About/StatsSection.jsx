@@ -22,7 +22,7 @@ const StatsSection = () => {
               animation="fade-in-up"
               delay={index * 100}
             >
-              <div className="text-4xl md:text-6xl font-bold text-slate-900 mb-2 font-carmine">
+              <div className="text-4xl md:text-6xl font-bold text-slate-900 mb-2">
                 {stat.value}
               </div>
               <div className="text-primary-600 text-sm md:text-base font-bold tracking-wide uppercase">

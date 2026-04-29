@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Clock, Shield, Star, ArrowUpRight } from 'lucide-react';
 
 // Components
-import Button from '@/components/common/Button';
+import { Button } from '@/components/ui/button';
 import AnimatedSection from '@/components/common/AnimatedSection';
 import { InteractiveStoryGallery } from './InteractiveStoryGallery';
 
@@ -66,7 +66,7 @@ const ExploreSection = () => {
                 {/* Information Area */}
                 <div className="flex flex-col flex-1 justify-center gap-6 sm:gap-8">
                   <header className="flex flex-col gap-3">
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 leading-tight font-carmine">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 leading-tight">
                       {t(left.title)}
                     </h3>
                     <p className="text-slate-600 leading-relaxed text-xs sm:text-sm md:text-base font-medium">
@@ -76,10 +76,10 @@ const ExploreSection = () => {
 
                   <div className="flex flex-wrap gap-2 sm:gap-3">
                     {left.features.map((feature) => (
-                      <FeatureTag 
-                        key={feature.label} 
-                        icon={feature.icon} 
-                        label={feature.label} 
+                      <FeatureTag
+                        key={feature.label}
+                        icon={feature.icon}
+                        label={feature.label}
                       />
                     ))}
                   </div>
@@ -93,7 +93,7 @@ const ExploreSection = () => {
                   >
                     {t(left.cta)}
                   </Button>
-                  <button 
+                  <button
                     className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 rounded-lg bg-white text-slate-900 flex items-center justify-center hover:scale-105 transition-all border border-slate-200 shadow-sm group"
                     aria-label={t('common.more_info') || "En savoir plus"}
                   >
@@ -105,9 +105,9 @@ const ExploreSection = () => {
 
             {/* Interactive Media Pane */}
             <main className="lg:col-span-8 relative flex flex-col lg:h-full overflow-hidden">
-              <AnimatedSection 
-                animation="fade-in" 
-                delay={200} 
+              <AnimatedSection
+                animation="fade-in"
+                delay={200}
                 className="w-full lg:h-full flex items-center"
               >
                 <InteractiveStoryGallery stories={exploreData.stories} />

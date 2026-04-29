@@ -1,15 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const founderData = {
-  quote: "Les grands événements ne se produisent pas par hasard. Ils se construisent avec vision, précision et une équipe qui croit en l'excellence. Ils se construisent avec vision, précision et une équipe qui croit en l'excellence.",
-  author: 'Alexandre Moreau',
-  role: 'Fondateur & CEO, ORIOTEL',
-  image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1600', // New professional executive portrait
-  bgText: 'ORIO TEL',
-};
+import { useTranslation } from 'react-i18next';
 
 const QuoteEvent = () => {
+  const { t } = useTranslation();
+  
+  const founderData = {
+    quote: t('events.quote.text'),
+    author: 'Alexandre Moreau',
+    role: t('about.team.founder_role'),
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1600',
+    bgText: t('events.quote.bg'),
+  };
+
   return (
     <section className="relative py-10 px-6 bg-transparent overflow-hidden font-sans">
       {/* Decorative background shape */}
@@ -34,7 +37,7 @@ const QuoteEvent = () => {
 
             <div className="relative z-10">
               <span className="inline-block text-[0.6rem] font-semibold text-white/50 uppercase  mb-2">
-                FOUNDER'S MESSAGE
+                {t('events.quote.title')}
               </span>
 
               <div className="text-white/30 mb-0.5">

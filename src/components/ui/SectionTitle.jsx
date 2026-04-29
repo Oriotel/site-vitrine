@@ -1,8 +1,8 @@
 import { cn } from '@/utils/cn';
 
-export function SectionTitle({ 
-  title, 
-  subtitle, 
+export function SectionTitle({
+  title,
+  subtitle,
   description,
   icon: Icon,
   align = 'center', // 'left', 'center', ou 'right'
@@ -31,12 +31,12 @@ export function SectionTitle({
       {/* Le Titre principal */}
       <div className="relative inline-block mb-4">
         <h2 className={cn(
-          "relative z-10 text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight primary-gradient-text pb-2 font-oswald",
+          "relative z-[100000] text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight primary-gradient-text pb-2",
           titleClassName
         )}>
           {title}
         </h2>
-        
+
         <svg
           className={cn(
             "absolute -top-4 md:-top-6 -z-10 w-16 md:w-20 text-signal-blue/20 opacity-100 transition-transform duration-700",
@@ -70,7 +70,7 @@ export function SectionTitle({
       {/* Description optionnelle */}
       {description && (
         <p className={cn(
-          "max-w-2xl text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-4",
+          "max-w-3xl text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-4",
           {
             "mx-auto": align === 'center',
             "ml-auto": align === 'right',

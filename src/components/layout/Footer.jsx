@@ -1,50 +1,51 @@
-import { 
-  Mail 
-} from "lucide-react";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Mail } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 
-const navigation = {
-  categories: [
-    {
-      id: "company",
-      name: "Navigation",
-      sections: [
-        {
-          id: "about",
-          name: "L'Entreprise",
-          items: [
-            { name: "Accueil", href: "/" },
-            { name: "À propos de nous", href: "/a-propos" },
-            { name: "Notre Méthodologie", href: "/processus" },
-          ],
-        },
-        {
-          id: "solutions",
-          name: "Nos Solutions",
-          items: [
-            { name: "Services & Expertise", href: "/services" },
-            { name: "Événements à venir", href: "/evenements" },
-            { name: "S'inscrire à un événement", href: "/evenements/inscription" },
-          ],
-        },
-        {
-          id: "careers",
-          name: "Nous Rejoindre",
-          items: [
-            { name: "Offres d'emploi", href: "/carrieres/offres" },
-            { name: "Déposer une candidature", href: "/carrieres/postuler" },
-            { name: "Nous contacter", href: "/contact" },
-          ],
-        },
-      ],
-    },
-  ],
-};
-
-// Application de la couleur #fff5ee par défaut
-const Underline = `hover:-translate-y-1 rounded-xl p-2.5 transition-transform text-slate-300 hover:text-white`;
-
 const Footer = () => {
+  const { t } = useTranslation();
+
+  const navigation = {
+    categories: [
+      {
+        id: "company",
+        name: t('footer.nav.company.title'),
+        sections: [
+          {
+            id: "about",
+            name: t('footer.nav.company.sections.enterprise'),
+            items: [
+              { name: t('nav.home'), href: "/" },
+              { name: t('nav.about'), href: "/a-propos" },
+              { name: t('footer.nav.methodology') || "Notre Méthodologie", href: "/processus" },
+            ],
+          },
+          {
+            id: "solutions",
+            name: t('footer.nav.company.sections.solutions'),
+            items: [
+              { name: t('nav.services'), href: "/services" },
+              { name: t('footer.nav.upcoming_events') || "Événements à venir", href: "/evenements" },
+              { name: t('footer.nav.register_event') || "S'inscrire à un événement", href: "/evenements/inscription" },
+            ],
+          },
+          {
+            id: "careers",
+            name: t('footer.nav.company.sections.join_us'),
+            items: [
+              { name: t('nav.careers'), href: "/carrieres/offres" },
+              { name: t('footer.nav.apply') || "Déposer une candidature", href: "/carrieres/postuler" },
+              { name: t('nav.contact'), href: "/contact" },
+            ],
+          },
+        ],
+      },
+    ],
+  };
+
+  const Underline = `hover:-translate-y-1 rounded-xl p-2.5 transition-transform text-slate-300 hover:text-white`;
+
   return (
     <footer id="site-footer" className="w-full bg-[#020C1A] text-slate-200 border-t border-white/10 transition-colors duration-300 pt-10 flex flex-col">
       
@@ -77,7 +78,7 @@ const Footer = () => {
             <div key={category.name} className="w-full">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {category.sections.map((section) => (
-                  <div key={section.name} className="flex flex-col items-center md:items-start text-center md:text-left">
+                  <div key={section.id} className="flex flex-col items-center md:items-start text-center md:text-left">
                     <h3 className="text-base font-semibold mb-6 !text-white uppercase tracking-wider">
                       {section.name}
                     </h3>
@@ -110,7 +111,7 @@ const Footer = () => {
           />
           
           <p className="text-center md:text-left text-sm leading-relaxed text-slate-400 md:max-w-2xl lg:max-w-3xl">
-            <span className="font-bold">ORIOTEL</span> est une entreprise marocaine spécialisée dans l’achat et la vente d’appareils téléphoniques et électriques. Grâce à son expertise en négoce et en intermédiation, elle accompagne les grandes sociétés de télécommunications ainsi que les particuliers en leur offrant des produits et services fiables, modernes et accessibles.
+            {t('footer.description')}
           </p>
         </div>
 
@@ -119,11 +120,11 @@ const Footer = () => {
       {/* 4. SECTION COPYRIGHT */}
       <div className="w-full py-6 border-t border-white/10 mt-auto">
         <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <span>© {new Date().getFullYear()} ORIOTEL - Tous droits réservés</span>
+          <span>{t('footer.copyright', { year: new Date().getFullYear() })}</span>
           
           <div className="flex items-center gap-4">
-             <a href="/mentions-legales" className="hover:text-white hover:opacity-100 transition-colors">Mentions légales</a>
-             <a href="/confidentialite" className="hover:text-white hover:opacity-100 transition-colors">Politique de confidentialité</a>
+             <a href="/mentions-legales" className="hover:text-white hover:opacity-100 transition-colors">{t('footer.legal.mentions')}</a>
+             <a href="/confidentialite" className="hover:text-white hover:opacity-100 transition-colors">{t('footer.legal.privacy')}</a>
           </div>
         </div>
       </div>

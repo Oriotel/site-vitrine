@@ -1,10 +1,19 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Clock } from 'lucide-react';
-import ApplyForm from '@/components/apply/ApplyForm';
-import InfoCard from '@/components/apply/InfoCard';
+import LazySection from '@/components/ui/LazySection';
+
+// Skeletons
+import { InfoCardSkeleton, ApplyFormSkeleton } from '@/components/apply/skeletons';
+
+// Lazy Components
+const ApplyForm = React.lazy(() => import('@/components/apply/ApplyForm'));
+const InfoCard = React.lazy(() => import('@/components/apply/InfoCard'));
 
 const ApplyPage = () => {
+  const { t } = useTranslation();
+
   return (
     <motion.main
       initial={{ opacity: 0 }}
@@ -18,47 +27,43 @@ const ApplyPage = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <span className="inline-block px-4 py-1.5 rounded-full bg-signal-blue/10 text-signal-blue text-sm font-bold tracking-widest uppercase">
-                Rejoignez-nous
+                {t('apply.tag')}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl primary-gradient-text text-midnight-slate leading-[1.1]">
-                Postuler à <br />
-                <span className="text-signal-blue">une offre.</span>
+                {t('apply.title')}
               </h1>
               <p className="text-lg text-gray-500 max-w-md leading-relaxed">
-                Prêt à dessiner le futur avec nous ? Nous sommes toujours à la recherche de nouveaux talents passionnés.
+                {t('apply.description')}
               </p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]"
-            >
-              <img src="/career-hero.png" className="w-full h-full object-cover" alt="Travailler chez Oriotel" />
-            </motion.div>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] bg-gray-100">
+              <img src="/assets/images/career-hero.png" className="w-full h-full object-cover" alt="Travailler chez Oriotel" />
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InfoCard
-                icon={ShieldCheck}
-                title="Données sécurisées"
-                description="Vos informations sont protégées."
-              />
-              <InfoCard
-                icon={Clock}
-                title="Réponse rapide"
-                description="Réponse sous 5 à 10 jours."
-              />
+              <LazySection skeleton={<InfoCardSkeleton />}>
+                <InfoCard
+                  icon={ShieldCheck}
+                  title={t('apply.cards.security.title')}
+                  description={t('apply.cards.security.description')}
+                />
+              </LazySection>
+              <LazySection skeleton={<InfoCardSkeleton />}>
+                <InfoCard
+                  icon={Clock}
+                  title={t('apply.cards.response.title')}
+                  description={t('apply.cards.response.description')}
+                />
+              </LazySection>
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            <ApplyForm />
-          </motion.div>
+          <div className="w-full">
+            <LazySection skeleton={<ApplyFormSkeleton />}>
+              <ApplyForm />
+            </LazySection>
+          </div>
 
         </div>
       </div>

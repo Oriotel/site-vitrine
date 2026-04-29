@@ -61,7 +61,7 @@ const TimelineCard = memo(({ item, index }) => {
                 {item.year}
               </span>
 
-              <h4 className="font-carmine !text-white text-xl md:text-2xl mb-4 group-hover/card:!text-primary-300 transition-colors">
+              <h4 className="!text-white text-xl md:text-2xl mb-4 group-hover/card:!text-primary-300 transition-colors">
                 {t(item.title)}
               </h4>
 

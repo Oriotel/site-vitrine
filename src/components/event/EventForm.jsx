@@ -24,7 +24,7 @@ const EventForm = () => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    console.log('Event Message Sent:', formData);
+
     setStatus('success');
   };
 
