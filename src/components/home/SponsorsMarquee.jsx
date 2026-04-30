@@ -6,7 +6,7 @@ export function SponsorsMarquee() {
     { name: "INWI", logo: "/assets/images/logo-inwi.svg" },
     { name: "Orange", logo: "/assets/images/logo-orange.svg" },
     { name: "Supmti", logo: "/assets/images/logo-supmti.svg" },
-    { name: "BMCE", logo: "/assets/images/logo-bmce.svg" },
+    { name: "BMCE", logo: "/assets/images/logo-bmce.webp" },
   ];
 
   const repeatedPartners = [
