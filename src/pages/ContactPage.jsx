@@ -62,7 +62,7 @@ const ContactPage = () => {
                 </LazySection>
               </div>
 
-              {/* Image Map Placeholder */}
+              {/* Google Maps Embed */}
               <LazySection skeleton={<MapSkeleton />}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -70,13 +70,18 @@ const ContactPage = () => {
                   viewport={{ once: true }}
                   className="relative h-[300px] rounded-2xl overflow-hidden shadow-sm border border-gray-100 group"
                 >
-                  <img
-                    src="/assets/images/map-bg.png"
-                    alt={t('contact.map.title')}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d211.59861831945074!2d-1.9222014447247444!3d34.67768864805412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sfr!2sma!4v1777547117927!5m2!1sfr!2sma"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={t('contact.map.title')}
+                    className="w-full h-full"
                   />
-                  <div className="absolute inset-0 bg-midnight-slate/20 group-hover:bg-midnight-slate/10 transition-colors" />
-                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-lg border border-gray-200">
+                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-lg border border-gray-200 pointer-events-none">
                     <p className="text-sm font-bold text-midnight-slate">{t('contact.map.title')}</p>
                     <p className="text-xs text-gray-500">{t('contact.map.cta')}</p>
                   </div>
