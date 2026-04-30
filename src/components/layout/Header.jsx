@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { PremiumButtonBlue } from '@/components/ui/PremiumButtonBlue';
@@ -94,21 +94,21 @@ export function Header() {
             {links.map((link, i) => {
               const isActive = location.pathname === link.href || (link.href !== '/' && location.pathname.startsWith(link.href));
               return (
-                <a
+                <Link
                   key={i}
                   className={cn(
                     buttonVariants({ variant: 'ghost', size: 'sm' }),
                     "text-sm px-3 relative group",
                     isActive ? "text-[#1428C9] bg-transparent hover:bg-transparent" : "hover:bg-transparent"
                   )}
-                  href={link.href}
+                  to={link.href}
                 >
                   {link.label}
                   <span className={cn(
                     "absolute bottom-1 left-1/2 -translate-x-1/2 h-[2px] bg-[#1428C9] transition-all duration-300 rounded-full",
                     isActive ? "w-[60%]" : "w-0 group-hover:w-[60%]"
                   )} />
-                </a>
+                </Link>
               );
             })}
 
@@ -220,28 +220,28 @@ export function Header() {
             {links.map((link) => {
               const isActive = location.pathname === link.href || (link.href !== '/' && location.pathname.startsWith(link.href));
               return (
-                <a
+                <Link
                   key={link.label}
                   className={cn(
                     buttonVariants({ variant: 'ghost', size: 'lg' }),
                     'justify-start text-lg font-medium w-full border-b border-gray-50 rounded-none py-6 relative',
                     isActive ? "text-[#1428C9]" : ""
                   )}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
                   {isActive && (
                     <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-8 bg-[#1428C9] rounded-r-full" />
                   )}
-                </a>
+                </Link>
               );
             })}
           </div>
           <div className="mt-auto pb-8 pt-4">
-            <a href="/offres" className="w-full block" onClick={() => setOpen(false)}>
+            <Link to="/offres" className="w-full block" onClick={() => setOpen(false)}>
               <Button className="w-full h-14 text-lg rounded-xl">{t('nav.careers')}</Button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

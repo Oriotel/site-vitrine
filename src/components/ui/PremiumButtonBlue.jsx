@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from './button';
 import { cn } from '@/utils/cn';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function PremiumButtonBlue({ 
   children, 
@@ -29,11 +30,11 @@ export function PremiumButtonBlue({
 
   if (href) {
     return (
-      <a href={href} className="inline-block">
+      <Link to={href} className="inline-block">
         <Button className={buttonClasses}>
           {content}
         </Button>
-      </a>
+      </Link>
     );
   }
 
