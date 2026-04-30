@@ -21,7 +21,7 @@ const StoryMainCard = memo(({ story, onNext, onPrev }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
-        {/* Information Overlay */}
+        {/* Information Overlay  */}
         <div className="absolute bottom-5 left-5 right-5 z-10 transition-all duration-500 transform group-hover:translate-x-1">
           <span className="inline-block px-2.5 py-1 bg-primary-600 text-white text-[8px] font-bold uppercase tracking-[0.2em] rounded-md mb-2 shadow-lg">
             {t(story.category)}

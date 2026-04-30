@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -85,12 +86,12 @@ const Footer = () => {
                     <ul role="list" className="flex flex-col space-y-4">
                       {section.items.map((item) => (
                         <li key={item.name} className="flow-root">
-                          <a
-                            href={item.href}
+                          <Link
+                            to={item.href}
                             className="text-sm font-normal text-slate-400 hover:text-white transition-all"
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -123,8 +124,8 @@ const Footer = () => {
           <span>{t('footer.copyright', { year: new Date().getFullYear() })}</span>
           
           <div className="flex items-center gap-4">
-             <a href="/mentions-legales" className="hover:text-white hover:opacity-100 transition-colors">{t('footer.legal.mentions')}</a>
-             <a href="/confidentialite" className="hover:text-white hover:opacity-100 transition-colors">{t('footer.legal.privacy')}</a>
+             <Link to="/mentions-legales" className="hover:text-white hover:opacity-100 transition-colors">{t('footer.legal.mentions')}</Link>
+             <Link to="/confidentialite" className="hover:text-white hover:opacity-100 transition-colors">{t('footer.legal.privacy')}</Link>
           </div>
         </div>
       </div>

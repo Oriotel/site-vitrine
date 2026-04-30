@@ -25,7 +25,7 @@ const QuoteEvent = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col lg:flex-row rounded-[1.5rem] overflow-hidden shadow-xl border border-white/5 h-auto lg:h-full"
+          className="flex flex-col-reverse lg:flex-row rounded-[1.5rem] overflow-hidden shadow-xl border border-white/5 h-auto lg:h-full"
         >
           {/* Left Block: Message & Info */}
           <div

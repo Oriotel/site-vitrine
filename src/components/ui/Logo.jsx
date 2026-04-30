@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '@/utils/cn';
+import { Link } from 'react-router-dom';
 
 export function Logo({ 
   variant = 'default', 
@@ -21,9 +22,9 @@ export function Logo({
 
   if (asLink) {
     return (
-      <a href={href} className="inline-block">
+      <Link to={href} className="inline-block">
         {logoImg}
-      </a>
+      </Link>
     );
   }
 

@@ -148,8 +148,6 @@ const NetworkerCard = ({ person, index }) => {
                 </svg>
               </a>
             </div>
-
-           
           </div>
         </div>
       </div>
