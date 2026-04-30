@@ -40,7 +40,7 @@ const ServicesPage = () => {
         image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000"
       />
       {/* 2. CONTENEUR D'ÉQUILIBRE (Sections below hero) */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col gap-14 md:gap-16 py-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col gap-8 md:gap-10 pt-8 pb-0">
         
         {/* Titre de la grille (Immediate but with reveal) */}
         <div 

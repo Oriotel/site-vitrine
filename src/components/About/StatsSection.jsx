@@ -6,7 +6,7 @@ const StatsSection = () => {
   const { t } = useTranslation()
 
   return (
-    <section className="py-16 bg-white relative overflow-hidden border-y border-slate-100">
+    <section className="pt-10 pb-10 bg-white relative overflow-hidden border-y border-slate-100">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary-200 blur-[120px]" />
@@ -14,7 +14,7 @@ const StatsSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <AnimatedSection
               key={stat.label}
